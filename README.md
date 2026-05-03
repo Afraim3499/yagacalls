@@ -9,6 +9,10 @@
 
 ---
 
+**Live Website**: [yagacalls.com](https://yagacalls.com)
+
+---
+
 ## 🚀 Core Features
 
 - **Narrative Killer Method**: A proprietary signal generation strategy focusing on macro narratives and on-chain velocity.
