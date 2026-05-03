@@ -1,0 +1,20 @@
+# Prevent directory listing
+Options -Indexes
+
+# Optional: Restrict access by IP (uncomment and add your IP)
+# <RequireAll>
+#   Require ip YOUR_IP_ADDRESS
+# </RequireAll>
+
+# Protect against direct access to sensitive files
+# Apache 2.4+ syntax (compatible with both Apache 2.2 and 2.4)
+<FilesMatch "\.(json|log)$">
+    <IfVersion < 2.4>
+        Order allow,deny
+        Deny from all
+    </IfVersion>
+    <IfVersion >= 2.4>
+        Require all denied
+    </IfVersion>
+</FilesMatch>
+

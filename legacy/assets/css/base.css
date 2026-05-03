@@ -1,0 +1,106 @@
+:root {
+  --color-primary: #E39E2E;
+  --color-accent: #C19770;
+  --color-secondary: #A67A5B;
+  --color-amber: #D5B895;
+  --color-bg: #0A0B0D;
+  --color-surface-deep: #0F1217;
+  --color-surface: #151A21;
+  --color-line: #1E242C;
+  --color-text-high: #EAF2FF;
+  --color-text-muted: #A7B0C0;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  --glow-primary: 0 0 20px rgba(227,158,46,0.25), 0 0 40px rgba(227,158,46,0.15);
+  --glow-accent: 0 0 16px rgba(193,151,112,0.20), 0 0 32px rgba(193,151,112,0.12);
+
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px; --space-8: 32px; --space-12: 48px;
+
+  --grad-hero: radial-gradient(1200px 600px at 80% -10%, rgba(166,122,91,0.20) 0%, rgba(10,11,13,0) 60%), radial-gradient(1200px 600px at 20% 0%, rgba(227,158,46,0.18) 0%, rgba(10,11,13,0) 60%), linear-gradient(180deg, #0A0B0D 0%, #0F1217 60%, #0A0B0D 100%);
+  --grad-button: linear-gradient(90deg, #E39E2E 0%, #C19770 100%);
+  --grad-card: linear-gradient(180deg, rgba(166,122,91,0.06) 0%, rgba(21,26,33,0.9) 20%);
+}
+
+* { box-sizing: border-box; }
+html { 
+  scroll-behavior: smooth; 
+  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+}
+body {
+  margin: 0;
+  background: var(--grad-hero), var(--color-bg);
+  color: var(--color-text-high);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+  /* Mobile scroll optimizations */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden; }
+
+/* Reveal on scroll (reduced motion safe) */
+.reveal { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* Mobile Typography Scale */
+@media (max-width: 900px) {
+  h1 { font-size: 28px; line-height: 1.2; }
+  h2 { font-size: 22px; line-height: 1.3; }
+  h3 { font-size: 18px; line-height: 1.4; }
+  h4 { font-size: 16px; line-height: 1.3; }
+  body { font-size: 16px; line-height: 1.5; }
+  small { font-size: 14px; }
+  
+  /* Mobile spacing adjustments */
+  :root {
+    --spacing-section: 40px;
+    --spacing-container: 20px;
+  }
+  
+  /* Mobile text readability improvements */
+  p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  
+  /* Better mobile card text */
+  .card p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  /* Mobile scroll performance optimizations */
+  html {
+    scroll-behavior: auto; /* Disable smooth scroll on mobile for better performance */
+  }
+  
+  body {
+    /* Reduce motion for better performance */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    /* Optimize rendering */
+    will-change: scroll-position;
+  }
+  
+  /* Optimize animations for mobile */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+}
+
+

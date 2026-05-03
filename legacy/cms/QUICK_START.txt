@@ -1,0 +1,73 @@
+═══════════════════════════════════════════════════════════════
+  YAGA CALLS - ANALYSIS CMS - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+🚀 GET STARTED IN 3 STEPS:
+
+1. CHANGE PASSWORD
+   ────────────────────────────────────────────────────────────
+   Edit: cms/admin.php
+   Change: $CMS_PASSWORD = 'your_password';
+          $CMS_USERNAME = 'your_username';
+
+2. LOGIN TO CMS
+   ────────────────────────────────────────────────────────────
+   URL: https://yoursite.com/cms/admin.php
+   Default: admin / yaga_calls_2025
+   (Change these immediately!)
+
+3. MIGRATE EXISTING DATA (First Time Only)
+   ────────────────────────────────────────────────────────────
+   URL: https://yoursite.com/cms/migrate-existing.php
+   This converts your 4 existing analysis posts to JSON
+
+═══════════════════════════════════════════════════════════════
+  ADDING A NEW ANALYSIS
+═══════════════════════════════════════════════════════════════
+
+1. Fill out the form:
+   • Hook (Headline): Compelling title
+   • Coin Symbol: BTC, ETH, SOL, etc.
+   • Date: Publication date
+   • Content: Your analysis (supports HTML)
+   • Image: Upload optional image
+   • Link URL: Telegram/X/external link
+   • Link Text: Button text
+
+2. Click "Add Analysis"
+
+3. Done! Page auto-updates.
+
+═══════════════════════════════════════════════════════════════
+  TIPS FOR BETTER REACH
+═══════════════════════════════════════════════════════════════
+
+✓ Use numbers in headlines: "35% Gain", "$70K Support"
+✓ Ask questions: "What's Next?", "Will It Break?"
+✓ Include coin symbol in headline
+✓ Add images to every post
+✓ Aim for 100-300 words
+✓ Include specific prices
+✓ Use technical terms (support, resistance, EMA)
+✓ Link to Telegram for engagement
+
+═══════════════════════════════════════════════════════════════
+  FILE LOCATIONS
+═══════════════════════════════════════════════════════════════
+
+CMS Admin:     /cms/admin.php
+Data Storage:  /data/analysis.json
+Images:        /assets/analysis-images/
+Public Page:   /analysis.html
+Sitemap:       /sitemap.xml
+
+═══════════════════════════════════════════════════════════════
+  NEED HELP?
+═══════════════════════════════════════════════════════════════
+
+📖 README.md      - Full documentation
+🔧 SETUP.md       - Setup & troubleshooting
+📊 CMS_SUMMARY.md - Complete feature list & ideas
+
+═══════════════════════════════════════════════════════════════
+

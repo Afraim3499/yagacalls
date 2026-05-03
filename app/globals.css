@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #E39E2E;
+  --color-accent: #C19770;
+  --color-secondary: #A67A5B;
+  --color-amber: #D5B895;
+  --color-background: #0A0B0D;
+  --color-surface-deep: #0F1217;
+  --color-surface: #151A21;
+  --color-line: #1E242C;
+  --color-text-high: #EAF2FF;
+  --color-text-muted: #A7B0C0;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  --radius-card: 16px;
+  --radius-pill: 999px;
+
+  --animate-reveal: reveal 0.5s ease forwards;
+  --animate-glowing: glowing 2s infinite alternate;
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes glowing {
+    from { box-shadow: 0 0 5px rgba(227, 158, 46, 0.2); }
+    to { box-shadow: 0 0 20px rgba(227, 158, 46, 0.5); }
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  --animate-ticker: ticker 40s linear infinite;
+}
+
+:root {
+  --background: #0A0B0D;
+  --foreground: #EAF2FF;
+  --font-inter: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.grad-hero {
+  background: radial-gradient(1200px 600px at 80% -10%, rgba(166, 122, 91, 0.15) 0%, rgba(10, 11, 13, 0) 60%),
+              radial-gradient(1200px 600px at 20% 0%, rgba(227, 158, 46, 0.12) 0%, rgba(10, 11, 13, 0) 60%),
+              linear-gradient(180deg, #0A0B0D 0%, #0F1217 60%, #0A0B0D 100%);
+}
+
+.grad-card {
+  background: linear-gradient(180deg, rgba(166, 122, 91, 0.06) 0%, rgba(21, 26, 33, 0.9) 20%);
+}
+
+.grad-button {
+  background: linear-gradient(90deg, #E39E2E 0%, #C19770 100%);
+}
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+}
+

@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "how-crypto-signals-work",
+    "title": "How Crypto Signals Work",
+    "category": "Fundamentals",
+    "description": "Learn how professional signal ideas are generated, structured, and delivered to traders.",
+    "ctaLabel": "Learn the Yaga Calls Method",
+    "ctaHref": "/method",
+    "content": "<h2>The Fundamentals of Crypto Signals</h2><p>In the fast-moving world of digital assets, a 'crypto signal' is essentially a trade idea or recommendation delivered to a group of traders. However, a professional signal is much more than just a ticker name and a 'buy' button.</p><h3>The Anatomy of a Professional Signal</h3><p>At Yaga Calls, every signal we share follows a strict, repeatable structure designed for clarity and risk management:</p><ul><li><strong>Asset Pair:</strong> Which coin we are trading (e.g., BTC/USDT or SOL/USDT).</li><li><strong>Direction:</strong> Whether it is a 'Long' (buy) or 'Short' (sell) setup.</li><li><strong>Entry Zone:</strong> A specific price range where the setup is valid. We rarely use a single fixed price.</li><li><strong>Take-Profit (TP) Targets:</strong> Predetermined levels where we plan to take profit, usually in tiers.</li><li><strong>Stop-Loss (SL):</strong> The most important level—where the trade thesis is invalidated and we exit to protect capital.</li></ul><h3>How Signals are Generated</h3><p>We don't guess. Our signals are the result of three layers of analysis: <strong>Technical Structure</strong> (chart patterns), <strong>On-Chain Data</strong> (whale movements), and <strong>Market Narratives</strong> (the 'story' driving the price). Only when these three align do we share a setup on Telegram.</p><blockquote class='card'>'A signal without a stop-loss is not a trade—it is a gamble.'</blockquote>"
+  },
+  {
+    "slug": "free-vs-paid-crypto-signals",
+    "title": "Free vs Paid Crypto Signals",
+    "category": "Strategy",
+    "description": "Understanding the difference between public teaser groups and premium research-driven setups.",
+    "ctaLabel": "Compare Premium Plans",
+    "ctaHref": "/pricing",
+    "content": "<h2>Understanding the Difference</h2><p>Telegram is filled with thousands of crypto signal groups. Understanding the difference between 'Free' and 'Paid' (Premium) services is critical for your survival as a trader.</p><h3>Free Crypto Signal Groups</h3><p>Most free groups serve as educational teasers. At Yaga Calls, our free Telegram group provides:</p><ul><li>General market updates and macro analysis.</li><li>Occasional 'public' setups for transparency.</li><li>Proof of recent premium successes.</li></ul><p>The primary limitation of free groups is the <strong>lack of depth</strong>. You get the 'what' but rarely the 'why' or the ongoing management of the trade.</p><h3>Premium Crypto Signals (The Yaga Advantage)</h3><p>Premium access is designed for traders who want a professional edge. The benefits include:</p><ul><li><strong>High-Conviction Setups:</strong> Filtered opportunities that meet strict criteria.</li><li><strong>Direct Guidance:</strong> Manual support and updates as the trade evolves.</li><li><strong>Risk Context:</strong> Deeper explanations of why a specific stop-loss or entry was chosen.</li></ul><p>Is it worth it? If the cost of the subscription is significantly lower than the value of the time saved and the mistakes avoided, the answer is yes. However, it is never a guarantee of profit.</p>"
+  },
+  {
+    "slug": "entry-target-stop-loss",
+    "title": "How to Read Entry, Target, and Stop Loss",
+    "category": "Tactic",
+    "description": "Mastering the three pillars of trade management before you place your next order.",
+    "ctaLabel": "Learn the Yaga Calls Method",
+    "ctaHref": "/method",
+    "content": "<h2>Mastering the Execution</h2><p>Getting a signal is only 10% of the battle. The other 90% is executing it correctly without letting emotion interfere with the math.</p><h3>1. The Entry Zone</h3><p>Never 'chase' a signal. If the price has already moved 5% past our suggested entry zone, the risk/reward ratio has shifted against you. Wait for a retest or move on to the next setup.</p><h3>2. Tiered Take-Profits</h3><p>We believe in 'paying ourselves' along the way. We typically provide 3-4 TP targets. When TP1 is hit, we often move our Stop-Loss to the entry price (Break-Even) to eliminate risk from the trade.</p><h3>3. The Invalidation Point (Stop-Loss)</h3><p>A stop-loss is a mathematical necessity. It is the price at which our narrative or technical thesis is proven wrong. <strong>Never move your stop-loss further away</strong> hoping for a bounce. This is how small losses turn into account-ending disasters.</p><div class='region-callouts'><div class='callout'><h4>Pro Tip</h4><p>Use 'Limit Orders' for your entries and 'Stop-Market' orders for your protection to ensure you aren't watching the charts 24/7.</p></div></div>"
+  },
+  {
+    "slug": "choose-crypto-signals-provider",
+    "title": "How to Choose a Crypto Signals Provider",
+    "category": "Fundamentals",
+    "description": "The essential checklist for identifying trustworthy traders in a sea of Telegram noise.",
+    "ctaLabel": "View Selected Examples",
+    "ctaHref": "/proof",
+    "content": "<h2>Identifying Trust in a Sea of Scams</h2><p>Choosing a signal provider is an investment in itself. Here is the checklist we recommend every trader uses:</p><h3>1. Transparency of Results</h3><p>Does the provider show their losses as well as their wins? Be wary of '100% Win Rate' groups. They don't exist. Look for a track record that includes 'Selected Examples' with full context.</p><h3>2. Focus on Risk Management</h3><p>Does the group talk more about 'lambos' or 'stop-losses'? A professional group like Yaga Calls prioritizes capital preservation over hype.</p><h3>3. Methodology and Logic</h3><p>Do they explain *why* they are taking a trade? If a signal is just a ticker and a 'buy' command, you aren't learning anything. You want a provider that educates you through their analysis.</p><h3>4. Manual Support</h3><p>In a manual onboarding system like ours, you have the ability to ask questions and confirm availability. This human element is often missing in 'bot-only' groups.</p>"
+  },
+  {
+    "slug": "avoid-pump-signal-scams",
+    "title": "How to Avoid Pump Signal Scams",
+    "category": "Safety",
+    "description": "Learn the common red flags of 'pump and dump' groups and how to protect your capital.",
+    "ctaLabel": "Read the Risk Disclosure",
+    "ctaHref": "/risk-disclosure",
+    "content": "<h2>Recognizing the Red Flags</h2><p>The 'Pump and Dump' is the oldest scam in crypto. A group owner buys a low-liquidity coin, then 'signals' it to thousands of people to create a price spike so they can sell into your buy orders.</p><h3>Common Scam Traits:</h3><ul><li><strong>Promised Returns:</strong> Phrases like 'Guaranteed 500% profit tonight!' are 100% scams.</li><li><strong>Urgency:</strong> 'Buy now before it's too late!'—professional traders don't use FOMO.</li><li><strong>No Liquidity:</strong> Signals for coins you've never heard of on obscure exchanges.</li></ul><p>At Yaga Calls, we focus on liquid assets and established market narratives. We don't participate in 'scheduled pumps' because they are designed to make the group owner rich at your expense.</p>"
+  },
+  {
+    "slug": "risk-management-crypto-signals",
+    "title": "Risk Management for Crypto Signals",
+    "category": "Strategy",
+    "description": "The most important lesson in trading: how to size your positions and protect your portfolio equity.",
+    "ctaLabel": "Learn the Yaga Calls Method",
+    "ctaHref": "/method",
+    "content": "<h2>Trading by the Numbers</h2><p>Risk management is the only thing that separates a trader from a gambler. Even with a 40% win rate, a trader with good risk management can be profitable. A trader with a 90% win rate and zero risk management can go broke in a single trade.</p><h3>The 1-2% Position Sizing Rule</h3><p>At Yaga Calls, we strictly enforce a 1-2% risk per trade rule. This means that if your stop-loss is hit, you only lose 1% or 2% of your total account balance—not 1% of your position size.</p><h3>Example Scenario:</h3><ul><li><strong>Balance:</strong> $10,000</li><li><strong>Risk (1%):</strong> $100 per trade</li><li><strong>Stop Loss Distance:</strong> 10%</li><li><strong>Required Position Size:</strong> $1,000</li></ul><p>By calculating your size based on your risk, you ensure that no single market event can wipe out your hard-earned capital.</p>"
+  },
+  {
+    "slug": "atr-stops",
+    "title": "ATR Stops (14)",
+    "category": "Tool",
+    "description": "Volatility-adjusted stops using Average True Range to avoid noise-driven exits.",
+    "ctaLabel": "Learn the Yaga Calls Method",
+    "ctaHref": "/method",
+    "content": "<h2>Why ATR Stops Matter</h2><p>Fixed-distance stops ignore regime changes. In quiet regimes, they are too wide (wasting RR); in volatile regimes, they are too tight (death by a thousand cuts). ATR (Average True Range) measures recent volatility, letting your stop 'breathe' when the market expands and tighten when it compresses.</p><h3>Core Definitions</h3><ul><li><strong>ATR(14):</strong> 14-period average of true range (max of high-low, |high-prevClose|, |low-prevClose|).</li><li><strong>Stop Multiplier k:</strong> Volatility buffer factor; typical k ∈ [1.0, 2.5].</li><li><strong>Structure Stop:</strong> A stop placed beyond a swing high/low or key level.</li></ul><h3>Formulas</h3><p><strong>Long stop = Entry - k × ATR(14)</strong> • <strong>Short stop = Entry + k × ATR(14)</strong></p><p>Choose k by regime: trending and noisy → higher k; tight ranges → lower k. Always compare to a structure stop and use the <em>more protective</em> of the two.</p><h3>Position Sizing with ATR</h3><ol><li>Define account risk per trade, e.g. 1.5% of equity.</li><li>Compute stop distance: d = k × ATR (or use structure if larger).</li><li>Position size: size = (risk amount) ÷ d.</li></ol><p><strong>Example:</strong> Equity $2,000; 1.5% risk ⇒ $30. ATR=0.05; k=1.6 ⇒ d=$0.08. Size ≈ $30 / $0.08 = 375 units.</p>"
+  }
+]

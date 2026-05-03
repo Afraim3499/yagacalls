@@ -1,0 +1,24 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Serve home.html at root
+DirectoryIndex home.html
+
+# Redirect legacy index.html to /home
+RewriteCond %{THE_REQUEST} \s/+index\.html\s [NC]
+RewriteRule ^index\.html$ /home [R=301,L]
+
+# Redirect any .html to extensionless URL
+RewriteCond %{THE_REQUEST} \s/+(.+)\.html\s [NC]
+RewriteRule ^%1\.html$ /%1 [R=301,L]
+
+# Rewrite clean URLs to .html files if they exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,6}$
+RewriteRule ^(.+)$ $1.html [L]
+
+# Redirect favicon.ico to actual favicon
+RewriteRule ^favicon\.ico$ /yaga_calls_favicon.jpg [L,R=301]
+
+

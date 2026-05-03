@@ -1,0 +1,66 @@
+═══════════════════════════════════════════════════════════════
+  HOW TO ACCESS THE CMS - QUICK GUIDE
+═══════════════════════════════════════════════════════════════
+
+📍 YOUR CMS IS LOCATED AT: cms/admin.php
+
+═══════════════════════════════════════════════════════════════
+  OPTION 1: ACCESS ON YOUR HOSTING (RECOMMENDED)
+═══════════════════════════════════════════════════════════════
+
+1. Upload all files from f:\kalababas\ to public_html/ on hosting
+
+2. Access CMS at: https://yoursite.com/cms/admin.php
+
+3. Login with:
+   Username: admin
+   Password: yaga_calls_2025
+
+4. ⚠️ CHANGE PASSWORD IMMEDIATELY after first login!
+
+═══════════════════════════════════════════════════════════════
+  OPTION 2: LOCAL TESTING (If you have PHP)
+═══════════════════════════════════════════════════════════════
+
+If you have PHP installed:
+
+1. Open PowerShell in f:\kalababas
+2. Run: php -S localhost:8000
+3. Open: http://localhost:8000/cms/admin.php
+4. Login with same credentials
+
+If you have XAMPP/WAMP:
+
+1. Copy f:\kalababas\ to C:\xampp\htdocs\kalababas\
+2. Start Apache
+3. Open: http://localhost/kalababas/cms/admin.php
+
+═══════════════════════════════════════════════════════════════
+  FIRST TIME SETUP
+═══════════════════════════════════════════════════════════════
+
+After logging in:
+
+1. Change password in cms/admin.php (lines 5-6)
+
+2. Run migration: https://yoursite.com/cms/migrate-existing.php
+   (Converts your 4 existing analysis posts to JSON)
+
+3. Start adding new analysis posts!
+
+═══════════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+Can't access?
+→ Check that cms/admin.php exists
+→ Verify PHP is enabled on hosting
+→ Check file permissions (644 for PHP files)
+
+Login not working?
+→ Clear browser cookies
+→ Check credentials in cms/admin.php
+→ Verify session directory is writable
+
+═══════════════════════════════════════════════════════════════
+

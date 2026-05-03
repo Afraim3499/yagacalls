@@ -1,0 +1,51 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const metadata: Metadata = {
+  title: {
+    default: "Yaga Calls | Professional Crypto Signals & Market Analysis",
+    template: "%s | Yaga Calls",
+  },
+  description: "Join 3,500+ investors. Narrative Killer method. Systematic crypto signal generation with deep research and risk management.",
+  keywords: ["crypto signals", "bitcoin analysis", "trading strategy", "crypto trading", "market analysis"],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://yagacalls.com",
+    siteName: "Yaga Calls",
+    images: [{ url: "/yaga_calls_logo.png", width: 1200, height: 630, alt: "Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls | Professional Crypto Signals",
+    description: "Systematic crypto signals and deep market analysis.",
+    images: ["/yaga_calls_logo.png"],
+  },
+  icons: {
+    icon: "/yaga_calls_favicon.jpg",
+    apple: "/yaga_calls_favicon.jpg",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-background text-foreground`}>
+        <Header />
+        <main className="flex-grow pt-[80px]">
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
+  );
+}

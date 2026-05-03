@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yagacalls.com/sitemap.xml
+
+

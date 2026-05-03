@@ -1,0 +1,2915 @@
+# Finance News Platform - Complete System Documentation
+
+## Table of Contents
+1. [System Overview](#system-overview)
+2. [User Journey](#user-journey)
+3. [In-House Team Operations](#in-house-team-operations)
+4. [Technology Architecture](#technology-architecture)
+5. [Data Collection & Sorting System](#data-collection--sorting-system)
+6. [Content Workflow](#content-workflow)
+7. [Publishing System](#publishing-system)
+8. [Monetization Integration](#monetization-integration)
+9. [SEO & Performance](#seo--performance)
+10. [Security & Compliance](#security--compliance)
+11. [Analytics & Reporting](#analytics--reporting)
+12. [Future Enhancements](#future-enhancements)
+
+---
+
+## System Overview
+
+### Platform Purpose
+A finance news platform that:
+- Publishes **original written content only** (not aggregated republishing)
+- Uses external sources for **research and information gathering**
+- Presents finance news in a **friendly, accessible manner**
+- Covers: Crypto, Forex, Investment Banks, Stock Markets, Trade Deals
+- Monetizes through: Google Ads, Sponsored Content, Partnerships, Signal Platform Integration
+
+### Core Principles
+1. **Original Content Only**: All published articles are written by the team
+2. **Research-Driven**: External sources inform but don't replace original writing
+3. **User-Friendly**: Complex finance topics explained simply
+4. **Fast & Reliable**: Real-time updates, fast page loads
+5. **Monetization-Ready**: Built-in ad placement, affiliate integration
+
+---
+
+## User Journey
+
+### 1. Discovery Phase
+
+#### Entry Points
+- **Direct Visit**: User types domain name
+- **Search Engine**: Google search for finance news
+- **Social Media**: Click from Facebook, Instagram, X, LinkedIn
+- **Referral**: Link from another site
+- **Email Newsletter**: Click from newsletter
+
+#### First Impression (Homepage)
+```
+User lands on homepage
+├─ Sees: Latest finance news articles
+├─ Sees: Market ticker (live prices)
+├─ Sees: Category navigation (Crypto, Stocks, Forex, etc.)
+├─ Sees: Search bar
+└─ Sees: Newsletter signup (optional)
+```
+
+**User Actions:**
+- Scrolls to see more articles
+- Clicks category (e.g., "Crypto")
+- Uses search bar
+- Clicks on article headline
+
+### 2. Browsing Phase
+
+#### Category Browsing
+```
+User clicks "Crypto" category
+├─ Sees: All crypto-related articles
+├─ Sees: Filter options (Date, Trending, Most Read)
+├─ Sees: Pagination or infinite scroll
+└─ Clicks article to read
+```
+
+#### Search Functionality
+```
+User types "Bitcoin price" in search
+├─ Sees: Relevant articles appear
+├─ Sees: Search suggestions
+├─ Sees: Related topics
+└─ Clicks article to read
+```
+
+#### Article Discovery
+```
+User sees article card
+├─ Headline (attention-grabbing)
+├─ Featured image
+├─ Excerpt/summary (2-3 lines)
+├─ Category badge
+├─ Publish date
+└─ "Read More" button
+```
+
+### 3. Reading Phase
+
+#### Article Page Experience
+```
+User clicks article
+├─ Page loads quickly (< 2 seconds)
+├─ Sees: Article header
+│   ├─ Category badge
+│   ├─ Headline
+│   ├─ Subheadline (what it means)
+│   ├─ Author byline
+│   └─ Publish date
+│
+├─ Sees: Featured image or chart
+│
+├─ Sees: TL;DR box (key takeaways)
+│
+├─ Reads: Main article content
+│   ├─ Well-formatted paragraphs
+│   ├─ Images/charts embedded
+│   ├─ Subheadings for scannability
+│   └─ Bold key numbers/percentages
+│
+├─ Sees: "What This Means" section
+│
+├─ Sees: Related articles (3-4)
+│
+├─ Sees: Social share buttons
+│
+└─ Sees: Newsletter signup (end of article)
+```
+
+#### Engagement Actions
+- **Scrolls through article** (tracks engagement)
+- **Shares on social media** (Facebook, Twitter, LinkedIn)
+- **Clicks related article** (internal linking)
+- **Searches for more** (stays on site)
+- **Signs up for newsletter** (conversion)
+- **Clicks signal platform CTA** (monetization)
+
+### 4. Conversion Phase
+
+#### Signal Platform Integration
+```
+User reads article about "Bitcoin Price Prediction"
+├─ Sees: Contextual CTA
+│   "Want real-time alerts on Bitcoin? 
+│    Join our signal platform →"
+│
+├─ Clicks CTA
+│
+├─ Redirected to signal platform
+│   (separate site or section)
+│
+└─ Signs up for signals
+```
+
+#### Newsletter Signup
+```
+User sees newsletter signup
+├─ At end of article
+├─ In sidebar (desktop)
+├─ Exit intent popup
+│
+├─ Enters email
+│
+├─ Confirms subscription
+│
+└─ Receives welcome email
+```
+
+### 5. Return Visitor Journey
+
+#### Returning User Experience
+```
+User visits again
+├─ Sees: Personalized homepage
+│   ├─ "Continue Reading" section
+│   ├─ Recommended articles
+│   └─ Reading history
+│
+├─ Receives: Email newsletter
+│   ├─ Weekly digest
+│   ├─ Breaking news alerts
+│   └─ Featured articles
+│
+└─ Engages: Social media
+    ├─ Follows on Facebook/Instagram
+    ├─ Gets daily updates
+    └─ Clicks through to site
+```
+
+### User Journey Metrics
+- **Bounce Rate**: < 40% (good engagement)
+- **Time on Site**: > 2 minutes average
+- **Pages per Session**: > 2.5 pages
+- **Return Rate**: > 30% within 7 days
+- **Conversion Rate**: > 2% (newsletter/signals)
+
+---
+
+## In-House Team Operations
+
+### Team Structure
+
+#### Roles & Responsibilities
+
+**1. Content Editor/Writer**
+- Writes original articles
+- Uses research dashboard for information
+- Formats content for publication
+- Manages SEO settings
+- Schedules publishing
+
+**2. Research Assistant (Optional)**
+- Monitors research dashboard
+- Identifies trending topics
+- Saves relevant research articles
+- Prepares research summaries
+- Suggests article topics
+
+**3. Admin/Manager**
+- Manages team access
+- Reviews published content
+- Handles partnerships
+- Manages monetization
+- Monitors analytics
+
+### Daily Operations Workflow
+
+#### Morning Routine (9:00 AM)
+
+**Step 1: Check Research Dashboard**
+```
+Editor logs into admin panel
+├─ Opens Research Dashboard
+├─ Reviews overnight news
+│   ├─ Crypto news (Bitcoin, Ethereum, etc.)
+│   ├─ Stock market news
+│   ├─ Forex updates
+│   └─ Investment bank news
+│
+├─ Identifies trending topics
+│   ├─ What's hot today?
+│   ├─ What needs coverage?
+│   └─ What's missing?
+│
+└─ Saves 5-10 articles for research
+```
+
+**Step 2: Plan Content**
+```
+Editor plans writing schedule
+├─ Identifies 3-5 articles to write today
+├─ Prioritizes by:
+│   ├─ Breaking news (urgent)
+│   ├─ Trending topics (high traffic)
+│   ├─ Evergreen content (SEO)
+│   └─ Scheduled content
+│
+└─ Creates content calendar
+```
+
+**Step 3: Research & Write**
+```
+For each article:
+├─ Opens saved research articles
+├─ Reviews key points
+├─ Checks multiple sources
+├─ Takes notes
+│
+├─ Opens Content Editor
+├─ Writes original article
+│   ├─ Friendly, accessible language
+│   ├─ Explains complex topics simply
+│   ├─ Adds context and analysis
+│   └─ Includes images/charts
+│
+├─ Adds metadata
+│   ├─ Category
+│   ├─ Tags
+│   ├─ SEO settings
+│   └─ Featured image
+│
+└─ Saves as draft or publishes
+```
+
+#### Throughout the Day
+
+**Content Publishing**
+```
+Editor publishes articles
+├─ Reviews draft articles
+├─ Checks formatting
+├─ Verifies facts
+├─ Sets publish time
+│
+├─ Publishes immediately OR
+├─ Schedules for later
+│
+└─ Article goes live
+```
+
+**Monitoring**
+```
+Team monitors:
+├─ Research dashboard (new sources)
+├─ Published articles (performance)
+├─ Analytics (traffic, engagement)
+├─ Social media (shares, comments)
+└─ Email newsletter (subscribers)
+```
+
+#### Evening Routine (6:00 PM)
+
+**Content Review**
+```
+Editor reviews day's work
+├─ Checks published articles
+├─ Reviews analytics
+├─ Identifies top performers
+├─ Plans tomorrow's content
+│
+└─ Updates content calendar
+```
+
+**Research Preparation**
+```
+Editor prepares for tomorrow
+├─ Saves interesting research
+├─ Notes trending topics
+├─ Identifies content gaps
+└─ Sets research alerts
+```
+
+### Content Creation Workflow
+
+#### Article Writing Process
+
+**Phase 1: Research**
+```
+1. Open Research Dashboard
+2. Search for topic (e.g., "Bitcoin ETF")
+3. Review multiple sources
+4. Save relevant articles
+5. Take notes on key points
+6. Identify unique angle
+```
+
+**Phase 2: Writing**
+```
+1. Open Content Editor
+2. Write headline (attention-grabbing)
+3. Write subheadline (what it means)
+4. Write introduction (hook reader)
+5. Write main content
+   ├─ Paragraph 1: Context
+   ├─ Paragraph 2: Main point
+   ├─ Paragraph 3: Analysis
+   ├─ Paragraph 4: Implications
+   └─ Paragraph 5: Conclusion
+6. Add "What This Means" section
+7. Format with subheadings
+8. Add images/charts
+```
+
+**Phase 3: Optimization**
+```
+1. Add SEO metadata
+   ├─ Meta title
+   ├─ Meta description
+   ├─ Keywords
+   └─ URL slug
+2. Add category
+3. Add tags
+4. Set featured image
+5. Add internal links (3-5)
+6. Preview article
+```
+
+**Phase 4: Publishing**
+```
+1. Review article
+2. Check for errors
+3. Verify facts
+4. Set publish time
+5. Publish or schedule
+6. Share on social media
+```
+
+### Content Calendar Management
+
+#### Weekly Planning
+```
+Monday: Plan week's content
+├─ Identify 15-20 articles
+├─ Assign priorities
+├─ Set deadlines
+└─ Schedule publishing times
+
+Tuesday-Friday: Write & publish
+├─ 3-5 articles per day
+├─ Mix of breaking news and evergreen
+└─ Consistent publishing schedule
+
+Saturday: Review week
+├─ Analyze performance
+├─ Identify top content
+└─ Plan next week
+```
+
+#### Content Types
+
+**Breaking News** (Publish immediately)
+- Market crashes
+- Major announcements
+- Regulatory changes
+- High-impact events
+
+**Trending Topics** (Publish within 24 hours)
+- Popular searches
+- Social media trends
+- Market movements
+- Industry news
+
+**Evergreen Content** (Schedule strategically)
+- Educational articles
+- How-to guides
+- Market analysis
+- Investment strategies
+
+### Quality Control
+
+#### Pre-Publication Checklist
+```
+Before publishing:
+├─ ✓ Fact-checked against sources
+├─ ✓ Grammar and spelling checked
+├─ ✓ Formatting correct
+├─ ✓ Images optimized
+├─ ✓ SEO metadata complete
+├─ ✓ Internal links added
+├─ ✓ Category/tags assigned
+├─ ✓ Featured image set
+└─ ✓ Preview looks good
+```
+
+#### Post-Publication Review
+```
+After publishing:
+├─ Check article displays correctly
+├─ Verify links work
+├─ Monitor initial engagement
+├─ Check social media shares
+└─ Review analytics
+```
+
+---
+
+## Technology Architecture
+
+### System Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    USER LAYER                           │
+│  (Browsers, Mobile Apps, Social Media)                  │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     │ HTTP/HTTPS
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│                 FRONTEND LAYER                           │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │   Next.js    │  │   React     │  │   CSS/JS     │  │
+│  │   (SSR/SSG)  │  │  Components │  │  Styling    │  │
+│  └──────────────┘  └──────────────┘  └──────────────┘  │
+│                                                          │
+│  - Homepage, Article Pages                              │
+│  - Category Pages, Search                               │
+│  - Fast, SEO-optimized                                   │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     │ API Calls (REST/GraphQL)
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│                 BACKEND LAYER                            │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │   API        │  │   CMS        │  │   Research   │  │
+│  │   Server     │  │   System     │  │   Aggregator │  │
+│  └──────────────┘  └──────────────┘  └──────────────┘  │
+│                                                          │
+│  - Handles requests                                     │
+│  - Manages content                                       │
+│  - Fetches research                                     │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     │ Database Queries
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│              DATA STORAGE LAYER                          │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │  Published   │  │  Research    │  │   Cache      │  │
+│  │  Articles DB  │  │  Articles DB │  │   (Redis)    │  │
+│  └──────────────┘  └──────────────┘  └──────────────┘  │
+│                                                          │
+│  - Your articles                                        │
+│  - Research sources                                     │
+│  - Cached data                                          │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Technology Stack
+
+#### Frontend
+```
+Framework: Next.js 14+ (App Router)
+├─ Server-Side Rendering (SSR)
+├─ Static Site Generation (SSG)
+├─ API Routes
+└─ Image Optimization
+
+Styling: Tailwind CSS
+├─ Utility-first CSS
+├─ Responsive design
+├─ Dark mode support
+└─ Custom design system
+
+State Management: Zustand or React Query
+├─ Client-side state
+├─ Server state caching
+└─ Real-time updates
+
+UI Components: Custom or Shadcn/ui
+├─ Reusable components
+├─ Consistent design
+└─ Accessibility
+```
+
+#### Backend
+```
+API Framework: Next.js API Routes or Express.js
+├─ RESTful API
+├─ Authentication
+├─ Rate limiting
+└─ Error handling
+
+CMS: Strapi (self-hosted) or Sanity
+├─ Content management
+├─ Media library
+├─ User management
+└─ API generation
+
+Research Aggregator: Node.js Service
+├─ RSS feed reader
+├─ API integrations
+├─ Web scraping
+└─ Data processing
+```
+
+#### Database
+```
+Primary Database: PostgreSQL
+├─ Published articles
+├─ Categories, tags
+├─ User data (if needed)
+└─ Settings
+
+Research Database: PostgreSQL (separate schema)
+├─ External source articles
+├─ Research notes
+├─ Saved articles
+└─ Research metadata
+
+Cache: Redis
+├─ Homepage cache
+├─ Category page cache
+├─ API response cache
+└─ Session storage
+```
+
+#### Infrastructure
+```
+Hosting: Vercel (Frontend) + Railway/Render (Backend)
+├─ Auto-scaling
+├─ CDN included
+├─ SSL certificates
+└─ Global distribution
+
+CDN: Cloudflare
+├─ Static asset delivery
+├─ DDoS protection
+├─ Caching
+└─ Analytics
+
+File Storage: Cloudinary or AWS S3
+├─ Image optimization
+├─ Video hosting
+├─ CDN delivery
+└─ Automatic resizing
+```
+
+### System Components
+
+#### Component 1: Research Aggregator Service
+
+**Purpose**: Fetches news from external sources for research
+
+**Technology**:
+- Node.js service
+- RSS feed parser (feedparser, rss-parser)
+- API clients (axios, fetch)
+- Web scraping (Cheerio, Puppeteer - with proper attribution)
+
+**Data Sources**:
+```
+Crypto:
+├─ CoinDesk RSS
+├─ CoinTelegraph RSS
+├─ CryptoCompare API
+└─ Decrypt RSS
+
+Stocks:
+├─ Reuters Finance API
+├─ Bloomberg RSS
+├─ Yahoo Finance API
+└─ MarketWatch RSS
+
+Forex:
+├─ ForexFactory RSS
+├─ Investing.com RSS
+└─ FXStreet RSS
+
+Investment Banks:
+├─ Financial Times RSS
+├─ Wall Street Journal API
+├─ CNBC RSS
+└─ Bloomberg Terminal API (if available)
+
+Trade Deals:
+├─ Reuters Trade News
+├─ BBC Business RSS
+└─ Trade publications
+```
+
+**Processing Pipeline**:
+```
+1. Fetch from source
+   ├─ RSS feed → Parse XML
+   ├─ API → Get JSON
+   └─ Web scraping → Extract HTML
+
+2. Extract data
+   ├─ Title
+   ├─ Content
+   ├─ Author
+   ├─ Publish date
+   ├─ Images
+   └─ Source URL
+
+3. Process content
+   ├─ Clean HTML
+   ├─ Generate summary (AI or extractive)
+   ├─ Extract key points
+   ├─ Categorize automatically
+   └─ Tag by topic
+
+4. Store in research database
+   ├─ Save article
+   ├─ Link to source
+   ├─ Add metadata
+   └─ Status: "research"
+```
+
+**Scheduling**:
+```
+Cron Jobs:
+├─ Every 15 minutes: Breaking news sources
+├─ Every 1 hour: Regular news sources
+├─ Every 6 hours: Less frequent sources
+└─ Daily: Weekly/monthly publications
+```
+
+#### Component 2: Research Dashboard (Admin)
+
+**Purpose**: Internal tool for team to review research
+
+**Technology**:
+- React admin panel
+- Real-time updates (WebSocket or polling)
+- Search functionality (full-text search)
+- Filtering and sorting
+
+**Features**:
+```
+Dashboard Interface:
+├─ News Feed
+│   ├─ Latest from all sources
+│   ├─ Card layout
+│   ├─ Source badge
+│   ├─ Category badge
+│   ├─ Publish date
+│   └─ Summary preview
+│
+├─ Filters
+│   ├─ By source
+│   ├─ By category
+│   ├─ By date range
+│   └─ By keyword
+│
+├─ Search
+│   ├─ Full-text search
+│   ├─ Search suggestions
+│   └─ Recent searches
+│
+├─ Article Detail View
+│   ├─ Full article content
+│   ├─ Source link
+│   ├─ AI-generated summary
+│   ├─ Key points
+│   ├─ Related articles
+│   ├─ "Save for Research" button
+│   └─ Notes section
+│
+└─ Saved Research
+   ├─ Articles you've saved
+   ├─ Your notes
+   ├─ Organized by topic
+   └─ Quick access
+```
+
+**Integration with Content Editor**:
+```
+When writing article:
+├─ Open Research Dashboard in sidebar
+├─ View saved research
+├─ Reference sources
+├─ Copy facts (with attribution)
+└─ Link to research articles
+```
+
+#### Component 3: Content Management System (CMS)
+
+**Purpose**: Create, edit, and publish articles
+
+**Technology**:
+- Strapi or Sanity (headless CMS)
+- Rich text editor (Tiptap, Slate, or Quill)
+- Image upload and optimization
+- SEO tools
+
+**Features**:
+```
+Content Editor:
+├─ Rich Text Editor
+│   ├─ Formatting (bold, italic, lists)
+│   ├─ Headings (H1-H6)
+│   ├─ Links (internal/external)
+│   ├─ Images (upload/embed)
+│   ├─ Code blocks
+│   └─ Tables
+│
+├─ Media Library
+│   ├─ Upload images
+│   ├─ Optimize automatically
+│   ├─ Add alt text
+│   └─ Organize by folder
+│
+├─ Content Settings
+│   ├─ Title
+│   ├─ Subheadline
+│   ├─ Category (dropdown)
+│   ├─ Tags (multi-select)
+│   ├─ Featured image
+│   ├─ Excerpt/summary
+│   └─ Author
+│
+├─ SEO Settings
+│   ├─ Meta title (auto-generated, editable)
+│   ├─ Meta description (auto-generated, editable)
+│   ├─ URL slug (auto-generated, editable)
+│   ├─ Keywords (suggestions)
+│   ├─ Open Graph image
+│   └─ Twitter Card settings
+│
+├─ Publishing
+│   ├─ Save as draft
+│   ├─ Publish now
+│   ├─ Schedule publish (date/time)
+│   ├─ Update published article
+│   └─ Unpublish/archive
+│
+└─ Research Integration
+   ├─ Link to research articles
+   ├─ View saved research
+   ├─ Add citations
+   └─ Reference sources
+```
+
+**Content Workflow States**:
+```
+Draft → Review → Scheduled → Published → Archived
+```
+
+#### Component 4: Public Frontend
+
+**Purpose**: Display published articles to users
+
+**Technology**:
+- Next.js (SSR/SSG)
+- React components
+- Tailwind CSS
+- Image optimization
+
+**Pages**:
+```
+1. Homepage (/)
+   ├─ Latest articles (20-30)
+   ├─ Featured articles (3-5)
+   ├─ Category sections
+   ├─ Market ticker
+   └─ Newsletter signup
+
+2. Category Pages (/crypto, /stocks, etc.)
+   ├─ All articles in category
+   ├─ Filter by date/trending
+   ├─ Pagination
+   └─ Related categories
+
+3. Article Pages (/article/[slug])
+   ├─ Full article content
+   ├─ Related articles
+   ├─ Social share buttons
+   ├─ Newsletter signup
+   └─ Signal platform CTA
+
+4. Search Page (/search?q=query)
+   ├─ Search results
+   ├─ Filters
+   ├─ Related searches
+   └─ No results suggestions
+
+5. Archive Pages (/archive/2024/01)
+   ├─ Articles by date
+   └─ Calendar navigation
+```
+
+**Performance Optimizations**:
+```
+- Server-Side Rendering (SSR) for dynamic content
+- Static Site Generation (SSG) for category pages
+- Image optimization (WebP, lazy loading)
+- Code splitting
+- Caching (Redis, CDN)
+- Minification (CSS, JS)
+```
+
+### API Structure
+
+#### Public API Endpoints
+
+```
+GET /api/articles
+├─ Query params:
+│   ├─ page (pagination)
+│   ├─ limit (items per page)
+│   ├─ category (filter)
+│   ├─ tag (filter)
+│   ├─ search (keyword)
+│   └─ sort (date, trending, popular)
+├─ Returns: List of articles
+└─ Cached: 5 minutes
+
+GET /api/articles/[slug]
+├─ Returns: Single article
+└─ Cached: 10 minutes
+
+GET /api/categories
+├─ Returns: All categories with counts
+└─ Cached: 1 hour
+
+GET /api/search?q=query
+├─ Returns: Search results
+└─ Cached: 5 minutes
+
+GET /api/trending
+├─ Returns: Trending articles
+└─ Cached: 15 minutes
+```
+
+#### Admin API Endpoints
+
+```
+POST /api/admin/login
+├─ Authentication
+└─ Returns: JWT token
+
+GET /api/admin/research
+├─ Returns: Research articles
+├─ Query params: source, category, date
+└─ Requires: Authentication
+
+POST /api/admin/research/save
+├─ Saves article for research
+└─ Requires: Authentication
+
+GET /api/admin/articles
+├─ Returns: All articles (draft + published)
+└─ Requires: Authentication
+
+POST /api/admin/articles
+├─ Creates new article
+└─ Requires: Authentication
+
+PUT /api/admin/articles/[id]
+├─ Updates article
+└─ Requires: Authentication
+
+DELETE /api/admin/articles/[id]
+├─ Deletes article
+└─ Requires: Authentication
+```
+
+---
+
+## Data Collection & Sorting System
+
+### Data Collection Architecture
+
+#### Source Integration
+
+**RSS Feeds**:
+```
+Process:
+1. Fetch RSS feed URL
+2. Parse XML
+3. Extract items (title, description, link, pubDate)
+4. Fetch full article (if needed)
+5. Process and store
+
+Tools:
+- rss-parser (Node.js)
+- feedparser (Node.js)
+- SimplePie (PHP)
+```
+
+**API Integrations**:
+```
+Process:
+1. Authenticate with API key
+2. Make API request
+3. Parse JSON response
+4. Extract articles
+5. Process and store
+
+APIs:
+- NewsAPI (general news)
+- Alpha Vantage (financial data)
+- CryptoCompare (crypto data)
+- Yahoo Finance API (stocks)
+```
+
+**Web Scraping** (with proper attribution):
+```
+Process:
+1. Fetch webpage
+2. Parse HTML (Cheerio, BeautifulSoup)
+3. Extract content (title, article, images)
+4. Clean and format
+5. Store with source attribution
+
+Important:
+- Respect robots.txt
+- Add proper attribution
+- Don't republish full content
+- Use for research only
+```
+
+### Data Processing Pipeline
+
+#### Step 1: Collection
+```
+Scheduled Jobs:
+├─ Every 15 min: Breaking news sources
+│   ├─ CoinDesk
+│   ├─ Reuters Breaking
+│   └─ Bloomberg Alerts
+│
+├─ Every 1 hour: Regular sources
+│   ├─ Financial Times
+│   ├─ Wall Street Journal
+│   ├─ CoinTelegraph
+│   └─ MarketWatch
+│
+└─ Every 6 hours: Less frequent
+    ├─ Weekly publications
+    └─ Industry reports
+```
+
+#### Step 2: Processing
+```
+For each collected article:
+
+1. Extract Metadata
+   ├─ Title
+   ├─ Content (full text)
+   ├─ Author
+   ├─ Publish date
+   ├─ Source URL
+   ├─ Images
+   └─ Category (if available)
+
+2. Content Processing
+   ├─ Clean HTML
+   ├─ Remove ads/scripts
+   ├─ Extract main content
+   ├─ Preserve formatting
+   └─ Extract images
+
+3. Analysis
+   ├─ Generate summary (AI or extractive)
+   ├─ Extract key points
+   ├─ Detect sentiment
+   ├─ Identify entities (companies, currencies)
+   └─ Categorize automatically
+
+4. Categorization
+   ├─ Crypto (Bitcoin, Ethereum, Altcoins, DeFi)
+   ├─ Stocks (US Markets, International, IPOs)
+   ├─ Forex (Major Pairs, Central Banks)
+   ├─ Investment Banks (M&A, IPOs, Reports)
+   ├─ Trade Deals (International, Tariffs)
+   └─ Other (Commodities, Regulations)
+
+5. Tagging
+   ├─ Extract keywords
+   ├─ Identify topics
+   ├─ Add relevant tags
+   └─ Link related articles
+```
+
+#### Step 3: Storage
+```
+Research Database:
+├─ research_articles table
+│   ├─ id
+│   ├─ source (CoinDesk, Reuters, etc.)
+│   ├─ source_url
+│   ├─ title
+│   ├─ content
+│   ├─ summary
+│   ├─ key_points (JSON)
+│   ├─ category
+│   ├─ tags (array)
+│   ├─ published_date
+│   ├─ collected_date
+│   ├─ sentiment (positive/negative/neutral)
+│   └─ status ("research")
+│
+├─ research_saved table
+│   ├─ id
+│   ├─ research_article_id
+│   ├─ user_id (editor)
+│   ├─ notes
+│   ├─ saved_date
+│   └─ tags
+│
+└─ research_notes table
+    ├─ id
+    ├─ research_article_id
+    ├─ user_id
+    ├─ note_text
+    └─ created_date
+```
+
+### Sorting & Organization System
+
+#### Automatic Sorting
+
+**By Category**:
+```
+Algorithm:
+1. Analyze title and content
+2. Match against category keywords
+3. Assign category with confidence score
+4. Manual review option for low confidence
+
+Categories:
+- Crypto: bitcoin, ethereum, crypto, blockchain, defi, nft
+- Stocks: stock, shares, nasdaq, s&p, dow jones, ipo
+- Forex: forex, currency, usd, eur, gbp, exchange rate
+- Investment Banks: bank, investment, merger, acquisition, ipo
+- Trade Deals: trade, tariff, agreement, export, import
+```
+
+**By Priority**:
+```
+Breaking News (High Priority):
+├─ Market crashes
+├─ Major announcements
+├─ Regulatory changes
+└─ High-impact events
+
+Regular News (Medium Priority):
+├─ Daily market updates
+├─ Company news
+├─ Economic data
+└─ Industry news
+
+Background (Low Priority):
+├─ Analysis pieces
+├─ Opinion articles
+└─ Educational content
+```
+
+**By Relevance**:
+```
+Scoring System:
+├─ Recency (newer = higher score)
+├─ Source credibility (trusted = higher)
+├─ Engagement potential (trending = higher)
+├─ Category match (exact = higher)
+└─ Completeness (full article = higher)
+
+Sorting:
+├─ Trending: High engagement potential
+├─ Latest: Most recent first
+├─ Most Relevant: Best category match
+└─ Most Complete: Full articles with images
+```
+
+#### Manual Sorting Tools
+
+**Research Dashboard Filters**:
+```
+Filter Options:
+├─ By Source
+│   ├─ CoinDesk
+│   ├─ Reuters
+│   ├─ Bloomberg
+│   └─ All sources
+│
+├─ By Category
+│   ├─ Crypto
+│   ├─ Stocks
+│   ├─ Forex
+│   └─ All categories
+│
+├─ By Date
+│   ├─ Today
+│   ├─ This week
+│   ├─ This month
+│   └─ Custom range
+│
+├─ By Status
+│   ├─ New (unread)
+│   ├─ Saved
+│   ├─ Reviewed
+│   └─ All
+│
+└─ By Priority
+   ├─ Breaking
+   ├─ Important
+   ├─ Regular
+   └─ All
+```
+
+**Search Functionality**:
+```
+Search Features:
+├─ Full-text search
+│   ├─ Title
+│   ├─ Content
+│   └─ Summary
+│
+├─ Advanced search
+│   ├─ Source filter
+│   ├─ Date range
+│   ├─ Category filter
+│   └─ Keyword combination
+│
+└─ Search suggestions
+   ├─ Related topics
+   ├─ Popular searches
+   └─ Recent searches
+```
+
+### Data Quality Control
+
+#### Duplicate Detection
+```
+Process:
+1. Compare title similarity (fuzzy matching)
+2. Compare content similarity
+3. Check source URL
+4. Flag potential duplicates
+5. Merge or mark as duplicate
+
+Algorithm:
+- Title similarity > 80% = potential duplicate
+- Content similarity > 70% = potential duplicate
+- Same source URL = duplicate
+```
+
+#### Content Validation
+```
+Checks:
+├─ ✓ Has title
+├─ ✓ Has content (min 200 words)
+├─ ✓ Has source URL
+├─ ✓ Has publish date
+├─ ✓ Content is readable (not just ads)
+└─ ✓ Images are accessible
+
+Invalid Content:
+├─ Too short (< 100 words)
+├─ Mostly ads/scripts
+├─ Broken links
+└─ Missing metadata
+```
+
+#### Source Attribution
+```
+Requirements:
+├─ Always include source name
+├─ Always include source URL
+├─ Always include publish date
+├─ Add "via [Source]" in metadata
+└─ Link back to original (if allowed)
+
+Format:
+"Source: CoinDesk | Published: Jan 15, 2024 | Original: [Link]"
+```
+
+---
+
+## Content Workflow
+
+### Content Lifecycle
+
+```
+┌─────────────┐
+│   RESEARCH  │
+│  (External  │
+│   Sources)  │
+└──────┬──────┘
+       │
+       │ Collected & Processed
+       │
+       ▼
+┌─────────────────┐
+│ RESEARCH        │
+│ DASHBOARD       │
+│ (Internal)      │
+└──────┬──────────┘
+       │
+       │ Editor Reviews
+       │ Saves for Research
+       │
+       ▼
+┌─────────────────┐
+│ CONTENT         │
+│ CREATION        │
+│ (CMS)           │
+└──────┬──────────┘
+       │
+       │ Editor Writes
+       │ Original Article
+       │
+       ▼
+┌─────────────────┐
+│ DRAFT           │
+│ (Saved)         │
+└──────┬──────────┘
+       │
+       │ Review & Edit
+       │
+       ▼
+┌─────────────────┐
+│ SCHEDULED       │
+│ (Optional)      │
+└──────┬──────────┘
+       │
+       │ Publish Time Reached
+       │
+       ▼
+┌─────────────────┐
+│ PUBLISHED       │
+│ (Live on Site)  │
+└──────┬──────────┘
+       │
+       │ Can Update/Edit
+       │
+       ▼
+┌─────────────────┐
+│ ARCHIVED        │
+│ (Old Content)   │
+└─────────────────┘
+```
+
+### Detailed Workflow Steps
+
+#### Step 1: Research Collection
+```
+Automated Process:
+├─ Research Aggregator runs
+├─ Fetches from sources
+├─ Processes articles
+├─ Stores in research database
+└─ Available in Research Dashboard
+```
+
+#### Step 2: Research Review
+```
+Editor Action:
+├─ Opens Research Dashboard
+├─ Reviews latest articles
+├─ Identifies interesting topics
+├─ Saves relevant articles
+├─ Takes notes
+└─ Plans articles to write
+```
+
+#### Step 3: Article Planning
+```
+Editor Action:
+├─ Decides on article topic
+├─ Reviews saved research
+├─ Identifies unique angle
+├─ Plans article structure
+└─ Opens Content Editor
+```
+
+#### Step 4: Content Writing
+```
+Editor Action:
+├─ Writes headline
+├─ Writes subheadline
+├─ Writes introduction
+├─ Writes main content
+│   ├─ References research
+│   ├─ Adds own analysis
+│   ├─ Explains simply
+│   └─ Adds context
+├─ Adds "What This Means" section
+├─ Formats with subheadings
+├─ Adds images/charts
+└─ Reviews content
+```
+
+#### Step 5: Content Optimization
+```
+Editor Action:
+├─ Adds category
+├─ Adds tags
+├─ Sets featured image
+├─ Adds SEO metadata
+│   ├─ Meta title
+│   ├─ Meta description
+│   ├─ Keywords
+│   └─ URL slug
+├─ Adds internal links (3-5)
+└─ Preview article
+```
+
+#### Step 6: Publishing
+```
+Editor Action:
+├─ Reviews final article
+├─ Checks for errors
+├─ Verifies facts
+├─ Sets publish time
+│   ├─ Publish now
+│   └─ Schedule for later
+└─ Publishes article
+```
+
+#### Step 7: Post-Publication
+```
+Automated Process:
+├─ Article appears on site
+├─ Sitemap updated
+├─ RSS feed updated
+├─ Social media post (optional)
+└─ Analytics tracking starts
+
+Editor Action:
+├─ Monitors performance
+├─ Checks social shares
+├─ Reviews analytics
+└─ Updates if needed
+```
+
+### Content Types & Templates
+
+#### Breaking News Template
+```
+Structure:
+├─ Headline (urgent, clear)
+├─ Subheadline (what happened)
+├─ TL;DR (3-4 bullet points)
+├─ Introduction (context)
+├─ What Happened (main event)
+├─ Why It Matters (analysis)
+├─ Market Impact (if applicable)
+├─ What's Next (future implications)
+└─ Related Articles
+
+Length: 300-500 words
+Publish: Immediately
+```
+
+#### Analysis Article Template
+```
+Structure:
+├─ Headline (insightful)
+├─ Subheadline (key takeaway)
+├─ Introduction (hook)
+├─ Current Situation (context)
+├─ Deep Analysis (main content)
+├─ Key Factors (bullet points)
+├─ Market Implications
+├─ Expert Perspective (if available)
+├─ Conclusion
+└─ Related Articles
+
+Length: 800-1200 words
+Publish: Within 24 hours
+```
+
+#### Educational Article Template
+```
+Structure:
+├─ Headline (question or topic)
+├─ Subheadline (what you'll learn)
+├─ Introduction (why it matters)
+├─ What Is [Topic] (definition)
+├─ How It Works (explanation)
+├─ Key Concepts (sections)
+├─ Examples (real-world)
+├─ Common Mistakes
+├─ Takeaways (summary)
+└─ Related Articles
+
+Length: 1000-1500 words
+Publish: Scheduled (evergreen)
+```
+
+### Content Guidelines
+
+#### Writing Style
+```
+Tone:
+├─ Friendly and accessible
+├─ Professional but not stuffy
+├─ Confident but not arrogant
+└─ Clear and concise
+
+Language:
+├─ Avoid jargon (or explain it)
+├─ Use simple words when possible
+├─ Short sentences (15-20 words)
+├─ Short paragraphs (2-3 sentences)
+└─ Active voice
+
+Formatting:
+├─ Use subheadings (H2, H3)
+├─ Use bullet points for lists
+├─ Bold key numbers/percentages
+├─ Use images/charts to illustrate
+└─ Break up long text
+```
+
+#### SEO Guidelines
+```
+Headlines:
+├─ Include primary keyword
+├─ 50-60 characters
+├─ Attention-grabbing
+└─ Clear and specific
+
+Meta Descriptions:
+├─ Include keywords naturally
+├─ 150-160 characters
+├─ Compelling summary
+└─ Call to action
+
+Content:
+├─ Keyword in first paragraph
+├─ Use related keywords
+├─ Internal links (3-5)
+├─ External links (authority sources)
+└─ Optimize images (alt text)
+```
+
+---
+
+## Publishing System
+
+### Publishing Workflow
+
+#### Immediate Publishing
+```
+Process:
+1. Editor clicks "Publish Now"
+2. Article status changes to "published"
+3. Article appears on site immediately
+4. Sitemap updated
+5. RSS feed updated
+6. Cache cleared
+7. Social media post (optional)
+```
+
+#### Scheduled Publishing
+```
+Process:
+1. Editor sets publish date/time
+2. Article status: "scheduled"
+3. System checks every minute
+4. When time reached:
+   ├─ Status changes to "published"
+   ├─ Article appears on site
+   ├─ Sitemap updated
+   ├─ RSS feed updated
+   └─ Cache cleared
+```
+
+#### Update Published Article
+```
+Process:
+1. Editor edits published article
+2. Saves changes
+3. Article updated on site
+4. Cache cleared
+5. Version history saved (optional)
+```
+
+### Content Distribution
+
+#### Website Publishing
+```
+Homepage:
+├─ Latest articles (20-30)
+├─ Featured articles (3-5)
+├─ Category sections
+└─ Updates automatically
+
+Category Pages:
+├─ All articles in category
+├─ Sorted by date
+├─ Pagination
+└─ Updates when new article published
+
+Article Pages:
+├─ Full article content
+├─ Related articles
+├─ Social share buttons
+└─ Newsletter signup
+```
+
+#### RSS Feed
+```
+Format: RSS 2.0
+URL: /feed.xml or /rss
+
+Content:
+├─ Latest 20 articles
+├─ Title, description, link
+├─ Publish date
+├─ Author
+└─ Category
+
+Updates: Automatically when article published
+```
+
+#### Sitemap
+```
+Format: XML Sitemap
+URL: /sitemap.xml
+
+Content:
+├─ All published articles
+├─ Category pages
+├─ Homepage
+├─ Last modified dates
+└─ Priority scores
+
+Updates: Automatically when article published
+```
+
+### Social Media Integration
+
+#### Auto-Posting (Optional)
+```
+Platforms:
+├─ Facebook Page
+├─ Instagram (via API or manual)
+├─ X (Twitter)
+└─ LinkedIn
+
+Process:
+1. Article published
+2. System generates post
+   ├─ Headline
+   ├─ Summary (2-3 lines)
+   ├─ Image
+   └─ Link
+3. Posts to social media
+4. Tracks engagement
+```
+
+#### Manual Sharing
+```
+Editor Action:
+├─ Copies article link
+├─ Creates custom post
+├─ Adds image
+└─ Posts to social media
+```
+
+### Email Newsletter Integration
+
+#### Newsletter Publishing
+```
+Process:
+1. Article published
+2. Added to newsletter queue
+3. Newsletter sent (daily/weekly)
+   ├─ Featured articles
+   ├─ Latest news
+   └─ Link to article
+```
+
+#### Newsletter Content
+```
+Daily Newsletter:
+├─ Top 5 articles of the day
+├─ Breaking news
+├─ Featured analysis
+└─ Link to full site
+
+Weekly Newsletter:
+├─ Week's top articles
+├─ Category highlights
+├─ Trending topics
+└─ Link to full site
+```
+
+---
+
+## Monetization Integration
+
+### Ad Placement Strategy
+
+#### Google AdSense Integration
+```
+Ad Units:
+├─ Header Banner (728x90) - Desktop only
+├─ Sidebar Rectangle (300x250) - Desktop
+├─ In-Article Native (responsive)
+├─ Below Content (728x90) - Desktop
+└─ Mobile Banner (320x50) - Mobile
+
+Placement Rules:
+├─ Above fold: 1 ad unit
+├─ In-content: Every 3-4 paragraphs
+├─ Below content: 1-2 ad units
+└─ Sidebar: 2-3 ad units (desktop)
+
+Implementation:
+├─ AdSense code in header
+├─ Ad units in components
+├─ Responsive ad units
+└─ Ad blocking detection
+```
+
+#### Premium Ad Networks
+```
+Networks:
+├─ Media.net
+├─ Ezoic
+├─ AdThrive
+└─ Mediavine (when traffic high enough)
+
+Benefits:
+├─ Higher RPM (revenue per 1000 impressions)
+├─ Better ad quality
+├─ More control
+└─ Better support
+```
+
+### Sponsored Content
+
+#### Sponsored Article System
+```
+Process:
+1. Partner provides content/brief
+2. Editor writes article (or approves)
+3. Article marked as "Sponsored"
+4. Displays sponsor badge
+5. Includes disclosure
+6. Tracks performance
+
+Features:
+├─ Sponsor badge
+├─ Disclosure statement
+├─ Custom styling (optional)
+└─ Analytics tracking
+```
+
+#### Native Advertising
+```
+Format:
+├─ Looks like regular article
+├─ "Sponsored" label
+├─ Partner branding
+└─ Clear disclosure
+
+Placement:
+├─ In article feed
+├─ Between articles
+└─ In sidebar
+```
+
+### Affiliate Marketing
+
+#### Broker Partnerships
+```
+Integration:
+├─ Affiliate links in articles
+├─ "Best Broker" comparison pages
+├─ Review articles
+└─ Banner ads
+
+Tracking:
+├─ Unique affiliate IDs
+├─ Click tracking
+├─ Conversion tracking
+└─ Commission reporting
+```
+
+#### Financial Product Affiliates
+```
+Products:
+├─ Trading platforms
+├─ Investment tools
+├─ Financial courses
+└─ Newsletters
+
+Implementation:
+├─ Affiliate links
+├─ Review articles
+├─ Comparison tables
+└─ Banner placements
+```
+
+### Signal Platform Integration
+
+#### CTA Placement Strategy
+```
+Contextual CTAs:
+├─ In relevant articles
+│   "Want real-time alerts on Bitcoin?
+│    Join our signal platform →"
+│
+├─ In sidebar (persistent)
+│   "Get Premium Signals"
+│
+├─ End of article
+│   "Get signals for [topic]"
+│
+└─ Exit intent popup
+   "Before you go...
+    Get premium market signals"
+
+Design:
+├─ Stands out but not intrusive
+├─ Clear value proposition
+├─ Easy to click
+└─ Mobile-friendly
+```
+
+#### Conversion Tracking
+```
+Metrics:
+├─ CTA clicks
+├─ Signal platform signups
+├─ Conversion rate
+└─ Revenue attribution
+
+Tools:
+├─ Google Analytics
+├─ Custom event tracking
+└─ UTM parameters
+```
+
+### Revenue Optimization
+
+#### A/B Testing
+```
+Elements to Test:
+├─ Ad placement
+├─ CTA design
+├─ CTA copy
+├─ CTA placement
+└─ Article layout
+
+Tools:
+├─ Google Optimize
+├─ VWO
+└─ Custom testing
+```
+
+#### Performance Monitoring
+```
+Metrics:
+├─ Ad RPM (Revenue per 1000 impressions)
+├─ Click-through rate (CTR)
+├─ Conversion rate
+├─ Revenue per visitor
+└─ Total revenue
+
+Reporting:
+├─ Daily reports
+├─ Weekly summaries
+├─ Monthly analysis
+└─ Year-over-year comparison
+```
+
+---
+
+## SEO & Performance
+
+### SEO Strategy
+
+#### Technical SEO
+```
+Site Structure:
+├─ Clean URLs (/article/bitcoin-surges)
+├─ Proper heading hierarchy (H1, H2, H3)
+├─ Meta tags (title, description)
+├─ Open Graph tags
+├─ Twitter Cards
+├─ Schema markup (Article, BreadcrumbList)
+├─ XML sitemap
+├─ Robots.txt
+└─ Canonical URLs
+
+Performance:
+├─ Fast page load (< 2 seconds)
+├─ Mobile-friendly
+├─ Core Web Vitals optimized
+└─ HTTPS enabled
+```
+
+#### On-Page SEO
+```
+Content Optimization:
+├─ Keyword research
+├─ Keyword in title (H1)
+├─ Keyword in first paragraph
+├─ Related keywords throughout
+├─ Internal linking (3-5 per article)
+├─ External links (authority sources)
+├─ Image optimization (alt text, file names)
+└─ URL structure (descriptive slugs)
+
+Meta Optimization:
+├─ Unique meta titles (50-60 chars)
+├─ Compelling meta descriptions (150-160 chars)
+├─ Relevant keywords
+└─ Social media previews
+```
+
+#### Off-Page SEO
+```
+Link Building:
+├─ Guest posts on finance sites
+├─ HARO (Help a Reporter Out)
+├─ Broken link building
+├─ Resource page links
+└─ Industry partnerships
+
+Social Signals:
+├─ Social media presence
+├─ Share buttons on articles
+├─ Social engagement
+└─ Social media links
+```
+
+### Performance Optimization
+
+#### Frontend Performance
+```
+Optimizations:
+├─ Image optimization (WebP, lazy loading)
+├─ Code splitting
+├─ Minification (CSS, JS)
+├─ Compression (Gzip, Brotli)
+├─ Caching (browser, CDN)
+├─ CDN delivery
+└─ Progressive Web App (PWA)
+
+Targets:
+├─ First Contentful Paint (FCP): < 1.8s
+├─ Largest Contentful Paint (LCP): < 2.5s
+├─ Time to Interactive (TTI): < 3.8s
+└─ Cumulative Layout Shift (CLS): < 0.1
+```
+
+#### Backend Performance
+```
+Optimizations:
+├─ Database indexing
+├─ Query optimization
+├─ Caching (Redis)
+├─ API response caching
+├─ Server-side rendering (SSR)
+└─ Static site generation (SSG) where possible
+
+Monitoring:
+├─ Response times
+├─ Database query times
+├─ Server resources (CPU, memory)
+└─ Error rates
+```
+
+#### Caching Strategy
+```
+Cache Levels:
+├─ Browser cache (static assets)
+├─ CDN cache (pages, images)
+├─ Application cache (Redis)
+└─ Database query cache
+
+Cache Invalidation:
+├─ When article published
+├─ When article updated
+├─ When category updated
+└─ Manual cache clear
+```
+
+---
+
+## Security & Compliance
+
+### Security Measures
+
+#### Authentication & Authorization
+```
+Admin Access:
+├─ Strong passwords required
+├─ Two-factor authentication (2FA)
+├─ Role-based access control
+├─ Session management
+└─ Login attempt limiting
+
+API Security:
+├─ JWT tokens
+├─ Rate limiting
+├─ CORS configuration
+└─ Input validation
+```
+
+#### Data Protection
+```
+Measures:
+├─ HTTPS (SSL certificates)
+├─ Database encryption
+├─ Secure password hashing
+├─ SQL injection prevention
+├─ XSS protection
+├─ CSRF tokens
+└─ Regular security updates
+```
+
+#### Backup & Recovery
+```
+Backup Strategy:
+├─ Daily database backups
+├─ Weekly full backups
+├─ Off-site storage
+├─ Backup testing
+└─ Recovery procedures
+
+Retention:
+├─ Daily backups: 7 days
+├─ Weekly backups: 4 weeks
+├─ Monthly backups: 12 months
+└─ Yearly backups: 3 years
+```
+
+### Compliance
+
+#### Content Attribution
+```
+Requirements:
+├─ Source attribution for research
+├─ Link to original sources
+├─ Proper citations
+└─ Fair use compliance
+
+Format:
+"Based on reporting from [Source] | Original: [Link]"
+```
+
+#### Legal Disclaimers
+```
+Required Pages:
+├─ Terms of Service
+│   ├─ User agreement
+│   ├─ Content usage rights
+│   ├─ Limitation of liability
+│   └─ Dispute resolution
+│
+├─ Privacy Policy
+│   ├─ Data collection
+│   ├─ Cookie usage
+│   ├─ Third-party services
+│   ├─ User rights (GDPR compliance)
+│   └─ Contact information
+│
+├─ Disclaimer (not financial advice)
+│   ├─ Educational content only
+│   ├─ Not investment advice
+│   ├─ Risk disclosure
+│   └─ No guarantee of accuracy
+│
+└─ Cookie Policy
+    ├─ Types of cookies used
+    ├─ Purpose of cookies
+    └─ How to manage cookies
+```
+
+#### GDPR Compliance
+```
+Requirements:
+├─ User consent for cookies
+├─ Data access rights
+├─ Data deletion rights
+├─ Data portability
+├─ Privacy by design
+└─ Data breach notification
+```
+
+#### Financial Regulations
+```
+Compliance:
+├─ Not providing financial advice
+├─ Clear disclaimers
+├─ No investment recommendations
+├─ Source attribution
+└─ Fair use of content
+```
+
+---
+
+## Analytics & Reporting
+
+### Analytics Setup
+
+#### Tracking Tools
+```
+Primary Analytics:
+├─ Google Analytics 4 (GA4)
+│   ├─ Page views
+│   ├─ User behavior
+│   ├─ Traffic sources
+│   ├─ Conversion tracking
+│   └─ Custom events
+│
+├─ Plausible Analytics (Privacy-focused alternative)
+│   ├─ No cookies
+│   ├─ GDPR compliant
+│   ├─ Simple dashboard
+│   └─ Lightweight
+│
+└─ Custom Analytics
+    ├─ Internal tracking
+    ├─ Custom metrics
+    └─ Business-specific data
+```
+
+#### Key Metrics to Track
+```
+Traffic Metrics:
+├─ Page views
+├─ Unique visitors
+├─ Sessions
+├─ Bounce rate
+├─ Average session duration
+├─ Pages per session
+└─ Return visitor rate
+
+Engagement Metrics:
+├─ Time on page
+├─ Scroll depth
+├─ Click-through rate (CTAs)
+├─ Social shares
+├─ Comments (if enabled)
+└─ Newsletter signups
+
+Content Metrics:
+├─ Most viewed articles
+├─ Most shared articles
+├─ Category performance
+├─ Search queries
+├─ Exit pages
+└─ Entry pages
+
+Monetization Metrics:
+├─ Ad impressions
+├─ Ad clicks
+├─ Ad RPM (Revenue per 1000 impressions)
+├─ Affiliate clicks
+├─ Affiliate conversions
+├─ Signal platform signups
+└─ Total revenue
+```
+
+### Reporting System
+
+#### Daily Reports
+```
+Automated Daily Report:
+├─ Traffic summary
+│   ├─ Total page views
+│   ├─ Unique visitors
+│   ├─ Top pages
+│   └─ Traffic sources
+│
+├─ Content performance
+│   ├─ Top 10 articles
+│   ├─ New articles published
+│   └─ Engagement metrics
+│
+├─ Monetization
+│   ├─ Ad revenue
+│   ├─ Affiliate clicks
+│   └─ Signal platform signups
+│
+└─ Alerts
+    ├─ Traffic spikes
+    ├─ Error rates
+    └─ Performance issues
+```
+
+#### Weekly Reports
+```
+Weekly Summary:
+├─ Traffic trends
+│   ├─ Week-over-week comparison
+│   ├─ Growth percentage
+│   └─ Top traffic sources
+│
+├─ Content analysis
+│   ├─ Best performing articles
+│   ├─ Category breakdown
+│   ├─ Search performance
+│   └─ Social media impact
+│
+├─ Revenue analysis
+│   ├─ Total revenue
+│   ├─ Revenue by source
+│   ├─ Conversion rates
+│   └─ Trends
+│
+└─ Recommendations
+    ├─ Content opportunities
+    ├─ SEO improvements
+    └─ Monetization optimizations
+```
+
+#### Monthly Reports
+```
+Monthly Analysis:
+├─ Executive summary
+│   ├─ Key achievements
+│   ├─ Growth metrics
+│   └─ Revenue summary
+│
+├─ Traffic analysis
+│   ├─ Monthly visitors
+│   ├─ Growth trajectory
+│   ├─ Traffic sources breakdown
+│   └─ Geographic distribution
+│
+├─ Content performance
+│   ├─ Top 20 articles
+│   ├─ Category performance
+│   ├─ Content gaps
+│   └─ SEO rankings
+│
+├─ Monetization report
+│   ├─ Total revenue
+│   ├─ Revenue by channel
+│   ├─ Ad performance
+│   ├─ Affiliate performance
+│   └─ Signal platform performance
+│
+├─ User engagement
+│   ├─ Newsletter growth
+│   ├─ Social media followers
+│   ├─ Return visitor rate
+│   └─ Engagement depth
+│
+└─ Action items
+    ├─ Content strategy adjustments
+    ├─ SEO opportunities
+    ├─ Monetization improvements
+    └─ Technical optimizations
+```
+
+### Dashboard Interface
+
+#### Admin Analytics Dashboard
+```
+Dashboard Sections:
+├─ Overview
+│   ├─ Today's metrics (quick view)
+│   ├─ Traffic graph (last 7 days)
+│   ├─ Revenue summary
+│   └─ Top articles (today)
+│
+├─ Traffic Analysis
+│   ├─ Traffic over time (graph)
+│   ├─ Traffic sources (pie chart)
+│   ├─ Geographic map
+│   ├─ Device breakdown
+│   └─ Browser/OS data
+│
+├─ Content Performance
+│   ├─ Article performance table
+│   ├─ Category performance
+│   ├─ Search queries
+│   └─ Content gaps analysis
+│
+├─ Monetization
+│   ├─ Revenue chart
+│   ├─ Ad performance
+│   ├─ Affiliate performance
+│   └─ Conversion funnels
+│
+└─ Real-time Monitoring
+    ├─ Live visitors
+    ├─ Current page views
+    ├─ Active articles
+    └─ System health
+```
+
+### Custom Event Tracking
+
+#### Events to Track
+```
+User Actions:
+├─ Article view
+├─ Article share (by platform)
+├─ Newsletter signup
+├─ CTA click (signal platform)
+├─ Search query
+├─ Category filter
+├─ Related article click
+└─ External link click
+
+Content Events:
+├─ Article published
+├─ Article updated
+├─ Draft saved
+├─ Scheduled article
+└─ Article archived
+
+Monetization Events:
+├─ Ad impression
+├─ Ad click
+├─ Affiliate link click
+├─ Sponsored content view
+└─ Signal platform signup
+```
+
+#### Implementation
+```
+Tracking Code:
+├─ Google Analytics events
+├─ Custom event tracking
+├─ UTM parameters
+├─ Conversion goals
+└─ E-commerce tracking (for revenue)
+```
+
+---
+
+## Future Enhancements
+
+### Phase 1: Foundation (Months 1-3)
+```
+Priority Features:
+├─ ✓ Basic CMS
+├─ ✓ Research dashboard
+├─ ✓ Article publishing
+├─ ✓ Category pages
+├─ ✓ Search functionality
+├─ ✓ Basic SEO
+└─ ✓ Google AdSense integration
+```
+
+### Phase 2: Growth (Months 4-6)
+```
+Enhancement Features:
+├─ Advanced analytics dashboard
+├─ Email newsletter system
+├─ Social media auto-posting
+├─ Premium ad networks
+├─ Affiliate program setup
+├─ Content scheduling improvements
+└─ Performance optimizations
+```
+
+### Phase 3: Scale (Months 7-12)
+```
+Scaling Features:
+├─ Mobile app (iOS/Android)
+├─ Video content integration
+├─ Podcast section
+├─ User accounts (optional)
+├─ Comments system
+├─ Advanced personalization
+├─ AI content suggestions
+└─ Multi-language support
+```
+
+### Phase 4: Advanced (Year 2+)
+```
+Advanced Features:
+├─ AI-powered content generation assistance
+├─ Real-time market data integration
+├─ Interactive charts and tools
+├─ Premium subscription tier
+├─ White-label solutions
+├─ API access for partners
+├─ Advanced analytics and insights
+└─ Machine learning recommendations
+```
+
+### Technology Upgrades
+
+#### Performance Enhancements
+```
+Future Optimizations:
+├─ Edge computing (Cloudflare Workers)
+├─ Advanced caching strategies
+├─ Image CDN optimization
+├─ Progressive Web App (PWA)
+├─ Offline reading capability
+└─ Instant page loads
+```
+
+#### Feature Additions
+```
+New Capabilities:
+├─ Real-time collaboration (multiple editors)
+├─ Version control for articles
+├─ Advanced content scheduling
+├─ A/B testing for headlines
+├─ Automated content suggestions
+├─ Sentiment analysis for articles
+└─ Predictive analytics
+```
+
+### Business Model Evolution
+
+#### Revenue Diversification
+```
+Additional Revenue Streams:
+├─ Premium newsletter ($9.99/month)
+├─ Market alerts service ($4.99/month)
+├─ Premium content section
+├─ Sponsored webinars
+├─ Data products (API access)
+├─ White-label content licensing
+└─ Affiliate marketplace
+```
+
+#### Partnership Opportunities
+```
+Strategic Partnerships:
+├─ Financial data providers
+├─ Trading platforms
+├─ Educational platforms
+├─ Other news sites (content exchange)
+├─ Industry associations
+└─ Technology partners
+```
+
+---
+
+## Implementation Roadmap
+
+### Development Phases
+
+#### Phase 1: Setup & Infrastructure (Week 1-2)
+```
+Tasks:
+├─ Set up hosting (Vercel + Railway)
+├─ Set up databases (PostgreSQL + Redis)
+├─ Configure domain and SSL
+├─ Set up development environment
+├─ Initialize Git repository
+└─ Set up CI/CD pipeline
+```
+
+#### Phase 2: Core Backend (Week 3-5)
+```
+Tasks:
+├─ Build research aggregator service
+├─ Set up database schemas
+├─ Build API endpoints
+├─ Implement authentication
+├─ Set up CMS backend
+└─ Create admin panel structure
+```
+
+#### Phase 3: Research Dashboard (Week 6-7)
+```
+Tasks:
+├─ Build research dashboard UI
+├─ Implement search functionality
+├─ Add filtering and sorting
+├─ Create saved research system
+├─ Add notes functionality
+└─ Integrate with research aggregator
+```
+
+#### Phase 4: Content Management (Week 8-10)
+```
+Tasks:
+├─ Build content editor
+├─ Implement rich text editor
+├─ Add media library
+├─ Create SEO tools
+├─ Build publishing system
+└─ Add scheduling functionality
+```
+
+#### Phase 5: Public Frontend (Week 11-14)
+```
+Tasks:
+├─ Build homepage
+├─ Create article pages
+├─ Build category pages
+├─ Implement search
+├─ Add responsive design
+├─ Optimize performance
+└─ Add SEO elements
+```
+
+#### Phase 6: Integration & Testing (Week 15-16)
+```
+Tasks:
+├─ Integrate Google AdSense
+├─ Add signal platform CTAs
+├─ Set up analytics
+├─ Implement newsletter signup
+├─ Add social sharing
+├─ Performance testing
+├─ Security audit
+└─ User acceptance testing
+```
+
+#### Phase 7: Launch Preparation (Week 17-18)
+```
+Tasks:
+├─ Content migration (if needed)
+├─ Final testing
+├─ SEO optimization
+├─ Set up monitoring
+├─ Create backup procedures
+├─ Prepare launch content (10-20 articles)
+└─ Launch!
+```
+
+### Post-Launch (Ongoing)
+
+#### Week 1-4 After Launch
+```
+Focus Areas:
+├─ Monitor performance
+├─ Fix bugs
+├─ Gather user feedback
+├─ Optimize based on data
+├─ Publish daily content
+└─ Build social media presence
+```
+
+#### Month 2-3
+```
+Focus Areas:
+├─ Scale content production
+├─ Improve SEO rankings
+├─ Optimize monetization
+├─ Build email list
+├─ Expand social media
+└─ Analyze and iterate
+```
+
+---
+
+## Maintenance & Operations
+
+### Daily Tasks
+```
+Editorial Team:
+├─ Check research dashboard (morning)
+├─ Write 3-5 articles
+├─ Publish articles
+├─ Monitor social media
+└─ Review analytics
+
+Technical:
+├─ Monitor system health
+├─ Check for errors
+├─ Review performance metrics
+└─ Backup verification
+```
+
+### Weekly Tasks
+```
+Editorial:
+├─ Content planning meeting
+├─ Review week's performance
+├─ Plan next week's content
+└─ Update content calendar
+
+Technical:
+├─ Security updates
+├─ Performance optimization
+├─ Database maintenance
+└─ Backup testing
+```
+
+### Monthly Tasks
+```
+Editorial:
+├─ Monthly content review
+├─ SEO analysis
+├─ Content gap analysis
+└─ Strategy adjustments
+
+Technical:
+├─ Full system backup
+├─ Security audit
+├─ Performance review
+├─ Infrastructure scaling (if needed)
+└─ Technology updates
+```
+
+### Quarterly Tasks
+```
+Business:
+├─ Revenue analysis
+├─ Growth planning
+├─ Partnership reviews
+├─ Feature roadmap updates
+└─ Strategic planning
+
+Technical:
+├─ Major updates
+├─ Architecture review
+├─ Scalability assessment
+└─ Technology stack evaluation
+```
+
+---
+
+## Troubleshooting Guide
+
+### Common Issues & Solutions
+
+#### Research Aggregator Issues
+```
+Problem: Not fetching articles
+Solution:
+├─ Check source URLs
+├─ Verify API keys
+├─ Check network connectivity
+├─ Review error logs
+└─ Test individual sources
+
+Problem: Duplicate articles
+Solution:
+├─ Improve duplicate detection
+├─ Check source URLs
+├─ Review processing logic
+└─ Add manual deduplication
+```
+
+#### CMS Issues
+```
+Problem: Can't save articles
+Solution:
+├─ Check database connection
+├─ Verify permissions
+├─ Check file upload limits
+├─ Review error logs
+└─ Clear cache
+
+Problem: Images not uploading
+Solution:
+├─ Check file size limits
+├─ Verify file permissions
+├─ Check storage space
+└─ Review image format support
+```
+
+#### Frontend Issues
+```
+Problem: Slow page loads
+Solution:
+├─ Optimize images
+├─ Enable caching
+├─ Review database queries
+├─ Check CDN configuration
+└─ Minimize JavaScript
+
+Problem: Articles not displaying
+Solution:
+├─ Check API endpoints
+├─ Verify database queries
+├─ Check cache settings
+├─ Review error logs
+└─ Test API directly
+```
+
+#### Monetization Issues
+```
+Problem: Ads not showing
+Solution:
+├─ Verify AdSense code
+├─ Check ad placement
+├─ Review ad policies
+├─ Check ad blockers
+└─ Test in incognito mode
+
+Problem: Low ad revenue
+Solution:
+├─ Optimize ad placement
+├─ Increase traffic
+├─ Improve content quality
+├─ Consider premium networks
+└─ A/B test ad positions
+```
+
+---
+
+## Glossary
+
+### Technical Terms
+```
+API (Application Programming Interface):
+A set of protocols for building software applications.
+
+CDN (Content Delivery Network):
+A network of servers that deliver content based on geographic location.
+
+CMS (Content Management System):
+Software that allows users to create, manage, and modify content.
+
+RSS (Really Simple Syndication):
+A web feed that allows users to access updates to websites.
+
+SSR (Server-Side Rendering):
+Rendering web pages on the server before sending to client.
+
+SSG (Static Site Generation):
+Pre-rendering pages at build time.
+
+SEO (Search Engine Optimization):
+The practice of increasing website visibility in search results.
+```
+
+### Business Terms
+```
+RPM (Revenue Per 1000 Impressions):
+The amount of money earned per 1000 ad impressions.
+
+CTR (Click-Through Rate):
+The percentage of users who click on a link or ad.
+
+CTA (Call to Action):
+A prompt that encourages users to take a specific action.
+
+Conversion Rate:
+The percentage of visitors who complete a desired action.
+
+Bounce Rate:
+The percentage of visitors who leave after viewing one page.
+```
+
+---
+
+## Conclusion
+
+This documentation provides a comprehensive guide for building and operating a finance news platform. The system is designed to:
+
+1. **Efficiently gather research** from multiple sources
+2. **Enable original content creation** with research support
+3. **Publish high-quality articles** that are user-friendly
+4. **Monetize effectively** through multiple revenue streams
+5. **Scale sustainably** as the business grows
+
+### Key Success Factors
+
+1. **Consistent Content**: Publish regularly (3-5 articles daily)
+2. **Quality Over Quantity**: Focus on well-researched, original content
+3. **User Experience**: Fast, clean, easy-to-navigate site
+4. **SEO Focus**: Optimize for search engines from day one
+5. **Monetization Balance**: Ads without sacrificing UX
+6. **Data-Driven Decisions**: Use analytics to guide strategy
+7. **Continuous Improvement**: Iterate based on performance
+
+### Next Steps
+
+1. Review this documentation with your team
+2. Choose technology stack based on your needs
+3. Set up development environment
+4. Begin Phase 1 implementation
+5. Launch MVP with 20-30 articles
+6. Iterate and improve based on feedback
+
+---
+
+## Appendix
+
+### A. Recommended Tools & Services
+
+#### Development Tools
+```
+Code Editor: VS Code
+Version Control: Git + GitHub
+Project Management: Notion, Trello, or Jira
+Design: Figma, Adobe XD
+Communication: Slack, Discord
+```
+
+#### Hosting & Infrastructure
+```
+Frontend: Vercel, Netlify
+Backend: Railway, Render, DigitalOcean
+Database: Supabase, PlanetScale, or self-hosted PostgreSQL
+CDN: Cloudflare
+File Storage: Cloudinary, AWS S3
+```
+
+#### Services
+```
+Analytics: Google Analytics, Plausible
+Email: ConvertKit, Mailchimp, SendGrid
+Monitoring: Sentry, Uptime Robot
+SEO: Ahrefs, SEMrush, Google Search Console
+```
+
+### B. Sample Content Calendar
+
+```
+Monday:
+├─ Morning: Market opening analysis
+├─ Afternoon: Weekly crypto roundup
+└─ Evening: Investment bank news
+
+Tuesday:
+├─ Morning: Forex market update
+├─ Afternoon: Stock market analysis
+└─ Evening: Trade deal news
+
+Wednesday:
+├─ Morning: Educational article
+├─ Afternoon: Breaking news
+└─ Evening: Market analysis
+
+Thursday:
+├─ Morning: Crypto deep dive
+├─ Afternoon: Stock picks analysis
+└─ Evening: Weekly summary
+
+Friday:
+├─ Morning: Weekend market preview
+├─ Afternoon: Investment strategies
+└─ Evening: Weekly recap
+```
+
+### C. Content Templates
+
+#### Breaking News Template
+```
+[HEADLINE: Urgent, Clear]
+[SUBHEADLINE: What happened in simple terms]
+
+TL;DR:
+• [Key point 1]
+• [Key point 2]
+• [Key point 3]
+
+[INTRODUCTION: Context in 2-3 sentences]
+
+[WHAT HAPPENED: Main event in 3-4 paragraphs]
+
+[WHY IT MATTERS: Analysis in 2-3 paragraphs]
+
+[WHAT'S NEXT: Future implications in 2-3 paragraphs]
+
+[RELATED ARTICLES: 3-4 links]
+```
+
+#### Analysis Template
+```
+[HEADLINE: Insightful, Keyword-rich]
+[SUBHEADLINE: Key takeaway]
+
+[INTRODUCTION: Hook reader in 2-3 sentences]
+
+[CURRENT SITUATION: Context in 3-4 paragraphs]
+
+[DEEP ANALYSIS: Main content in 5-7 paragraphs]
+
+Key Factors:
+• [Factor 1]
+• [Factor 2]
+• [Factor 3]
+
+[MARKET IMPLICATIONS: 2-3 paragraphs]
+
+[CONCLUSION: Summary and takeaways]
+
+[RELATED ARTICLES: 3-4 links]
+```
+
+### D. API Documentation Reference
+
+#### Research API Endpoints
+```
+GET /api/research/articles
+Query params: source, category, date, search
+Returns: List of research articles
+
+GET /api/research/articles/:id
+Returns: Single research article
+
+POST /api/research/articles/:id/save
+Saves article for research
+Requires: Authentication
+```
+
+#### Content API Endpoints
+```
+GET /api/articles
+Query params: page, limit, category, search, sort
+Returns: List of published articles
+
+GET /api/articles/:slug
+Returns: Single article
+
+GET /api/categories
+Returns: All categories with article counts
+
+GET /api/search?q=query
+Returns: Search results
+```
+
+### E. Database Schema Reference
+
+#### Articles Table
+```sql
+CREATE TABLE articles (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) UNIQUE NOT NULL,
+  content TEXT NOT NULL,
+  excerpt TEXT,
+  category VARCHAR(50),
+  tags TEXT[],
+  featured_image VARCHAR(255),
+  author_id INTEGER,
+  status VARCHAR(20) DEFAULT 'draft',
+  published_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW(),
+  meta_title VARCHAR(255),
+  meta_description TEXT,
+  seo_keywords TEXT[]
+);
+```
+
+#### Research Articles Table
+```sql
+CREATE TABLE research_articles (
+  id SERIAL PRIMARY KEY,
+  source VARCHAR(100) NOT NULL,
+  source_url VARCHAR(500) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  summary TEXT,
+  category VARCHAR(50),
+  tags TEXT[],
+  published_date TIMESTAMP,
+  collected_date TIMESTAMP DEFAULT NOW(),
+  status VARCHAR(20) DEFAULT 'research',
+  key_points JSONB,
+  sentiment VARCHAR(20)
+);
+```
+
+---
+
+**Document Version**: 1.0  
+**Last Updated**: [Current Date]  
+**Maintained By**: Development Team  
+**Next Review**: Quarterly
+
+---
+
+*This documentation is a living document and should be updated as the system evolves.*
