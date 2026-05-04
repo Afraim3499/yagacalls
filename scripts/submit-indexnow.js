@@ -4,7 +4,7 @@ const path = require('path');
 
 // Configuration
 const HOST = 'https://www.yagacalls.com';
-const KEY = 'yagacalls_indexnow_7f7b4c74';
+const KEY = 'yagacalls-indexnow-7f7b4c74';
 const KEY_LOCATION = `${HOST}/${KEY}.txt`;
 const INDEXNOW_URL = 'https://api.indexnow.org/IndexNow';
 

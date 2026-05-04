@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     icon: "/yaga_calls_favicon.jpg",
     apple: "/yaga_calls_favicon.jpg",
   },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 import JsonLd from "@/components/seo/JsonLd";
