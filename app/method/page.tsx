@@ -4,58 +4,51 @@ import GlowCard from "@/components/shared/GlowCard";
 import CTAButton from "@/components/shared/CTAButton";
 import SignalCheck from "@/components/shared/SignalCheck";
 import { ShieldCheck, BarChart3, Search, Zap, TrendingUp, X } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
+import AnswerBox from "@/components/seo/AnswerBox";
+import KeyTakeaways from "@/components/seo/KeyTakeaways";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata = {
   title: "Yaga Calls Method | Crypto Signals With Risk Management",
   description: "Learn how Yaga Calls approaches crypto market narratives, entries, targets, stop loss planning, and risk-managed signal ideas.",
 };
 
-const stages = [
-  {
-    id: "01",
-    title: "Deep Market Research",
-    icon: <Search className="w-6 h-6" />,
-    desc: "We monitor 50+ data sources daily including on-chain metrics, news sentiment, technical patterns, and macro indicators.",
-    points: ["Whale movements & accumulation", "Global macro & regulation", "L1/L2 ecosystem health"],
-    outcome: "Opportunity Identification"
-  },
-  {
-    id: "02",
-    title: "Narrative Analysis",
-    icon: <BarChart3 className="w-6 h-6" />,
-    desc: "We separate hype from fundamentals. If the data doesn't align with the story, we wait.",
-    points: ["Sentiment disconnect mapping", "Fundamental health check", "Risk/Reward projection"],
-    outcome: "Signal Validation"
-  },
-  {
-    id: "03",
-    title: "Entry/Exit Precision",
-    icon: <Zap className="w-6 h-6" />,
-    desc: "We define high-probability zones with strict stop-loss and tiered take-profit targets.",
-    points: ["Technical alignment zones", "8-12% average stop-loss", "1-2% position sizing strictly enforced"],
-    outcome: "Trade Setup Complete"
-  },
-  {
-    id: "04",
-    title: "Monitoring & Adjustment",
-    icon: <TrendingUp className="w-6 h-6" />,
-    desc: "Our work doesn't end at the signal. We track every setup until final exit.",
-    points: ["Trailing stop adjustments", "Market condition shifts", "Thesis verification"],
-    outcome: "Continuous Optimization"
-  }
-];
 
 export default function MethodPage() {
+  const webPageSchema = createWebPageSchema({
+    title: "Yaga Calls Method | Crypto Signals With Risk Management",
+    description: "Learn how Yaga Calls approaches crypto market narratives, entries, targets, and risk-managed signal ideas.",
+    url: "https://yagacalls.com/method"
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Methodology', item: '/method' }
+  ]);
+
   return (
     <>
+      <JsonLd data={webPageSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Section className="bg-surface/30 pt-16 md:pt-24">
         <Container className="text-center max-w-4xl">
+          <Breadcrumbs items={[{ label: 'Methodology', href: '/method' }]} />
           <h1 className="text-4xl md:text-7xl font-black mb-8 leading-none tracking-tighter uppercase">
             The Yaga Calls Method: <span className="text-primary">Narrative, Timing, and Risk</span>
           </h1>
           <p className="text-xl text-text-muted leading-relaxed max-w-3xl mx-auto">
             We do not chase random pumps. Our process looks for market narratives, technical structure, liquidity behavior, and risk-managed entries before sharing a setup.
           </p>
+
+          <AnswerBox answer="The Yaga Calls method, or 'Narrative Killer,' is a systematic approach to crypto signals that combines deep narrative research with technical validation and strict 1-2% position sizing to ensure sustainable trading." />
+          
+          <KeyTakeaways items={[
+            'Sector and catalyst-driven market scanning',
+            'Precise entry, target, and invalidation parameters',
+            'Mandatory 1-2% risk per setup rule',
+            'Continuous monitoring and Telegram updates'
+          ]} />
         </Container>
       </Section>
 

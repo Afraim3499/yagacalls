@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.yagacalls.com"),
   title: {
     default: "Yaga Calls | Professional Crypto Signals & Market Analysis",
     template: "%s | Yaga Calls",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://yagacalls.com",
+    url: "https://www.yagacalls.com",
     siteName: "Yaga Calls",
     images: [{ url: "/yaga_calls_logo.png", width: 1200, height: 630, alt: "Yaga Calls" }],
   },
@@ -32,14 +33,22 @@ export const metadata: Metadata = {
   },
 };
 
+import JsonLd from "@/components/seo/JsonLd";
+import { createOrganizationSchema, createWebsiteSchema } from "@/lib/schema";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = createOrganizationSchema();
+  const websiteSchema = createWebsiteSchema();
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-background text-foreground`}>
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         <Header />
         <main className="flex-grow pt-[80px]">
           {children}

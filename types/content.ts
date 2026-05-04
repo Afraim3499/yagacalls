@@ -98,3 +98,40 @@ export interface NewsItem {
   link: string;
   sentiment?: 'bullish' | 'bearish' | 'neutral';
 }
+
+export interface LandingPageData {
+  slug: string;
+  title: string;
+  displayTitle: string;
+  metaTitle: string;
+  metaDescription: string;
+  primaryKeyword: string;
+  secondaryKeywords: string[];
+  longTailKeywords: string[];
+  targetPersona: string;
+  introSummary: string;
+  answerFirstBlock: string;
+  marketContext?: string; // Moved to base to support all landing pages
+  contentSections: {
+    title: string;
+    content: string;
+  }[];
+  faqs: FAQItem[];
+  riskDisclaimer: string;
+  ctaPrimary: CTA;
+  ctaSecondary: CTA;
+  internalLinks: { label: string; href: string }[];
+  lastReviewed?: string;
+  schemaType?: string;
+}
+
+export interface RegionalPageData extends LandingPageData {
+  regionName: string;
+  tradingTimezoneContext: string;
+  userPainPoints: string[];
+  yagaCallsPositioning: string;
+  freeTelegramValue: string;
+  premiumAccessValue: string;
+  manualOnboardingCopy: string;
+  relatedRegions: string[]; // slugs
+}

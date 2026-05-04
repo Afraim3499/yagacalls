@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
+import { regionalPages } from '../content/data/regions';
+import { commercialPages } from '../content/data/commercial';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://yagacalls.com';
+  const baseUrl = 'https://www.yagacalls.com';
   const lastModified = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -19,11 +21,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/disclaimer',
     '/privacy',
     '/risk-disclosure',
+    '/regions',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,
     changeFrequency: 'daily' as const,
     priority: route === '' ? 1 : 0.8,
+  }));
+
+  // Add regional pages
+  const regionalRoutes: MetadataRoute.Sitemap = regionalPages.map((page) => ({
+    url: `${baseUrl}/regions/${page.slug}`,
+    lastModified,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  // Add commercial landing pages
+  const commercialRoutes: MetadataRoute.Sitemap = commercialPages.map((page) => ({
+    url: `${baseUrl}/${page.slug}`,
+    lastModified,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
   }));
 
   // Add dynamic blog posts if data exists
@@ -56,5 +75,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     console.error('Sitemap academy error:', error);
   }
 
-  return [...staticRoutes, ...blogRoutes, ...academyRoutes];
+  return [...staticRoutes, ...blogRoutes, ...academyRoutes, ...regionalRoutes, ...commercialRoutes];
 }

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://yagacalls.com/sitemap.xml',
+    sitemap: 'https://www.yagacalls.com/sitemap.xml',
   };
 }

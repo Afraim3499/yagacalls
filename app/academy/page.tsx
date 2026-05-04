@@ -59,9 +59,12 @@ export default function AcademyPage() {
             <p className="text-text-muted mb-8 max-w-xl mx-auto">
               Our Premium members get direct access to our analysts for setup reviews and deeper strategy discussions.
             </p>
-            <a href="/pricing" className="grad-button text-background px-8 py-3 rounded-xl font-bold">
-              Upgrade to Premium
-            </a>
+            <Link 
+              href="/pricing"
+              className="px-8 py-4 bg-amber-500 hover:bg-amber-600 text-black font-bold uppercase tracking-widest text-sm transition-all"
+            >
+              Get Premium Signals
+            </Link>
           </div>
         </Container>
       </Section>

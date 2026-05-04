@@ -6,6 +6,10 @@ import Section from "@/components/shared/Section";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, ArrowLeft } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+import { createBlogPostingSchema, createBreadcrumbSchema } from "@/lib/schema";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import KeyTakeaways from "@/components/seo/KeyTakeaways";
 
 interface BlogPost {
   slug: string;
@@ -40,13 +44,29 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     notFound();
   }
 
+  const pageUrl = `https://yagacalls.com/blog/${slug}`;
+  const blogSchema = createBlogPostingSchema({
+    title: post.title,
+    description: post.summary,
+    url: pageUrl,
+    datePublished: post.date,
+    image: post.image ? `https://yagacalls.com${post.image}` : undefined
+  });
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Blog', item: '/blog' },
+    { name: post.title, item: `/blog/${slug}` }
+  ]);
+
   return (
     <article>
+      <JsonLd data={blogSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Section className="bg-surface/30 pt-24 pb-12">
         <Container className="max-w-3xl">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" /> Back to Insights
-          </Link>
+          <Breadcrumbs items={[
+            { label: 'Blog', href: '/blog' },
+            { label: post.title, href: `/blog/${slug}` }
+          ]} />
           <div className="text-[10px] font-black uppercase bg-primary/10 text-primary px-2 py-1 rounded inline-block mb-4">
             {post.category}
           </div>
@@ -83,6 +103,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <h3 className="font-bold mb-4 uppercase tracking-wider text-sm">Executive Summary</h3>
             <p className="text-text-muted leading-relaxed italic">{post.summary}</p>
           </div>
+
+          <KeyTakeaways items={[
+            'Detailed market narrative analysis',
+            'Risk-managed trading setup context',
+            'Strategic entry and exit considerations',
+            'Historical comparison and track record'
+          ]} />
           
           <div 
             className="prose prose-invert prose-amber max-w-none 

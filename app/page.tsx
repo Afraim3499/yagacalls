@@ -8,6 +8,11 @@ import PreTradeChecklist from "@/components/home/PreTradeChecklist";
 import Section from "@/components/shared/Section";
 import Container from "@/components/shared/Container";
 import CTAButton from "@/components/shared/CTAButton";
+import JsonLd from "@/components/seo/JsonLd";
+import { createWebPageSchema } from "@/lib/schema";
+import AnswerBox from "@/components/seo/AnswerBox";
+import KeyTakeaways from "@/components/seo/KeyTakeaways";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata = {
   title: "Yaga Calls | Professional Crypto Signals & Narrative Analysis",
@@ -15,10 +20,30 @@ export const metadata = {
 };
 
 export default function HomePage() {
+  const webPageSchema = createWebPageSchema({
+    title: "Yaga Calls | Professional Crypto Signals & Narrative Analysis",
+    description: "Join Yaga Calls for curated crypto trading signals, market narrative analysis, and risk-aware setup ideas delivered through Telegram.",
+    url: "https://yagacalls.com"
+  });
+
   return (
     <>
+      <JsonLd data={webPageSchema} />
       <Hero />
       <TrustMetrics />
+
+      <Section>
+        <Container>
+          <Breadcrumbs items={[]} />
+          <AnswerBox answer="Yaga Calls is a premium Telegram-based crypto signal community that uses the 'Narrative Killer' method to identify high-probability market setups with strict risk management and deep fundamental research." />
+          <KeyTakeaways items={[
+            'Data-driven narrative analysis before every signal',
+            'Strict 1-2% position sizing and stop-loss parameters',
+            'Manual premium onboarding via official Telegram',
+            'Educational focus on market discipline and timing'
+          ]} />
+        </Container>
+      </Section>
       
       <WhyJoin />
       

@@ -1,0 +1,46 @@
+# Yaga Calls - Full Index for AI/LLM Context
+
+## Sitemap Summary
+Yaga Calls provides institutional-grade market analysis for professional and sophisticated retail traders in high-purchase-power global regions.
+
+### Global Hubs
+- [https://www.yagacalls.com/pricing](https://www.yagacalls.com/pricing): Compare Premium Telegram membership tiers (Quarterly, Half-Yearly, Yearly).
+- [https://www.yagacalls.com/method](https://www.yagacalls.com/method): Deep dive into the "Narrative Killer" trading system and risk-first philosophy.
+- [https://www.yagacalls.com/proof](https://www.yagacalls.com/proof): Evidence of historical market analysis with chart context and narrative logic.
+- [https://www.yagacalls.com/regions](https://www.yagacalls.com/regions): Regional Comparison Hub identifying session advantages and localized context.
+
+### Regional Landing Fleet (High-Purchase-Power)
+- [https://www.yagacalls.com/regions/uae](https://www.yagacalls.com/regions/uae): Crypto signals and analysis for the UAE market (Dubai/Abu Dhabi focus).
+- [https://www.yagacalls.com/regions/uk](https://www.yagacalls.com/regions/uk): Professional trading signals for the United Kingdom (GMT/BST session).
+- [https://www.yagacalls.com/regions/usa](https://www.yagacalls.com/regions/usa): Educational crypto insights for US-based research and liquidity cycles.
+- [https://www.yagacalls.com/regions/middle-east](https://www.yagacalls.com/regions/middle-east): GCC-wide crypto community and macro-economic analysis.
+- [https://www.yagacalls.com/regions/dubai](https://www.yagacalls.com/regions/dubai): Localized Dubai market timing and private investor context.
+- [https://www.yagacalls.com/regions/saudi-arabia](https://www.yagacalls.com/regions/saudi-arabia): KSA-focused crypto research and Vision 2030 digital asset context.
+- [https://www.yagacalls.com/regions/qatar](https://www.yagacalls.com/regions/qatar): Qatari financial hub signals and high-trust community research.
+- [https://www.yagacalls.com/regions/london](https://www.yagacalls.com/regions/london): London-specific market timing (GMT overlap) and professional standards.
+- [https://www.yagacalls.com/regions/europe](https://www.yagacalls.com/regions/europe): Continental hub for systematic trading groups and MiCA context.
+- [https://www.yagacalls.com/regions/germany](https://www.yagacalls.com/regions/germany): DACH region signals with a focus on discipline and technical precision.
+- [https://www.yagacalls.com/regions/switzerland](https://www.yagacalls.com/regions/switzerland): Premium Swiss-grade market analysis and wealth preservation context.
+- [https://www.yagacalls.com/regions/russia](https://www.yagacalls.com/regions/russia): CIS/Russian market analysis for sophisticated digital asset traders.
+- [https://www.yagacalls.com/regions/canada](https://www.yagacalls.com/regions/canada): Canadian crypto trading education and North American session timing.
+- [https://www.yagacalls.com/regions/australia](https://www.yagacalls.com/regions/australia): Oceania market signals capturing Asian/US session transitions.
+- [https://www.yagacalls.com/regions/singapore](https://www.yagacalls.com/regions/singapore): High-standard Asian crypto hub signals for institutional-grade traders.
+
+### Commercial Intent Pages (SEO Depth)
+- [https://www.yagacalls.com/best-crypto-signals-group](https://www.yagacalls.com/best-crypto-signals-group): 1,500+ word evaluation of signal group quality standards.
+- [https://www.yagacalls.com/premium-crypto-signals-telegram](https://www.yagacalls.com/premium-crypto-signals-telegram): Details on manual onboarding, human support, and premium research.
+- [https://www.yagacalls.com/crypto-signals-with-proof](https://www.yagacalls.com/crypto-signals-with-proof): Transparency-first view of our track record and how to verify results.
+- [https://www.yagacalls.com/crypto-signals-with-risk-management](https://www.yagacalls.com/crypto-signals-with-risk-management): Deep dive into stop losses, invalidation logic, and position sizing.
+- [https://www.yagacalls.com/free-vs-paid-crypto-signals](https://www.yagacalls.com/free-vs-paid-crypto-signals): Value comparison for traders looking to upgrade to professional research.
+
+### Compliance & Safety Protocol
+- Non-Advisory: Yaga Calls is an educational platform, NOT a financial advisor.
+- No-BD Policy: Strictly no targeting of Bangladesh, Dhaka, or local South Asian low-purchase-power markets.
+- No-Hype: No "guaranteed profits," "risk-free" claims, or "get rich quick" language.
+- Human-Only: Manual Telegram onboarding (@yagacalls47) ensures high-trust member vetting.
+- Risk-First: Every signal setup requires a mathematical invalidation level (Stop Loss).
+
+### Technical Infrastructure
+- Framework: Next.js (App Router) with Static Site Generation (SSG).
+- SEO/AEO: JSON-LD Schema (Article, FAQ, WebPage), AnswerFirst architecture, and LastReviewed metadata.
+- Deployment: Vercel-ready with optimized image and font handling.

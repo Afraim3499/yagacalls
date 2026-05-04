@@ -3,6 +3,10 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import GlowCard from "@/components/shared/GlowCard";
 import { BookOpen, Clock } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+import { createWebPageSchema, createItemListSchema, createBreadcrumbSchema } from "@/lib/schema";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import AnswerBox from "@/components/seo/AnswerBox";
 
 export const metadata = {
   title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
@@ -24,8 +28,25 @@ export default function BlogPage() {
   const jsonData = fs.readFileSync(filePath, "utf-8");
   const posts: BlogPost[] = JSON.parse(jsonData);
 
+  const webPageSchema = createWebPageSchema({
+    title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
+    description: "Read crypto trading guides, market analysis, and educational articles about Telegram crypto signals.",
+    url: "https://yagacalls.com/blog"
+  });
+
+  const itemListSchema = createItemListSchema(
+    posts.map(p => ({ name: p.title, url: `/blog/${p.slug}` }))
+  );
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Blog', item: '/blog' }
+  ]);
+
   return (
     <>
+      <JsonLd data={webPageSchema} />
+      <JsonLd data={itemListSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Section className="bg-surface/30">
         <Container className="text-center max-w-3xl">
           <BookOpen className="w-16 h-16 text-primary mx-auto mb-6 opacity-50" />
@@ -33,6 +54,11 @@ export default function BlogPage() {
           <p className="text-lg text-text-muted">
             Deep-dives into market cycles, risk management frameworks, and real-world trading case studies.
           </p>
+
+          <div className="mt-10 text-left">
+            <Breadcrumbs items={[{ label: 'Blog', href: '/blog' }]} />
+            <AnswerBox answer="The Yaga Calls blog provides in-depth crypto market analysis, trading guides, and narrative research to help members understand the logic behind high-probability signal generation." />
+          </div>
         </Container>
       </Section>
  

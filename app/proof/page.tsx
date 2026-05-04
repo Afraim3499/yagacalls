@@ -3,6 +3,11 @@ import Section from "@/components/shared/Section";
 import GlowCard from "@/components/shared/GlowCard";
 import CTAButton from "@/components/shared/CTAButton";
 import Image from "next/image";
+import JsonLd from "@/components/seo/JsonLd";
+import { createWebPageSchema, createBreadcrumbSchema, createImageObjectSchema } from "@/lib/schema";
+import AnswerBox from "@/components/seo/AnswerBox";
+import KeyTakeaways from "@/components/seo/KeyTakeaways";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata = {
   title: "Yaga Calls Proof | Selected Crypto Signal Examples",
@@ -19,14 +24,42 @@ const proofImages = [
 ];
 
 export default function ProofPage() {
+  const webPageSchema = createWebPageSchema({
+    title: "Yaga Calls Proof | Selected Crypto Signal Examples",
+    description: "View selected historical examples of Yaga Calls crypto signal setups with context, dates, and risk disclaimers.",
+    url: "https://yagacalls.com/proof"
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Proof', item: '/proof' }
+  ]);
+
+  const imageSchemas = proofImages.map(img => createImageObjectSchema({
+    url: `https://yagacalls.com${img.src}`,
+    caption: `${img.label} Setup - ${img.date}`
+  }));
+
   return (
     <>
+      <JsonLd data={webPageSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={imageSchemas} />
       <Section className="bg-surface/30 pt-16 md:pt-24">
         <Container className="text-center max-w-4xl">
+          <Breadcrumbs items={[{ label: 'Proof', href: '/proof' }]} />
           <h1 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter">Selected Crypto Signal Examples & Track Record</h1>
           <p className="text-lg text-text-muted leading-relaxed">
             These are selected historical snapshots shared for transparency and education. They do not guarantee future results. Full context and ongoing updates are pinned in our public community group. Crypto trading involves risk of loss.
           </p>
+
+          <AnswerBox answer="Yaga Calls provides selected historical evidence of our market analysis and signals, demonstrating our 'Narrative Killer' method in action. We share these for transparency, emphasizing that past performance is never a guarantee of future results." />
+          
+          <KeyTakeaways items={[
+            'Historical setups with entry and target context',
+            'Transparency across various crypto narratives',
+            'Evidence-based signal generation education',
+            'Live results frequently updated in our Telegram'
+          ]} />
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <CTAButton href="https://t.me/yagacalls" target="_blank" trackingLabel="proof_join_free">
               See Live Proof in Group

@@ -5,6 +5,9 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import Link from "next/link";
 import { ArrowLeft, BookOpen } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+import { createCourseSchema, createBreadcrumbSchema } from "@/lib/schema";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 interface AcademyModule {
   slug: string;
@@ -36,13 +39,27 @@ export default async function AcademyModulePage({ params }: { params: { slug: st
     notFound();
   }
 
+  const pageUrl = `https://yagacalls.com/academy/${slug}`;
+  const courseSchema = createCourseSchema({
+    name: mod.title,
+    description: mod.description,
+    url: pageUrl
+  });
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: 'Academy', item: '/academy' },
+    { name: mod.title, item: `/academy/${slug}` }
+  ]);
+
   return (
     <article>
+      <JsonLd data={courseSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Section className="bg-surface/30 pt-24 pb-12">
         <Container className="max-w-3xl">
-          <Link href="/academy" className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-primary transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" /> Back to Academy
-          </Link>
+          <Breadcrumbs items={[
+            { label: 'Academy', href: '/academy' },
+            { label: mod.title, href: `/academy/${slug}` }
+          ]} />
           <div className="text-[10px] font-black uppercase bg-primary/10 text-primary px-2 py-1 rounded inline-block mb-4">
             {mod.category}
           </div>
