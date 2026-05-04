@@ -12,6 +12,9 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata = {
   title: "Yaga Calls Pricing | Premium Crypto Signals Access",
   description: "Compare Yaga Calls premium crypto signals plans and message us on Telegram for manual onboarding and payment instructions.",
+  alternates: {
+    canonical: "/pricing",
+  },
 };
 
 export default function PricingPage() {

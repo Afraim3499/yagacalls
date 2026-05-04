@@ -13,6 +13,9 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata = {
   title: "Yaga Calls Method | Crypto Signals With Risk Management",
   description: "Learn how Yaga Calls approaches crypto market narratives, entries, targets, stop loss planning, and risk-managed signal ideas.",
+  alternates: {
+    canonical: "/method",
+  },
 };
 
 

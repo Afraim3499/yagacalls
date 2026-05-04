@@ -12,6 +12,9 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata = {
   title: "Yaga Calls Proof | Selected Crypto Signal Examples",
   description: "View selected historical examples of Yaga Calls crypto signal setups with context, dates, and risk disclaimers.",
+  alternates: {
+    canonical: "/proof",
+  },
 };
 
 const proofImages = [
