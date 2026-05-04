@@ -27,7 +27,7 @@ export default function PricingPage() {
   const webPageSchema = createWebPageSchema({
     title: "Yaga Calls Pricing | Premium Crypto Signals Access",
     description: "Compare Yaga Calls premium crypto signals plans and message us on Telegram for manual onboarding.",
-    url: "https://yagacalls.com/pricing"
+    url: "https://www.yagacalls.com/pricing"
   });
 
   const faqSchema = createFAQSchema(faqs.map(f => ({ question: f.q, answer: f.a })));

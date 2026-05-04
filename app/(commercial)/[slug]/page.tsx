@@ -29,12 +29,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: page.metaTitle,
     description: page.metaDescription,
     alternates: {
-      canonical: `https://yagacalls.com/${slug}`
+      canonical: `https://www.yagacalls.com/${slug}`
     },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      url: `https://yagacalls.com/${slug}`,
+      url: `https://www.yagacalls.com/${slug}`,
       type: 'article'
     }
   };
@@ -54,7 +54,7 @@ export default async function CommercialLandingPage({ params }: PageProps) {
     notFound();
   }
 
-  const pageUrl = `https://yagacalls.com/${slug}`;
+  const pageUrl = `https://www.yagacalls.com/${slug}`;
   const articleSchema = createArticleSchema({
     title: page.metaTitle,
     description: page.metaDescription,

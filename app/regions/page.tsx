@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Global Crypto Signal Regions | Yaga Calls",
   description: "Explore Yaga Calls' regional market analysis and Telegram crypto signal communities for high-purchase-power markets across the globe.",
   alternates: {
-    canonical: 'https://yagacalls.com/regions'
+    canonical: 'https://www.yagacalls.com/regions'
   }
 };
 
@@ -37,7 +37,7 @@ export default function RegionsHubPage() {
   const webPageSchema = createWebPageSchema({
     title: "Global Crypto Signal Regions | Yaga Calls",
     description: "Explore Yaga Calls' regional market analysis and Telegram crypto signal communities for high-purchase-power markets across the globe.",
-    url: "https://yagacalls.com/regions"
+    url: "https://www.yagacalls.com/regions"
   });
 
   const itemListSchema = createItemListSchema(

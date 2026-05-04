@@ -27,7 +27,7 @@ export default function ProofPage() {
   const webPageSchema = createWebPageSchema({
     title: "Yaga Calls Proof | Selected Crypto Signal Examples",
     description: "View selected historical examples of Yaga Calls crypto signal setups with context, dates, and risk disclaimers.",
-    url: "https://yagacalls.com/proof"
+    url: "https://www.yagacalls.com/proof"
   });
 
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -35,7 +35,7 @@ export default function ProofPage() {
   ]);
 
   const imageSchemas = proofImages.map(img => createImageObjectSchema({
-    url: `https://yagacalls.com${img.src}`,
+    url: `https://www.yagacalls.com${img.src}`,
     caption: `${img.label} Setup - ${img.date}`
   }));
 

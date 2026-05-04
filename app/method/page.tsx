@@ -20,7 +20,7 @@ export default function MethodPage() {
   const webPageSchema = createWebPageSchema({
     title: "Yaga Calls Method | Crypto Signals With Risk Management",
     description: "Learn how Yaga Calls approaches crypto market narratives, entries, targets, and risk-managed signal ideas.",
-    url: "https://yagacalls.com/method"
+    url: "https://www.yagacalls.com/method"
   });
 
   const breadcrumbSchema = createBreadcrumbSchema([

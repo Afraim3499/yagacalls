@@ -44,13 +44,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     notFound();
   }
 
-  const pageUrl = `https://yagacalls.com/blog/${slug}`;
+  const pageUrl = `https://www.yagacalls.com/blog/${slug}`;
   const blogSchema = createBlogPostingSchema({
     title: post.title,
     description: post.summary,
     url: pageUrl,
     datePublished: post.date,
-    image: post.image ? `https://yagacalls.com${post.image}` : undefined
+    image: post.image ? `https://www.yagacalls.com${post.image}` : undefined
   });
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Blog', item: '/blog' },

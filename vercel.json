@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "yagacalls.com"
+        }
+      ],
+      "destination": "https://www.yagacalls.com/:path*",
+      "permanent": true
+    }
+  ]
+}

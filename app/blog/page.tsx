@@ -31,7 +31,7 @@ export default function BlogPage() {
   const webPageSchema = createWebPageSchema({
     title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
     description: "Read crypto trading guides, market analysis, and educational articles about Telegram crypto signals.",
-    url: "https://yagacalls.com/blog"
+    url: "https://www.yagacalls.com/blog"
   });
 
   const itemListSchema = createItemListSchema(

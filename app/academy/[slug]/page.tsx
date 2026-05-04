@@ -39,7 +39,7 @@ export default async function AcademyModulePage({ params }: { params: { slug: st
     notFound();
   }
 
-  const pageUrl = `https://yagacalls.com/academy/${slug}`;
+  const pageUrl = `https://www.yagacalls.com/academy/${slug}`;
   const courseSchema = createCourseSchema({
     name: mod.title,
     description: mod.description,

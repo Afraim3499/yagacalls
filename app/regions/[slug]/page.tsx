@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: page.metaTitle,
     description: page.metaDescription,
     alternates: {
-      canonical: `https://yagacalls.com/regions/${slug}`
+      canonical: `https://www.yagacalls.com/regions/${slug}`
     },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      url: `https://yagacalls.com/regions/${slug}`,
+      url: `https://www.yagacalls.com/regions/${slug}`,
       type: 'website'
     }
   };
@@ -53,7 +53,7 @@ export default async function RegionalLandingPage({ params }: PageProps) {
     notFound();
   }
 
-  const pageUrl = `https://yagacalls.com/regions/${slug}`;
+  const pageUrl = `https://www.yagacalls.com/regions/${slug}`;
   const webPageSchema = createWebPageSchema({
     title: page.metaTitle,
     description: page.metaDescription,

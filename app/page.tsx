@@ -17,13 +17,16 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata = {
   title: "Yaga Calls | Professional Crypto Signals & Narrative Analysis",
   description: "Join Yaga Calls for curated crypto trading signals, market narrative analysis, and risk-aware setup ideas delivered through Telegram.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function HomePage() {
   const webPageSchema = createWebPageSchema({
     title: "Yaga Calls | Professional Crypto Signals & Narrative Analysis",
     description: "Join Yaga Calls for curated crypto trading signals, market narrative analysis, and risk-aware setup ideas delivered through Telegram.",
-    url: "https://yagacalls.com"
+    url: "https://www.yagacalls.com"
   });
 
   return (
