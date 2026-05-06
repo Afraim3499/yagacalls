@@ -66,7 +66,7 @@ export default function HomePage() {
             Stop trading on emotion. Start following a systematic, research-backed framework for crypto signal generation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="https://t.me/yagacalls" target="_blank" className="px-10 py-5 text-lg" trackingLabel="home_final_join_free">
+            <CTAButton href="https://t.me/+Q6lroKWufsU3M2E1" target="_blank" className="px-10 py-5 text-lg" trackingLabel="home_final_join_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="/pricing" variant="outline" className="px-10 py-5 text-lg" trackingLabel="home_final_view_pricing">

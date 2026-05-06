@@ -41,7 +41,7 @@ export default function Comparison() {
                 </li>
               ))}
             </ul>
-            <CTAButton href="https://t.me/yagacalls" target="_blank" variant="secondary" className="w-full" trackingLabel="home_comparison_free">
+            <CTAButton href="https://t.me/+Q6lroKWufsU3M2E1" target="_blank" variant="secondary" className="w-full" trackingLabel="home_comparison_free">
               Join Free Group
             </CTAButton>
           </GlowCard>

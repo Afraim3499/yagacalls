@@ -3,8 +3,8 @@ Yaga Calls — Website Documentation
 Overview
 - Purpose: ultra-fast, static, no-database site that tells our story and funnels visitors to Telegram.
 - Primary CTAs:
-  - Join Public Group → https://t.me/yagacalls
-  - DM Yaga Calls → https://t.me/yagacalls47
+  - Join Public Group → https://t.me/+Q6lroKWufsU3M2E1
+  - DM Yaga Calls → https://t.me/+Q6lroKWufsU3M2E1
 - Visual style: dark, neon-accented, kinetic but performance-first.
 - Hosting: shared hosting, pure HTML/CSS/vanilla JS (no frameworks, no PHP app required).
 

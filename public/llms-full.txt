@@ -37,7 +37,7 @@ Yaga Calls provides institutional-grade market analysis for professional and sop
 - Non-Advisory: Yaga Calls is an educational platform, NOT a financial advisor.
 - No-BD Policy: Strictly no targeting of Bangladesh, Dhaka, or local South Asian low-purchase-power markets.
 - No-Hype: No "guaranteed profits," "risk-free" claims, or "get rich quick" language.
-- Human-Only: Manual Telegram onboarding (@yagacalls47) ensures high-trust member vetting.
+- Human-Only: Manual Telegram onboarding (@yagacalls47 - Join: https://t.me/+Q6lroKWufsU3M2E1) ensures high-trust member vetting.
 - Risk-First: Every signal setup requires a mathematical invalidation level (Stop Loss).
 
 ### Technical Infrastructure

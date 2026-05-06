@@ -124,7 +124,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <div className="mt-16 pt-12 border-t border-line text-center">
             <h3 className="text-2xl font-bold mb-6">Ready to See Our Method in Action?</h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={post.ctaHref || "https://t.me/yagacalls"} target={post.ctaHref?.startsWith('http') ? "_blank" : "_self"} className="grad-button text-background px-8 py-3 rounded-xl font-bold">
+              <Link href={post.ctaHref || "https://t.me/+Q6lroKWufsU3M2E1"} target={post.ctaHref?.startsWith('http') ? "_blank" : "_self"} className="grad-button text-background px-8 py-3 rounded-xl font-bold">
                 {post.ctaLabel || "Join Public Group"}
               </Link>
               <Link href="/pricing" className="bg-surface border border-line text-primary px-8 py-3 rounded-xl font-bold hover:bg-line transition-colors">

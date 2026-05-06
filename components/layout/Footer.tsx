@@ -50,7 +50,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-text-muted">
               <li><Link href="/risk-disclosure" className="hover:text-primary transition-colors">Risk Disclosure</Link></li>
               <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="https://t.me/yagacalls47" target="_blank" className="hover:text-primary transition-colors">Contact Support</Link></li>
+              <li><Link href="https://t.me/+Q6lroKWufsU3M2E1" target="_blank" className="hover:text-primary transition-colors">Contact Support</Link></li>
             </ul>
           </div>
         </div>

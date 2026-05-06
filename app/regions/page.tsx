@@ -56,7 +56,7 @@ export default function RegionsHubPage() {
       <LandingHero 
         title="Global Crypto Trading Regions"
         subtitle="Professional market analysis and Telegram communities for traders in high-purchase-power regions."
-        ctaPrimary={{ label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" }}
+        ctaPrimary={{ label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" }}
         ctaSecondary={{ label: "View Pricing", href: "/pricing", variant: "outline" }}
       />
 
@@ -141,7 +141,7 @@ export default function RegionsHubPage() {
             Yaga Calls is a global community. While we highlight these regions, our Telegram signals serve professional traders across all major crypto markets worldwide.
           </p>
           <Link 
-            href="https://t.me/yagacalls"
+            href="https://t.me/+Q6lroKWufsU3M2E1"
             className="px-10 py-4 bg-amber-500 text-black font-bold uppercase tracking-widest text-sm hover:bg-amber-600 transition-colors"
           >
             Join Global Telegram

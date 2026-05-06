@@ -25,7 +25,7 @@ export default function Hero() {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <CTAButton 
-              href="https://t.me/yagacalls" 
+              href="https://t.me/+Q6lroKWufsU3M2E1" 
               target="_blank"
               trackingLabel="hero_join_free"
             >

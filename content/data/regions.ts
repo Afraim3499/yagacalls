@@ -85,7 +85,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Our Methodology", href: "/method" },
@@ -155,7 +155,7 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How does the manual onboarding work for UK members?",
-        answer: "The process is simple and human-led: first, choose your plan on our Pricing page, and then message @yagacalls47 on Telegram. A member of our team will manually discuss your goals, explain our risk management framework, and help you get started."
+        answer: "The process is simple and human-led: first, choose your plan on our Pricing page, and then message @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1) on Telegram. A member of our team will manually discuss your goals, explain our risk management framework, and help you get started."
       },
       {
         question: "What exchanges are best for UK traders using your signals?",
@@ -171,7 +171,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "See Premium Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Methodology", href: "/method" },
@@ -241,7 +241,7 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from the USA?",
-        answer: "All onboarding and payment inquiries are handled manually via our official Telegram contact @yagacalls47. This ensures a secure, personal process and allows us to provide the most convenient crypto-native payment options for our US members."
+        answer: "All onboarding and payment inquiries are handled manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personal process and allows us to provide the most convenient crypto-native payment options for our US members."
       },
       {
         question: "What exchanges are best for US traders using your signals?",
@@ -257,7 +257,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Learn the Method", href: "/method" },
@@ -323,7 +323,7 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from the GCC region?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our GCC members, matching the region's high-tech lifestyle."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our GCC members, matching the region's high-tech lifestyle."
       },
       {
         question: "Is the analysis provided in English or Arabic?",
@@ -339,7 +339,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "Compare Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Our Method", href: "/method" },
@@ -401,11 +401,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from Dubai?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personal process and allows us to provide the most efficient crypto-native options for our Dubai members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personal process and allows us to provide the most efficient crypto-native options for our Dubai members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "See Premium Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UAE Guide", href: "/regions/uae" },
@@ -463,11 +463,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from Saudi Arabia?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our KSA members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our KSA members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Middle East Hub", href: "/regions/middle-east" },
@@ -525,11 +525,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from Qatar?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Qatari members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Qatari members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Middle East Hub", href: "/regions/middle-east" },
@@ -591,11 +591,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from Europe?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our European members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our European members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UK Guide", href: "/regions/uk" },
@@ -657,11 +657,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from Singapore?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Singapore members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Singapore members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Australia Guide", href: "/regions/australia" },
@@ -719,11 +719,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from Germany?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our German members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our German members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UK Guide", href: "/regions/uk" },
@@ -785,11 +785,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from Australia?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Aussie members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Aussie members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "New Zealand Guide", href: "/regions/new-zealand" },
@@ -847,11 +847,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from Switzerland?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Swiss members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Swiss members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Germany Guide", href: "/regions/germany" },
@@ -909,11 +909,11 @@ export const regionalPages: RegionalPageData[] = [
       },
       {
         question: "How do I pay for premium access from the Netherlands?",
-        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47. This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Dutch members."
+        answer: "We handle all onboarding and payment inquiries manually via our official Telegram contact @yagacalls47 (Join via https://t.me/+Q6lroKWufsU3M2E1). This ensures a secure, personalized process and allows us to provide the most efficient crypto-native options for our Dutch members."
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/yagacalls", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UK Guide", href: "/regions/uk" },
