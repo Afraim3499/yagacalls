@@ -23,7 +23,7 @@ const plans = [
       "Risk management guidance"
     ],
     cta: "Start 3-Month Plan",
-    href: "https://t.me/+Q6lroKWufsU3M2E1",
+    href: "https://t.me/yagacalls47",
     tracking: "pricing_quarterly_dm"
   },
   {
@@ -51,7 +51,7 @@ const plans = [
       }
     ],
     cta: "Start 6-Month Plan",
-    href: "https://t.me/+Q6lroKWufsU3M2E1",
+    href: "https://t.me/yagacalls47",
     tracking: "pricing_halfyearly_dm"
   },
   {
@@ -77,7 +77,7 @@ const plans = [
       }
     ],
     cta: "Start 12-Month Plan",
-    href: "https://t.me/+Q6lroKWufsU3M2E1",
+    href: "https://t.me/yagacalls47",
     tracking: "pricing_yearly_dm"
   }
 ];

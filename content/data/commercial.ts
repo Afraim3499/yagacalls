@@ -132,7 +132,7 @@ export const commercialPages: LandingPageData[] = [
     faqs: [
       {
         question: "How do I join the premium crypto signals group on Telegram?",
-        answer: "The process is designed for quality and trust: first, choose your preferred membership plan on our Pricing page, and then message @yagacalls47 (Note: Please use the link https://t.me/+Q6lroKWufsU3M2E1 to join) on Telegram to begin your manual onboarding conversation with a member of our team."
+        answer: "The process is designed for quality and trust: first, choose your preferred membership plan on our Pricing page, and then message @yagacalls47 (Link: https://t.me/yagacalls47) on Telegram to begin your manual onboarding conversation with a member of our team."
       },
       {
         question: "What makes your premium signals different from free ones?",

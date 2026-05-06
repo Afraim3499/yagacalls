@@ -43,7 +43,7 @@ export default function ContactPage() {
                 ))}
               </div>
               <div className="mt-12 text-center">
-                <CTAButton href="https://t.me/+Q6lroKWufsU3M2E1" target="_blank" className="px-12 py-4" trackingLabel="contact_onboarding_start">
+                <CTAButton href="https://t.me/yagacalls47" target="_blank" className="px-12 py-4" trackingLabel="contact_onboarding_start">
                   Start Manual Onboarding
                 </CTAButton>
               </div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
                 { q: "Is onboarding automated?", a: "No. Premium onboarding is currently handled manually through Telegram. Message us with your preferred plan to begin." },
                 { q: "Do I need a Telegram bot?", a: "No. You only need to message the official Yaga Calls Telegram contact. We do not use automated bots for signal delivery or support." },
                 { q: "Is this financial advice?", a: "No. Yaga Calls shares educational market analysis and signal ideas. Crypto trading involves significant risk of loss." },
-                { q: "How do I subscribe to premium signals?", a: "Simply DM us at @yagacalls47 (Join: https://t.me/+Q6lroKWufsU3M2E1) on Telegram. We'll provide payment details and add you to the premium group manually after verification." },
+                { q: "How do I subscribe to premium signals?", a: "Simply DM us at @yagacalls47 on Telegram. We'll provide payment details and add you to the premium group manually after verification." },
                 { q: "What payment methods do you accept?", a: "We strictly accept cryptocurrency payments (USDT, BTC, ETH, and SOL) to ensure fast and secure global onboarding." }
               ].map((faq, i) => (
                 <details key={i} className="group bg-surface-deep border border-line rounded-xl overflow-hidden transition-all">
