@@ -16,7 +16,7 @@ export function createOrganizationSchema() {
     description: 'Premium crypto market analysis and educational signal ideas delivered through Telegram.',
     areaServed: 'Global',
     sameAs: [
-      'https://t.me/+Q6lroKWufsU3M2E1'
+      'https://t.me/+JFf8kBf01mg3OTg1'
     ]
   };
 }

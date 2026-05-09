@@ -64,7 +64,7 @@ export default function ProofPage() {
             'Live results frequently updated in our Telegram'
           ]} />
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <CTAButton href="https://t.me/+Q6lroKWufsU3M2E1" target="_blank" trackingLabel="proof_join_free">
+            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="proof_join_free">
               See Live Proof in Group
             </CTAButton>
             <CTAButton href="/method" variant="secondary" trackingLabel="proof_to_method">

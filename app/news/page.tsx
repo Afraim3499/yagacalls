@@ -48,7 +48,7 @@ export default async function NewsPage() {
           </p>
           <div className="flex justify-center">
             <a 
-              href="https://t.me/+Q6lroKWufsU3M2E1" 
+              href="https://t.me/+JFf8kBf01mg3OTg1" 
               target="_blank" 
               className="grad-button text-background px-10 py-4 rounded-xl font-bold transition-all hover:shadow-[0_0_25px_rgba(227,158,46,0.5)]"
             >

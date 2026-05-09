@@ -80,7 +80,7 @@ export const commercialPages: LandingPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
     ctaSecondary: { label: "View Our Proof", href: "/proof", variant: "outline" },
     internalLinks: [
       { label: "Our Methodology", href: "/method" },
@@ -161,7 +161,7 @@ export const commercialPages: LandingPageData[] = [
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
     ctaPrimary: { label: "Choose a Premium Plan", href: "/pricing", variant: "primary" },
-    ctaSecondary: { label: "Join Free Telegram First", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "outline" },
+    ctaSecondary: { label: "Join Free Telegram First", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "outline" },
     internalLinks: [
       { label: "Review Our Proof", href: "/proof" },
       { label: "Learn the Method", href: "/method" },
@@ -206,7 +206,7 @@ export const commercialPages: LandingPageData[] = [
       },
       {
         title: "Why Proof Matters for Long-Term Capital Preservation",
-        content: "Following unverified signals is the fastest way to experience significant drawdown. Proof gives you the psychological confidence to execute a trade plan with discipline, even when the market is volatile. When you know that a provider has a verified history of capturing 1:3 or 1:5 risk-reward setups, you are more likely to stick to the plan and avoid emotional decision-making. Proof is the bridge between retail gambling and professional, research-led market participation. [Join our free channel](https://t.me/+Q6lroKWufsU3M2E1)."
+        content: "Following unverified signals is the fastest way to experience significant drawdown. Proof gives you the psychological confidence to execute a trade plan with discipline, even when the market is volatile. When you know that a provider has a verified history of capturing 1:3 or 1:5 risk-reward setups, you are more likely to stick to the plan and avoid emotional decision-making. Proof is the bridge between retail gambling and professional, research-led market participation. [Join our free channel](https://t.me/+JFf8kBf01mg3OTg1)."
       }
     ],
     faqs: [
@@ -241,7 +241,7 @@ export const commercialPages: LandingPageData[] = [
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
     ctaPrimary: { label: "View Proof Page", href: "/proof", variant: "primary" },
-    ctaSecondary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "outline" },
+    ctaSecondary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "outline" },
     internalLinks: [
       { label: "Our Methodology", href: "/method" },
       { label: "Risk Disclosure", href: "/risk-disclosure" },
@@ -346,7 +346,7 @@ export const commercialPages: LandingPageData[] = [
     contentSections: [
       {
         title: "What to Expect from a High-Signal Free Telegram Channel",
-        content: "A high-quality free channel should be more than just a marketing tool; it should be an educational resource. At Yaga Calls, our free channel provides selected market insights, verification of past setups, and a 'live' look at our narrative analysis style. It is the best way for a trader to see how our 'Narrative Killer' method works in practice without any financial commitment. However, free channels are typically reactive rather than proactive, and they do not provide the full depth of analysis or the real-time management found in a premium community. [Join our free channel](https://t.me/+Q6lroKWufsU3M2E1)."
+        content: "A high-quality free channel should be more than just a marketing tool; it should be an educational resource. At Yaga Calls, our free channel provides selected market insights, verification of past setups, and a 'live' look at our narrative analysis style. It is the best way for a trader to see how our 'Narrative Killer' method works in practice without any financial commitment. However, free channels are typically reactive rather than proactive, and they do not provide the full depth of analysis or the real-time management found in a premium community. [Join our free channel](https://t.me/+JFf8kBf01mg3OTg1)."
       },
       {
         title: "The Real Value of Paid Premium Signals: Beyond the Alert",
@@ -400,7 +400,7 @@ export const commercialPages: LandingPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+Q6lroKWufsU3M2E1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
     ctaSecondary: { label: "Compare Premium Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Our Methodology", href: "/method" },

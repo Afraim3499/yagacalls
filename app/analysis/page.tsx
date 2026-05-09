@@ -49,7 +49,7 @@ export default async function AnalysisPage() {
             Join our Telegram group for instant updates, exclusive calls, and deeper analysis before it hits the website.
           </p>
           <div className="flex justify-center">
-            <CTAButton href="https://t.me/+Q6lroKWufsU3M2E1" target="_blank" className="px-10">
+            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" className="px-10">
               Join Telegram Group →
             </CTAButton>
           </div>

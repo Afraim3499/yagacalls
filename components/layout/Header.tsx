@@ -57,7 +57,7 @@ export default function Header() {
           <Link href="/blog" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">Blog</Link>
           <Link href="/contact" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">Contact</Link>
           <Link
-            href="https://t.me/+Q6lroKWufsU3M2E1"
+            href="https://t.me/+JFf8kBf01mg3OTg1"
             target="_blank"
             className="grad-button text-background px-5 py-2 rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(227,158,46,0.3)] hover:shadow-[0_0_25px_rgba(227,158,46,0.5)] transition-all"
           >
@@ -94,7 +94,7 @@ export default function Header() {
           </Link>
         ))}
         <Link
-          href="https://t.me/+Q6lroKWufsU3M2E1"
+          href="https://t.me/+JFf8kBf01mg3OTg1"
           target="_blank"
           className="grad-button text-background px-6 py-4 rounded-2xl text-center font-bold"
           onClick={() => setIsOpen(false)}
