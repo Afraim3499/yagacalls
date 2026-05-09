@@ -85,6 +85,7 @@ export default async function CommercialLandingPage({ params }: PageProps) {
         subtitle={page.introSummary}
         ctaPrimary={page.ctaPrimary}
         ctaSecondary={page.ctaSecondary}
+        heroImage={page.heroImage}
       />
 
       <div className="container mx-auto px-4 pt-10">

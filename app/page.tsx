@@ -1,83 +1,109 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/home/Hero";
-import TrustMetrics from "@/components/home/TrustMetrics";
-import SignalTypesGrid from "@/components/home/SignalTypesGrid";
-import WhyJoin from "@/components/home/WhyJoin";
-import TrapSection from "@/components/home/TrapSection";
-import Comparison from "@/components/home/Comparison";
-import PreTradeChecklist from "@/components/home/PreTradeChecklist";
-import Section from "@/components/shared/Section";
-import Container from "@/components/shared/Container";
-import CTAButton from "@/components/shared/CTAButton";
+import TrustStrip from "@/components/home/TrustStrip";
+import DirectAnswer from "@/components/home/DirectAnswer";
+
+const WhyJoin = dynamic(() => import("@/components/home/WhyJoin.js").then(mod => mod.default));
+const ComparisonTrap = dynamic(() => import("@/components/home/ComparisonTrap.js").then(mod => mod.default));
+const WhatYouGet = dynamic(() => import("@/components/home/WhatYouGet.js").then(mod => mod.default));
+const FreeVsPremium = dynamic(() => import("@/components/home/FreeVsPremium.js").then(mod => mod.default));
+const AudienceSection = dynamic(() => import("@/components/home/AudienceSection.js").then(mod => mod.default));
+const ProofPreview = dynamic(() => import("@/components/home/ProofPreview.js").then(mod => mod.default));
+const RegionalBlock = dynamic(() => import("@/components/home/RegionalBlock.js").then(mod => mod.default));
+const FinalCTA = dynamic(() => import("@/components/home/FinalCTA.js").then(mod => mod.default));
+const FAQSection = dynamic(() => import("@/components/home/FAQSection.js").then(mod => mod.default));
 import JsonLd from "@/components/seo/JsonLd";
-import { createWebPageSchema } from "@/lib/schema";
-import AnswerBox from "@/components/seo/AnswerBox";
-import KeyTakeaways from "@/components/seo/KeyTakeaways";
-import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import { createWebPageSchema, createFAQSchema, createOrganizationSchema, createWebsiteSchema, createServiceSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata = {
-  title: "Yaga Calls | Professional Crypto Signals & Narrative Analysis",
-  description: "Join Yaga Calls for curated crypto trading signals, market narrative analysis, and risk-aware setup ideas delivered through Telegram.",
+  title: "Yaga Calls | Professional Crypto Signals With Risk Management",
+  description: "Yaga Calls provides premium Telegram crypto signals, market narrative research, clear entries, targets, invalidation levels, and risk-managed setup ideas for serious traders.",
   alternates: {
-    canonical: "/",
+    canonical: "https://www.yagacalls.com/",
+  },
+  openGraph: {
+    title: "Yaga Calls — Premium Telegram Crypto Signals",
+    description: "Structured crypto setup ideas, narrative-driven market analysis, and risk-managed signal notes delivered through Telegram.",
+    url: "https://www.yagacalls.com/",
+    type: "website",
   },
 };
 
 export default function HomePage() {
   const webPageSchema = createWebPageSchema({
-    title: "Yaga Calls | Professional Crypto Signals & Narrative Analysis",
-    description: "Join Yaga Calls for curated crypto trading signals, market narrative analysis, and risk-aware setup ideas delivered through Telegram.",
-    url: "https://www.yagacalls.com"
+    title: "Yaga Calls | Professional Crypto Signals With Risk Management",
+    description: "Yaga Calls provides premium Telegram crypto signals, market narrative research, clear entries, targets, invalidation levels, and risk-managed setup ideas for serious traders.",
+    url: "https://www.yagacalls.com/"
   });
+
+  const organizationSchema = createOrganizationSchema();
+  const websiteSchema = createWebsiteSchema();
+  const serviceSchema = createServiceSchema({
+    name: "Premium Telegram Crypto Signals",
+    description: "Premium Telegram-first crypto signal notes with market narrative research, entry zones, targets, invalidation logic, and risk-managed trading context."
+  });
+
+  const faqs = [
+    {
+      question: "Is Yaga Calls a crypto signal provider?",
+      answer: "Yes. Yaga Calls is a Telegram-first crypto signal and market analysis provider focused on structured setup ideas, market narratives, entry zones, targets, invalidation logic, and risk-managed trading context."
+    },
+    {
+      question: "Is Yaga Calls a pump group?",
+      answer: "No. Yaga Calls is not positioned as a pump group. It focuses on narrative research, technical structure, and risk context instead of random hype calls or pump-and-dump alerts."
+    },
+    {
+      question: "Does Yaga Calls guarantee profit?",
+      answer: "No. Yaga Calls does not guarantee profit. Crypto trading involves risk, and Yaga Calls provides educational market analysis and signal ideas, not financial advice."
+    },
+    {
+      question: "How are Yaga Calls signals delivered?",
+      answer: "Yaga Calls delivers market updates and crypto signal notes through Telegram."
+    },
+    {
+      question: "Can I join Yaga Calls for free first?",
+      answer: "Yes. Visitors can join the free Telegram group first to understand Yaga Calls’ market commentary, selected examples, and communication style before considering premium access."
+    },
+    {
+      question: "Who is Yaga Calls best for?",
+      answer: "Yaga Calls is best for serious traders who want structured crypto setup ideas, market narrative research, Telegram-based updates, and disciplined risk context."
+    },
+    {
+      question: "Who should avoid Yaga Calls?",
+      answer: "Yaga Calls is not suitable for users looking for guaranteed returns, cheap lifetime VIP access, pump calls, no-loss trading, or gambling-style signals."
+    },
+    {
+      question: "What makes Yaga Calls different from other crypto signal groups?",
+      answer: "Yaga Calls focuses on structured signal logic, market narrative research, entry and target planning, invalidation context, risk awareness, and manual premium onboarding."
+    }
+  ];
+
+  const faqSchema = createFAQSchema(faqs);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", item: "/" }
+  ]);
 
   return (
     <>
       <JsonLd data={webPageSchema} />
+      <JsonLd data={organizationSchema} />
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      
       <Hero />
-      <TrustMetrics />
-
-      <Section>
-        <Container>
-          <Breadcrumbs items={[]} />
-          <AnswerBox answer="Yaga Calls is a premium Telegram-based crypto signal community that uses the 'Narrative Killer' method to identify high-probability market setups with strict risk management and deep fundamental research." />
-          <KeyTakeaways items={[
-            'Data-driven narrative analysis before every signal',
-            'Strict 1-2% position sizing and stop-loss parameters',
-            'Manual premium onboarding via official Telegram',
-            'Educational focus on market discipline and timing'
-          ]} />
-        </Container>
-      </Section>
-      
+      <DirectAnswer />
+      <TrustStrip />
       <WhyJoin />
-      
-      <SignalTypesGrid />
-
-      <PreTradeChecklist />
-
-      <TrapSection />
-
-      <Comparison />
-
-      {/* Final CTA */}
-      <Section className="bg-primary/5">
-        <Container className="text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">Ready to Trade with Discipline?</h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
-            Stop trading on emotion. Start following a systematic, research-backed framework for crypto signal generation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" className="px-10 py-5 text-lg" trackingLabel="home_final_join_free">
-              Join Free Telegram
-            </CTAButton>
-            <CTAButton href="/pricing" variant="outline" className="px-10 py-5 text-lg" trackingLabel="home_final_view_pricing">
-              Compare Premium Plans
-            </CTAButton>
-          </div>
-          <p className="text-[10px] text-text-muted/60 italic uppercase tracking-widest">
-            Manual premium onboarding · Not financial advice · Crypto trading involves risk
-          </p>
-        </Container>
-      </Section>
+      <ComparisonTrap />
+      <WhatYouGet />
+      <FreeVsPremium />
+      <AudienceSection />
+      <ProofPreview />
+      <RegionalBlock />
+      <FinalCTA />
+      <FAQSection />
     </>
   );
 }

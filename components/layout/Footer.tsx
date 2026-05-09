@@ -38,10 +38,14 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Top Guides</h4>
             <ul className="space-y-2 text-sm text-text-muted">
-              <li><Link href="/best-crypto-signals-group" className="hover:text-primary transition-colors">Best Signal Group</Link></li>
-              <li><Link href="/premium-crypto-signals-telegram" className="hover:text-primary transition-colors">Premium Telegram</Link></li>
-              <li><Link href="/crypto-signals-with-proof" className="hover:text-primary transition-colors">Verified Proof</Link></li>
+              <li><Link href="/best-crypto-signal-provider" className="hover:text-primary transition-colors">Best Signal Provider</Link></li>
+              <li><Link href="/premium-telegram-crypto-signals" className="hover:text-primary transition-colors">Premium Telegram</Link></li>
+              <li><Link href="/proof" className="hover:text-primary transition-colors">Verified Proof</Link></li>
               <li><Link href="/free-vs-paid-crypto-signals" className="hover:text-primary transition-colors">Free vs Paid</Link></li>
+              <li><Link href="/verified-crypto-signal-provider" className="hover:text-primary transition-colors">Verified Provider</Link></li>
+              <li><Link href="/crypto-signals-with-risk-management" className="hover:text-primary transition-colors">Risk Management</Link></li>
+              <li><Link href="/narrative-trading-crypto-signals" className="hover:text-primary transition-colors">Narrative Trading</Link></li>
+              <li><Link href="/crypto-signal-provider-comparison" className="hover:text-primary transition-colors">Provider Comparison</Link></li>
             </ul>
           </div>
 
@@ -50,7 +54,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-text-muted">
               <li><Link href="/risk-disclosure" className="hover:text-primary transition-colors">Risk Disclosure</Link></li>
               <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="https://t.me/yagacalls47" target="_blank" className="hover:text-primary transition-colors">Contact Support</Link></li>
+              <li><Link href="https://t.me/yagacalls47" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Contact Support</Link></li>
             </ul>
           </div>
         </div>

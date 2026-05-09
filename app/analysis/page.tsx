@@ -9,7 +9,13 @@ import CTAButton from "@/components/shared/CTAButton";
 export const metadata = {
   title: "Latest Crypto Market Analysis",
   description: "Real-time market insights, price analysis, and trading updates from the Yaga Calls research team.",
+  alternates: {
+    canonical: "https://www.yagacalls.com/analysis",
+  },
 };
+
+import JsonLd from "@/components/seo/JsonLd";
+import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 async function getAnalysisData(): Promise<MarketAnalysisItem[]> {
   const filePath = path.join(process.cwd(), "content/data/analysis.json");
@@ -24,9 +30,43 @@ async function getAnalysisData(): Promise<MarketAnalysisItem[]> {
 
 export default async function AnalysisPage() {
   const data = await getAnalysisData();
+  const url = "https://www.yagacalls.com/analysis";
+
+  const webPageSchema = createWebPageSchema({
+    title: "Latest Crypto Market Analysis | Yaga Calls",
+    description: "Real-time market insights, price analysis, and trading updates from the Yaga Calls research team.",
+    url: url
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Analysis", item: "/analysis" }
+  ]);
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#collection`,
+    "url": url,
+    "name": "Crypto Market Analysis Feed",
+    "description": "Professional-grade crypto market analysis and structured setup notes.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": data.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": `${item.coin}: ${item.hook}`,
+        "url": item.linkUrl
+      }))
+    }
+  };
 
   return (
     <>
+      <JsonLd data={webPageSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={collectionSchema} />
+      
       <Section className="bg-surface/30">
         <Container className="text-center max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-black mb-6">Market Analysis</h1>

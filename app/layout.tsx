@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { LazyMotion, domMax } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -28,8 +29,8 @@ export const metadata: Metadata = {
     images: ["/yaga_calls_logo.png"],
   },
   icons: {
-    icon: "/yaga_calls_favicon.jpg",
-    apple: "/yaga_calls_favicon.jpg",
+    icon: "/yaga_calls_favicon.webp",
+    apple: "/yaga_calls_favicon.webp",
   },
   alternates: {
     canonical: "/",
@@ -53,9 +54,11 @@ export default function RootLayout({
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
         <Header />
-        <main className="flex-grow pt-[80px]">
-          {children}
-        </main>
+        <LazyMotion features={domMax}>
+          <main className="flex-grow pt-[80px]">
+            {children}
+          </main>
+        </LazyMotion>
         <Footer />
       </body>
     </html>

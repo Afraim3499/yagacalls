@@ -92,7 +92,7 @@ export const regionalPages: RegionalPageData[] = [
       { label: "Track Record", href: "/proof" },
       { label: "Risk Disclosure", href: "/risk-disclosure" }
     ],
-    relatedRegions: ["dubai", "middle-east", "saudi-arabia", "qatar", "kuwait"],
+    relatedRegions: ["dubai", "gcc", "saudi-arabia", "qatar"],
     schemaType: "WebPage"
   },
   {
@@ -178,7 +178,7 @@ export const regionalPages: RegionalPageData[] = [
       { label: "Track Record", href: "/proof" },
       { label: "Risk Disclosure", href: "/risk-disclosure" }
     ],
-    relatedRegions: ["london", "europe", "germany", "usa", "canada"],
+    relatedRegions: ["europe", "germany", "switzerland", "usa"],
     schemaType: "WebPage"
   },
   {
@@ -346,7 +346,7 @@ export const regionalPages: RegionalPageData[] = [
       { label: "Selected Proof", href: "/proof" },
       { label: "UAE Guide", href: "/regions/uae" }
     ],
-    relatedRegions: ["uae", "dubai", "saudi-arabia", "qatar", "kuwait", "bahrain", "oman"],
+    relatedRegions: ["uae", "dubai", "saudi-arabia", "qatar"],
     schemaType: "WebPage"
   },
   {
@@ -409,10 +409,10 @@ export const regionalPages: RegionalPageData[] = [
     ctaSecondary: { label: "See Premium Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UAE Guide", href: "/regions/uae" },
-      { label: "Middle East Hub", href: "/regions/middle-east" },
+      { label: "GCC Hub", href: "/regions/gcc" },
       { label: "Track Record", href: "/proof" }
     ],
-    relatedRegions: ["uae", "middle-east", "saudi-arabia", "qatar", "kuwait", "bahrain", "oman"],
+    relatedRegions: ["uae", "gcc", "saudi-arabia", "qatar"],
     schemaType: "WebPage"
   },
   {
@@ -470,11 +470,11 @@ export const regionalPages: RegionalPageData[] = [
     ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
-      { label: "Middle East Hub", href: "/regions/middle-east" },
+      { label: "GCC Hub", href: "/regions/gcc" },
       { label: "UAE Guide", href: "/regions/uae" },
       { label: "Track Record", href: "/proof" }
     ],
-    relatedRegions: ["uae", "middle-east", "qatar", "kuwait", "bahrain", "oman"],
+    relatedRegions: ["uae", "gcc", "qatar"],
     schemaType: "WebPage"
   },
   {
@@ -532,11 +532,11 @@ export const regionalPages: RegionalPageData[] = [
     ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
-      { label: "Middle East Hub", href: "/regions/middle-east" },
+      { label: "GCC Hub", href: "/regions/gcc" },
       { label: "UAE Guide", href: "/regions/uae" },
       { label: "Track Record", href: "/proof" }
     ],
-    relatedRegions: ["uae", "middle-east", "saudi-arabia", "kuwait", "bahrain", "oman"],
+    relatedRegions: ["uae", "gcc", "saudi-arabia"],
     schemaType: "WebPage"
   },
   {
@@ -668,7 +668,7 @@ export const regionalPages: RegionalPageData[] = [
       { label: "UK Guide", href: "/regions/uk" },
       { label: "Track Record", href: "/proof" }
     ],
-    relatedRegions: ["hong-kong", "australia", "japan", "south-korea", "usa", "canada"],
+    relatedRegions: ["australia", "usa", "uk", "europe", "dubai"],
     schemaType: "WebPage"
   },
   {
@@ -730,7 +730,7 @@ export const regionalPages: RegionalPageData[] = [
       { label: "Switzerland Guide", href: "/regions/switzerland" },
       { label: "Track Record", href: "/proof" }
     ],
-    relatedRegions: ["switzerland", "austria", "uk", "netherlands", "france", "europe"],
+    relatedRegions: ["switzerland", "uk", "europe", "russia"],
     schemaType: "WebPage"
   },
   {
@@ -792,11 +792,11 @@ export const regionalPages: RegionalPageData[] = [
     ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
-      { label: "New Zealand Guide", href: "/regions/new-zealand" },
       { label: "Singapore Hub", href: "/regions/singapore" },
+      { label: "UK Guide", href: "/regions/uk" },
       { label: "Track Record", href: "/proof" }
     ],
-    relatedRegions: ["new-zealand", "singapore", "hong-kong", "uk", "usa", "canada"],
+    relatedRegions: ["singapore", "uk", "usa", "europe"],
     schemaType: "WebPage"
   },
   {
@@ -858,7 +858,7 @@ export const regionalPages: RegionalPageData[] = [
       { label: "UK Guide", href: "/regions/uk" },
       { label: "Track Record", href: "/proof" }
     ],
-    relatedRegions: ["germany", "austria", "uk", "netherlands", "france", "europe", "dubai", "singapore"],
+    relatedRegions: ["germany", "uk", "europe", "dubai", "singapore", "russia"],
     schemaType: "WebPage"
   },
   {
@@ -920,7 +920,7 @@ export const regionalPages: RegionalPageData[] = [
       { label: "Germany Guide", href: "/regions/germany" },
       { label: "Track Record", href: "/proof" }
     ],
-    relatedRegions: ["germany", "belgium", "uk", "france", "europe"],
+    relatedRegions: ["germany", "uk", "switzerland", "europe", "russia"],
     schemaType: "WebPage"
   }
 ];

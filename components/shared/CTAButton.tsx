@@ -12,6 +12,7 @@ interface CTAButtonProps {
   target?: string;
   rel?: string;
   trackingLabel?: string;
+  fullWidth?: boolean;
 }
 
 export default function CTAButton({
@@ -22,6 +23,7 @@ export default function CTAButton({
   target,
   rel,
   trackingLabel,
+  fullWidth,
 }: CTAButtonProps) {
   const pathname = usePathname();
   const baseStyles = "inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold transition-all duration-200 active:scale-95 cursor-pointer";
@@ -55,9 +57,14 @@ export default function CTAButton({
   return (
     <Link
       href={href}
-      className={cn(baseStyles, variants[variant], className)}
+      className={cn(
+        baseStyles, 
+        variants[variant], 
+        fullWidth && "w-full",
+        className
+      )}
       target={target}
-      rel={rel}
+      rel={rel || (target === "_blank" ? "noopener noreferrer" : undefined)}
       onClick={handleClick}
     >
       {children}

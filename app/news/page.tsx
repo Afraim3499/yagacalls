@@ -8,7 +8,13 @@ import { NewsItem } from "@/types/content";
 export const metadata = {
   title: "Latest Crypto News",
   description: "Stay updated with real-time cryptocurrency news, Bitcoin updates, and market insights from trusted sources.",
+  alternates: {
+    canonical: "https://www.yagacalls.com/news",
+  },
 };
+
+import JsonLd from "@/components/seo/JsonLd";
+import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 async function getNewsData(): Promise<NewsItem[]> {
   const filePath = path.join(process.cwd(), "content/data/news.json");
@@ -22,9 +28,43 @@ async function getNewsData(): Promise<NewsItem[]> {
 
 export default async function NewsPage() {
   const data = await getNewsData();
+  const url = "https://www.yagacalls.com/news";
+
+  const webPageSchema = createWebPageSchema({
+    title: "Latest Crypto News | Yaga Calls",
+    description: "Stay updated with real-time cryptocurrency news, Bitcoin updates, and market insights from trusted sources.",
+    url: url
+  });
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "News", item: "/news" }
+  ]);
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#collection`,
+    "url": url,
+    "name": "Latest Crypto News Feed",
+    "description": "Aggregated real-time cryptocurrency news and updates.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": data.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": item.title,
+        "url": item.link
+      }))
+    }
+  };
 
   return (
     <>
+      <JsonLd data={webPageSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={collectionSchema} />
+      
       <Section className="bg-surface/30">
         <Container className="text-center max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-black mb-6">Latest Crypto News</h1>

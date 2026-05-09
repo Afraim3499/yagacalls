@@ -109,6 +109,7 @@ export interface LandingPageData {
   secondaryKeywords: string[];
   longTailKeywords: string[];
   targetPersona: string;
+  heroImage?: string;
   introSummary: string;
   answerFirstBlock: string;
   marketContext?: string; // Moved to base to support all landing pages

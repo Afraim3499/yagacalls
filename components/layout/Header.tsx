@@ -40,9 +40,10 @@ export default function Header() {
       )}>
         <Link href="/" className="relative w-32 h-10 transition-transform hover:scale-105">
           <Image
-            src="/yaga_calls_logo.png"
+            src="/yaga_calls_logo.webp"
             alt="Yaga Calls"
             fill
+            sizes="128px"
             className="object-contain"
             priority
           />
@@ -59,6 +60,7 @@ export default function Header() {
           <Link
             href="https://t.me/+JFf8kBf01mg3OTg1"
             target="_blank"
+            rel="noopener noreferrer"
             className="grad-button text-background px-5 py-2 rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(227,158,46,0.3)] hover:shadow-[0_0_25px_rgba(227,158,46,0.5)] transition-all"
           >
             Join Public Group
@@ -96,6 +98,7 @@ export default function Header() {
         <Link
           href="https://t.me/+JFf8kBf01mg3OTg1"
           target="_blank"
+          rel="noopener noreferrer"
           className="grad-button text-background px-6 py-4 rounded-2xl text-center font-bold"
           onClick={() => setIsOpen(false)}
         >

@@ -30,8 +30,10 @@ interface PriceData {
 
 export default function Ticker() {
   const [data, setData] = useState<PriceData | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const fetchPrices = async () => {
       try {
         const res = await fetch("/api/prices");
@@ -49,7 +51,7 @@ export default function Ticker() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!data) return <div className="h-8 bg-surface-deep animate-pulse" />;
+  if (!isMounted || !data) return <div className="h-8 bg-surface-deep animate-pulse" />;
 
   return (
     <div className="h-8 bg-surface-deep border-b border-line overflow-hidden flex items-center">

@@ -1,110 +1,153 @@
-import Container from "@/components/shared/Container";
-import Section from "@/components/shared/Section";
-import PricingCards from "@/components/pricing/PricingCards";
-import ScenarioCalculator from "@/components/pricing/ScenarioCalculator";
-import GlowCard from "@/components/shared/GlowCard";
-import JsonLd from "@/components/seo/JsonLd";
-import { createOfferSchema, createFAQSchema, createWebPageSchema } from "@/lib/schema";
-import AnswerBox from "@/components/seo/AnswerBox";
-import KeyTakeaways from "@/components/seo/KeyTakeaways";
-import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
+import PricingHero from "@/components/pricing/PricingHero";
+import PricingDirectAnswer from "@/components/pricing/PricingDirectAnswer";
 
-export const metadata = {
-  title: "Yaga Calls Pricing | Premium Crypto Signals Access",
-  description: "Compare Yaga Calls premium crypto signals plans and message us on Telegram for manual onboarding and payment instructions.",
+const PricingFitWarning = dynamic(() => import("@/components/pricing/PricingFitWarning.js").then(mod => mod.default));
+const PricingCardsGrid = dynamic(() => import("@/components/pricing/PricingCardsGrid.js").then(mod => mod.default));
+const PricingComparisonTable = dynamic(() => import("@/components/pricing/PricingComparisonTable.js").then(mod => mod.default));
+const DiscountExplanation = dynamic(() => import("@/components/pricing/DiscountExplanation.js").then(mod => mod.default));
+const ScarcitySection = dynamic(() => import("@/components/pricing/ScarcitySection.js").then(mod => mod.default));
+const PricingSuitabilityChecker = dynamic(() => import("@/components/pricing/PricingSuitabilityChecker.js").then(mod => mod.default));
+const ManualOnboardingSection = dynamic(() => import("@/components/pricing/ManualOnboardingSection.js").then(mod => mod.default));
+const PaymentDetailsSection = dynamic(() => import("@/components/pricing/PaymentDetailsSection.js").then(mod => mod.default));
+const FinalPricingCTA = dynamic(() => import("@/components/pricing/FinalPricingCTA.js").then(mod => mod.default));
+const PricingFAQSection = dynamic<{ faqs: { question: string; answer: string }[] }>(() => import("@/components/pricing/PricingFAQSection.js").then(mod => mod.default));
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  createWebPageSchema,
+  createFAQSchema,
+  createBreadcrumbSchema
+} from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title: "Yaga Calls Pricing | Discounted Premium Crypto Signals Access",
+  description: "Compare Yaga Calls discounted premium crypto signal plans with Telegram onboarding, market analysis, structured setup notes, and risk-managed trading context.",
   alternates: {
-    canonical: "/pricing",
+    canonical: "https://www.yagacalls.com/pricing",
   },
 };
 
 export default function PricingPage() {
-  const faqs = [
-    { q: "Is onboarding automated?", a: "No. Premium onboarding is manual through Telegram. Message us with your preferred plan and we will confirm availability and payment instructions." },
-    { q: "Do you offer refunds?", a: "Due to the nature of digital information, we do not offer refunds. We suggest starting with the monthly plan to test our quality." },
-    { q: "Do you guarantee profits?", a: "No. No signal provider can guarantee results. Past examples are for education and transparency only. Crypto trading involves risk." },
-    { q: "How are signals delivered?", a: "Signals are delivered in real-time via our private Telegram channel with clear entry, target, and stop-loss levels." },
-    { q: "Which exchanges do I need?", a: "Our signals work on all major exchanges like Binance, ByBit, OKX, and Coinbase. We focus on liquid assets." },
-    { q: "Is this financial advice?", a: "No. Yaga Calls shares market analysis and educational signal ideas. Your results will vary." }
-  ];
+  const url = "https://www.yagacalls.com/pricing";
 
   const webPageSchema = createWebPageSchema({
-    title: "Yaga Calls Pricing | Premium Crypto Signals Access",
-    description: "Compare Yaga Calls premium crypto signals plans and message us on Telegram for manual onboarding.",
-    url: "https://www.yagacalls.com/pricing"
+    title: "Yaga Calls Pricing | Discounted Premium Crypto Signals Access",
+    description: "Compare Yaga Calls discounted premium crypto signal plans with Telegram onboarding, market analysis, and risk-managed trading context.",
+    url: url
   });
 
-  const faqSchema = createFAQSchema(faqs.map(f => ({ question: f.q, answer: f.a })));
-  
-  const offers = [
-    createOfferSchema({ name: "Quarterly Membership", price: "200", url: "/pricing" }),
-    createOfferSchema({ name: "Half-Yearly Membership", price: "300", url: "/pricing" }),
-    createOfferSchema({ name: "Yearly Membership", price: "600", url: "/pricing" })
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Pricing", item: "/pricing" }
+  ]);
+
+  const faqs = [
+    {
+      question: "Is Yaga Calls currently discounted?",
+      answer: "Yes. Yaga Calls currently uses limited-time manual onboarding pricing for premium access. The discounted prices are designed for serious traders who want to join premium Telegram crypto signal access before future pricing updates."
+    },
+    {
+      question: "What is the current discounted price for Yaga Calls?",
+      answer: "The current discounted pricing is $200 for Quarterly Access, $300 for Half-Yearly Access, and $600 for Yearly Access. Users should confirm current pricing through the official Telegram onboarding process before payment."
+    },
+    {
+      question: "What were the regular prices before the discount?",
+      answer: "The regular pricing structure is $250 for Quarterly Access, $500 for Half-Yearly Access, and $1000 for Yearly Access. The current onboarding prices reduce those plans to $200, $300, and $600 respectively."
+    },
+    {
+      question: "Why is Yaga Calls offering discounted pricing?",
+      answer: "Yaga Calls is offering discounted onboarding pricing to give serious traders a lower entry point before future pricing updates. The discount is not a cheap lifetime VIP offer; it is a limited-time onboarding price for premium Telegram access."
+    },
+    {
+      question: "Is the discounted price permanent?",
+      answer: "No. The discounted price should be treated as limited-time onboarding pricing. Future pricing may change as Yaga Calls expands premium research, signal delivery, and member access."
+    },
+    {
+      question: "Is Yaga Calls premium worth it at the discounted price?",
+      answer: "Yaga Calls premium may be worth it for serious traders who want structured Telegram crypto signals, market narrative research, entry and target context, invalidation logic, and risk-managed setup notes. It is not suitable for users looking for guaranteed profits or cheap pump calls. If you are unsure, check our <a href='/verified-crypto-signal-provider' style='text-decoration: underline;'>Verified Provider Checklist</a> to understand our standards."
+    },
+    {
+      question: "Does discounted pricing mean Yaga Calls is a cheap signal group?",
+      answer: "No. The current discount is an onboarding offer. Yaga Calls is still positioned as a premium crypto signal and market analysis provider for serious traders, not a cheap pump-call group."
+    },
+    {
+      question: "Can I join the free Telegram before using the discount?",
+      answer: "Yes. Visitors can join the free Telegram group first to understand Yaga Calls’ market commentary, selected examples, and communication style before choosing a premium plan."
+    },
+    {
+      question: "Does Yaga Calls guarantee profit with premium access?",
+      answer: "No. Yaga Calls does not guarantee profit. Crypto trading involves risk, and Yaga Calls provides educational market analysis and signal ideas, not financial advice."
+    },
+    {
+      question: "How do I join Yaga Calls premium Telegram access?",
+      answer: "Choose a discounted plan, message the official Yaga Calls Telegram contact, confirm the current onboarding price and payment instructions, complete payment, and receive manual premium access after confirmation."
+    }
   ];
 
+  const faqSchema = createFAQSchema(faqs);
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": "https://www.yagacalls.com/pricing#premium-access",
+    "name": "Yaga Calls Premium Crypto Signal Access",
+    "description": "Premium Telegram-first crypto signal access with market narrative research, structured setup notes, entry and target planning, invalidation logic, and risk-managed trading context.",
+    "brand": {
+      "@type": "Organization",
+      "@id": "https://www.yagacalls.com/#organization",
+      "name": "Yaga Calls"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Quarterly Access",
+        "price": "200",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.yagacalls.com/pricing",
+        "description": "Discounted onboarding price reduced from $250 to $200 for 3 months of Yaga Calls premium access."
+      },
+      {
+        "@type": "Offer",
+        "name": "Half-Yearly Access",
+        "price": "300",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.yagacalls.com/pricing",
+        "description": "Discounted onboarding price reduced from $500 to $300 for 6 months of Yaga Calls premium access."
+      },
+      {
+        "@type": "Offer",
+        "name": "Yearly Access",
+        "price": "600",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.yagacalls.com/pricing",
+        "description": "Discounted onboarding price reduced from $1000 to $600 for 12 months of Yaga Calls premium access."
+      }
+    ]
+  };
+
   return (
-    <>
+    <main>
       <JsonLd data={webPageSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
-      <JsonLd data={offers} />
-      <Section className="bg-primary/5 pt-32 pb-20">
-        <Container className="text-center max-w-3xl">
-          <Breadcrumbs items={[{ label: 'Pricing', href: '/pricing' }]} />
-          <h1 className="text-5xl md:text-8xl font-black mb-6 uppercase tracking-tighter">Choose Your Plan</h1>
-          <p className="text-xl text-text-muted leading-relaxed font-medium">
-            All plans include full access. Longer commitment = better value.
-          </p>
+      <JsonLd data={productSchema} />
 
-          <AnswerBox answer="Yaga Calls offers three premium tiers—Quarterly, Half-Yearly, and Yearly—all providing full access to our Narrative Killer signals and research via manual Telegram onboarding." />
-          
-          <KeyTakeaways items={[
-            'Full access to every narrative setup',
-            'Manual human onboarding for all members',
-            'No recurring bot-only automated billing',
-            'Transparent results and historical proof'
-          ]} />
-
-          <p className="text-xs text-text-muted mt-6 uppercase tracking-[0.2em] font-bold opacity-60">
-            Premium onboarding is handled manually through Telegram.
-          </p>
-        </Container>
-      </Section>
-
-      <PricingCards />
-
-      <Section>
-        <Container>
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Scenario Calculator</h2>
-            <p className="text-text-muted max-w-2xl mx-auto">
-              Test hypothetical outcomes based on your own assumptions. This is not a prediction, guarantee, or financial advice.
-            </p>
-          </div>
-          <ScenarioCalculator />
-        </Container>
-      </Section>
-
-      <Section className="bg-surface-deep">
-        <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Frequently Asked Questions</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {[
-              { q: "Is onboarding automated?", a: "No. Premium onboarding is manual through Telegram. Message us with your preferred plan and we will confirm availability and payment instructions." },
-              { q: "Do you offer refunds?", a: "Due to the nature of digital information, we do not offer refunds. We suggest starting with the monthly plan to test our quality." },
-              { q: "Do you guarantee profits?", a: "No. No signal provider can guarantee results. Past examples are for education and transparency only. Crypto trading involves risk." },
-              { q: "How are signals delivered?", a: "Signals are delivered in real-time via our private Telegram channel with clear entry, target, and stop-loss levels." },
-              { q: "Which exchanges do I need?", a: "Our signals work on all major exchanges like Binance, ByBit, OKX, and Coinbase. We focus on liquid assets." },
-              { q: "Is this financial advice?", a: "No. Yaga Calls shares market analysis and educational signal ideas. Your results will vary." }
-            ].map((faq) => (
-              <GlowCard key={faq.q}>
-                <h4 className="font-bold text-primary mb-3 uppercase tracking-tight">{faq.q}</h4>
-                <p className="text-sm text-text-muted leading-relaxed">{faq.a}</p>
-              </GlowCard>
-            ))}
-          </div>
-        </Container>
-      </Section>
-    </>
+      <PricingHero />
+      <PricingDirectAnswer />
+      <PricingFitWarning />
+      <PricingCardsGrid />
+      <PricingComparisonTable />
+      <DiscountExplanation />
+      <ScarcitySection />
+      <PricingSuitabilityChecker />
+      <ManualOnboardingSection />
+      <PaymentDetailsSection />
+      <FinalPricingCTA />
+      <PricingFAQSection faqs={faqs} />
+    </main>
   );
 }

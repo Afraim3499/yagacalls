@@ -22,6 +22,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy',
     '/risk-disclosure',
     '/regions',
+    '/verified-crypto-signal-provider',
+    '/premium-telegram-crypto-signals',
+    '/free-vs-paid-crypto-signals',
+    '/best-crypto-signal-provider',
+    '/crypto-signals-with-risk-management',
+    '/narrative-trading-crypto-signals',
+    '/crypto-signal-provider-comparison',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <Section className="pt-8 md:pt-16 overflow-hidden">
       <Container className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -19,9 +19,19 @@ export default function Hero() {
           <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tight">
             Professional Crypto Signals Built Around <span className="text-primary">Risk, Timing & Market Narratives</span>
           </h1>
-          <p className="text-lg text-text-muted max-w-xl leading-relaxed">
-            Yaga Calls gives traders curated setup ideas, market narrative analysis, and risk-aware signal notes through Telegram — with clear entries, targets, and context.
-          </p>
+          <div className="space-y-4">
+            <p className="text-lg text-text-muted max-w-xl leading-relaxed">
+              Yaga Calls gives serious crypto traders structured setup ideas, market narrative analysis, and risk-aware signal notes through Telegram — with clear entries, targets, invalidation levels, and context behind every major call.
+            </p>
+            <div className="border-l-4 border-primary pl-4 py-1">
+              <p className="text-sm font-bold text-primary uppercase tracking-widest">
+                Not a pump group. Not random buy alerts. Not guaranteed-profit noise.
+              </p>
+              <p className="text-xs text-text-muted/80 uppercase tracking-widest font-medium mt-1">
+                Yaga Calls is built for traders who want structure before action.
+              </p>
+            </div>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4">
             <CTAButton 
@@ -36,34 +46,27 @@ export default function Hero() {
             </CTAButton>
           </div>
 
-          <div className="flex flex-wrap gap-3">
-            {["Manual Onboarding", "Risk-Managed Setups", "Market Narrative Research", "Selected Examples"].map((chip) => (
-              <span key={chip} className="px-3 py-1 bg-surface-deep border border-line rounded-full text-[10px] uppercase tracking-wider font-bold text-text-muted">
-                {chip}
-              </span>
-            ))}
-          </div>
-          
           <p className="text-[10px] text-text-muted/60 italic uppercase tracking-widest">
-            Manual premium onboarding · Not financial advice · Crypto trading involves risk
+            Educational market analysis only. Crypto trading involves risk. No signal provider can guarantee profit.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative aspect-video lg:aspect-square rounded-3xl overflow-hidden border border-line shadow-2xl"
         >
           <Image
-            src="/yaga_calls_hero.jpg"
-            alt="Yaga Calls Crypto Trading Analysis"
+            src="/yaga_calls_hero.webp"
+            alt="Yaga Calls Premium Crypto Dashboard"
             fill
+            sizes="(max-width: 1024px) 100vw, 600px"
             className="object-cover"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-        </motion.div>
+        </m.div>
       </Container>
     </Section>
   );

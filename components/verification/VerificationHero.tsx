@@ -1,0 +1,54 @@
+import Container from "../shared/Container";
+import Section from "../shared/Section";
+import CTAButton from "../shared/CTAButton";
+import Image from "next/image";
+
+export default function VerificationHero() {
+  return (
+    <Section className="pt-24 pb-16 bg-surface-deep border-b border-line overflow-hidden">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              Due Diligence Guide
+            </div>
+            <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+              Verified Crypto Signal Provider: How Serious Traders Check Proof
+            </h1>
+            <p className="text-xl md:text-2xl text-text-muted leading-tight">
+              Before joining any crypto signal group, check the provider’s proof, method, risk context, Telegram safety, onboarding process, and communication style.
+            </p>
+            <div className="p-4 bg-primary/5 border-l-2 border-primary rounded-r-xl">
+              <p className="text-xs font-bold text-primary uppercase tracking-widest">
+                A real provider should explain structure. A weak provider only sells excitement.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <CTAButton href="/proof" trackingLabel="verification_hero_proof">
+                Review Yaga Calls Proof
+              </CTAButton>
+              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" variant="secondary" target="_blank" trackingLabel="verification_hero_free">
+                Join Free Telegram
+              </CTAButton>
+            </div>
+            <p className="text-[10px] text-text-muted/60 italic uppercase tracking-widest">
+              Educational market analysis only. Crypto trading involves risk. Past performance does not guarantee future results.
+            </p>
+          </div>
+          <div className="relative aspect-square rounded-[40px] overflow-hidden border border-line shadow-2xl bg-[#0a0a0a]">
+            <Image 
+              src="/verification-hero.webp" 
+              alt="Yaga Calls verified crypto signal provider due diligence checklist" 
+              fill
+              sizes="(max-width: 1024px) 100vw, 600px"
+              className="object-contain"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+}
