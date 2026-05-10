@@ -10,7 +10,7 @@ import Link from "next/link";
 import { CheckCircle2, X } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Crypto Signals by Region | Dubai, UAE, UK, USA, Australia & Singapore",
+  title: "Regions Hub | Global Crypto Signal Access",
   description: "Explore Yaga Calls regional crypto signal pages for serious traders in GCC, UAE, Dubai, UK, USA, Australia, Singapore, Europe, and other high-purchase-power markets.",
   alternates: {
     canonical: "https://www.yagacalls.com/regions",

@@ -11,7 +11,7 @@ import RelatedRegions from "@/components/regions/RelatedRegions";
 import { regionalPages } from "@/content/data/regions";
 
 export const metadata: Metadata = {
-  title: "Crypto Signals Switzerland | Premium Telegram Signals for Serious Traders",
+  title: "Crypto Signals Switzerland | Telegram Access",
   description: "Yaga Calls provides premium Telegram crypto signal notes and educational market analysis for serious Switzerland traders, with risk context, proof examples, and manual onboarding.",
   alternates: {
     canonical: "https://www.yagacalls.com/regions/switzerland",

@@ -12,7 +12,7 @@ import Link from "next/link";
 import { X } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Crypto Signals With Risk Management | Yaga Calls Method",
+  title: "The Trading Method: Narrative & Risk Control",
   description: "Learn how the Yaga Calls method uses market narratives, technical structure, entry zones, targets, invalidation, and risk management before sharing crypto signal notes.",
   alternates: {
     canonical: "https://www.yagacalls.com/method",
@@ -74,7 +74,7 @@ export default function MethodPage() {
         "@type": "WebPage",
         "@id": "https://www.yagacalls.com/method#webpage",
         "url": "https://www.yagacalls.com/method",
-        "name": "Crypto Signals With Risk Management | Yaga Calls Method",
+        "name": "The Yaga Calls Method",
         "description": "Learn how the Yaga Calls method uses market narratives, technical structure, entry zones, targets, invalidation, and risk management before sharing crypto signal notes.",
         "isPartOf": {
           "@id": "https://www.yagacalls.com/#website"

@@ -16,7 +16,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createWebPageSchema, createFAQSchema, createOrganizationSchema, createWebsiteSchema, createServiceSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata = {
-  title: "Yaga Calls | Professional Crypto Signals With Risk Management",
+  title: "Professional Crypto Signals & Risk-Aware Trading",
   description: "Yaga Calls provides premium Telegram crypto signals, market narrative research, clear entries, targets, invalidation levels, and risk-managed setup ideas for serious traders.",
   alternates: {
     canonical: "https://www.yagacalls.com/",

@@ -13,7 +13,7 @@ import RelatedRegions from "@/components/regions/RelatedRegions";
 import { regionalPages } from "@/content/data/regions";
 
 export const metadata: Metadata = {
-  title: "Crypto Signals GCC | Premium Telegram Signals for Gulf Traders",
+  title: "Crypto Signals GCC | Premium Telegram Access",
   description: "Yaga Calls provides premium Telegram crypto signals and market analysis for serious GCC traders across UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman.",
   alternates: {
     canonical: "https://www.yagacalls.com/regions/gcc",

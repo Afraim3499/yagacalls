@@ -8,7 +8,7 @@ import Link from "next/link";
 import FAQSection from "../../components/shared/FAQSection";
 
 export const metadata: Metadata = {
-  title: "Crypto Signals Proof & Selected Results | Yaga Calls",
+  title: "Signal Proof & Historical Results",
   description: "View selected Yaga Calls crypto signal examples and historical snapshots. Educational proof only. Past performance does not guarantee future results.",
   alternates: {
     canonical: "https://www.yagacalls.com/proof",

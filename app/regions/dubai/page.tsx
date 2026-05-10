@@ -13,7 +13,7 @@ const FAQSection = dynamic<{ faqs: { question: string; answer: string }[] }>(() 
 const RelatedRegions = dynamic<{ currentSlug: string; relatedSlugs: string[] }>(() => import("@/components/regions/RelatedRegions.js").then(mod => mod.default));
 
 export const metadata: Metadata = {
-  title: "Crypto Signals Dubai | Premium Telegram Signals for Serious Traders",
+  title: "Crypto Signals Dubai | Premium Telegram Access",
   description: "Yaga Calls provides premium Telegram crypto signal notes for serious Dubai traders, with narrative research, risk context, selected proof examples, and manual onboarding.",
   alternates: {
     canonical: "https://www.yagacalls.com/regions/dubai",

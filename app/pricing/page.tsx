@@ -21,7 +21,7 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Yaga Calls Pricing | Discounted Premium Crypto Signals Access",
+  title: "Premium Signal Pricing & Discount Plans",
   description: "Compare Yaga Calls discounted premium crypto signal plans with Telegram onboarding, market analysis, structured setup notes, and risk-managed trading context.",
   alternates: {
     canonical: "https://www.yagacalls.com/pricing",
