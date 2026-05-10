@@ -92,12 +92,13 @@ export default function PricingPage() {
     "@type": "Product",
     "@id": "https://www.yagacalls.com/pricing#premium-access",
     "name": "Yaga Calls Premium Crypto Signal Access",
+    "image": "https://www.yagacalls.com/yaga_calls_logo.webp",
     "description": "Premium Telegram-first crypto signal access with market narrative research, structured setup notes, entry and target planning, invalidation logic, and risk-managed trading context.",
     "brand": {
-      "@type": "Organization",
-      "@id": "https://www.yagacalls.com/#organization",
+      "@type": "Brand",
       "name": "Yaga Calls"
     },
+    "sku": "YC-PREMIUM",
     "offers": [
       {
         "@type": "Offer",
@@ -106,7 +107,20 @@ export default function PricingPage() {
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "url": "https://www.yagacalls.com/pricing",
-        "description": "Discounted onboarding price reduced from $250 to $200 for 3 months of Yaga Calls premium access."
+        "description": "Discounted onboarding price reduced from $250 to $200 for 3 months of Yaga Calls premium access.",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 0,
+            "currency": "USD"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/NoReturns"
+        }
       },
       {
         "@type": "Offer",
@@ -115,7 +129,20 @@ export default function PricingPage() {
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "url": "https://www.yagacalls.com/pricing",
-        "description": "Discounted onboarding price reduced from $500 to $300 for 6 months of Yaga Calls premium access."
+        "description": "Discounted onboarding price reduced from $500 to $300 for 6 months of Yaga Calls premium access.",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 0,
+            "currency": "USD"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/NoReturns"
+        }
       },
       {
         "@type": "Offer",
@@ -124,7 +151,20 @@ export default function PricingPage() {
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "url": "https://www.yagacalls.com/pricing",
-        "description": "Discounted onboarding price reduced from $1000 to $600 for 12 months of Yaga Calls premium access."
+        "description": "Discounted onboarding price reduced from $1000 to $600 for 12 months of Yaga Calls premium access.",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 0,
+            "currency": "USD"
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/NoReturns"
+        }
       }
     ]
   };
