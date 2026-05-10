@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    yandex: "6b3ffe14a8810583",
+  },
 };
 
 import JsonLd from "@/components/seo/JsonLd";
