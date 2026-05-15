@@ -20,7 +20,9 @@ export default function Footer() {
               <li><Link href="/proof" className="hover:text-primary transition-colors">Selected Examples</Link></li>
               <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing Plans</Link></li>
               <li><Link href="/academy" className="hover:text-primary transition-colors">Trading Academy</Link></li>
+              <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-primary">Risk Calculator</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors">Latest Analysis</Link></li>
+              <li><Link href="/yaga-calls-review" className="hover:text-primary transition-colors font-bold text-primary">Yaga Calls Review</Link></li>
             </ul>
           </div>
 
@@ -38,6 +40,13 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Top Guides</h4>
             <ul className="space-y-2 text-sm text-text-muted">
+              <li><Link href="/what-are-crypto-signals" className="hover:text-primary transition-colors font-bold text-text-high">What Are Crypto Signals?</Link></li>
+              <li><Link href="/best-crypto-signal-groups-compared" className="hover:text-primary transition-colors font-bold text-text-high">Best Signal Groups Compared</Link></li>
+              <li><Link href="/how-to-choose-a-crypto-signal-provider" className="hover:text-primary transition-colors font-bold text-text-high">How to Choose a Provider</Link></li>
+              <li><Link href="/crypto-risk-management" className="hover:text-primary transition-colors font-bold text-text-high">Crypto Risk Management</Link></li>
+              <li><Link href="/how-to-set-stop-losses-in-crypto" className="hover:text-primary transition-colors font-bold text-text-high">How to Set Stop-Losses</Link></li>
+              <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-text-high">Position Sizing Calculator</Link></li>
+              <li><Link href="/telegram-crypto-signals" className="hover:text-primary transition-colors font-bold text-text-high">Telegram Crypto Signals</Link></li>
               <li><Link href="/best-crypto-signal-provider" className="hover:text-primary transition-colors">Best Signal Provider</Link></li>
               <li><Link href="/premium-telegram-crypto-signals" className="hover:text-primary transition-colors">Premium Telegram</Link></li>
               <li><Link href="/proof" className="hover:text-primary transition-colors">Verified Proof</Link></li>
