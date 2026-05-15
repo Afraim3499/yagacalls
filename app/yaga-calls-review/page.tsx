@@ -786,7 +786,30 @@ export default function YagaCallsReviewPage() {
         </Container>
       </Section>
 
-      {/* SECTION 15 — Verdict */}
+      {/* SECTION 15 — Brand Aliases */}
+      <Section className="bg-surface-deep py-24 border-t border-line">
+        <Container>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Yaga Calls, Yagacall, Yaga Call and Yaga: <br /><span className="text-primary">Official Name and Search Variations</span></h2>
+            <div className="prose prose-invert prose-lg max-w-none text-text-muted">
+              <p>
+                Yaga Calls is the official brand name. Some users search for the brand as Yagacall, Yaga Call, Yaga, Yaga crypto signals, or <Link href="/crypto-trading-telegram-group" className="text-primary hover:underline font-bold">Yaga crypto trading Telegram group</Link>. These variations should always lead users back to the official Yaga Calls website and verified Telegram links.
+              </p>
+              <p>
+                To maintain safety and access quality, users should avoid copied Telegram groups, random DMs, fake admins, and guaranteed-profit claims. All official onboarding is handled manually via the links found on this website. For a complete overview of our brand identity and search variations, read the <Link href="/about-yaga-calls" className="text-primary hover:underline font-bold">Official Yaga Calls Brand Guide</Link>.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-6 pt-4">
+              <Link href="/contact" className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:underline">Official Onboarding</Link>
+              <Link href="/method" className="text-xs font-black uppercase tracking-[0.2em] text-text-muted hover:text-primary transition-colors">Read Method</Link>
+              <Link href="/telegram-crypto-signals" className="text-xs font-black uppercase tracking-[0.2em] text-text-muted hover:text-primary transition-colors">Telegram Guide</Link>
+              <Link href="/risk-disclosure" className="text-xs font-black uppercase tracking-[0.2em] text-text-muted hover:text-primary transition-colors">Risk Disclosure</Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION 16 — Verdict */}
       <Section className="bg-background py-24 border-t border-line">
         <Container>
           <div className="max-w-4xl mx-auto p-12 md:p-20 bg-surface-deep border border-line rounded-[64px] text-center space-y-8">

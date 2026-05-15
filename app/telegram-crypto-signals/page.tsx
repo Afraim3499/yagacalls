@@ -255,7 +255,7 @@ export default function TelegramCryptoSignalsPage() {
                     Telegram crypto signals are trading setup notes or market alerts shared through Telegram channels, groups, or private communities.
                   </p>
                   <p className="text-text-muted leading-relaxed">
-                    A serious Telegram crypto signal should include the asset, market reason, entry zone, target levels, invalidation or stop-loss context, and risk note. Telegram makes delivery fast, but fast delivery does not guarantee quality, profit, or safety.
+                    A serious Telegram crypto signal should include the asset, market reason, entry zone, target levels, invalidation or stop-loss context, and risk note. Telegram makes delivery fast, but fast delivery does not guarantee quality, profit, or safety. Learn more about our official brand standards in the <Link href="/about-yaga-calls" className="text-primary hover:underline font-bold">Yaga Calls Brand Guide</Link>.
                   </p>
                 </div>
               </div>
@@ -308,7 +308,7 @@ export default function TelegramCryptoSignalsPage() {
             <div className="text-center space-y-4">
               <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Channel, Group <br /><span className="text-primary">or Community?</span></h2>
               <p className="text-xl text-text-muted max-w-2xl mx-auto font-bold">
-                The platform is not the edge. The process is the edge.
+                The platform is not the edge. The process is the edge. Read our full guide on choosing a <Link href="/crypto-trading-telegram-group" className="text-primary hover:underline font-bold">crypto trading Telegram group</Link> safely.
               </p>
             </div>
 
@@ -796,7 +796,7 @@ export default function TelegramCryptoSignalsPage() {
               <span className="text-primary">Not Blind Trust.</span>
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto font-medium">
-              Telegram is only the delivery layer. Join the free Telegram to observe the structured research behind every Yaga signal.
+              Telegram is only the delivery layer. Learn more about evaluating <Link href="/crypto-trading-group" className="text-primary hover:underline font-bold">crypto trading groups</Link>, read our <Link href="/crypto-trading-telegram-group" className="text-primary hover:underline font-bold">crypto trading Telegram group</Link> guide, or join the free Telegram to observe the structured research behind every Yaga signal.
             </p>
           </div>
           

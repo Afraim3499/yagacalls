@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     default: "Yaga Calls | Professional Crypto Signals & Market Analysis",
     template: "%s | Yaga Calls",
   },
-  description: "Join 3,500+ investors. Narrative Killer method. Systematic crypto signal generation with deep research and risk management.",
-  keywords: ["crypto signals", "bitcoin analysis", "trading strategy", "crypto trading", "market analysis"],
+  description: "Yaga Calls — also searched as Yagacall or Yaga Call — provides systematic crypto signals and narrative-driven market analysis for serious traders.",
+  keywords: ["Yaga Calls", "Yagacall", "Yaga Call", "Yaga Crypto", "crypto signals", "crypto trading group", "crypto trading Telegram group", "market analysis"],
   openGraph: {
     type: "website",
     locale: "en_US",

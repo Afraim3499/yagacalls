@@ -1,0 +1,13 @@
+# https://www.yagacalls.com/robots.txt
+# Official robots.txt for Yaga Calls
+
+User-agent: *
+Allow: /
+
+# Block sensitive or irrelevant paths if any
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap reference
+Sitemap: https://www.yagacalls.com/sitemap.xml

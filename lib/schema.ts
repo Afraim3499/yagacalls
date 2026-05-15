@@ -1,22 +1,27 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.yagacalls.com';
+import { BRAND_CONFIG } from './constants/brand';
+
+const SITE_URL = BRAND_CONFIG.siteUrl;
 
 export function createOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
-    name: 'Yaga Calls',
+    name: BRAND_CONFIG.brandName,
+    alternateName: BRAND_CONFIG.brandAliases,
     url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/logo.png`, // Placeholder - update with real logo if available
+      url: `${SITE_URL}/logo.png`,
       width: '180',
       height: '60'
     },
-    description: 'Premium crypto market analysis and educational signal ideas delivered through Telegram.',
+    description: BRAND_CONFIG.brandDescription,
     areaServed: 'Global',
     sameAs: [
-      'https://t.me/+JFf8kBf01mg3OTg1'
+      BRAND_CONFIG.officialTelegram
+      // TODO: Add official social/directory profiles ONLY after they are 
+      // verified, cleaned, and approved as per docs/p05-external-entity/
     ]
   };
 }
@@ -44,6 +49,27 @@ export function createWebPageSchema(params: {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': `${params.url}/#webpage`,
+    url: params.url,
+    name: params.title,
+    description: params.description,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: { '@id': `${SITE_URL}/#organization` },
+    datePublished: params.datePublished,
+    dateModified: params.dateModified || params.datePublished
+  };
+}
+
+export function createAboutPageSchema(params: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished?: string;
+  dateModified?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': `${params.url}/#aboutpage`,
     url: params.url,
     name: params.title,
     description: params.description,

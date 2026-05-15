@@ -20,7 +20,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Premium Telegram Signals for Serious Traders",
-  description: "Yaga Calls delivers premium Telegram crypto signals with market narrative research, entry zones, targets, invalidation logic, and risk-managed setup notes.",
+  description: "Yaga Calls — also searched as Yagacall or Yaga Call — delivers premium Telegram crypto signals with narrative research and risk-managed setup notes.",
   alternates: {
     canonical: "https://www.yagacalls.com/premium-telegram-crypto-signals",
   },

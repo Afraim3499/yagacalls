@@ -35,6 +35,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/position-sizing-calculator',
     '/telegram-crypto-signals',
     '/yaga-calls-review',
+    '/about-yaga-calls',
+    '/crypto-trading-group',
+    '/crypto-trading-telegram-group',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,

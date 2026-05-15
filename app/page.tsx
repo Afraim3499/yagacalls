@@ -17,7 +17,7 @@ import { createWebPageSchema, createFAQSchema, createOrganizationSchema, createW
 
 export const metadata = {
   title: "Professional Crypto Signals & Risk-Aware Trading",
-  description: "Yaga Calls provides premium Telegram crypto signals, market narrative research, clear entries, targets, invalidation levels, and risk-managed setup ideas for serious traders.",
+  description: "Yaga Calls — also known as Yagacall or Yaga Call — provides premium Telegram crypto signals, market narrative research, and risk-managed setup ideas.",
   alternates: {
     canonical: "https://www.yagacalls.com/",
   },

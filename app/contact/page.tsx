@@ -130,6 +130,18 @@ export default function ContactPage() {
     {
       question: "Who should contact Yaga Calls for premium access?",
       answer: "Serious traders who understand crypto risk, want structured Telegram signal notes, and can afford premium access responsibly can contact Yaga Calls for manual onboarding."
+    },
+    {
+      question: "How do I know I am contacting the official Yaga Calls Telegram?",
+      answer: "Use only links from the official Yaga Calls website. The official brand name is Yaga Calls, although some users search for it as Yagacall, Yaga Call, or Yaga. Avoid random Telegram DMs, copied logos, fake admins, unofficial payment requests, and anyone promising guaranteed profit."
+    },
+    {
+      question: "Is Yagacall the same as Yaga Calls?",
+      answer: "Yaga Calls is the official brand name. Yagacall and Yaga Call are common search variations. To avoid fake groups or impersonators, always use the official website and verified Telegram links. You can learn more in the official Yaga Calls brand guide (https://www.yagacalls.com/about-yaga-calls)."
+    },
+    {
+      question: "Is Yaga a crypto trading Telegram group?",
+      answer: "Yaga Calls is a Telegram-first crypto signal and market analysis provider. Some users may describe it as a crypto trading Telegram group, but the focus is structured setup notes, market research, entry zones, targets, invalidation, and risk-aware communication."
     }
   ];
 

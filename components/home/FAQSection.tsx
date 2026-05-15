@@ -33,6 +33,14 @@ export const faqs = [
   {
     question: "What makes Yaga Calls different from other crypto signal groups?",
     answer: "Yaga Calls focuses on structured signal logic, market narrative research, entry and target planning, invalidation context, risk awareness, and manual premium onboarding."
+  },
+  {
+    question: "Is it Yaga Calls, Yaga Call, Yagacall, or Yaga?",
+    answer: (
+      <>
+        The official brand name is Yaga Calls. Some users search for it as Yaga Call, Yagacall, Yaga, Yaga crypto signals, or Yaga crypto trading group. All official access should come through the Yaga Calls website and verified Telegram links. Read the <a href="/about-yaga-calls" className="text-primary hover:underline font-bold">official Yaga Calls brand guide</a> to learn more about our search variations and safety protocols.
+      </>
+    )
   }
 ];
 

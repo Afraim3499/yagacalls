@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-primary">Yaga Calls</h3>
             <p className="text-text-muted text-sm max-w-xs">
-              Professional crypto signals and market analysis. Educational content only. Join 3,500+ investors who trust our systematic approach.
+              Yaga Calls — sometimes searched as Yagacall, Yaga Call, or Yaga crypto signals — provides Telegram-first crypto signals and market analysis. Educational content only.
             </p>
           </div>
           
@@ -22,6 +22,7 @@ export default function Footer() {
               <li><Link href="/academy" className="hover:text-primary transition-colors">Trading Academy</Link></li>
               <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-primary">Risk Calculator</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors">Latest Analysis</Link></li>
+              <li><Link href="/about-yaga-calls" className="hover:text-primary transition-colors font-bold text-primary">About Yaga Calls</Link></li>
               <li><Link href="/yaga-calls-review" className="hover:text-primary transition-colors font-bold text-primary">Yaga Calls Review</Link></li>
             </ul>
           </div>
@@ -47,6 +48,8 @@ export default function Footer() {
               <li><Link href="/how-to-set-stop-losses-in-crypto" className="hover:text-primary transition-colors font-bold text-text-high">How to Set Stop-Losses</Link></li>
               <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-text-high">Position Sizing Calculator</Link></li>
               <li><Link href="/telegram-crypto-signals" className="hover:text-primary transition-colors font-bold text-text-high">Telegram Crypto Signals</Link></li>
+              <li><Link href="/crypto-trading-group" className="hover:text-primary transition-colors font-bold text-text-high">Crypto Trading Group</Link></li>
+              <li><Link href="/crypto-trading-telegram-group" className="hover:text-primary transition-colors font-bold text-text-high">Telegram Trading Group</Link></li>
               <li><Link href="/best-crypto-signal-provider" className="hover:text-primary transition-colors">Best Signal Provider</Link></li>
               <li><Link href="/premium-telegram-crypto-signals" className="hover:text-primary transition-colors">Premium Telegram</Link></li>
               <li><Link href="/proof" className="hover:text-primary transition-colors">Verified Proof</Link></li>
