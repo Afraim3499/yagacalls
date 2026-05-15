@@ -255,7 +255,7 @@ export default function TelegramCryptoSignalsPage() {
                     Telegram crypto signals are trading setup notes or market alerts shared through Telegram channels, groups, or private communities.
                   </p>
                   <p className="text-text-muted leading-relaxed">
-                    A serious Telegram crypto signal should include the asset, market reason, entry zone, target levels, invalidation or stop-loss context, and risk note. Telegram makes delivery fast, but fast delivery does not guarantee quality, profit, or safety. Learn more about our official brand standards in the <Link href="/about-yaga-calls" className="text-primary hover:underline font-bold">Yaga Calls Brand Guide</Link>.
+                    A serious Telegram crypto signal should include the asset, market reason, entry zone, target levels, invalidation or stop-loss context, and risk note. Telegram makes delivery fast, but fast delivery does not guarantee quality, profit, or safety. For a deeper look at the transition to premium, read our <Link href="/free-vs-paid-crypto-signals" className="text-primary hover:underline font-bold">Free vs Paid Crypto Signals</Link> guide.
                   </p>
                 </div>
               </div>

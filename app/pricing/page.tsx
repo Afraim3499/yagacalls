@@ -14,6 +14,9 @@ const PaymentDetailsSection = dynamic(() => import("@/components/pricing/Payment
 const FinalPricingCTA = dynamic(() => import("@/components/pricing/FinalPricingCTA.js").then(mod => mod.default));
 const PricingFAQSection = dynamic<{ faqs: { question: string; answer: string }[] }>(() => import("@/components/pricing/PricingFAQSection.js").then(mod => mod.default));
 import JsonLd from "@/components/seo/JsonLd";
+import Section from "@/components/shared/Section";
+import Container from "@/components/shared/Container";
+import Link from "next/link";
 import {
   createWebPageSchema,
   createFAQSchema,
@@ -181,6 +184,19 @@ export default function PricingPage() {
       <PricingFitWarning />
       <PricingCardsGrid />
       <PricingComparisonTable />
+      <Section className="bg-background py-12 text-center border-b border-line">
+        <Container>
+          <div className="max-w-2xl mx-auto space-y-4">
+            <h3 className="text-xl font-black uppercase tracking-tighter">Still Comparing Options?</h3>
+            <p className="text-text-muted text-sm font-medium leading-relaxed">
+              Before paying for any crypto signal provider, read our deep comparison of free vs paid crypto signals to understand what premium actually adds.
+            </p>
+            <Link href="/free-vs-paid-crypto-signals" className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:underline inline-block pt-2">
+              Free vs Paid Crypto Signals Comparison →
+            </Link>
+          </div>
+        </Container>
+      </Section>
       <DiscountExplanation />
       <ScarcitySection />
       <PricingSuitabilityChecker />

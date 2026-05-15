@@ -57,7 +57,7 @@ export default function Footer() {
               <li><Link href="/best-crypto-signal-provider" className="hover:text-primary transition-colors">Best Signal Provider</Link></li>
               <li><Link href="/premium-telegram-crypto-signals" className="hover:text-primary transition-colors">Premium Telegram</Link></li>
               <li><Link href="/proof" className="hover:text-primary transition-colors">Verified Proof</Link></li>
-              <li><Link href="/free-vs-paid-crypto-signals" className="hover:text-primary transition-colors">Free vs Paid</Link></li>
+              <li><Link href="/free-vs-paid-crypto-signals" className="hover:text-primary transition-colors font-bold text-text-high">Free vs Paid Signals</Link></li>
               <li><Link href="/verified-crypto-signal-provider" className="hover:text-primary transition-colors">Verified Provider</Link></li>
               <li><Link href="/crypto-signals-with-risk-management" className="hover:text-primary transition-colors">Risk Management</Link></li>
               <li><Link href="/narrative-trading-crypto-signals" className="hover:text-primary transition-colors">Narrative Trading</Link></li>

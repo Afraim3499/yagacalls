@@ -66,6 +66,7 @@ export default function WhatYouGet() {
             <a href="/position-sizing-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Position Sizing Calculator →</a>
             <a href="/leverage-trading-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Leverage Trading Calculator →</a>
             <a href="/liquidation-price-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Liquidation Price Calculator →</a>
+            <a href="/free-vs-paid-crypto-signals" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Free vs Paid Signals →</a>
           </div>
         </div>
       </Container>
