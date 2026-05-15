@@ -180,6 +180,13 @@ export default function LeverageTradingCalculatorPage() {
               >
                 Position Sizing Tool
               </CTAButton>
+              <CTAButton 
+                href="/liquidation-price-calculator" 
+                variant="secondary"
+                className="hidden md:inline-flex"
+              >
+                Liquidation Calculator
+              </CTAButton>
             </div>
 
             <div className="pt-8 p-6 bg-background/40 border border-line rounded-3xl backdrop-blur-sm">
@@ -879,6 +886,9 @@ export default function LeverageTradingCalculatorPage() {
               </Link>
               <Link href="/position-sizing-calculator" className="text-xs font-black uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
                 Position Sizing Tool
+              </Link>
+              <Link href="/liquidation-price-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline">
+                Liquidation Calculator
               </Link>
               <Link href="/pricing" className="text-xs font-black uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
                 Compare Plans

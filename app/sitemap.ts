@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/crypto-trading-group',
     '/crypto-trading-telegram-group',
     '/leverage-trading-calculator',
+    '/liquidation-price-calculator',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,

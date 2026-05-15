@@ -781,6 +781,9 @@ export default function StopLossPillarPage() {
               <Link href="/leverage-trading-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline">
                 Leverage Calculator
               </Link>
+              <Link href="/liquidation-price-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline">
+                Liquidation Calculator
+              </Link>
               <Link href="/crypto-signals-with-risk-management" className="text-xs font-black uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
                 Risk-Managed Signals
               </Link>

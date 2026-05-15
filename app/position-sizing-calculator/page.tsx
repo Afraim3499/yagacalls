@@ -741,6 +741,9 @@ export default function PositionSizingCalculatorPage() {
               <Link href="/leverage-trading-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline">
                 Leverage Calculator
               </Link>
+              <Link href="/liquidation-price-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline">
+                Liquidation Calculator
+              </Link>
               <Link href="/proof" className="text-xs font-black uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
                 Proof Examples
               </Link>

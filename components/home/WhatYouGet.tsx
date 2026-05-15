@@ -65,6 +65,7 @@ export default function WhatYouGet() {
           <div className="flex flex-wrap justify-center gap-6">
             <a href="/position-sizing-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Position Sizing Calculator →</a>
             <a href="/leverage-trading-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Leverage Trading Calculator →</a>
+            <a href="/liquidation-price-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Liquidation Price Calculator →</a>
           </div>
         </div>
       </Container>

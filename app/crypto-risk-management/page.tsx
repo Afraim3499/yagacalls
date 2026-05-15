@@ -190,6 +190,13 @@ export default function RiskManagementPillarPage() {
                 >
                   Leverage Calculator
                 </CTAButton>
+                <CTAButton 
+                  href="/liquidation-price-calculator" 
+                  variant="secondary"
+                  className="hidden lg:inline-flex"
+                >
+                  Liquidation Calculator
+                </CTAButton>
               </div>
 
               <div className="pt-6">
@@ -401,6 +408,9 @@ export default function RiskManagementPillarPage() {
               </Link>
               <Link href="/leverage-trading-calculator" className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:underline">
                 Use Leverage Trading Calculator →
+              </Link>
+              <Link href="/liquidation-price-calculator" className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:underline">
+                Use Liquidation Price Calculator →
               </Link>
             </div>
           </div>
