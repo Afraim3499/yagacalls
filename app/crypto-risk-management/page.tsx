@@ -177,11 +177,18 @@ export default function RiskManagementPillarPage() {
                   Read the Method
                 </CTAButton>
                 <CTAButton 
-                  href="/crypto-signals-with-risk-management" 
+                  href="/position-sizing-calculator" 
                   variant="secondary"
                   className="hidden sm:inline-flex"
                 >
-                  See Risk-Managed Signals
+                  Position Sizing Tool
+                </CTAButton>
+                <CTAButton 
+                  href="/leverage-trading-calculator" 
+                  variant="secondary"
+                  className="hidden md:inline-flex"
+                >
+                  Leverage Calculator
                 </CTAButton>
               </div>
 
@@ -388,10 +395,13 @@ export default function RiskManagementPillarPage() {
               </div>
             </div>
             
-            <div className="text-center pt-8">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-text-muted opacity-50">
-                TODO: Link to /position-sizing-calculator after implementation.
-              </p>
+            <div className="flex flex-wrap justify-center gap-8 pt-8">
+              <Link href="/position-sizing-calculator" className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:underline">
+                Use Position Sizing Calculator →
+              </Link>
+              <Link href="/leverage-trading-calculator" className="text-xs font-black uppercase tracking-[0.2em] text-primary hover:underline">
+                Use Leverage Trading Calculator →
+              </Link>
             </div>
           </div>
         </Container>

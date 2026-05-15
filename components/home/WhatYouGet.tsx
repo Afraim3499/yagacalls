@@ -58,10 +58,14 @@ export default function WhatYouGet() {
           ))}
         </div>
         
-        <div className="mt-20 max-w-4xl mx-auto text-center border-t border-line pt-12">
+        <div className="mt-20 max-w-4xl mx-auto text-center border-t border-line pt-12 space-y-6">
           <p className="text-text-muted text-sm leading-relaxed max-w-2xl mx-auto">
             Some traders may describe Yaga Calls as a <a href="/crypto-trading-group" className="text-primary hover:underline font-bold">crypto trading group</a> or <a href="/crypto-trading-telegram-group" className="text-primary hover:underline font-bold">crypto trading Telegram group</a>, but the standard is more specific: Yaga Calls focuses on structured crypto signal notes, market narrative research, entry zones, target planning, invalidation, and risk-aware Telegram delivery.
           </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="/position-sizing-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Position Sizing Calculator →</a>
+            <a href="/leverage-trading-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline underline-offset-4">Leverage Trading Calculator →</a>
+          </div>
         </div>
       </Container>
     </Section>

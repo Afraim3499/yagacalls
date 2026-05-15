@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about-yaga-calls',
     '/crypto-trading-group',
     '/crypto-trading-telegram-group',
+    '/leverage-trading-calculator',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,

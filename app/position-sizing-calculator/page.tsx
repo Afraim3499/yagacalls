@@ -738,6 +738,9 @@ export default function PositionSizingCalculatorPage() {
               <Link href="/how-to-set-stop-losses-in-crypto" className="text-xs font-black uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
                 Stop-Loss Guide
               </Link>
+              <Link href="/leverage-trading-calculator" className="text-xs font-black uppercase tracking-widest text-primary hover:underline">
+                Leverage Calculator
+              </Link>
               <Link href="/proof" className="text-xs font-black uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
                 Proof Examples
               </Link>
