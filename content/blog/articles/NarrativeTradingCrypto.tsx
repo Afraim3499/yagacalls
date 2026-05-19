@@ -1,133 +1,228 @@
 import React from "react";
-import Link from "next/link";
+import { ShieldCheck, Target, AlertTriangle, ArrowRight, Percent, CheckCircle2, Cpu, Globe, Server, LineChart, Activity } from "lucide-react";
 
 export default function NarrativeTradingCrypto() {
   return (
-    <>
-      <section>
-        <p>
-          Many retail traders enter the cryptocurrency market equipped with traditional technical analysis tools. They draw trendlines, monitor RSI divergences, and wait for MACD crossovers on daily charts, convinced that the secret to capturing profitable altcoin trends is encoded entirely in historical price action. 
-        </p>
-        <p>
-          However, in modern digital asset markets, this mechanical approach represents a significant analytical blind spot. While technical analysis is absolutely essential for structuring entries, defining precise risk boundaries, and placing stop-losses, it is rarely the primary driver of massive altcoin trends. 
-        </p>
-        <p>
-          In digital assets, capital flows are driven by **attention, storytelling, and catalyst timelines**. This is the craft of <strong>narrative trading crypto</strong>. To consistently capture high-probability setups and outpace the retail crowd, you must master the mechanics of sector rotation—identifying which ecosystem is attracting institutional venture capital and social media mindshare, measuring its velocity, and entering positions before the hype cycle reaches its peak. This comprehensive guide details what narrative trading is, dissects the leading sector catalysts of 2026, explains how to track early momentum signals on-chain, and outlines the risk controls needed to navigate hype-driven volatility.
-        </p>
+    <div className="space-y-16 text-sm text-text-muted">
+      
+      {/* 1. Executive Summary Grid */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="lg:col-span-7 space-y-6 flex flex-col justify-center">
+          <div className="space-y-2">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Narrative Velocity</span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text-high">
+              Attention and Storytelling as Market Catalysts
+            </h2>
+          </div>
+          <p className="leading-relaxed">
+            Many retail traders draw daily trendlines and wait for mechanical indicator crossovers, convinced that altcoin rally breakouts are encoded entirely in historical price charts. But in digital assets, capital flows are driven by attention, ecosystem funding, and catalyst timelines. To capture high-probability setups consistently, you must master the mechanics of sector rotation—identifying which theme attracts capital early, measuring its velocity, and entering before the retail hype peaks.
+          </p>
+          <div className="p-4 bg-primary/5 border border-primary/20 rounded-2xl flex gap-3 items-start">
+            <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+            <p className="text-xs text-text-muted leading-relaxed">
+              <strong className="text-text-high">The Attention Factor:</strong> Because altcoins lack traditional equity valuations or corporate cash flows, their prices are driven entirely by attention metrics and timezone-specific bridge flows.
+            </p>
+          </div>
+        </div>
+
+        <div className="lg:col-span-5 p-6 bg-surface-deep border border-line rounded-3xl space-y-4 flex flex-col justify-between">
+          <h3 className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
+            <Activity className="w-4 h-4" /> Narrative Indicators
+          </h3>
+          <div className="space-y-3">
+            {[
+              "Ecosystem bridging volume surges on-chain",
+              "Spikes in GitHub development commits",
+              "Synchronized social media mindshare increases",
+              "Venture capital token-funding concentration blocks",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <span className="text-xs text-text-muted leading-relaxed">{item}</span>
+              </div>
+            ))}
+          </div>
+          <div className="border-t border-line pt-4 flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-text-muted">
+            <span>Research Cycle</span>
+            <span className="text-primary">Velocity Audited</span>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="what-is-narrative-trading">What is Narrative Trading and Why Does It Move Crypto?</h2>
-        <p>
-          Narrative trading is an investment methodology that prioritizes capital flow, attention metrics, and storytelling catalysts over isolated technical indicators or traditional valuation parameters. 
-        </p>
-        <p>
-          In traditional finance, equity prices are heavily anchored in corporate earnings reports, price-to-earnings (P/E) ratios, and cash-flow statements. In cryptocurrency, altcoins rarely possess traditional cash flows or yield-bearing assets. Instead, their price is driven entirely by **attention and speculative liquidity**.
-        </p>
-        <p>
-          A narrative is a compelling story—such as the integration of decentralized blockchain structures with Artificial Intelligence compute grids, or the tokenization of institutional real-world assets—that captures the imagination of the market. When a narrative gains traction, global capital rotates rapidly into that specific sector. 
-        </p>
-        <p>
-          This sector rotation creates a highly synchronized rally where all related assets break out together, regardless of their individual technical structures. A narrative trader monitors these rotations early, allocates capital to the sector leaders, and exits as the narrative reaches peak retail saturation.
-        </p>
+      {/* 2. Major Sector Catalysts (3-Card Grid) */}
+      <section className="space-y-8">
+        <div className="text-center space-y-2">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary">Sector Rotations</span>
+          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-text-high">
+            The Major Narrative Catalysts of 2026
+          </h2>
+          <p className="text-xs text-text-muted max-w-xl mx-auto">
+            Audit sector capital concentration across these three leading themes dominating institutional and venture capital allocations.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <Cpu className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">AI & Decentralized Compute</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+              As technology giants invest heavily in AI, public computing demand is surging. Protocols crowd-sourcing processing grids or building AI agent layers attract massive speculative liquidity.
+            </p>
+          </div>
+
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <Globe className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">Real World Assets (RWA)</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+              Global institutions are migrating traditional financial assets—like Treasury bills, real estate, and commodities—onto blockchain networks, creating highly stable capital flows.
+            </p>
+          </div>
+
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <Server className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">DePIN Hardware Grids</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+              Decentralized Physical Infrastructure Networks reward hardware contributors, creating crowd-sourced networks for 5G wireless networks, database storage, and global navigation maps.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="leading-sector-catalysts">The Major Sector Catalysts of 2026</h2>
-        <p>
-          To trade narratives successfully, you must understand the primary sectors that drive institutional capital allocation and retail attention. In the current market regime, liquidity has concentrated heavily in four authoritative categories:
-        </p>
-        
-        <h3>1. Artificial Intelligence (AI) and Decentralized Compute</h3>
-        <p>
-          As global technology giants invest trillions of dollars in AI neural network development, the demand for high-performance GPU compute power has reached unprecedented levels. Decentralized networks that crowd-source processing capacity, build sovereign AI agent frameworks, or secure transparent data marketplaces have become major liquidity magnets. The AI narrative is highly sustainable because it constantly receives positive external validation from traditional technology sectors.
-        </p>
+      {/* 3. The Life Cycle of a Market Narrative (Horizontal Timeline Grid) */}
+      <section className="p-6 md:p-8 bg-surface-deep border border-line rounded-[32px] space-y-8">
+        <div className="space-y-2">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary font-mono">Cycle Mechanics</span>
+          <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight text-text-high">
+            The 4-Phase Life Cycle of a Market Narrative
+          </h2>
+          <p className="text-xs text-text-muted leading-relaxed">
+            Recognizing which phase a narrative cycle occupies is the most critical variable for managing investment and entry risk.
+          </p>
+        </div>
 
-        <h3>2. Real World Assets (RWA) Tokenization</h3>
-        <p>
-          Institutional finance is actively migrating traditional financial instruments—such as US Treasury bills, gold bars, commodity baskets, and commercial real estate portfolios—onto public blockchains. The RWA sector brings massive, low-volatility institutional liquidity into the decentralized ecosystem, establishing a stable capital flow that is highly favored by long-term swing traders.
-        </p>
-
-        <h3>3. Decentralized Physical Infrastructure Networks (DePIN)</h3>
-        <p>
-          DePIN protocols utilize token incentives to crowd-source the physical hardware deployment of real-world networks—such as wireless 5G grids, distributed storage databases, and high-volume mapping networks. DePIN is highly regarded by venture capital because it bridges digital tokenomics with tangible real-world utility, presenting a strong fundamental thesis.
-        </p>
-
-        <h3>4. Layer 1 (L1) Parallel Execution Rotations</h3>
-        <p>
-          Ecosystem capital routinely rotates in search of high transaction speeds, parallel processing capabilities, and low execution fees. High-performance parallel networks (like SUI) experience massive ecosystem rallies as developers migrate and on-chain yield opportunities expand, driving significant retail user onboarding.
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {[
+            { phase: "Phase 1", title: "Accumulation", desc: "Professional traders spot growing on-chain metrics, dev commits, and bridge flows. Price is consolidating. Highly optimal entry zone." },
+            { phase: "Phase 2", title: "Validation", desc: "A catalyst occurs (exchange listing, protocol upgrade, venture funding). Technical breakout occurs on high volume, social discussions trend." },
+            { phase: "Phase 3", title: "Peak Hype", desc: "Influencers post target predictions. Retail traders experience intense FOMO, buying peaks. Slabs of bridge liquidity reverse." },
+            { phase: "Phase 4", title: "Exhaustion", desc: "The catalyst date passes (sell-the-news event). Smart money rotates profits out of the sector into the next consolidating theme." },
+          ].map((item, i) => (
+            <div key={i} className="p-5 bg-background border border-line rounded-2xl space-y-3 flex flex-col justify-between hover:border-primary/20 transition-all group">
+              <div className="flex justify-between items-center">
+                <span className="text-xs font-black text-primary font-mono">{item.phase}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:translate-x-0.5 transition-transform" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-text-high text-xs uppercase tracking-tight">{item.title}</h4>
+                <p className="text-[11px] text-text-muted leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <section>
-        <h2 id="how-narratives-form">The Life Cycle of a Market Narrative</h2>
-        <p>
-          Every major crypto narrative progresses through a highly predictable life cycle consisting of four distinct phases. Recognizing which phase a narrative is in is vital for managing entry risk:
-        </p>
-        <ol>
-          <li>
-            <strong>Accumulation (Smart Money Phase):</strong> Venture capital and professional swing traders identify early on-chain data trends, such as an increase in active developer wallets or bridge volume. The asset prices are consolidating in tight ranges, completely ignored by the public. This is the optimal entry window.
-          </li>
-          <li>
-            <strong>Validation (Catalyst Phase):</strong> A major fundamental catalyst occurs—such as a key protocol mainnet upgrade, a significant exchange listing, or an institutional partnership announcement. Buy volume surges, technical resistance levels break, and early social media discussion begins to trend.
-          </li>
-          <li>
-            <strong>Hype (Retail FOMO Phase):</strong> The narrative becomes the dominant topic on social media platforms (Twitter, YouTube, Telegram). Financial influencers post target predictions, and retail traders experience intense FOMO, buying the asset at peak prices. Volume spikes to extreme levels.
-          </li>
-          <li>
-            <strong>Exhaustion (Capital Rotation Phase):</strong> The primary catalyst date passes (the "sell the news" event), bridge volume begins to decline on-chain, and smart money quietly rotates their profits out of the sector and into the next consolidating narrative. The overhyped assets experience severe pullbacks.
-          </li>
-        </ol>
+      {/* 4. Side-by-Side: Narrative Analytics Visualization */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="lg:col-span-6 space-y-6">
+          <div className="space-y-2">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Quantitative Auditing</span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text-high">
+              How Yaga Calls Tracks Narrative Velocity
+            </h2>
+          </div>
+          <p className="leading-relaxed font-sans">
+            We reject the retail culture of subjective guessing or following Twitter threads. Our research desk scans bridges and blockchain liquidity databases to identify exactly where real capital is moving before the breakouts show up on retail scanners.
+          </p>
+          <div className="space-y-3 font-medium">
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">A</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">Social Mindshare Auditing:</strong> Scanning platform mentions and dev boards to measure sudden synchronized spikes in social focus.</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">B</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">On-Chain Bridge Inflows:</strong> Auditing multi-million stablecoin bridge transfers rotating into consolidating Layer-1 networks.</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">C</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">Upgrade & Catalyst Calendars:</strong> Aligning strong technical charts with concrete protocol upgrades and mainnet launches.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-6 p-6 md:p-8 bg-surface-deep border border-line rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
+          <div className="flex justify-between items-center border-b border-line pb-4">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Live Research Tracker Mockup</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+          </div>
+          <div className="space-y-4">
+            <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-[9px] font-black uppercase tracking-widest text-text-muted">Sector Index</span>
+                <span className="text-xs font-bold text-primary">#L1 Parallel Execution</span>
+              </div>
+              <div className="flex justify-between items-center border-t border-line/50 pt-2 font-mono text-xs">
+                <span>On-Chain Bridge Inflow (24h)</span>
+                <span className="text-emerald-500 font-bold">+$24.7M</span>
+              </div>
+            </div>
+
+            <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-[9px] font-black uppercase tracking-widest text-text-muted">Social Index</span>
+                <span className="text-xs font-bold text-primary">#AI Compute Networks</span>
+              </div>
+              <div className="flex justify-between items-center border-t border-line/50 pt-2 font-mono text-xs">
+                <span>Mindshare Spikes (7d)</span>
+                <span className="text-emerald-500 font-bold">+184%</span>
+              </div>
+            </div>
+
+            <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-[9px] font-black uppercase tracking-widest text-text-muted">Ecosystem Index</span>
+                <span className="text-xs font-bold text-primary">#RWA Tokenization</span>
+              </div>
+              <div className="flex justify-between items-center border-t border-line/50 pt-2 font-mono text-xs">
+                <span>Institutional bridges TVL</span>
+                <span className="text-emerald-500 font-bold">+$85.2M</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="early-momentum-signals">Early Momentum Signals: Social and On-Chain Tracking</h2>
-        <p>
-          To succeed consistently, a narrative trader must move beyond subjective guessing and utilize quantitative metrics to measure capital movement. At Yaga Calls, we track three primary variables to calculate what we call **Narrative Velocity**:
-        </p>
-        
-        <ul>
-          <li>
-            <strong>Social Mindshare Volume:</strong> We monitor the frequency of specific keywords, developer updates, and key influencer discussions across platforms like Twitter, Telegram, and GitHub. A sudden, synchronized spike in social volume is a leading indicator of attention rotation.
-          </li>
-          <li>
-            <strong>On-Chain Capital Inflow:</strong> We scan blockchain bridge data and decentralized exchange (DEX) liquidity pools using advanced analytics tools. If millions of dollars in stablecoins are bridging into a specific layer-1 ecosystem, a major technical breakout is building.
-          </li>
-          <li>
-            <strong>Ecosystem Catalyst Timelines:</strong> We maintain a comprehensive calendar of upcoming network upgrades, token listings, mainnet launches, and major developer conferences. The highest-probability trades occur when a strong technical chart aligns with an upcoming catalyst date.
-          </li>
-        </ul>
+      {/* 5. Actionable Risk Management Checklist */}
+      <section className="p-6 bg-surface-deep border border-line rounded-3xl space-y-6">
+        <h3 className="font-black uppercase tracking-widest text-xs text-primary">
+          The Golden Rules of Narrative Risk Management
+        </h3>
+        <div className="space-y-4">
+          {[
+            { title: "Never chase an asset that has rallied 50%+", text: "Wait for the narrative's secondary retest of range high support structures. Never buy peak breakouts driven by social FOMO." },
+            { title: "Enforce strict position-sizing limits", text: "Narratives carry extreme sentiment volatility. Restrict portfolio risk limits to a maximum of 1-1.5% per trade." },
+            { title: "Set non-negotiable stop-losses", text: "Place stop-losses just below logical range consolidation structures. Never adjust stops lower during volatility dips." },
+            { title: "Take partial profits at TP1", text: "Exit 50% of your position once the trade hits your first target, immediately moving your open stop-loss to break-even." },
+          ].map((step, i) => (
+            <div key={i} className="flex gap-4 items-start">
+              <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-xs font-bold shrink-0 mt-0.5">
+                {i + 1}
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-text-high uppercase tracking-tight text-xs">{step.title}</h4>
+                <p className="text-xs text-text-muted leading-relaxed">{step.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
-
-      <section>
-        <h2 id="managing-risk-narratives">Managing Risk in Hype-Driven Market Seasons</h2>
-        <p>
-          While narrative trading offers the largest percentage gains in the market, it also carries substantial capital risk. Because these altcoin rallies are driven by sentiment, attention, and speculation rather than structural cash flows, they can reverse instantly once the attention shifts or the catalyst passes.
-        </p>
-        <p>
-          To navigate this volatility safely, you must maintain absolute risk discipline:
-        </p>
-        <blockquote className="my-6 border-l-4 border-primary bg-surface-deep/30 p-6 rounded-r-2xl text-xs text-text-muted">
-          <strong className="text-text-high uppercase tracking-wider block mb-2">The Golden Rule of Narrative Risk:</strong>
-          Never chase a sector that has already rallied 50% or 100% in a week. Chasing overhyped assets ruins your risk-to-reward ratio and exposes you to severe liquidations. Always wait for the narrative to consolidate and retest major structural support levels, or look for the next accumulating sector that has not yet popped.
-        </blockquote>
-        <p>
-          Enforce a strict position risk limit of 1% to 1.5% of your portfolio per trade, set a non-negotiable stop-loss on every position, and scale out of your trades incrementally (e.g., closing 50% at TP1 and moving stop-losses to break-even) to secure profits as the hype builds.
-        </p>
-      </section>
-
-      <section>
-        <h2 id="yaga-calls-narratives">The Yaga Calls Narrative Intelligence Framework</h2>
-        <p>
-          At Yaga Calls, we reject the retail culture of guessing which token will "pump next." Our premium service is built on quantitative Narrative Intelligence, timezone liquidity flows, and institutional risk management.
-        </p>
-        <p>
-          Our team of senior analysts actively tracks capital rotation cycles, developer activity, and macro catalyst calendars. When a strong technical range breakout aligns with a powerful market narrative and positive on-chain bridge flows, we share a comprehensive swing-trading blueprint in our private Telegram group. Every signal features entry zones, tiered target levels, and strict logical invalidation stop-losses.
-        </p>
-        <p>
-          We do not believe in hype; we believe in mathematics and absolute transparency. To join our premium channel, you must go through a manual, 1-on-1 human onboarding conversation to ensure you understand our downside protection strategies before trading. You can <a href="/pricing">compare our premium plans here</a>, verify our unedited history of verified <a href="/proof">trade setup proof snapshots</a>, or review our strict <a href="/risk-disclosure">capital risk disclosure guidelines</a>.
-        </p>
-      </section>
-    </>
+      
+    </div>
   );
 }

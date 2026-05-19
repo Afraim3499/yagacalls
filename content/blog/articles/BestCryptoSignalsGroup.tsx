@@ -1,190 +1,303 @@
 import React from "react";
-import Link from "next/link";
+import { ShieldCheck, Target, AlertTriangle, ArrowRight, Percent, CheckCircle2, Layers, LineChart, Users } from "lucide-react";
 
 export default function BestCryptoSignalsGroup() {
   return (
-    <>
-      <section>
-        <p>
-          In the hyper-accelerated world of digital assets, information is the most valuable currency. With the cryptocurrency markets operating 24 hours a day, 365 days a year, across hundreds of global exchanges, the sheer volume of data is overwhelming for any single trader to process. It is this constant firehose of price action, developer updates, and macro liquidity shifts that drives retail and institutional participants alike to search for the <strong>best crypto signals group</strong>. 
-        </p>
-        <p>
-          Unfortunately, the search for structured trading assistance is fraught with extreme risk. The digital asset industry is flooded with copycat channels, automated alerting algorithms, and anonymous signal channels that operate entirely on marketing hype rather than analytical discipline. Many retail traders fall into the trap of subscribing to groups that promise unrealistic "99% win rates" or showcase photoshopped profit screenshots, only to find themselves executing low-quality setups that wipe out their trading accounts.
-        </p>
-        <p>
-          To survive and build a sustainable edge in cryptocurrency, you must transition from a gambler looking for lucky "calls" to a disciplined market participant evaluating professional research. A legitimate, high-signal premium group should function not as a financial lottery, but as a structured, educational partner. This comprehensive guide audits what a crypto signals group is, dissects the technical and narrative indicators that separate elite communities from noisy alerts, outlines the strict visual architecture of a professional trade signal, and provides a clear audit framework to protect your hard-earned capital.
-        </p>
-      </section>
-
-      <section>
-        <h2 id="what-is-signals-group">What is a Crypto Signals Group?</h2>
-        <p>
-          At its most fundamental level, a crypto signals group is an online community—most commonly hosted on secure platforms like Telegram or Discord—where professional market analysts publish trade recommendations. These recommendations, or "signals," are designed to guide members on exactly what digital asset to buy, what direction to trade it in (a long position to benefit from price increases, or a short position to profit from price declines), and when to exit the trade to either capture profits or prevent irreversible capital loss.
-        </p>
-        <p>
-          However, the depth and quality of these groups vary drastically across the industry. Low-quality groups typically rely on automated scrapers or basic mechanical crossovers—such as simple moving average crossovers or basic RSI extremes—to blast out dozens of tickers a day without a single sentence of rationale. These groups operate under a "churn-and-burn" business model, harvesting retail subscription fees while leaving their members to navigate highly complex trade management on their own.
-        </p>
-        <p>
-          In stark contrast, a premium, research-led crypto signals group functions as an active market intelligence hub. Every setup shared is the result of hours of rigorous fundamental research, timezone liquidity auditing, and technical structure validation. Crucially, a professional signal is never presented in isolation; it is always accompanied by a detailed market narrative that explains the "why" behind the move. The ultimate goal of an elite group is not to force you into blind, automated copy-trading, but to foster long-term market literacy so that you can understand the structural logic of the global financial flows.
-        </p>
-      </section>
-
-      <section>
-        <h2 id="separating-useful-from-noisy">Separating Useful Groups from Noisy Alert channels</h2>
-        <p>
-          Before committing your capital to any signal provider, you must be able to distinguish between high-signal, professional research and low-quality, automated noise. Useful, institutional-grade groups and noisy alert channels operate on completely different philosophies:
-        </p>
-        
-        <h3>1. Narrative-First vs. Indicator-Only Signals</h3>
-        <p>
-          Noisy channels typically generate alerts because a basic technical indicator has reached an extreme (e.g., "Asset X is oversold on the 4-Hour RSI"). However, in modern digital asset markets, mechanical indicators are highly prone to "fakeouts" and sudden trend invalidation. A professional group utilizes <strong>Narrative Intelligence</strong>. They look for structural catalysts: ecosystem funding, developer migrations, timezone liquidity shifts, or upcoming protocol upgrades. If a technical breakout aligns with a powerful market story, the setup has a mathematically higher probability of success.
-        </p>
-
-        <h3>2. Hand-Curated swing setups vs. High-Frequency alert blasts</h3>
-        <p>
-          Low-quality groups frequently share 10 to 20 signals a day. This is a deliberate tactic to ensure that *some* trades will hit profit targets, allowing the administrators to showcase green screenshots in their public channels. However, high-frequency trading is mathematically unsustainable for retail traders due to exchange fees, slippage, and emotional fatigue. An elite signals group practices extreme selectivity, sharing only 2 to 4 high-conviction swing setups per week. Each setup is manually monitored, managed, and adjusted by human analysts in real time as market regimes shift.
-        </p>
-
-        <h3>3. Transparent performance ledger vs. Selective editing</h3>
-        <p>
-          The ultimate test of a signal provider's integrity is how they handle their results. Noisy groups routinely edit their entry levels after a trade has moved, delete historical losing calls to preserve a fake "perfect" track record, or use high-leverage screenshots (e.g., "+1000%") to mask tiny dollar gains. A trustworthy, senior-led group maintains an unedited, timestamped public record of every single trade setup shared—both the major profit-taking events and the minor, disciplined stop-loss hits. They do not hide their losses; they analyze them publicly as vital educational opportunities.
-        </p>
-      </section>
-
-      <section>
-        <h2 id="anatomy-of-professional-signal">The Visual Anatomy of a Professional Trade Setup</h2>
-        <p>
-          A professional crypto signal is an actionable, highly structured trading blueprint. It must present every critical parameter with absolute clarity, leaving no room for guesswork or emotional hesitation. Below is the precise visual structure utilized by institutional trading desks:
-        </p>
-
-        <blockquote className="my-6 border-l-4 border-primary bg-surface-deep/30 p-6 rounded-r-2xl">
-          <div className="font-black text-text-high uppercase tracking-wider text-sm mb-3">
-            SAMPLE CRYPTO SIGNAL FORMAT (SWING SETUP)
+    <div className="space-y-16 text-sm text-text-muted">
+      
+      {/* 1. Executive Summary Grid */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="lg:col-span-7 space-y-6 flex flex-col justify-center">
+          <div className="space-y-2">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Core Philosophy</span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text-high">
+              Moving Past Retail Scams to Institutional Research
+            </h2>
           </div>
-          <div className="text-xs space-y-2 font-mono text-text-muted leading-relaxed">
-            <div><strong className="text-primary">Asset Pair:</strong> SUI/USDT (Spot or Low Leverage 2x-3x)</div>
-            <div><strong className="text-primary">Direction:</strong> BUY / LONG (Swing Accumulation breakout)</div>
-            <div><strong className="text-primary">Entry Zone:</strong> $1.46 - $1.49 (Limit orders only, do not market chase)</div>
-            <div><strong className="text-primary">Stop-Loss (SL):</strong> $1.39 (Non-negotiable logical structural invalidation)</div>
-            <div><strong className="text-primary">Take-Profit Targets:</strong></div>
-            <div className="pl-4">
-              • TP1: $1.70 (50% position scale-out, adjust SL to break-even)<br />
-              • TP2: $1.85 (25% position scale-out)<br />
-              • TP3: $2.00 (Final 25% position scale-out)
+          <p className="leading-relaxed">
+            Finding the best crypto signals group requires moving beyond simple profit screenshots and guaranteed return claims. The digital asset market operates 24/7, making mechanical crossovers highly prone to fakeouts. A professional signal group functions as an active research partner, prioritizing capital preservation over high-frequency alert noise.
+          </p>
+          <div className="p-4 bg-primary/5 border border-primary/20 rounded-2xl flex gap-3 items-start">
+            <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+            <p className="text-xs text-text-muted leading-relaxed">
+              <strong className="text-text-high">The Professional Edge:</strong> Elite groups operate as structured intelligence networks, combining technical structures with narrative catalysts and timezone-specific liquidity audits.
+            </p>
+          </div>
+        </div>
+
+        <div className="lg:col-span-5 p-6 bg-surface-deep border border-line rounded-3xl space-y-4 flex flex-col justify-between">
+          <h3 className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
+            <Target className="w-4 h-4" /> The 3-Second Audit
+          </h3>
+          <div className="space-y-3">
+            {[
+              "High-conviction swing setups over high-frequency alert noise",
+              "100% unedited, transparent, and timestamped performance ledger",
+              "Detailed narrative rationale included with every signal note",
+              "Strict position sizing and non-negotiable stop-losses",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <span className="text-xs text-text-muted leading-relaxed">{item}</span>
+              </div>
+            ))}
+          </div>
+          <div className="border-t border-line pt-4 flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-text-muted">
+            <span>Audit Standard</span>
+            <span className="text-primary">EEAT-Compliant</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Core Pillars Grid */}
+      <section className="space-y-8">
+        <div className="text-center space-y-2">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary">Foundational Pillars</span>
+          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-text-high">
+            What Separates Elite Research From Noise
+          </h2>
+          <p className="text-xs text-text-muted max-w-xl mx-auto">
+            Do not judge a provider by green screenshots. Audit their operations based on these three institutional pillars.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <Layers className="w-5 h-5" />
             </div>
-            <div><strong className="text-primary">Ecosystem Narrative:</strong> Strong developer migration to parallel Move-VM infrastructure, massive TVL expansion on-chain, and significant buy volume spikes during European trading sessions.</div>
-            <div><strong className="text-primary">Risk Note:</strong> Maximum 1.5% portfolio risk sizing. Structural invalidation occurs if SUI closes a 4-Hour candle below $1.39.</div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">Selectivity Over Volume</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+              Noisy channels blast 10-20 alerts daily to trigger affiliate commission trades. Elite desks execute extreme selectivity, sharing only 2-4 high-conviction swing setups per week.
+            </p>
           </div>
-        </blockquote>
 
-        <p>
-          Let's break down why this structural design is crucial for a trader's execution:
-        </p>
-        <ul>
-          <li>
-            <strong>Entry Zone Range:</strong> A professional analyst never gives a single "entry price." Digital assets move constantly. An entry zone (e.g., $1.46 - $1.49) allows you to set limit orders and accumulate a position systematically without chasing sudden spikes.
-          </li>
-          <li>
-            <strong>Logical Invalidation Stop-Loss:</strong> The stop-loss is not a random number. It is set just below the key structural support level or range low where the original technical thesis is invalidated. If SUI breaks below $1.39, the breakout is mathematically a "fakeout," and you must exit at a small, managed loss immediately.
-          </li>
-          <li>
-            <strong>Tiered Take-Profit Targets:</strong> A professional swing trade is executed in stages. Scaling out of your position (e.g., closing 50% at TP1 and moving your stop-loss to your entry price) guarantees that you secure profits while transforming the remaining position into a completely risk-free trade.
-          </li>
-        </ul>
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <LineChart className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">Narrative Integration</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+              Raw indicators are highly prone to fakeouts. High-probability setups merge daily accumulation ranges with physical catalysts like developer bridges and timezone capital inflows.
+            </p>
+          </div>
+
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <Users className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">Human Onboarding</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+              Low-quality channels funnel retail accounts into automated payment checkouts. Legitimate networks onboard users 1-on-1 to verify risk limits and exchange setups.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="red-flags-of-scam-groups">Red Flags: How to Spot a Low-Quality Signal Group</h2>
-        <p>
-          Protecting your capital requires a strict defensive mindset. When auditing any cryptocurrency signal provider or Telegram group, look out for these high-risk red flags:
-        </p>
-        
-        <table className="table-auto border-collapse border border-line w-full text-xs text-text-muted my-6 shadow-sm">
-          <thead>
-            <tr className="bg-surface-deep">
-              <th className="border border-line px-4 py-3 text-left text-primary uppercase tracking-wider">Warning Sign</th>
-              <th className="border border-line px-4 py-3 text-left text-primary uppercase tracking-wider">The Deceptive Tactic</th>
-              <th className="border border-line px-4 py-3 text-left text-primary uppercase tracking-wider">The Professional Reality</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-line px-4 py-3 font-bold text-text-high">"99% Guaranteed Win-Rate"</td>
-              <td className="border border-line px-4 py-3">Using extreme marketing hype to promise consistent, risk-free profits.</td>
-              <td className="border border-line px-4 py-3">Markets are probabilistic. Legit groups operate with 55%-70% win-rates with strict risk control.</td>
-            </tr>
-            <tr className="bg-surface-deep/30">
-              <td className="border border-line px-4 py-3 font-bold text-text-high">"Edited" Signal Messages</td>
-              <td className="border border-line px-4 py-3">Changing historical entry prices or target levels on Telegram after the price rallies.</td>
-              <td className="border border-line px-4 py-3">A legitimate group never edits past signals. Original timestamps and levels are completely transparent.</td>
-            </tr>
-            <tr>
-              <td className="border border-line px-4 py-3 font-bold text-text-high">High-Leverage Screenshots Only</td>
-              <td className="border border-line px-4 py-3">Showcasing massive percentage gains (e.g., "+1500%") on unregulated 100x leverage.</td>
-              <td className="border border-line px-4 py-3">Professional swing traders focus on spot metrics or low leverage (2x-5x) with exact position sizes.</td>
-            </tr>
-            <tr className="bg-surface-deep/30">
-              <td className="border border-line px-4 py-3 font-bold text-text-high">Exchange Affiliate Pressure</td>
-              <td className="border border-line px-4 py-3">Forcing members to trade on specific high-fee exchanges using their referral codes.</td>
-              <td className="border border-line px-4 py-3">You should be able to execute trade signals on any liquid exchange of your choosing.</td>
-            </tr>
-          </tbody>
-        </table>
+      {/* 3. The Visual Anatomy of a Signal */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="lg:col-span-6 space-y-6">
+          <div className="space-y-2">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Signal Architecture</span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text-high">
+              The Blueprint of a Structured Trade Setup
+            </h2>
+          </div>
+          <p className="leading-relaxed">
+            A professional trade signal is a comprehensive, actionable execution map. It should provide specific limit-order zones to accumulate positions systematically without chasing FOMO, accompanied by tiered exit levels and a mathematically-defined invalidation threshold.
+          </p>
+          <div className="space-y-3 font-medium">
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">1</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">Entry Zone:</strong> Limits accumulation to logical retests, protecting capital from sudden range spikes.</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">2</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">Logical Invalidation:</strong> A protective stop-loss set just below major structures where the breakout thesis is invalidated.</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">3</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">Scaling Take-Profits:</strong> Secures partial gains incrementally while adjusting open stop-losses to completely eliminate risk.</p>
+            </div>
+          </div>
+        </div>
 
-        <p>
-          Legitimate providers never use aggressive scarcity tactics, promise instant wealth, or send uninvited direct messages (DMs) offering discount VIP memberships. A true market analyst respects your intelligence, guides you through the complex math of portfolio management, and focuses entirely on capital preservation before profit.
-        </p>
+        <div className="lg:col-span-6 p-6 md:p-8 bg-surface-deep border border-line rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
+          <div className="flex justify-between items-center border-b border-line pb-4">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Verified Premium Alert</span>
+            <span className="text-[10px] text-text-muted uppercase font-bold">14:20 UTC</span>
+          </div>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-bold uppercase tracking-tight text-text-high">#SUI / USDT (Spot / 2x Leverage)</span>
+              <span className="text-xs font-black bg-primary/20 text-primary border border-primary/20 px-2 py-0.5 rounded uppercase">LONG SWING</span>
+            </div>
+            <p className="text-xs text-text-muted leading-relaxed italic border-l-2 border-line pl-3">
+              Rationale: Strong daily range breakout retest, high bridge bridges inflows during London session.
+            </p>
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <div className="space-y-1">
+                <p className="text-[8px] font-black uppercase tracking-widest text-text-muted">Accumulation Zone</p>
+                <p className="text-xs font-bold text-text-high font-mono">$1.46 - $1.49</p>
+              </div>
+              <div className="space-y-1 text-right">
+                <p className="text-[8px] font-black uppercase tracking-widest text-text-muted">Invalidation Level</p>
+                <p className="text-xs font-bold text-danger font-mono">$1.39 (Stop-Loss)</p>
+              </div>
+            </div>
+            <div className="space-y-1.5 pt-2">
+              <p className="text-[8px] font-black uppercase tracking-widest text-text-muted">Take-Profit Targets</p>
+              <div className="grid grid-cols-3 gap-2">
+                <div className="p-2 bg-background border border-line rounded text-center">
+                  <p className="text-[7px] text-text-muted font-bold uppercase">TP1 (50%)</p>
+                  <p className="text-xs font-mono font-bold text-primary">$1.70</p>
+                </div>
+                <div className="p-2 bg-background border border-line rounded text-center">
+                  <p className="text-[7px] text-text-muted font-bold uppercase">TP2 (25%)</p>
+                  <p className="text-xs font-mono font-bold text-primary">$1.85</p>
+                </div>
+                <div className="p-2 bg-background border border-line rounded text-center">
+                  <p className="text-[7px] text-text-muted font-bold uppercase">TP3 (25%)</p>
+                  <p className="text-xs font-mono font-bold text-primary">$2.00</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-3 bg-primary/5 border border-primary/20 rounded-xl">
+              <p className="text-[10px] text-primary font-bold italic leading-relaxed">
+                Risk Management Note: Maximum 1.5% portfolio risk. If SUI closes a 4-Hour candle below $1.39, the trade setup is invalid.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="why-risk-management-is-everything">Why Risk Management and Position Sizing Matter</h2>
-        <p>
-          A signal is only as powerful as the risk framework used to execute it. The harsh reality of financial markets is that even the most experienced analysts will go through periods of drawdown. Any provider that claims they never experience losses is fabricating their record. Survival in the 24/7 crypto markets is determined by how you manage your losing trades, not just how you celebrate your winning trades.
-        </p>
-        <p>
-          Professional risk management is anchored in **Position Sizing**. You must mathematically calculate the size of every trade to ensure that you never risk more than 1% to 1.5% of your total trading capital on any single setup. For example, if you have a $10,000 trading portfolio and your risk limit per trade is 1%, your maximum allowed loss on a failed trade is exactly $100.
-        </p>
-        <p>
-          If your entry price is $2.00 and your stop-loss is set at $1.80 (a 10% structural invalidation distance), your maximum position size is calculated as: 
-        </p>
-        <blockquote className="font-mono text-xs my-4 bg-surface-deep/20 p-4 rounded-xl text-center">
-          Maximum Dollar Risk ($100) / Stop-Loss Distance (10%) = Position Size ($1,000)
-        </blockquote>
-        <p>
-          This means you buy exactly 500 tokens. If the market reverses and hits your stop-loss, you lose exactly $100, leaving your account balance at $9,900. You remain fully capitalized and emotionally stable, ready to execute the next high-probability setup. By mastering position sizing, you can survive a rare string of five consecutive losing trades and draw down your account by only 5%, which can easily be recovered in a single asymmetric swing.
-        </p>
+      {/* 4. The Warnings vs. Quality Standards (Comparative Cards Grid) */}
+      <section className="space-y-8">
+        <div className="text-center space-y-2">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary">Auditing Standards</span>
+          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-text-high">
+            The Trap vs. The Professional Reality
+          </h2>
+          <p className="text-xs text-text-muted max-w-xl mx-auto">
+            Audit potential providers by evaluating their communication and operational standards against these parameters.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Column A: The Scams/Traps (Red styled) */}
+          <div className="p-6 bg-surface-deep border border-danger/20 rounded-3xl space-y-6 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-1.5 h-full bg-danger/50" />
+            <h3 className="text-sm font-black uppercase tracking-widest text-danger flex items-center gap-2">
+              <AlertTriangle className="w-4 h-4" /> Retail Scams & Traps
+            </h3>
+            <div className="space-y-4">
+              <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+                <h4 className="font-bold text-text-high text-xs uppercase tracking-wider">"99% Guaranteed Win Rates"</h4>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Low-quality groups claim perfect track records to capture subscription sales, masking the statistical reality of drawdowns.
+                </p>
+              </div>
+              <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+                <h4 className="font-bold text-text-high text-xs uppercase tracking-wider">"Edited" past messages</h4>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Admins silently edit past trade setups after a pump, or completely delete stopped-out trades to fake perfect entries.
+                </p>
+              </div>
+              <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+                <h4 className="font-bold text-text-high text-xs uppercase tracking-wider">High-leverage screenshots</h4>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Showcasing massive percentage gains (e.g. +1000%) on unregulated 100x leverage without revealing actual dollar sizing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Column B: Professional Standard (Gold styled) */}
+          <div className="p-6 bg-surface-deep border border-primary/20 rounded-3xl space-y-6 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-1.5 h-full bg-primary/50" />
+            <h3 className="text-sm font-black uppercase tracking-widest text-primary flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4" /> Institutional Standards
+            </h3>
+            <div className="space-y-4">
+              <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+                <h4 className="font-bold text-text-high text-xs uppercase tracking-wider">Probabilistic Execution</h4>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Elite analysts expect sustainable win-rates of 55%-70% and manage risk to let profits run while cutting losses early.
+                </p>
+              </div>
+              <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+                <h4 className="font-bold text-text-high text-xs uppercase tracking-wider">Unedited Ledger & Timestamps</h4>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Maintain a public ledger of every trade called—both profitable targets and managed stopped setups—with unedited timestamps.
+                </p>
+              </div>
+              <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+                <h4 className="font-bold text-text-high text-xs uppercase tracking-wider">Spot and Low Leverage focus</h4>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Prioritizing spot accumulation or low leverage (2x-5x) focused entirely on raw percentage gains and exact capital control.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="evaluating-proof-and-results">How to Properly Evaluate Proof & Historical Performance</h2>
-        <p>
-          When auditing a crypto signals group's performance history, you must look beyond isolated screenshots. A screenshot of a trade setup that hit target is not proof of a profitable trading system. To perform a rigorous audit, watch for three critical factors:
+      {/* 5. Position Sizing Math Card */}
+      <section className="p-6 md:p-8 bg-surface-deep border border-line rounded-[32px] space-y-6 relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
+        <h3 className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
+          <Percent className="w-4 h-4" /> Position Sizing: The Core Math of Survival
+        </h3>
+        <p className="leading-relaxed">
+          The ultimate variable of survival is position sizing. Even with an elite signal provider, a string of consecutive losses will occur. Risk management dictates that you must calculate the exact size of every trade to ensure your total loss never exceeds 1% to 1.5% of your portfolio value.
         </p>
-        <ol>
-          <li>
-            <strong>The Consistency of the Ledger:</strong> A legitimate service provides a continuous, unedited record showing every trade taken over a substantial period (at least 6 to 12 months). This record must include the entry date, exact exit prices, average hold times, and overall profit/loss stats.
-          </li>
-          <li>
-            <strong>The Distribution of Wins and Losses:</strong> Pay close attention to the size of the losses versus the size of the wins. A group that has a 90% win-rate but allows their losing trades to run without stop-losses is highly dangerous. A single massive unmanaged loss can wipe out the profits of twenty consecutive winning trades.
-          </li>
-          <li>
-            <strong>Verifiable Timestamping:</strong> Legitimate signals are posted in public or private Telegram channels *before* the price breakouts occur. A provider must showcase that their setups were called while the asset was consolidating in the entry zone, proving their analytical foresight.
-          </li>
-        </ol>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-4">
+          <div className="p-5 bg-background border border-line rounded-2xl space-y-2 text-center">
+            <span className="text-[10px] font-black uppercase tracking-widest text-text-muted">Step 1: Portfolio Limits</span>
+            <p className="font-bold text-sm text-text-high uppercase">Define Max Account Risk</p>
+            <p className="text-xs text-text-muted leading-relaxed">If portfolio is $10,000, risking 1.5% means the absolute maximum loss allowed is exactly $150.</p>
+          </div>
+          <div className="p-5 bg-background border border-line rounded-2xl space-y-2 text-center">
+            <span className="text-[10px] font-black uppercase tracking-widest text-text-muted">Step 2: Measure Distance</span>
+            <p className="font-bold text-sm text-text-high uppercase">Calculate Stop-Loss Distance</p>
+            <p className="text-xs text-text-muted leading-relaxed">If entry price is $1.00 and stop-loss is set at $0.90, the technical invalidation distance is 10%.</p>
+          </div>
+          <div className="p-5 bg-background border border-line rounded-2xl space-y-2 text-center border-primary/20 relative group-hover:border-primary/40 transition-colors">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Step 3: Math Formula</span>
+            <p className="font-bold text-sm text-primary uppercase">Find Position Allocation</p>
+            <p className="text-xs text-text-muted font-mono font-bold pt-1">$150 Risk / 10% Distance = $1,500 Size</p>
+            <p className="text-[10px] text-text-muted leading-relaxed pt-1">Allocate $1,500 of capital. If stopped out, you lose exactly $150 (1.5% account impact).</p>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="yaga-calls-method">The Yaga Calls Philosophy: Structured, Risk-Aware Trading</h2>
-        <p>
-          At Yaga Calls, we reject the hyper-aggressive retail culture of moonshots, automated buy/sell bots, and empty marketing promises. Our service is built specifically for serious traders who want to treat digital assets as a professional endeavor. 
-        </p>
-        <p>
-          We excel in **Narrative Intelligence**. We scan ecosystem funding, dev activity, and global session volume shifts to spot trend reversals before they show up on retail scanners. Every swing trade signal we share in our private Telegram group is a comprehensive trading blueprint: featuring a 3-paragraph fundamental story, entry range grids, tiered target exits, and strict logical invalidation levels.
-        </p>
-        <p>
-          Furthermore, we completely avoid automated checkout bots. To join our premium channel, you must message our verified support team for a 1-on-1 onboarding conversation. We verify your trading experience, ensure you understand our strict risk sizing rules, and set up your system for success from day one. You can <a href="/pricing">compare our premium plans here</a> or inspect our unedited history of verified <a href="/proof">trade setup proof snapshots</a>.
-        </p>
+      {/* 6. Actionable Takeaways Checklist */}
+      <section className="p-6 bg-surface-deep border border-line rounded-3xl space-y-6">
+        <h3 className="font-black uppercase tracking-widest text-xs text-primary">
+          Your Audit Protocol: 4 Steps Before Subscribing
+        </h3>
+        <div className="space-y-4">
+          {[
+            { title: "Review the Ledger history", text: "Do they maintain a complete, timestamped list of all past trades, or do they only pin green winners? Scroll back at least 6 months." },
+            { title: "Test their Selectivity", text: "Avoid channels that spam dozens of calls daily. Look for selective swing trading desks sharing 2 to 4 premium setups weekly." },
+            { title: "Verify Onboarding quality", text: "Look for high-touch human support that ensures you understand capital risk boundaries and sizing spreadsheets before trading." },
+            { title: "Observe first in Stablecoins", text: "Spend your first 10 days observing the entry speed, execution timing, and risk updates without deploying real capital." },
+          ].map((step, i) => (
+            <div key={i} className="flex gap-4 items-start">
+              <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-xs font-bold shrink-0 mt-0.5">
+                {i + 1}
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-text-high uppercase tracking-tight text-xs">{step.title}</h4>
+                <p className="text-xs text-text-muted leading-relaxed">{step.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
-    </>
+      
+    </div>
   );
 }

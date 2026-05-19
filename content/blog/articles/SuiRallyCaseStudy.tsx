@@ -1,129 +1,234 @@
 import React from "react";
-import Link from "next/link";
+import { ShieldCheck, Target, AlertTriangle, ArrowRight, Percent, CheckCircle2, TrendingUp, Clock, Compass } from "lucide-react";
 
 export default function SuiRallyCaseStudy() {
   return (
-    <>
-      <section>
-        <p>
-          To achieve long-term, sustainable success as a swing trader in the global cryptocurrency markets, you must transition from theoretical analysis to studying real-world historical executions. Technical chart theory is highly valuable, but it is within the unedited, timestamped history of active market setups that true trading literacy is developed.
-        </p>
-        <p>
-          This case study performs a rigorous, step-by-step audit of one of our most successful recent swing trade setups: the SUI breakout rally. SUI, a high-performance Layer-1 parallelized execution blockchain, experienced a powerful breakout that delivered a <strong>47% spot gain</strong>. 
-        </p>
-        <p>
-          This setup was not the result of a lucky guess or a speculative "hunch." Instead, it represents the precise execution of our <strong>crypto signals with proof</strong> methodology—identifying a perfect confluence of growing developer mindshare, strong technical range consolidation, bridge-side capital inflows, and precise regional session timing.
-        </p>
-        <p>
-          This educational case study breaks down the broader market context of the SUI setup, details the exact entry and exit timelines, explains how timezone liquidity drove the momentum, outlines our strict capital preservation risk limits, and shares the core lessons you must extract to refine your own trading system.
-        </p>
+    <div className="space-y-16 text-sm text-text-muted">
+      
+      {/* 1. Executive Summary Grid */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="lg:col-span-7 space-y-6 flex flex-col justify-center">
+          <div className="space-y-2">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Case Study Audit</span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text-high">
+              Dissecting a 47% Spot Breakout Execution
+            </h2>
+          </div>
+          <p className="leading-relaxed">
+            To achieve long-term, sustainable success as a swing trader, you must transition from theoretical analysis to studying real-world historical executions. This educational case study performs a rigorous, step-by-step audit of our SUI breakout rally trade setup. This trade was not the result of a lucky guess, but the precise confluence of growing developer mindshare, technical consolidation retests, bridge bridge capital flows, and timezone session timing.
+          </p>
+          <div className="p-4 bg-primary/5 border border-primary/20 rounded-2xl flex gap-3 items-start">
+            <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+            <p className="text-xs text-text-muted leading-relaxed">
+              <strong className="text-text-high">The Verification Standard:</strong> All trade case studies are backed by historical, unedited timestamps posted inside our premium Telegram research feed before price breakouts occurred.
+            </p>
+          </div>
+        </div>
+
+        <div className="lg:col-span-5 p-6 bg-surface-deep border border-line rounded-3xl space-y-4 flex flex-col justify-between relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-xl pointer-events-none" />
+          <h3 className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
+            <TrendingUp className="w-4 h-4" /> Performance Scorecard
+          </h3>
+          <div className="space-y-3 font-mono text-xs">
+            <div className="flex justify-between border-b border-line pb-2">
+              <span className="text-text-muted">Asset Ticker</span>
+              <span className="font-bold text-text-high">#SUI / USDT</span>
+            </div>
+            <div className="flex justify-between border-b border-line pb-2">
+              <span className="text-text-muted">Setup Profit (Spot)</span>
+              <span className="font-bold text-primary">+$47.2% Spot</span>
+            </div>
+            <div className="flex justify-between border-b border-line pb-2">
+              <span className="text-text-muted">Maximum Dollar Risk</span>
+              <span className="font-bold text-danger">1.5% Max Portfolio</span>
+            </div>
+            <div className="flex justify-between border-b border-line pb-2">
+              <span className="text-text-muted">Execution Period</span>
+              <span className="font-bold text-text-high">8 Hold Days</span>
+            </div>
+          </div>
+          <div className="border-t border-line pt-3 flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-text-muted">
+            <span>Audit Level</span>
+            <span className="text-primary font-bold">100% Verified</span>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="market-context">Market Context: The Accumulation Launchpad</h2>
-        <p>
-          Before structuring any trade signal or allocating portfolio capital, a professional analyst must audit the broader market regime. During the weeks leading up to the SUI breakout, the major digital assets (Bitcoin and Ethereum) were consolidating in a highly compressed daily range. Volatility had declined to extreme lows, leading to a dull trading environment in majors.
-        </p>
-        <p>
-          In professional trading, low volatility is always a leading indicator of an upcoming explosive move. During these consolidation regimes, smart money rotations occur. Capital rotates out of majors and searches for high-beta altcoins that possess powerful fundamental narratives and relative strength against the index.
-        </p>
-        <p>
-          SUI was flagged by our narrative tracking systems as the absolute leader in relative strength. On-chain bridges were showing millions of dollars in stablecoins migrating into the SUI ecosystem, the blockchain's Total Value Locked (TVL) was hitting new all-time highs daily, and developer activity was expanding rapidly, driven by interest in its parallelized Move execution virtual machine.
-        </p>
+      {/* 2. Technical Confluence Grid (3-Card Grid) */}
+      <section className="space-y-8">
+        <div className="text-center space-y-2">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary">Technical Analysis</span>
+          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-text-high">
+            The Confluence Checklist Behind the Setup
+          </h2>
+          <p className="text-xs text-text-muted max-w-xl mx-auto">
+            A premium setup requires a confluence of multiple technical and fundamental factors before allocating capital.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <Compass className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">On-Chain TVL Surges</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+              Scan tools flagged multi-million bridges rotating capital into SUI. On-chain Total Value Locked (TVL) hit daily highs, confirming developer and bridge activity spikes.
+            </p>
+          </div>
+
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <Target className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">30-Day Range Retest</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+              SUI broke out of a tight range consolidation between $1.35 and $1.45 on high volume. We waited for a low-volume retest of range high support at $1.48 to enter.
+            </p>
+          </div>
+
+          <div className="p-6 bg-surface-deep border border-line rounded-2xl space-y-4 hover:border-primary/30 transition-all group">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+              <Clock className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold uppercase tracking-tight text-text-high text-sm">Timezone Liquidity</h3>
+            <p className="text-xs text-text-muted leading-relaxed">
+               central order books revealed that SUI experienced massive buy volume surges during late European/early Middle Eastern sessions, prompting us to time entries perfectly.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="technical-levels">The Technical Blueprint and Entry Parameters</h2>
-        <p>
-          The technical daily chart structure on SUI was exceptionally clean, presenting an asymmetric risk-to-reward ratio. SUI had spent 30 days consolidating within a highly defined accumulation range between $1.35 and $1.45. This consolidation served as a powerful launchpad, absorbing retail selling pressure and distributing tokens to long-term holders.
-        </p>
-        <p>
-          Our technical checklist required two key validation events before entering the trade:
-        </p>
-        <ol>
-          <li>
-            <strong>A Confirmed Breakout:</strong> SUI had to close a daily candle above the range resistance of $1.45 on high, above-average trading volume, confirming that buyers had taken absolute control.
-          </li>
-          <li>
-            <strong>A Successful Retest:</strong> The price had to pullback to retest the former resistance zone ($1.45 - $1.48) as new support, demonstrating that buyers were actively defending the breakout levels.
-          </li>
-        </ol>
-        <p>
-          SUI broke out on high volume exactly as anticipated. We waited patiently for the pullback. The moment SUI retested the $1.48 level on low volume, all our entry parameters aligned. 
-        </p>
-        <p>
-          We published a premium swing signal in our private Telegram channel with an entry zone of $1.46 - $1.49, a tight stop-loss set just below the range lows at $1.39 (representing an 8% downside risk), and tiered take-profit targets at $1.70, $1.85, and $2.00.
-        </p>
+      {/* 3. The Execution Timeline */}
+      <section className="p-6 md:p-8 bg-surface-deep border border-line rounded-[32px] space-y-8">
+        <div className="space-y-2">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary font-mono">Execution Log</span>
+          <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight text-text-high">
+            Step-by-Step Trade Execution Timeline
+          </h2>
+          <p className="text-xs text-text-muted leading-relaxed">
+            Audit the exact parameters and management timeline we executed over the 8-day swing duration.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {[
+            { phase: "Day 1", title: "Range Breakout Confirm", desc: "SUI closes a daily candle above $1.45 range high on 2x average volume, validating buy pressure." },
+            { phase: "Day 2", title: "Limit Order Entry Zone", desc: "We place limit orders in our private channel within the $1.46-$1.49 zone. Order fills at $1.48, stop set at $1.39." },
+            { phase: "Day 5", title: "TP1 Target Scale-Out", desc: "SUI hits TP1 at $1.70. We close 50% position to lock in gains, immediately adjusting open stops to entry ($1.48)." },
+            { phase: "Day 8", title: "Final Target Completion", desc: "Price surges through TP2 ($1.85) and hits final targets at $2.00, completing the 47% run with zero portfolio risk." },
+          ].map((item, i) => (
+            <div key={i} className="p-5 bg-background border border-line rounded-2xl space-y-3 flex flex-col justify-between hover:border-primary/20 transition-all group">
+              <div className="flex justify-between items-center">
+                <span className="text-xs font-black text-primary font-mono">{item.phase}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:translate-x-0.5 transition-transform" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-text-high text-xs uppercase tracking-tight">{item.title}</h4>
+                <p className="text-[11px] text-text-muted leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <section>
-        <h2 id="timezone-liquidity">Timing the Session: How Timezone Liquidity Shaped the Move</h2>
-        <p>
-          A critical variable that retail traders routinely ignore is **timezone regionality and session volume**. The global cryptocurrency market is open 24 hours a day, but the liquidity moving it is heavily regional. Assets do not trade with uniform volume throughout the day.
-        </p>
-        <p>
-          By scanning decentralized exchange (DEX) data and centralized order books, our research desk identified a highly consistent liquidity pattern: SUI experienced significant buy volume surges during the late European and early Middle Eastern trading sessions. 
-        </p>
-        <p>
-          This timezone window (specifically between 12:00 PM and 4:00 PM UTC) was the primary driver of SUI's upward momentum. Knowing this, we timed our signal entry specifically during the early European session. 
-        </p>
-        <p>
-          This allowed our premium members to accumulate their positions right before the regional capital flows arrived, capturing the breakout momentum immediately and avoiding extended drawdown or range consolidation fatigue.
-        </p>
+      {/* 4. Side-by-Side: Timezone Session Analysis */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="lg:col-span-6 space-y-6">
+          <div className="space-y-2">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Timezone Session Analysis</span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-text-high">
+              How Timezone Liquidity Shifts Altcoin Prices
+            </h2>
+          </div>
+          <p className="leading-relaxed">
+            The cryptocurrency market is open 24/7, but transaction volume is heavily concentrated by geographic region. Altcoins are extremely sensitive to regional shifts. Recommending a trade during low-volume sessions often leads to choppy, unpredictable price action. We timed our SUI setup entry specifically during the early European session to front-run regional liquidity waves.
+          </p>
+          <div className="space-y-3 font-medium">
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">1</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">Identify Regional Session:</strong> Scan decentralized order books to isolate which geographical timezones are actively trading the asset.</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">2</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">Accumulate Early:</strong> Publish trade limits right before high-volume sessions arrive to capture breakouts instantly.</p>
+            </div>
+            <div className="flex gap-3">
+              <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center text-primary text-[10px] font-black shrink-0 mt-0.5">3</div>
+              <p className="text-xs text-text-muted"><strong className="text-text-high uppercase">Mitigate Chop Risk:</strong> Avoid open limit fills during illiquid overnight US/Asian overlaps which are highly prone to fakeouts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-6 p-6 md:p-8 bg-surface-deep border border-line rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
+          <div className="flex justify-between items-center border-b border-line pb-4">
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Timezone Session Ledger</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+          </div>
+          <div className="space-y-4">
+            <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-[9px] font-black uppercase tracking-widest text-text-muted">08:00 - 12:00 UTC</span>
+                <span className="text-xs font-bold text-text-high">Asian / European Overlap</span>
+              </div>
+              <div className="flex justify-between items-center border-t border-line/50 pt-2 font-mono text-xs">
+                <span>Trading Volume State</span>
+                <span className="text-text-muted font-bold">Standard Inflows</span>
+              </div>
+            </div>
+
+            <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-[9px] font-black uppercase tracking-widest text-primary">12:00 - 16:00 UTC</span>
+                <span className="text-xs font-bold text-primary">Late European / Middle East</span>
+              </div>
+              <div className="flex justify-between items-center border-t border-line/50 pt-2 font-mono text-xs">
+                <span>Trading Volume State</span>
+                <span className="text-emerald-500 font-bold uppercase font-sans text-[10px] bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">Breakout Surge Inflow</span>
+              </div>
+            </div>
+
+            <div className="p-4 bg-background border border-line rounded-2xl space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-[9px] font-black uppercase tracking-widest text-text-muted">16:00 - 20:00 UTC</span>
+                <span className="text-xs font-bold text-text-high">US Session Open</span>
+              </div>
+              <div className="flex justify-between items-center border-t border-line/50 pt-2 font-mono text-xs">
+                <span>Trading Volume State</span>
+                <span className="text-text-muted font-bold">Consolidation / Chop</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2 id="risk-management">Capital Preservation: Structuring Risk and Invalidation</h2>
-        <p>
-          An educational case study is only useful if it details exactly how risk was managed. At Yaga Calls, capital preservation always comes before profit targets. 
-        </p>
-        <p>
-          In the SUI trade, our stop-loss was set at $1.39 because that level represented our **logical invalidation point**. If the price of SUI broke below $1.39, it meant the price had re-entered the old 30-day accumulation range on high volume, proving that the breakout was a "fakeout" and our technical thesis was dead.
-        </p>
-        <p>
-          By keeping our stop-loss tight (8% from entry), our members were able to scale into a healthy position size while restricting their total portfolio risk to a safe 1.5%. 
-        </p>
-        <p>
-          As the price of SUI rallied to our first target of $1.70 (TP1), we instructed our members to close exactly 50% of their positions to lock in a substantial profit, and immediately move their stop-loss orders to their entry price of $1.48. 
-        </p>
-        <p>
-          This guaranteed that even if the market reversed, our members would walk away with a profitable outcome, transforming the remaining 50% of the trade into a completely risk-free position. SUI subsequently surged to our second ($1.85) and third ($2.00) take-profit levels, completing a highly successful, mathematically disciplined swing trade.
-        </p>
+      {/* 5. Lessons Learned Checklist */}
+      <section className="p-6 bg-surface-deep border border-line rounded-3xl space-y-6">
+        <h3 className="font-black uppercase tracking-widest text-xs text-primary">
+          Key Case Study Lessons to Apply to Your Swing Systems
+        </h3>
+        <div className="space-y-4">
+          {[
+            { title: "Selectivity over constant high-frequency alerts", text: "Wait patiently for broader market index consolidations to isolate relative strength altcoins with massive TVL surges." },
+            { title: "Time session liquidity bridging", text: "Only execute during geographical sessions that show high volume peaks, preventing range chop and overnight fakeouts." },
+            { title: "Place stops strictly on logical technical invalidation", text: "Avoid arbitrary percentage stops. Place protective levels just below range lows where the daily breakout thesis is wrong." },
+            { title: "Scale out incrementally and adjust stops", text: "Secure 50% profits at target 1 (TP1) and adjust stops to entry, completely eliminating portfolio risk early." },
+          ].map((step, i) => (
+            <div key={i} className="flex gap-4 items-start">
+              <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-xs font-bold shrink-0 mt-0.5">
+                {i + 1}
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-text-high uppercase tracking-tight text-xs">{step.title}</h4>
+                <p className="text-xs text-text-muted leading-relaxed">{step.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
-
-      <section>
-        <h2 id="how-to-interpret-proof">The Professional Guide to Verifying Trade Proof</h2>
-        <p>
-          In the digital asset industry, screenshots of winning trades are cheap. Low-quality channels routinely share isolated screenshots of a trade that hit target, completely hiding the fact that their other ten setups ended in catastrophic unmanaged losses.
-        </p>
-        <p>
-          When you analyze proof of trading performance, you must prioritize **unbroken consistency and transparent timelines**. A legitimate service will always provide:
-        </p>
-        <ul>
-          <li>
-            <strong>Timestamped entries called BEFORE the breakout:</strong> Verify that the signal was shared when the asset was actively consolidating within the entry range, rather than celebrated after the rally occurred.
-          </li>
-          <li>
-            <strong>A continuous, unedited ledger:</strong> Look for a complete record of all called setups over a significant duration (6 to 12 months), showcasing both the wins and the stopped-out losses.
-          </li>
-          <li>
-            <strong>An emphasis on risk education:</strong> Trustworthy analysts focus on teaching risk management, position-sizing math, and trade invalidation, rather than promising effortless riches.
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 id="yaga-calls-case-study">Apply the Yaga Calls Method to Your Systems</h2>
-        <p>
-          The SUI breakout rally is a perfect case study illustrating how Narrative Intelligence, timezone volume shifts, and technical range retests align to create highly asymmetric swing trading setups. It proves that by waiting for the market to meet your strict system parameters, you can extract consistent profits while keeping your capital highly protected.
-        </p>
-        <p>
-          At Yaga Calls, we reject the hype-driven retail culture of trading. We treat the markets with absolute mathematical discipline, human onboarding support, and transparent, verified timelines. 
-        </p>
-        <p>
-          Every trade setup we call in our private Telegram group is a detailed trading blueprint, designed to protect your capital and build your market literacy. We do not use automated bots; we manually onboard every member 1-on-1 via Telegram to ensure they understand our core risk parameters before placing a single trade. You can <a href="/pricing">compare our premium plans here</a>, review our unedited ledger of <a href="/proof">trade setup proof snapshots</a>, or inspect our strict <a href="/risk-disclosure">capital risk disclosure guidelines</a>.
-        </p>
-      </section>
-    </>
+      
+    </div>
   );
 }
