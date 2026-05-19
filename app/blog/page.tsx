@@ -7,8 +7,7 @@ import { createWebPageSchema, createItemListSchema, createBreadcrumbSchema } fro
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import AnswerBox from "@/components/seo/AnswerBox";
 import BlogListingClient from "@/components/blog/BlogListingClient";
-import fs from "fs";
-import path from "path";
+import { blogPostsMetadata } from "@/content/blog/posts";
 
 export const metadata = {
   title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
@@ -25,20 +24,17 @@ export const metadata = {
   },
 };
 
-interface BlogPost {
-  slug: string;
-  category: string;
-  title: string;
-  date: string;
-  readTime: string;
-  image?: string;
-  summary: string;
-}
-
 export default function BlogPage() {
-  const filePath = path.join(process.cwd(), "content/data/blog.json");
-  const jsonData = fs.readFileSync(filePath, "utf-8");
-  const posts: BlogPost[] = JSON.parse(jsonData);
+  // Map posts metadata to match client-side component interface expected props
+  const posts = blogPostsMetadata.map(p => ({
+    slug: p.slug,
+    category: p.category,
+    title: p.title,
+    date: p.datePublished,
+    readTime: p.readingTime,
+    image: p.featuredImage,
+    summary: p.excerpt
+  }));
 
   const webPageSchema = createWebPageSchema({
     title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
@@ -61,7 +57,7 @@ export default function BlogPage() {
       <JsonLd data={breadcrumbSchema} />
       
       {/* 1. Header Section */}
-      <Section className="bg-surface/30 pt-24 pb-12">
+      <Section className="bg-surface/30 pt-28 pb-12">
         <Container className="max-w-4xl text-center">
           <BookOpen className="w-12 h-12 text-primary mx-auto mb-6 opacity-80" />
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-none">

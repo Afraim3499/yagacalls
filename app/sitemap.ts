@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { regionalPages } from '../content/data/regions';
 import { commercialPages } from '../content/data/commercial';
+import { blogPostsMetadata } from '../content/blog/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.yagacalls.com';
@@ -79,28 +80,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       };
     });
 
-  // Add dynamic blog posts if data exists (with image metadata for Google Image indexing)
-  let blogRoutes: MetadataRoute.Sitemap = [];
-  try {
-    const filePath = path.join(process.cwd(), 'content/data/blog.json');
-    const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    blogRoutes = blogData.map((post: { slug: string; image?: string; title?: string }) => {
-      const imageUrl = post.image 
-        ? (post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`)
-        : undefined;
-      return {
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified,
-        changeFrequency: 'weekly' as const,
-        priority: 0.6,
-        ...(imageUrl ? {
-          images: [imageUrl.replace(/&/g, '&amp;')],
-        } : {}),
-      };
-    });
-  } catch (error) {
-    console.error('Sitemap blog error:', error);
-  }
+  // Add dynamic blog posts from TSX database (with image metadata for Google Image indexing)
+  const blogRoutes: MetadataRoute.Sitemap = blogPostsMetadata.map((post) => {
+    const imageUrl = post.featuredImage 
+      ? (post.featuredImage.startsWith('http') ? post.featuredImage : `${baseUrl}${post.featuredImage}`)
+      : undefined;
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.dateModified || post.datePublished),
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+      ...(imageUrl ? {
+        images: [imageUrl.replace(/&/g, '&amp;')],
+      } : {}),
+    };
+  });
 
   // Add dynamic academy modules if data exists
   let academyRoutes: MetadataRoute.Sitemap = [];
