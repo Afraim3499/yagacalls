@@ -170,6 +170,22 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
+          {/* E-E-A-T Risk Disclaimer Box */}
+          <div className="mt-12 p-6 bg-surface-deep/30 border border-line rounded-2xl flex flex-col md:flex-row gap-4 items-start">
+            <div className="bg-primary/10 text-primary p-3 rounded-xl font-bold text-xs uppercase tracking-wider shrink-0">
+              Disclaimer
+            </div>
+            <div className="text-xs text-text-muted leading-relaxed space-y-2">
+              <p className="font-bold text-text-high">Educational & Informational Content Only</p>
+              <p>
+                All trading signals, narrative case studies, technical audits, charts, and analysis published by Yaga Calls are for educational purposes only and do not constitute financial, investment, legal, or tax advice. Cryptocurrency swing trading and leverage trading carry a substantial risk of capital loss and liquidations.
+              </p>
+              <p>
+                Past performance case studies (such as the SUI rally) do not guarantee or indicate future market returns. Always perform your own independent audits, utilize strict position sizing guidelines, and never trade with capital you cannot afford to lose.
+              </p>
+            </div>
+          </div>
+
           <div className="mt-16 pt-12 border-t border-line text-center">
             <h3 className="text-2xl font-bold mb-6">Ready to See Our Method in Action?</h3>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
