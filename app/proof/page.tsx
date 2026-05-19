@@ -20,6 +20,8 @@ export const metadata: Metadata = {
 };
 
 const proofImages = [
+  { src: "/proof/trade-tracker-performance-log.png", label: "March-April Trade Tracker", date: "May 2026" },
+  { src: "/proof/win-rate-pie-chart-metrics.jpg", label: "Win-Rate Dashboard", date: "May 2026" },
   { src: "/proof/10.08.25 (result).webp", label: "Result", date: "10-08-2025" },
   { src: "/proof/10.08.25 (result 2).webp", label: "Result", date: "10-08-2025" },
   { src: "/proof/bina result.webp", label: "Binance", date: "Recent" },
@@ -164,6 +166,103 @@ export default function ProofPage() {
           <p className="text-[10px] text-text-muted/60 italic uppercase tracking-widest">
             Past performance does not guarantee future results. Crypto trading involves risk. Yaga Calls provides educational market analysis and signal ideas only.
           </p>
+        </Container>
+      </Section>
+
+      {/* Section 1.5 — Newly Uploaded Verified Logs */}
+      <Section className="bg-background py-16 border-b border-line">
+        <Container>
+          <div className="space-y-12 max-w-5xl mx-auto">
+            <div className="text-center space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-widest">
+                Latest Audit Updated: May 2026
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+                Verified Performance & Win-Rate Ledger
+              </h2>
+              <p className="text-text-muted max-w-3xl mx-auto">
+                Below are the official performance logs representing our recent trading execution across highly liquid digital assets. Review our raw, timestamped signal data showing exact trade tracking and outcome metrics.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* Column 1: March-April Trade Tracker */}
+              <GlowCard className="p-6 bg-surface-deep/40 flex flex-col justify-between border border-line">
+                <div className="space-y-6">
+                  <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden border border-line bg-black flex items-center justify-center">
+                    <Image
+                      src="/proof/trade-tracker-performance-log.png"
+                      alt="Verified Yaga Calls trade tracker performance log for March and April tracking 34 consecutive signal setups"
+                      fill
+                      className="object-contain hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-black uppercase tracking-tight text-white">
+                      March–April 34-Setup Trade Ledger
+                    </h3>
+                    <p className="text-sm text-text-muted leading-relaxed">
+                      A complete, unedited ledger tracking exactly 34 swing setups called within our private Telegram channel during March and April. This comprehensive list captures key transactional details—including precise entry ranges, active status checks, individual ROI outcomes, and timezone execution hold times.
+                    </p>
+                    <div className="grid grid-cols-3 gap-2 pt-2 border-t border-line/60">
+                      <div>
+                        <p className="text-[10px] text-text-muted uppercase font-bold">Wins / Losses</p>
+                        <p className="text-sm font-black text-emerald-400">24W - 5L</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-text-muted uppercase font-bold">Active Setup</p>
+                        <p className="text-sm font-black text-amber-500">5 Running</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-text-muted uppercase font-bold">Net Growth</p>
+                        <p className="text-sm font-black text-primary">+15.42R</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </GlowCard>
+
+              {/* Column 2: Strategy Metrics Dashboard */}
+              <GlowCard className="p-6 bg-surface-deep/40 flex flex-col justify-between border border-line">
+                <div className="space-y-6">
+                  <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden border border-line bg-black flex items-center justify-center">
+                    <Image
+                      src="/proof/win-rate-pie-chart-metrics.jpg"
+                      alt="Verified Yaga Calls closed setups performance dashboard showing 82 percent win rate metrics"
+                      fill
+                      className="object-contain hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-black uppercase tracking-tight text-white">
+                      Win-Rate & Capital Sizing Distribution
+                    </h3>
+                    <p className="text-sm text-text-muted leading-relaxed">
+                      A visualized dashboard breakdown demonstrating the mathematical integrity of our closed trading history. Highlighting an <strong>82.14% win-rate</strong> across 28 closed signals, this framework shows the power of risk-to-reward asymmetry. Our discipline ensures winning trades outpace losing stop-losses by dynamic margins.
+                    </p>
+                    <div className="grid grid-cols-3 gap-2 pt-2 border-t border-line/60">
+                      <div>
+                        <p className="text-[10px] text-text-muted uppercase font-bold">Win Rate</p>
+                        <p className="text-sm font-black text-emerald-400">82.14%</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-text-muted uppercase font-bold">Average Profit</p>
+                        <p className="text-sm font-black text-primary">+55% / Trade</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] text-text-muted uppercase font-bold">Loss Rate</p>
+                        <p className="text-sm font-black text-rose-500">17.86%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </GlowCard>
+            </div>
+          </div>
         </Container>
       </Section>
 
