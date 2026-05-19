@@ -83,6 +83,9 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   category?: string;
+  image?: string;
+  imageAlt?: string;
+  summary?: string;
 }
 
 export interface MarketAnalysisItem extends SignalExample {
@@ -110,6 +113,7 @@ export interface LandingPageData {
   longTailKeywords: string[];
   targetPersona: string;
   heroImage?: string;
+  imageAlt?: string;
   introSummary: string;
   answerFirstBlock: string;
   marketContext?: string; // Moved to base to support all landing pages

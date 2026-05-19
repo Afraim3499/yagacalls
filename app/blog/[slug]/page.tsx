@@ -19,6 +19,7 @@ interface BlogPost {
   date: string;
   readTime: string;
   image?: string;
+  imageAlt?: string;
   summary: string;
   content: string;
   ctaLabel?: string;
@@ -136,7 +137,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <div className="relative aspect-video rounded-3xl overflow-hidden border border-line shadow-2xl">
               <Image
                 src={post.image}
-                alt={post.title}
+                alt={post.imageAlt || post.title}
                 fill
                 className="object-cover"
                 priority

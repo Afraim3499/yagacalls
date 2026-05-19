@@ -9,9 +9,10 @@ interface LandingHeroProps {
   ctaPrimary: CTA;
   ctaSecondary: CTA;
   heroImage?: string;
+  imageAlt?: string;
 }
 
-const LandingHero: React.FC<LandingHeroProps> = ({ title, subtitle, ctaPrimary, ctaSecondary, heroImage }) => {
+const LandingHero: React.FC<LandingHeroProps> = ({ title, subtitle, ctaPrimary, ctaSecondary, heroImage, imageAlt }) => {
   return (
     <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden border-b border-white/5">
       <div className="container mx-auto px-4 relative z-10">
@@ -38,12 +39,12 @@ const LandingHero: React.FC<LandingHeroProps> = ({ title, subtitle, ctaPrimary, 
               </Link>
             </div>
           </div>
-
+  
           {heroImage && (
             <div className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
               <Image 
                 src={heroImage} 
-                alt={title} 
+                alt={imageAlt || title} 
                 fill 
                 sizes="(max-width: 1024px) 100vw, 600px"
                 className="object-cover"
