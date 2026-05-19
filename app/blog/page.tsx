@@ -11,6 +11,16 @@ import AnswerBox from "@/components/seo/AnswerBox";
 export const metadata = {
   title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
   description: "Read crypto trading guides, market analysis, and educational articles about Telegram crypto signals and risk management.",
+  alternates: {
+    canonical: "https://www.yagacalls.com/blog",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large' as const,
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
 };
 
 import fs from "fs";

@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.yagacalls.com';
   const lastModified = new Date();
 
-  const staticRoutes: MetadataRoute.Sitemap = [
+  const staticRoutePaths = [
     '',
     '/method',
     '/proof',
@@ -41,7 +41,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/leverage-trading-calculator',
     '/liquidation-price-calculator',
     '/free-vs-paid-crypto-signals',
-  ].map((route) => ({
+    '/crypto-signals-with-risk-management',
+    '/terms',
+  ];
+
+  const staticRoutes: MetadataRoute.Sitemap = staticRoutePaths.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,
     changeFrequency: 'daily' as const,
@@ -56,24 +60,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Add commercial landing pages
-  const commercialRoutes: MetadataRoute.Sitemap = commercialPages.map((page) => ({
-    url: `${baseUrl}/${page.slug}`,
-    lastModified,
-    changeFrequency: 'weekly' as const,
-    priority: 0.9,
-  }));
+  // Add commercial landing pages (exclude any that duplicate static routes)
+  const staticRouteSet = new Set(staticRoutePaths.map(r => r.replace(/^\//, '')));
+  const commercialRoutes: MetadataRoute.Sitemap = commercialPages
+    .filter((page) => !staticRouteSet.has(page.slug))
+    .map((page) => ({
+      url: `${baseUrl}/${page.slug}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    }));
 
-  // Add dynamic blog posts if data exists
+  // Add dynamic blog posts if data exists (with image metadata for Google Image indexing)
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
     const filePath = path.join(process.cwd(), 'content/data/blog.json');
     const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    blogRoutes = blogData.map((post: { slug: string }) => ({
+    blogRoutes = blogData.map((post: { slug: string; image?: string; title?: string }) => ({
       url: `${baseUrl}/blog/${post.slug}`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.6,
+      ...(post.image ? {
+        images: [post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`],
+      } : {}),
     }));
   } catch (error) {
     console.error('Sitemap blog error:', error);

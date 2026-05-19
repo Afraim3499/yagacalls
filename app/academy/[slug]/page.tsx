@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import Link from "next/link";
@@ -26,6 +27,37 @@ export async function generateStaticParams() {
   return modules.map((mod) => ({
     slug: mod.slug,
   }));
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), "content/data/academy.json");
+  const jsonData = fs.readFileSync(filePath, "utf-8");
+  const modules: AcademyModule[] = JSON.parse(jsonData);
+  const mod = modules.find((m) => m.slug === slug);
+
+  if (!mod) return {};
+
+  return {
+    title: `${mod.title} | Yaga Calls Academy`,
+    description: mod.description,
+    alternates: {
+      canonical: `https://www.yagacalls.com/academy/${slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+    openGraph: {
+      title: mod.title,
+      description: mod.description,
+      url: `https://www.yagacalls.com/academy/${slug}`,
+      type: 'article',
+    },
+  };
 }
 
 export default async function AcademyModulePage({ params }: { params: { slug: string } }) {

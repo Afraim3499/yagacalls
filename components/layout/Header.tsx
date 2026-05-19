@@ -13,8 +13,9 @@ const navLinks = [
   { label: "Method", href: "/method" },
   { label: "Proof", href: "/proof" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Analysis", href: "/analysis" },
-  { label: "News", href: "/news" },
+  { label: "Academy", href: "/academy" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {

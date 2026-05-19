@@ -4,6 +4,9 @@ import Section from "@/components/shared/Section";
 export const metadata = {
   title: "Disclaimer & Risk Disclosure | Yaga Calls",
   description: "Important educational-only disclaimer and risk disclosure regarding crypto signals and market analysis from Yaga Calls.",
+  alternates: {
+    canonical: "https://www.yagacalls.com/disclaimer",
+  },
 };
 
 export default function DisclaimerPage() {

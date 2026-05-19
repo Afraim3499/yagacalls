@@ -31,6 +31,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `https://www.yagacalls.com/${slug}`
     },
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
@@ -41,9 +48,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export async function generateStaticParams() {
-  return commercialPages.map((page) => ({
-    slug: page.slug,
-  }));
+  const staticSlugs = ['free-vs-paid-crypto-signals', 'crypto-signals-with-risk-management'];
+  return commercialPages
+    .filter((page) => !staticSlugs.includes(page.slug))
+    .map((page) => ({
+      slug: page.slug,
+    }));
 }
 
 export default async function CommercialLandingPage({ params }: PageProps) {

@@ -4,6 +4,9 @@ import Section from "@/components/shared/Section";
 export const metadata = {
   title: "Privacy Policy | Yaga Calls",
   description: "Learn how Yaga Calls handles your data and privacy with transparency and minimal data collection.",
+  alternates: {
+    canonical: "https://www.yagacalls.com/privacy",
+  },
 };
 
 export default function PrivacyPage() {

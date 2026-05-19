@@ -12,9 +12,9 @@ export function createOrganizationSchema() {
     url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/logo.png`,
-      width: '180',
-      height: '60'
+      url: `${SITE_URL}/yaga_calls_logo.png`,
+      width: '1200',
+      height: '630'
     },
     description: BRAND_CONFIG.brandDescription,
     areaServed: 'Global',
@@ -123,15 +123,22 @@ export function createArticleSchema(params: {
     '@id': `${params.url}/#article`,
     headline: params.title,
     description: params.description,
-    image: params.image,
+    image: params.image ? [params.image] : undefined,
     datePublished: params.datePublished,
     dateModified: params.dateModified || params.datePublished,
     author: {
       '@type': 'Organization',
-      name: params.authorName || 'Yaga Calls Editorial Team',
+      name: params.authorName || 'Yaga Calls',
       url: SITE_URL
     },
-    publisher: { '@id': `${SITE_URL}/#organization` },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Yaga Calls',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/yaga_calls_logo.png`
+      }
+    },
     mainEntityOfPage: { '@id': `${params.url}/#webpage` }
   };
 }

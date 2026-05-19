@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import Image from "next/image";
@@ -33,6 +34,53 @@ export async function generateStaticParams() {
   }));
 }
 
+function resolveImageUrl(image?: string): string | undefined {
+  if (!image) return undefined;
+  if (image.startsWith('http')) return image;
+  return `https://www.yagacalls.com${image}`;
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), "content/data/blog.json");
+  const jsonData = fs.readFileSync(filePath, "utf-8");
+  const posts: BlogPost[] = JSON.parse(jsonData);
+  const post = posts.find((p) => p.slug === slug);
+
+  if (!post) return {};
+
+  const imageUrl = resolveImageUrl(post.image);
+
+  return {
+    title: post.title,
+    description: post.summary,
+    alternates: {
+      canonical: `https://www.yagacalls.com/blog/${slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.summary,
+      url: `https://www.yagacalls.com/blog/${slug}`,
+      type: 'article',
+      publishedTime: post.date,
+      images: imageUrl ? [{ url: imageUrl, width: 1600, height: 900, alt: post.title }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+      images: imageUrl ? [imageUrl] : undefined,
+    },
+  };
+}
+
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const { slug } = await params;
   const filePath = path.join(process.cwd(), "content/data/blog.json");
@@ -45,12 +93,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   }
 
   const pageUrl = `https://www.yagacalls.com/blog/${slug}`;
+  const imageUrl = resolveImageUrl(post.image);
   const blogSchema = createBlogPostingSchema({
     title: post.title,
     description: post.summary,
     url: pageUrl,
     datePublished: post.date,
-    image: post.image ? `https://www.yagacalls.com${post.image}` : undefined
+    image: imageUrl
   });
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Blog', item: '/blog' },

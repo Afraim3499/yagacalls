@@ -6,6 +6,16 @@ import { GraduationCap } from "lucide-react";
 export const metadata = {
   title: "Yaga Calls Academy | Learn Crypto Signals and Risk Management",
   description: "Learn how crypto signals work, how to read entries and targets, and how to manage risk before following any setup.",
+  alternates: {
+    canonical: "https://www.yagacalls.com/academy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large' as const,
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
 };
 
 import fs from "fs";

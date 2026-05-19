@@ -30,6 +30,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `https://www.yagacalls.com/regions/${slug}`
     },
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large' as const,
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
@@ -40,9 +47,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export async function generateStaticParams() {
-  return regionalPages.map((page) => ({
-    slug: page.slug,
-  }));
+  const staticFolders = [
+    'australia', 'dubai', 'europe', 'germany', 'qatar', 
+    'saudi-arabia', 'singapore', 'switzerland', 'uae', 'uk', 'usa'
+  ];
+  return regionalPages
+    .filter((page) => !staticFolders.includes(page.slug))
+    .map((page) => ({
+      slug: page.slug,
+    }));
 }
 
 export default async function RegionalLandingPage({ params }: PageProps) {

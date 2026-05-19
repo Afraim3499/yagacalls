@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
   description: "Yaga Calls — also searched as Yagacall or Yaga Call — provides systematic crypto signals and narrative-driven market analysis for serious traders.",
   keywords: ["Yaga Calls", "Yagacall", "Yaga Call", "Yaga Crypto", "crypto signals", "crypto trading group", "crypto trading Telegram group", "market analysis"],
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large' as const,
+    'max-snippet': -1,
+    'max-video-preview': -1,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

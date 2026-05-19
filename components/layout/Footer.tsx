@@ -69,7 +69,9 @@ export default function Footer() {
             <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Legal</h4>
             <ul className="space-y-2 text-sm text-text-muted">
               <li><Link href="/risk-disclosure" className="hover:text-primary transition-colors">Risk Disclosure</Link></li>
+              <li><Link href="/disclaimer" className="hover:text-primary transition-colors">Disclaimer</Link></li>
               <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
               <li><Link href="https://t.me/yagacalls47" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Contact Support</Link></li>
             </ul>
           </div>
