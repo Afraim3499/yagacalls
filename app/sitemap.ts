@@ -64,12 +64,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRouteSet = new Set(staticRoutePaths.map(r => r.replace(/^\//, '')));
   const commercialRoutes: MetadataRoute.Sitemap = commercialPages
     .filter((page) => !staticRouteSet.has(page.slug))
-    .map((page) => ({
-      url: `${baseUrl}/${page.slug}`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
-    }));
+    .map((page) => {
+      const imageUrl = page.heroImage 
+        ? (page.heroImage.startsWith('http') ? page.heroImage : `${baseUrl}${page.heroImage}`)
+        : undefined;
+      return {
+        url: `${baseUrl}/${page.slug}`,
+        lastModified,
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
+        ...(imageUrl ? {
+          images: [imageUrl.replace(/&/g, '&amp;')],
+        } : {}),
+      };
+    });
 
   // Add dynamic blog posts if data exists (with image metadata for Google Image indexing)
   let blogRoutes: MetadataRoute.Sitemap = [];
