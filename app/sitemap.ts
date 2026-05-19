@@ -76,15 +76,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   try {
     const filePath = path.join(process.cwd(), 'content/data/blog.json');
     const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    blogRoutes = blogData.map((post: { slug: string; image?: string; title?: string }) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: 0.6,
-      ...(post.image ? {
-        images: [post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`],
-      } : {}),
-    }));
+    blogRoutes = blogData.map((post: { slug: string; image?: string; title?: string }) => {
+      const imageUrl = post.image 
+        ? (post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`)
+        : undefined;
+      return {
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified,
+        changeFrequency: 'weekly' as const,
+        priority: 0.6,
+        ...(imageUrl ? {
+          images: [imageUrl.replace(/&/g, '&amp;')],
+        } : {}),
+      };
+    });
   } catch (error) {
     console.error('Sitemap blog error:', error);
   }
