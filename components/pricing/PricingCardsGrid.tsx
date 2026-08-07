@@ -83,12 +83,14 @@ export default function PricingCardsGrid() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan) => (
             <GlowCard key={plan.name} className="flex flex-col p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 px-4 py-1 bg-primary text-background text-[10px] font-black uppercase tracking-widest rounded-bl-xl">
-                {plan.badge}
-              </div>
-              <div className="space-y-1 mb-8">
-                <h3 className="text-2xl font-black uppercase tracking-tighter">{plan.name}</h3>
-                <p className="text-xs font-bold text-primary uppercase tracking-widest">{plan.tagline}</p>
+              <div className="flex items-start justify-between gap-3 mb-6">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tighter">{plan.name}</h3>
+                  <p className="text-xs font-bold text-primary uppercase tracking-widest mt-1">{plan.tagline}</p>
+                </div>
+                <div className="px-3 py-1.5 bg-primary text-background text-[10px] font-black uppercase tracking-widest rounded-lg shrink-0 shadow-md">
+                  {plan.badge}
+                </div>
               </div>
 
               <div className="mb-8">
