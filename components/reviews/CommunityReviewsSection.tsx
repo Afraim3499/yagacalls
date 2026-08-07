@@ -74,6 +74,16 @@ export default function CommunityReviewsSection() {
   const [submitting, setSubmitting] = useState(false);
   const [submittedSuccess, setSubmittedSuccess] = useState(false);
 
+  // Track user voted review IDs in localStorage
+  const [votedIds, setVotedIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("yaga_voted_reviews");
+      if (saved) setVotedIds(JSON.parse(saved));
+    } catch (e) {}
+  }, []);
+
   // Form state
   const [authorName, setAuthorName] = useState("");
   const [telegramHandle, setTelegramHandle] = useState("");
@@ -198,7 +208,13 @@ export default function CommunityReviewsSection() {
   };
 
   const handleHelpfulClick = async (reviewId: string, currentCount: number) => {
+    if (votedIds.includes(reviewId)) return; // Already voted once on this device!
+
+    const newVoted = [...votedIds, reviewId];
+    setVotedIds(newVoted);
+
     try {
+      localStorage.setItem("yaga_voted_reviews", JSON.stringify(newVoted));
       await supabase
         .from("reviews")
         .update({ helpful_count: (currentCount || 0) + 1 })
@@ -379,9 +395,15 @@ export default function CommunityReviewsSection() {
                     </span>
                     <button
                       onClick={() => handleHelpfulClick(rev.id, rev.helpful_count)}
-                      className="flex items-center gap-1 text-text-muted hover:text-primary transition-colors cursor-pointer"
+                      disabled={votedIds.includes(rev.id)}
+                      className={`flex items-center gap-1.5 transition-all text-[11px] ${
+                        votedIds.includes(rev.id)
+                          ? "text-primary font-black cursor-default"
+                          : "text-text-muted hover:text-primary cursor-pointer"
+                      }`}
                     >
-                      <ThumbsUp size={12} /> Helpful ({rev.helpful_count || 0})
+                      <ThumbsUp size={12} className={votedIds.includes(rev.id) ? "fill-current text-primary" : ""} /> 
+                      {votedIds.includes(rev.id) ? `Helpful (${rev.helpful_count || 0}) ✓` : `Helpful (${rev.helpful_count || 0})`}
                     </button>
                   </div>
                 </GlowCard>
