@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Container from "@/components/shared/Container";
-import Section from "@/components/shared/Section";
 import GlowCard from "@/components/shared/GlowCard";
-import { Star, CheckCircle2, ThumbsUp, Plus, ShieldCheck, X, Image as ImageIcon, Loader2 } from "lucide-react";
+import { Star, CheckCircle2, ThumbsUp, Plus, ShieldCheck, X, Image as ImageIcon, Loader2, MessageSquare } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 
 // Initialize Supabase Client
@@ -107,85 +106,109 @@ export default function CommunityReviewsSection() {
     }
   };
 
-  const avgScore = reviews.length
-    ? (reviews.reduce((acc, r) => acc + (r.rating || 5), 0) / reviews.length).toFixed(1)
-    : "4.9";
+  // Dynamic Rating Math
+  const totalCount = reviews.length;
+  const avgScore = totalCount
+    ? (reviews.reduce((acc, r) => acc + (r.rating || 5), 0) / totalCount).toFixed(1)
+    : null;
 
   return (
-    <Section className="py-20 bg-background border-b border-line">
+    <div id="community-reviews" className="py-16">
       <Container>
-        {/* TOP TRUST HEADER & SCORE BOARD */}
-        <div className="bg-surface-deep border border-line rounded-[36px] p-8 md:p-12 mb-16 shadow-2xl">
+        {/* DYNAMIC TRUST & RATING HEADER */}
+        <div className="bg-surface-deep border border-line rounded-[36px] p-8 md:p-12 mb-12 shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Score Card */}
-            <div className="lg:col-span-4 text-center lg:text-left space-y-4 border-b lg:border-b-0 lg:border-r border-line pb-8 lg:pb-0 lg:pr-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs font-black text-primary uppercase tracking-widest mb-2">
-                <ShieldCheck size={14} /> Verified Member Ratings
+            {/* Left Rating Block */}
+            <div className="lg:col-span-5 text-center lg:text-left space-y-3 border-b lg:border-b-0 lg:border-r border-line pb-8 lg:pb-0 lg:pr-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs font-black text-primary uppercase tracking-widest">
+                <ShieldCheck size={14} /> Community Trust Hub
               </div>
-              <div className="flex items-baseline justify-center lg:justify-start gap-3">
-                <span className="text-6xl font-black tracking-tighter text-text">{avgScore}</span>
-                <span className="text-2xl font-bold text-text-muted">/ 5.0</span>
-              </div>
-              <div className="flex items-center justify-center lg:justify-start gap-1 text-primary">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={20} fill="currentColor" />
-                ))}
-              </div>
-              <p className="text-xs font-bold text-text-muted uppercase tracking-widest">
-                Based on {reviews.length ? reviews.length + 140 : 148} Verified Trader Reviews
-              </p>
+              
+              {avgScore ? (
+                <>
+                  <div className="flex items-baseline justify-center lg:justify-start gap-3 pt-1">
+                    <span className="text-5xl md:text-6xl font-black tracking-tighter text-text">{avgScore}</span>
+                    <span className="text-xl font-bold text-text-muted">/ 5.0</span>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start gap-1 text-primary">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={20} fill="currentColor" />
+                    ))}
+                  </div>
+                  <p className="text-xs font-bold text-text-muted uppercase tracking-widest pt-1">
+                    Based on {totalCount} Verified Member {totalCount === 1 ? "Review" : "Reviews"}
+                  </p>
+                </>
+              ) : (
+                <div className="space-y-2 pt-2">
+                  <h3 className="text-2xl font-black uppercase tracking-tight text-text">Verified Member Feedback</h3>
+                  <p className="text-xs text-text-muted leading-relaxed font-medium">
+                    Are you an active Telegram VIP subscriber or Free Community member? Share your honest feedback with our trading community.
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* Middle Trust Badges */}
-            <div className="lg:col-span-5 space-y-3 text-xs font-medium text-text-muted">
+            {/* Middle Value Props */}
+            <div className="lg:col-span-4 space-y-3 text-xs font-medium text-text-muted">
               <div className="flex items-center gap-3">
                 <CheckCircle2 size={16} className="text-primary shrink-0" />
-                <span><strong className="text-text">100% Moderated Transparency:</strong> All reviews are submitted by verified Telegram members.</span>
+                <span><strong className="text-text">Verified Member Reviews:</strong> Submitted directly by active Telegram traders.</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 size={16} className="text-primary shrink-0" />
-                <span><strong className="text-text">No Hype Policy:</strong> Focuses on risk management, entry context, and stop-loss logic.</span>
+                <span><strong className="text-text">Risk & Setup Transparency:</strong> Evaluated on entry context, target planning, and stop-loss logic.</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 size={16} className="text-primary shrink-0" />
-                <span><strong className="text-text">PnL Verification:</strong> Members submit verified setup screenshots for community proof.</span>
+                <span><strong className="text-text">Setup Screenshots:</strong> Members attach verified PnL proof.</span>
               </div>
             </div>
 
-            {/* Right Action Button */}
+            {/* Right CTA Button */}
             <div className="lg:col-span-3 text-center lg:text-right">
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="w-full lg:w-auto px-6 py-4 bg-primary text-background font-black uppercase text-xs tracking-widest rounded-2xl hover:brightness-110 transition-all shadow-xl inline-flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Plus size={16} /> Write a Review
+                <Plus size={16} /> Submit Your Review
               </button>
             </div>
           </div>
         </div>
 
         {/* REVIEWS GRID */}
-        <div className="space-y-8">
-          <div className="flex justify-between items-center">
-            <h3 className="text-2xl font-black uppercase tracking-tighter">Verified Community Feedback</h3>
-            <span className="text-xs font-bold text-text-muted uppercase tracking-widest">Showing {reviews.length} Approved Reviews</span>
+        <div className="space-y-6">
+          <div className="flex justify-between items-center border-b border-line pb-4">
+            <h3 className="text-xl font-black uppercase tracking-tighter text-text">Verified Community Feedback</h3>
+            {totalCount > 0 && (
+              <span className="text-xs font-bold text-text-muted uppercase tracking-widest">
+                {totalCount} Member {totalCount === 1 ? "Review" : "Reviews"}
+              </span>
+            )}
           </div>
 
           {loading ? (
             <div className="text-center py-16 space-y-4">
               <Loader2 className="w-8 h-8 animate-spin text-primary mx-auto" />
-              <p className="text-xs font-bold uppercase tracking-widest text-text-muted">Loading verified reviews...</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-text-muted">Loading community reviews...</p>
             </div>
-          ) : reviews.length === 0 ? (
-            <div className="p-12 text-center bg-surface-deep border border-line rounded-3xl space-y-4">
-              <Star className="w-12 h-12 text-primary/40 mx-auto" />
-              <h4 className="text-lg font-black uppercase tracking-tight">Be the First to Review Yaga Calls</h4>
-              <p className="text-xs text-text-muted max-w-md mx-auto">Are you an active Telegram VIP or Free member? Share your honest feedback with the community.</p>
+          ) : totalCount === 0 ? (
+            <div className="p-12 text-center bg-surface-deep border border-line rounded-3xl space-y-4 max-w-2xl mx-auto shadow-xl">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl border border-primary/20 flex items-center justify-center text-primary mx-auto">
+                <MessageSquare className="w-8 h-8" />
+              </div>
+              <div className="space-y-2">
+                <h4 className="text-xl font-black uppercase tracking-tight text-text">Be the First to Review Yaga Calls</h4>
+                <p className="text-xs text-text-muted leading-relaxed">
+                  Have you traded with Yaga Calls signals or narrative research? Share your experience regarding signal clarity, entry context, and risk management.
+                </p>
+              </div>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="px-6 py-3 bg-primary text-background font-black text-xs uppercase tracking-widest rounded-xl hover:brightness-110"
+                className="px-6 py-3.5 bg-primary text-background font-black text-xs uppercase tracking-widest rounded-xl hover:brightness-110 transition-all cursor-pointer inline-flex items-center gap-2"
               >
-                Write a Review Now
+                <Plus size={16} /> Write a Review Now
               </button>
             </div>
           ) : (
@@ -194,7 +217,7 @@ export default function CommunityReviewsSection() {
                 <GlowCard key={rev.id} className="p-8 flex flex-col justify-between border-line relative">
                   {rev.is_featured && (
                     <span className="absolute top-4 right-4 px-2.5 py-0.5 bg-primary/20 text-primary border border-primary/30 text-[9px] font-black uppercase tracking-widest rounded-full">
-                      ⭐ Featured Review
+                      ⭐ Top Review
                     </span>
                   )}
                   <div className="space-y-5">
@@ -232,7 +255,7 @@ export default function CommunityReviewsSection() {
                     {/* Optional Screenshot */}
                     {rev.screenshot_url && (
                       <a href={rev.screenshot_url} target="_blank" rel="noopener noreferrer" className="block pt-2">
-                        <div className="p-2 bg-surface-deep border border-line rounded-xl flex items-center gap-2 text-xs font-bold text-primary hover:underline">
+                        <div className="p-2.5 bg-surface-deep border border-line rounded-xl flex items-center gap-2 text-xs font-bold text-primary hover:underline">
                           <ImageIcon size={14} /> View Verified Setup Screenshot
                         </div>
                       </a>
@@ -242,7 +265,7 @@ export default function CommunityReviewsSection() {
                   {/* Footer */}
                   <div className="pt-6 mt-6 border-t border-line/60 flex items-center justify-between text-[11px] font-mono">
                     <span className="text-text-muted">
-                      {rev.created_at ? new Date(rev.created_at).toLocaleDateString() : "Verified"}
+                      {rev.created_at ? new Date(rev.created_at).toLocaleDateString() : "Verified Member"}
                     </span>
                     <button
                       onClick={() => handleHelpfulClick(rev.id, rev.helpful_count)}
@@ -275,9 +298,9 @@ export default function CommunityReviewsSection() {
             {submittedSuccess ? (
               <div className="p-8 text-center bg-primary/10 border border-primary/30 rounded-2xl space-y-3">
                 <CheckCircle2 size={40} className="text-primary mx-auto" />
-                <h4 className="text-lg font-black uppercase tracking-tight text-primary">Review Submitted for Verification!</h4>
+                <h4 className="text-lg font-black uppercase tracking-tight text-primary">Thank You for Your Feedback!</h4>
                 <p className="text-xs text-text-muted leading-relaxed">
-                  Thank you! Your feedback has been queued for review by our moderation desk. Once verified, it will appear live on this community page.
+                  Your review has been submitted to our community team and will appear live on this portal shortly.
                 </p>
               </div>
             ) : (
@@ -400,6 +423,6 @@ export default function CommunityReviewsSection() {
           </div>
         </div>
       )}
-    </Section>
+    </div>
   );
 }
