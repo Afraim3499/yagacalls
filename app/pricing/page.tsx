@@ -180,10 +180,10 @@ export default function PricingPage() {
       <JsonLd data={productSchema} />
 
       <PricingHero />
-      <PricingDirectAnswer />
-      <PricingFitWarning />
       <PricingCardsGrid />
       <PricingComparisonTable />
+      <PricingDirectAnswer />
+      <PricingFitWarning />
       <Section className="bg-background py-12 text-center border-b border-line">
         <Container>
           <div className="max-w-2xl mx-auto space-y-4">
