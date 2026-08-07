@@ -29,17 +29,29 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open to prevent page bleeding behind
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "bg-background/80 backdrop-blur-md border-b border-line" : "bg-transparent"
+      scrolled ? "bg-background/90 backdrop-blur-md border-b border-line" : "bg-background/80"
     )}>
       <Ticker />
       <Container className={cn(
-        "flex items-center justify-between transition-all duration-300",
-        scrolled ? "py-3" : "py-5"
+        "flex items-center justify-between transition-all duration-300 relative z-50",
+        scrolled ? "py-3" : "py-4"
       )}>
-        <Link href="/" className="relative w-32 h-10 transition-transform hover:scale-105">
+        <Link href="/" className="relative w-32 h-10 transition-transform hover:scale-105" onClick={() => setIsOpen(false)}>
           <Image
             src="/yaga_calls_logo.webp"
             alt="Yaga Calls"
@@ -68,44 +80,52 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle Button */}
         <button
-          className="md:hidden text-text-high p-2"
+          className="md:hidden text-text p-2 cursor-pointer z-50"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X /> : <Menu />}
+          {isOpen ? <X size={28} className="text-primary" /> : <Menu size={28} />}
         </button>
       </Container>
 
-      {/* Mobile Menu */}
-      <div className={cn(
-        "fixed inset-0 top-[70px] bg-background/95 backdrop-blur-lg z-40 md:hidden transition-all duration-300 flex flex-col p-6 gap-6",
-        isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
-      )}>
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={cn(
-              "text-xl font-bold transition-colors",
-              pathname === link.href ? "text-primary" : "text-text-high"
-            )}
-            onClick={() => setIsOpen(false)}
-          >
-            {link.label}
-          </Link>
-        ))}
-        <Link
-          href="https://t.me/+JFf8kBf01mg3OTg1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="grad-button text-background px-6 py-4 rounded-2xl text-center font-bold"
-          onClick={() => setIsOpen(false)}
-        >
-          Join Public Group
-        </Link>
-      </div>
+      {/* 100% OPAQUE FULL-SCREEN MOBILE MENU OVERLAY */}
+      {isOpen && (
+        <div className="fixed inset-0 z-40 bg-[#080a0f] w-screen h-screen flex flex-col p-6 pt-28 gap-6 md:hidden overflow-y-auto animate-in fade-in duration-200">
+          <div className="flex flex-col gap-4 border-t border-line/50 pt-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-2xl font-black uppercase tracking-tight py-2 border-b border-line/30 transition-colors flex items-center justify-between",
+                  pathname === link.href ? "text-primary" : "text-text hover:text-primary"
+                )}
+                onClick={() => setIsOpen(false)}
+              >
+                <span>{link.label}</span>
+                {pathname === link.href && <span className="text-xs bg-primary/20 text-primary px-2.5 py-0.5 rounded-full font-mono">Active</span>}
+              </Link>
+            ))}
+          </div>
+
+          <div className="pt-4 mt-auto">
+            <Link
+              href="https://t.me/+JFf8kBf01mg3OTg1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="grad-button text-background w-full py-4 rounded-2xl text-center font-black uppercase tracking-widest text-sm shadow-xl block"
+              onClick={() => setIsOpen(false)}
+            >
+              💬 Join Public Telegram Group
+            </Link>
+            <p className="text-[10px] text-text-muted text-center font-mono mt-3 uppercase tracking-widest">
+              Official Yaga Calls Channel • Verified Access
+            </p>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
