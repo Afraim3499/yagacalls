@@ -46,6 +46,8 @@ export const metadata: Metadata = {
   }
 };
 
+import CommunityReviewsSection from "@/components/reviews/CommunityReviewsSection";
+
 export default function YagaCallsReviewPage() {
   const faqs = [
     {
@@ -247,6 +249,9 @@ export default function YagaCallsReviewPage() {
           </div>
         </Container>
       </Section>
+
+      {/* SECTION 0.5 — COMMUNITY REVIEWS & SUBMISSION ENGINE */}
+      <CommunityReviewsSection />
 
       {/* SECTION 1 — Direct Answer Block */}
       <Section className="bg-background py-24 border-b border-line">
