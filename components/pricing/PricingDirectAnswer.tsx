@@ -15,9 +15,9 @@ export default function PricingDirectAnswer() {
               The current discounted pricing is:
             </p>
             <ul className="space-y-2 border-l-2 border-primary/30 pl-6">
-              <li><span className="text-text font-black">Quarterly Access:</span> $200 / 3 months, reduced from $250</li>
-              <li><span className="text-text font-black">Half-Yearly Access:</span> $300 / 6 months, reduced from $500</li>
-              <li><span className="text-text font-black">Yearly Access:</span> $600 / 12 months, reduced from $1000</li>
+              <li><span className="text-text font-black">Quarterly Access:</span> $250 / 3 months, reduced from $300</li>
+              <li><span className="text-text font-black">Half-Yearly Access:</span> $350 / 8 months (Bonus +2 Mo), reduced from $400</li>
+              <li><span className="text-text font-black">Yearly Access:</span> $700 / 14 months (Bonus +2 Mo + High Table & Elite Group), reduced from $800</li>
             </ul>
             <p>
               These are onboarding prices for users who are ready to join through the official Telegram manual onboarding process. If you are still evaluating the value of premium research, you can compare <a href="/free-vs-paid-crypto-signals" className="text-primary hover:underline font-bold">free vs paid crypto signals</a> to understand the difference in depth and structure.

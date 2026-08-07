@@ -3,9 +3,9 @@ import Section from "../shared/Section";
 
 export default function PricingComparisonTable() {
   const rows = [
-    ["Quarterly", "$250", "$200 / 3 mo", "$50", "~$67/month", "Testing the method"],
-    ["Half-Yearly", "$500", "$300 / 6 mo", "$200", "$50/month", "Best value"],
-    ["Yearly", "$1000", "$600 / 12 mo", "$400", "$50/month", "Long-term access"]
+    ["Quarterly", "$300", "$250 / 3 mo", "$50", "~$83/month", "Testing the method"],
+    ["Half-Yearly", "$400", "$350 / 8 mo (Bonus)", "$50", "~$44/month", "Best value (8 Mo Access)"],
+    ["Yearly", "$800", "$700 / 14 mo (Bonus)", "$100", "~$50/month", "High Table + Elite Group (14 Mo)"]
   ];
 
   return (

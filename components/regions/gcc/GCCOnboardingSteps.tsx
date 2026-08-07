@@ -46,9 +46,9 @@ export default function GCCOnboardingSteps() {
               </thead>
               <tbody className="divide-y divide-line">
                 {[
-                  { p: "Quarterly", r: "$250", d: "$200 / 3 mo" },
-                  { p: "Half-Yearly", r: "$500", d: "$300 / 6 mo" },
-                  { p: "Yearly", r: "$1000", d: "$600 / 12 mo" },
+                  { p: "Quarterly", r: "$300", d: "$250 / 3 mo" },
+                  { p: "Half-Yearly", r: "$400", d: "$350 / 8 mo (Bonus)" },
+                  { p: "Yearly", r: "$800", d: "$700 / 14 mo (Bonus)" },
                 ].map((row, i) => (
                   <tr key={i} className="hover:bg-primary/5 transition-colors">
                     <td className="px-6 py-4 text-sm font-bold text-text uppercase tracking-tight">{row.p}</td>

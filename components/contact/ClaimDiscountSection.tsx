@@ -3,9 +3,9 @@ import Section from "../shared/Section";
 
 export default function ClaimDiscountSection() {
   const plans = [
-    { name: "Quarterly", regular: "$250", discounted: "$200 / 3 months", savings: "Save $50" },
-    { name: "Half-Yearly", regular: "$500", discounted: "$300 / 6 months", savings: "Save $200" },
-    { name: "Yearly", regular: "$1000", discounted: "$600 / 12 months", savings: "Save $400" }
+    { name: "Quarterly", regular: "$300", discounted: "$250 / 3 months", savings: "Save $50" },
+    { name: "Half-Yearly", regular: "$400", discounted: "$350 / 8 months (Bonus)", savings: "Save $50" },
+    { name: "Yearly", regular: "$800", discounted: "$700 / 14 months (Bonus)", savings: "Save $100" }
   ];
 
   return (
