@@ -1,15 +1,71 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Container from "@/components/shared/Container";
 import GlowCard from "@/components/shared/GlowCard";
-import { Star, CheckCircle2, ThumbsUp, Plus, ShieldCheck, X, Image as ImageIcon, Loader2, MessageSquare } from "lucide-react";
+import { Star, CheckCircle2, ThumbsUp, Plus, ShieldCheck, X, Image as ImageIcon, Loader2, MessageSquare, Upload, Check } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 
 // Initialize Supabase Client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ghwvwtwktnveqdqivxmy.supabase.co";
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdod3Z3dHdrdG52ZXFkcWl2eG15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM2MTg1OTgsImV4cCI6MjA2OTE5NDU5OH0.B2zJ9pC0VzZpX1w7gY19aK4q3J3L_7r4V3";
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Auto Image Compression Helper (Canvas WebP Resizer & Quality Compressor)
+const compressImageFile = (file: File, maxWidth = 1200, maxHeight = 1200, quality = 0.75): Promise<{ blob: Blob; fileName: string; originalSize: string; compressedSize: string }> => {
+  return new Promise((resolve, reject) => {
+    const originalSizeMb = (file.size / (1024 * 1024)).toFixed(2) + "MB";
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target?.result as string;
+      img.onload = () => {
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > maxWidth) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          }
+        } else {
+          if (height > maxHeight) {
+            width = Math.round((width * maxHeight) / height);
+            height = maxHeight;
+          }
+        }
+
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return reject("Canvas error");
+        ctx.drawImage(img, 0, 0, width, height);
+
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              const compressedSizeKb = (blob.size / 1024).toFixed(0) + "KB";
+              resolve({
+                blob,
+                fileName: `rev_${Date.now()}_${Math.random().toString(36).substring(2, 7)}.webp`,
+                originalSize: originalSizeMb,
+                compressedSize: compressedSizeKb
+              });
+            } else {
+              reject("Blob compression failed");
+            }
+          },
+          "image/webp",
+          quality
+        );
+      };
+      img.onerror = (err) => reject(err);
+    };
+    reader.onerror = (err) => reject(err);
+  });
+};
 
 export default function CommunityReviewsSection() {
   const [reviews, setReviews] = useState<any[]>([]);
@@ -25,7 +81,13 @@ export default function CommunityReviewsSection() {
   const [rating, setRating] = useState(5);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [screenshotUrl, setScreenshotUrl] = useState("");
+  
+  // Image Upload State
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [uploadStats, setUploadStats] = useState<string | null>(null);
+  const [isCompressing, setIsCompressing] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const fetchApprovedReviews = async () => {
     setLoading(true);
@@ -50,12 +112,54 @@ export default function CommunityReviewsSection() {
     fetchApprovedReviews();
   }, []);
 
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsCompressing(true);
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
+
+    try {
+      const compressed = await compressImageFile(file);
+      setUploadStats(`Optimized: ${compressed.originalSize} → ${compressed.compressedSize} (Saved ~${Math.round(100 - (compressed.blob.size / file.size) * 100)}%)`);
+    } catch (err) {
+      console.error("Compression error:", err);
+    }
+    setIsCompressing(false);
+  };
+
   const handleSubmitReview = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!authorName.trim() || !title.trim() || !content.trim()) return;
 
     setSubmitting(true);
     try {
+      let finalImageUrl: string | null = null;
+
+      // 1. Upload compressed image if file selected
+      if (imageFile) {
+        const compressed = await compressImageFile(imageFile);
+        const filePath = `uploads/${compressed.fileName}`;
+
+        const { data: uploadData, error: uploadErr } = await supabase.storage
+          .from("review-screenshots")
+          .upload(filePath, compressed.blob, {
+            contentType: "image/webp",
+            upsert: true
+          });
+
+        if (uploadErr) {
+          console.error("Supabase Storage Upload Error:", uploadErr);
+        } else {
+          const { data: publicUrlData } = supabase.storage
+            .from("review-screenshots")
+            .getPublicUrl(filePath);
+          finalImageUrl = publicUrlData.publicUrl;
+        }
+      }
+
+      // 2. Insert Review into Database
       const newId = `REV-${Date.now().toString(36).toUpperCase()}`;
       const { error } = await supabase.from("reviews").insert([
         {
@@ -66,7 +170,7 @@ export default function CommunityReviewsSection() {
           rating: Number(rating),
           title: title.trim(),
           content: content.trim(),
-          screenshot_url: screenshotUrl.trim() || null,
+          screenshot_url: finalImageUrl,
           status: "PENDING",
           is_featured: false,
           helpful_count: 0
@@ -80,7 +184,9 @@ export default function CommunityReviewsSection() {
       setTelegramHandle("");
       setTitle("");
       setContent("");
-      setScreenshotUrl("");
+      setImageFile(null);
+      setImagePreview(null);
+      setUploadStats(null);
       setTimeout(() => {
         setSubmittedSuccess(false);
         setIsModalOpen(false);
@@ -161,7 +267,7 @@ export default function CommunityReviewsSection() {
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 size={16} className="text-primary shrink-0" />
-                <span><strong className="text-text">Setup Screenshots:</strong> Members attach verified PnL proof.</span>
+                <span><strong className="text-text">Setup Screenshots:</strong> Members attach verified PnL proof with auto-compression.</span>
               </div>
             </div>
 
@@ -254,11 +360,15 @@ export default function CommunityReviewsSection() {
 
                     {/* Optional Screenshot */}
                     {rev.screenshot_url && (
-                      <a href={rev.screenshot_url} target="_blank" rel="noopener noreferrer" className="block pt-2">
-                        <div className="p-2.5 bg-surface-deep border border-line rounded-xl flex items-center gap-2 text-xs font-bold text-primary hover:underline">
-                          <ImageIcon size={14} /> View Verified Setup Screenshot
-                        </div>
-                      </a>
+                      <div className="pt-2">
+                        <a href={rev.screenshot_url} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-xl border border-line hover:border-primary/50 transition-colors">
+                          <img 
+                            src={rev.screenshot_url} 
+                            alt="Verified Setup Screenshot" 
+                            className="w-full max-h-48 object-cover hover:scale-105 transition-transform"
+                          />
+                        </a>
+                      </div>
                     )}
                   </div>
 
@@ -284,7 +394,7 @@ export default function CommunityReviewsSection() {
       {/* SUBMISSION MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-surface border border-line max-w-xl w-full p-8 rounded-3xl space-y-6 shadow-2xl relative">
+          <div className="bg-surface border border-line max-w-xl w-full p-8 rounded-3xl space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-line pb-4">
               <div>
                 <h3 className="text-xl font-black uppercase tracking-tighter">Submit Your Yaga Calls Review</h3>
@@ -300,7 +410,7 @@ export default function CommunityReviewsSection() {
                 <CheckCircle2 size={40} className="text-primary mx-auto" />
                 <h4 className="text-lg font-black uppercase tracking-tight text-primary">Thank You for Your Feedback!</h4>
                 <p className="text-xs text-text-muted leading-relaxed">
-                  Your review has been submitted to our community team and will appear live on this portal shortly.
+                  Your review has been submitted to our community moderation desk and will appear live on this portal shortly.
                 </p>
               </div>
             ) : (
@@ -391,15 +501,55 @@ export default function CommunityReviewsSection() {
                   />
                 </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-text-muted uppercase tracking-wider block">PnL / Setup Screenshot URL (Optional)</label>
+                {/* DIRECT FILE UPLOAD WITH CANVAS COMPRESSION */}
+                <div className="space-y-2 pt-1">
+                  <label className="text-text-muted uppercase tracking-wider block">Upload Setup / PnL Screenshot (Auto-Optimized WebP)</label>
+                  
                   <input
-                    type="url"
-                    value={screenshotUrl}
-                    onChange={(e) => setScreenshotUrl(e.target.value)}
-                    placeholder="e.g. https://imgur.com/your-setup-proof.jpg"
-                    className="w-full bg-background text-text p-3 rounded-xl border border-line focus:border-primary focus:outline-none font-mono"
+                    type="file"
+                    ref={fileInputRef}
+                    accept="image/png, image/jpeg, image/webp"
+                    onChange={handleFileSelect}
+                    className="hidden"
                   />
+
+                  {imagePreview ? (
+                    <div className="p-4 bg-surface-deep border border-primary/30 rounded-2xl space-y-3 relative">
+                      <div className="flex items-center gap-3">
+                        <img src={imagePreview} alt="Preview" className="w-16 h-16 object-cover rounded-xl border border-line" />
+                        <div className="space-y-1 text-xs">
+                          <p className="font-bold text-text truncate max-w-[200px]">{imageFile?.name}</p>
+                          {isCompressing ? (
+                            <span className="text-primary flex items-center gap-1 font-mono text-[10px]">
+                              <Loader2 className="w-3 h-3 animate-spin" /> Auto-Compressing Image...
+                            </span>
+                          ) : (
+                            <span className="text-primary font-mono text-[10px] block">{uploadStats}</span>
+                          )}
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setImageFile(null);
+                          setImagePreview(null);
+                          setUploadStats(null);
+                        }}
+                        className="absolute top-3 right-3 text-text-muted hover:text-danger text-xs font-mono cursor-pointer"
+                      >
+                        ✕ Remove
+                      </button>
+                    </div>
+                  ) : (
+                    <div
+                      onClick={() => fileInputRef.current?.click()}
+                      className="border-2 border-dashed border-line hover:border-primary/50 p-6 rounded-2xl text-center space-y-2 cursor-pointer transition-colors bg-background/50"
+                    >
+                      <Upload className="w-8 h-8 text-primary mx-auto" />
+                      <p className="text-xs font-bold text-text">Click or Drag Image Screenshot Here</p>
+                      <p className="text-[10px] text-text-muted font-mono">PNG, JPG, WEBP • Auto-compressed to WebP for lightning fast load</p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex justify-end gap-3 pt-4 border-t border-line">
@@ -412,7 +562,7 @@ export default function CommunityReviewsSection() {
                   </button>
                   <button
                     type="submit"
-                    disabled={submitting}
+                    disabled={submitting || isCompressing}
                     className="px-6 py-2.5 bg-primary text-background font-black uppercase text-xs tracking-widest rounded-xl hover:brightness-110 flex items-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Submit Review"}
