@@ -228,14 +228,55 @@ export default function CommunityReviewsSection() {
     }
   };
 
-  // Dynamic Rating Math
+  // Dynamic Rating Math & Google JSON-LD Schema
   const totalCount = reviews.length;
   const avgScore = totalCount
     ? (reviews.reduce((acc, r) => acc + (r.rating || 5), 0) / totalCount).toFixed(1)
     : null;
 
+  const googleSchema = totalCount > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Yaga Calls VIP Crypto Signals & Community Research",
+    "image": "https://www.yagacalls.com/og-image.png",
+    "description": "Verified member reviews, trade setup notes, and Telegram crypto signals by Yaga Calls.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Yaga Calls"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": avgScore || "5.0",
+      "reviewCount": totalCount.toString(),
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": reviews.map(r => ({
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": r.author_name || "Verified Member"
+      },
+      "datePublished": r.created_at ? r.created_at.substring(0, 10) : "2026-08-07",
+      "reviewBody": r.content,
+      "name": r.title,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": (r.rating || 5).toString(),
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }))
+  } : null;
+
   return (
     <div id="community-reviews" className="py-16">
+      {googleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(googleSchema) }}
+        />
+      )}
       <Container>
         {/* DYNAMIC TRUST & RATING HEADER */}
         <div className="bg-surface-deep border border-line rounded-[36px] p-8 md:p-12 mb-12 shadow-2xl">
