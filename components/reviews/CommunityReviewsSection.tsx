@@ -4,12 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Container from "@/components/shared/Container";
 import GlowCard from "@/components/shared/GlowCard";
 import { Star, CheckCircle2, ThumbsUp, Plus, ShieldCheck, X, Image as ImageIcon, Loader2, MessageSquare, Upload, Check } from "lucide-react";
-import { createClient } from "@supabase/supabase-js";
-
-// Initialize Supabase Client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ghwvwtwktnveqdqivxmy.supabase.co";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdod3Z3dHdrdG52ZXFkcWl2eG15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzNTY0NjIsImV4cCI6MjEwMDkzMjQ2Mn0.bka5GMEdehBvPgQ_AVJ6xZfEt9k17U0hVUYLMKeFKB4";
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const supabaseUrl = "https://ghwvwtwktnveqdqivxmy.supabase.co";
+const supabaseApiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdod3Z3dHdrdG52ZXFkcWl2eG15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzNTY0NjIsImV4cCI6MjEwMDkzMjQ2Mn0.bka5GMEdehBvPgQ_AVJ6xZfEt9k17U0hVUYLMKeFKB4";
 
 // Auto Image Compression Helper (Canvas WebP Resizer & Quality Compressor)
 const compressImageFile = (file: File, maxWidth = 1200, maxHeight = 1200, quality = 0.75): Promise<{ blob: Blob; fileName: string; originalSize: string; compressedSize: string }> => {
@@ -102,14 +98,11 @@ export default function CommunityReviewsSection() {
   const fetchApprovedReviews = async () => {
     setLoading(true);
     try {
-      const { data, error } = await supabase
-        .from("reviews")
-        .select("*")
-        .eq("status", "APPROVED")
-        .order("is_featured", { ascending: false })
-        .order("created_at", { ascending: false });
-
-      if (data) {
+      const res = await fetch("https://ghwvwtwktnveqdqivxmy.supabase.co/rest/v1/reviews?select=*&status=eq.APPROVED&order=is_featured.desc,created_at.desc", {
+        headers: { "apikey": supabaseApiKey }
+      });
+      const data = await res.json();
+      if (Array.isArray(data)) {
         setReviews(data);
       }
     } catch (e) {
@@ -152,27 +145,34 @@ export default function CommunityReviewsSection() {
         const compressed = await compressImageFile(imageFile);
         const filePath = `uploads/${compressed.fileName}`;
 
-        const { data: uploadData, error: uploadErr } = await supabase.storage
-          .from("review-screenshots")
-          .upload(filePath, compressed.blob, {
-            contentType: "image/webp",
-            upsert: true
-          });
+        const uploadRes = await fetch(`https://ghwvwtwktnveqdqivxmy.supabase.co/storage/v1/object/review-screenshots/${filePath}`, {
+          method: "POST",
+          headers: {
+            "apikey": supabaseApiKey,
+            "Authorization": `Bearer ${supabaseApiKey}`,
+            "Content-Type": "image/webp"
+          },
+          body: compressed.blob
+        });
 
-        if (uploadErr) {
-          console.error("Supabase Storage Upload Error:", uploadErr);
+        if (!uploadRes.ok) {
+          console.error("Supabase Storage Upload Error:", await uploadRes.text());
         } else {
-          const { data: publicUrlData } = supabase.storage
-            .from("review-screenshots")
-            .getPublicUrl(filePath);
-          finalImageUrl = publicUrlData.publicUrl;
+          finalImageUrl = `https://ghwvwtwktnveqdqivxmy.supabase.co/storage/v1/object/public/review-screenshots/${filePath}`;
         }
       }
 
-      // 2. Insert Review into Database
+      // 2. Insert Review into Database via REST
       const newId = `REV-${Date.now().toString(36).toUpperCase()}`;
-      const { error } = await supabase.from("reviews").insert([
-        {
+      const insertRes = await fetch("https://ghwvwtwktnveqdqivxmy.supabase.co/rest/v1/reviews", {
+        method: "POST",
+        headers: {
+          "apikey": supabaseApiKey,
+          "Authorization": `Bearer ${supabaseApiKey}`,
+          "Content-Type": "application/json",
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify({
           id: newId,
           author_name: authorName.trim(),
           telegram_handle: telegramHandle.trim() || null,
@@ -184,10 +184,10 @@ export default function CommunityReviewsSection() {
           status: "PENDING",
           is_featured: false,
           helpful_count: 0
-        }
-      ]);
+        })
+      });
 
-      if (error) throw error;
+      if (!insertRes.ok) throw new Error(await insertRes.text());
 
       setSubmittedSuccess(true);
       setAuthorName("");
@@ -215,10 +215,15 @@ export default function CommunityReviewsSection() {
 
     try {
       localStorage.setItem("yaga_voted_reviews", JSON.stringify(newVoted));
-      await supabase
-        .from("reviews")
-        .update({ helpful_count: (currentCount || 0) + 1 })
-        .eq("id", reviewId);
+      await fetch(`https://ghwvwtwktnveqdqivxmy.supabase.co/rest/v1/reviews?id=eq.${reviewId}`, {
+        method: "PATCH",
+        headers: {
+          "apikey": supabaseApiKey,
+          "Authorization": `Bearer ${supabaseApiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ helpful_count: (currentCount || 0) + 1 })
+      });
 
       setReviews(prev =>
         prev.map(r => (r.id === reviewId ? { ...r, helpful_count: (r.helpful_count || 0) + 1 } : r))

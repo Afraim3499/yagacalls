@@ -38,6 +38,8 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Platform</h4>
             <ul className="space-y-2 text-sm text-text-muted">
+              <li><Link href="/crypto-signal-results" className="hover:text-primary transition-colors font-black text-primary">Live Signal Results</Link></li>
+              <li><Link href="/yaga-calls-review" className="hover:text-primary transition-colors font-bold text-primary">Yaga Calls Review</Link></li>
               <li><Link href="/method" className="hover:text-primary transition-colors">Our Method</Link></li>
               <li><Link href="/proof" className="hover:text-primary transition-colors">Selected Examples</Link></li>
               <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing Plans</Link></li>

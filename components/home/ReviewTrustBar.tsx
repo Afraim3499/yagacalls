@@ -4,11 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Star, ShieldCheck, ArrowRight, MessageSquare } from "lucide-react";
 import Container from "../shared/Container";
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ghwvwtwktnveqdqivxmy.supabase.co";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdod3Z3dHdrdG52ZXFkcWl2eG15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzNTY0NjIsImV4cCI6MjEwMDkzMjQ2Mn0.bka5GMEdehBvPgQ_AVJ6xZfEt9k17U0hVUYLMKeFKB4";
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function ReviewTrustBar() {
   const [avgRating, setAvgRating] = useState<number>(5.0);
@@ -17,13 +12,14 @@ export default function ReviewTrustBar() {
   useEffect(() => {
     async function calculateLiveRating() {
       try {
-        const { data, error } = await supabase
-          .from("reviews")
-          .select("rating")
-          .eq("status", "APPROVED");
+        const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdod3Z3dHdrdG52ZXFkcWl2eG15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzNTY0NjIsImV4cCI6MjEwMDkzMjQ2Mn0.bka5GMEdehBvPgQ_AVJ6xZfEt9k17U0hVUYLMKeFKB4";
+        const res = await fetch("https://ghwvwtwktnveqdqivxmy.supabase.co/rest/v1/reviews?select=rating&status=eq.APPROVED", {
+          headers: { "apikey": apiKey }
+        });
+        const data = await res.json();
 
-        if (data && data.length > 0) {
-          const totalScore = data.reduce((acc, r) => acc + (Number(r.rating) || 5), 0);
+        if (Array.isArray(data) && data.length > 0) {
+          const totalScore = data.reduce((acc: number, r: any) => acc + (Number(r.rating) || 5), 0);
           const calculatedAvg = Number((totalScore / data.length).toFixed(1));
           setAvgRating(calculatedAvg);
           setReviewCount(data.length);

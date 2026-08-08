@@ -10,9 +10,11 @@ import { cn } from "@/lib/utils";
 import Ticker from "./Ticker";
 
 const navLinks = [
+  { label: "Results", href: "/crypto-signal-results" },
+  { label: "Reviews", href: "/yaga-calls-review" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Method", href: "/method" },
   { label: "Proof", href: "/proof" },
-  { label: "Pricing", href: "/pricing" },
   { label: "Academy", href: "/academy" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -63,13 +65,14 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/method" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">Method</Link>
-          <Link href="/proof" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">Proof</Link>
-          <Link href="/pricing" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">Pricing</Link>
-          <Link href="/academy" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">Academy</Link>
-          <Link href="/blog" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">Blog</Link>
-          <Link href="/contact" className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">Contact</Link>
+        <nav className="hidden md:flex items-center gap-6">
+          <Link href="/crypto-signal-results" className="text-xs font-black uppercase tracking-widest text-primary hover:brightness-110 transition-all bg-primary/10 px-2.5 py-1 rounded-lg border border-primary/20">Results</Link>
+          <Link href="/yaga-calls-review" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Reviews</Link>
+          <Link href="/pricing" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Pricing</Link>
+          <Link href="/method" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Method</Link>
+          <Link href="/proof" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Proof</Link>
+          <Link href="/academy" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Academy</Link>
+          <Link href="/contact" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Contact</Link>
           <Link
             href="https://t.me/+JFf8kBf01mg3OTg1"
             target="_blank"
