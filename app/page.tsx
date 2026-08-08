@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Hero from "@/components/home/Hero";
+import ReviewTrustBar from "@/components/home/ReviewTrustBar";
 import TrustStrip from "@/components/home/TrustStrip";
 import DirectAnswer from "@/components/home/DirectAnswer";
 
@@ -93,6 +94,7 @@ export default function HomePage() {
       <JsonLd data={breadcrumbSchema} />
       
       <Hero />
+      <ReviewTrustBar />
       <DirectAnswer />
       <TrustStrip />
       <WhyJoin />
