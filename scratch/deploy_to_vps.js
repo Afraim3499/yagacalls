@@ -24,7 +24,10 @@ conn.on('ready', () => {
       if (code === 0) {
         console.log('\nTriggering Search Engine Pinging Pipeline...');
         const { exec } = require('child_process');
-        exec('node scratch/ping_search_engines.js', (pingErr, stdout, stderr) => {
+        const path = require('path');
+        const scriptPath = path.join(__dirname, 'ping_search_engines.js');
+        
+        exec(`node "${scriptPath}"`, (pingErr, stdout, stderr) => {
           if (stdout) console.log(stdout);
           if (stderr) console.error(stderr);
         });
