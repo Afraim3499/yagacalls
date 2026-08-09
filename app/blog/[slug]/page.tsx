@@ -12,6 +12,16 @@ import NarrativeTradingCrypto from "@/content/blog/articles/NarrativeTradingCryp
 import SuiRallyCaseStudy from "@/content/blog/articles/SuiRallyCaseStudy";
 import CryptoSearchIntentResearch from "@/content/blog/articles/CryptoSearchIntentResearch";
 
+// Import 8 research satellite blog articles
+import CanadaClarityActArticle from "@/content/blog/articles/CanadaClarityActArticle";
+import UaeVaraLicensingArticle from "@/content/blog/articles/UaeVaraLicensingArticle";
+import NigeriaP2pAdoptionArticle from "@/content/blog/articles/NigeriaP2pAdoptionArticle";
+import PolyxRwaBreakoutArticle from "@/content/blog/articles/PolyxRwaBreakoutArticle";
+import CryptoAdoptionFunnelsArticle from "@/content/blog/articles/CryptoAdoptionFunnelsArticle";
+import GoogleTrendsNarrativeArticle from "@/content/blog/articles/GoogleTrendsNarrativeArticle";
+import ColdWalletCustodyArticle from "@/content/blog/articles/ColdWalletCustodyArticle";
+import FearGreedSentimentArticle from "@/content/blog/articles/FearGreedSentimentArticle";
+
 // Map slugs directly to their respective TSX content components
 const articleBodies: Record<string, React.ComponentType> = {
   "best-crypto-signals-group": BestCryptoSignalsGroup,
@@ -21,6 +31,14 @@ const articleBodies: Record<string, React.ComponentType> = {
   "narrative-trading-crypto": NarrativeTradingCrypto,
   "how-we-called-sui-rally": SuiRallyCaseStudy,
   "crypto-search-intent-across-markets": CryptoSearchIntentResearch,
+  "canada-crypto-regulation-clarity-act": CanadaClarityActArticle,
+  "uae-crypto-licensing-vara-binance": UaeVaraLicensingArticle,
+  "nigeria-p2p-crypto-adoption-hedging": NigeriaP2pAdoptionArticle,
+  "polyx-rwa-tokenization-surge": PolyxRwaBreakoutArticle,
+  "crypto-search-intent-funnel-guide": CryptoAdoptionFunnelsArticle,
+  "google-trends-crypto-narrative-trading": GoogleTrendsNarrativeArticle,
+  "cold-wallet-custody-vs-exchange-risk": ColdWalletCustodyArticle,
+  "crypto-market-sentiment-tools-fear-greed": FearGreedSentimentArticle,
 };
 
 export async function generateStaticParams() {
