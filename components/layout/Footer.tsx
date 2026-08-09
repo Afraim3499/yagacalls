@@ -44,12 +44,11 @@ export default function Footer() {
               <li><Link href="/proof" className="hover:text-primary transition-colors">Selected Examples</Link></li>
               <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing Plans</Link></li>
               <li><Link href="/academy" className="hover:text-primary transition-colors">Trading Academy</Link></li>
+              <li><Link href="/blog" className="hover:text-primary transition-colors font-bold text-primary">Blog & Market Analysis</Link></li>
               <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-primary">Risk Calculator</Link></li>
               <li><Link href="/leverage-trading-calculator" className="hover:text-primary transition-colors font-bold text-primary underline">Leverage Calculator</Link></li>
               <li><Link href="/liquidation-price-calculator" className="hover:text-primary transition-colors font-bold text-primary">Liquidation Calculator</Link></li>
-              <li><Link href="/blog" className="hover:text-primary transition-colors">Latest Analysis</Link></li>
               <li><Link href="/about-yaga-calls" className="hover:text-primary transition-colors font-bold text-primary">About Yaga Calls</Link></li>
-              <li><Link href="/yaga-calls-review" className="hover:text-primary transition-colors font-bold text-primary">Yaga Calls Review</Link></li>
             </ul>
           </div>
 
