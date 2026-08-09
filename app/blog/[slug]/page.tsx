@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import { blogPostsMetadata } from "@/content/blog/posts";
 import ArticleLayout from "@/components/blog/ArticleLayout";
 
-// Import all 6 long-form TSX article bodies
+// Import all TSX article bodies
 import BestCryptoSignalsGroup from "@/content/blog/articles/BestCryptoSignalsGroup";
 import TelegramCryptoSignalsTrustworthy from "@/content/blog/articles/TelegramCryptoSignalsTrustworthy";
 import CryptoSignalsForBeginners from "@/content/blog/articles/CryptoSignalsForBeginners";
 import WhyStopLossMatters from "@/content/blog/articles/WhyStopLossMatters";
 import NarrativeTradingCrypto from "@/content/blog/articles/NarrativeTradingCrypto";
 import SuiRallyCaseStudy from "@/content/blog/articles/SuiRallyCaseStudy";
+import CryptoSearchIntentResearch from "@/content/blog/articles/CryptoSearchIntentResearch";
 
 // Map slugs directly to their respective TSX content components
 const articleBodies: Record<string, React.ComponentType> = {
@@ -19,6 +20,7 @@ const articleBodies: Record<string, React.ComponentType> = {
   "why-stop-loss-matters": WhyStopLossMatters,
   "narrative-trading-crypto": NarrativeTradingCrypto,
   "how-we-called-sui-rally": SuiRallyCaseStudy,
+  "crypto-search-intent-across-markets": CryptoSearchIntentResearch,
 };
 
 export async function generateStaticParams() {
