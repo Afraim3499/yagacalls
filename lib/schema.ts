@@ -116,7 +116,36 @@ export function createArticleSchema(params: {
   datePublished: string;
   dateModified?: string;
   authorName?: string;
+  authorType?: "Person" | "Organization";
+  authorSameAs?: string;
+  primaryEntity?: { name: string; sameAs?: string; description?: string };
+  secondaryEntities?: { name: string; sameAs?: string }[];
 }) {
+  const authorType = params.authorType || "Organization";
+  const authorObj = {
+    '@type': authorType,
+    name: params.authorName || 'Yaga Calls',
+    url: SITE_URL,
+    ...(params.authorSameAs ? { sameAs: params.authorSameAs } : {})
+  };
+
+  const aboutSchema = params.primaryEntity
+    ? {
+        '@type': 'Thing',
+        name: params.primaryEntity.name,
+        ...(params.primaryEntity.sameAs ? { sameAs: params.primaryEntity.sameAs } : {}),
+        ...(params.primaryEntity.description ? { description: params.primaryEntity.description } : {})
+      }
+    : undefined;
+
+  const mentionsSchema = params.secondaryEntities && params.secondaryEntities.length > 0
+    ? params.secondaryEntities.map((ent) => ({
+        '@type': 'Thing',
+        name: ent.name,
+        ...(ent.sameAs ? { sameAs: ent.sameAs } : {})
+      }))
+    : undefined;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -126,11 +155,7 @@ export function createArticleSchema(params: {
     image: params.image ? [params.image] : undefined,
     datePublished: params.datePublished,
     dateModified: params.dateModified || params.datePublished,
-    author: {
-      '@type': 'Organization',
-      name: params.authorName || 'Yaga Calls',
-      url: SITE_URL
-    },
+    author: authorObj,
     publisher: {
       '@type': 'Organization',
       name: 'Yaga Calls',
@@ -139,7 +164,9 @@ export function createArticleSchema(params: {
         url: `${SITE_URL}/yaga_calls_logo.png`
       }
     },
-    mainEntityOfPage: { '@id': `${params.url}/#webpage` }
+    mainEntityOfPage: { '@id': `${params.url}/#webpage` },
+    ...(aboutSchema ? { about: aboutSchema } : {}),
+    ...(mentionsSchema ? { mentions: mentionsSchema } : {})
   };
 }
 
@@ -151,6 +178,10 @@ export function createBlogPostingSchema(params: {
   datePublished: string;
   dateModified?: string;
   authorName?: string;
+  authorType?: "Person" | "Organization";
+  authorSameAs?: string;
+  primaryEntity?: { name: string; sameAs?: string; description?: string };
+  secondaryEntities?: { name: string; sameAs?: string }[];
 }) {
   return {
     ...createArticleSchema(params),

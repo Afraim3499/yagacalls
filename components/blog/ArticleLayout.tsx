@@ -6,12 +6,14 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import JsonLd from "@/components/seo/JsonLd";
 import { createBlogPostingSchema, createBreadcrumbSchema } from "@/lib/schema";
+import { blogPostsMetadata, EntityItem, AuthorInfo } from "@/content/blog/posts";
 import Breadcrumbs from "./Breadcrumbs";
 import TableOfContents from "./TableOfContents";
 import FAQSection from "./FAQSection";
 import CTABox from "./CTABox";
 import RelatedPosts from "./RelatedPosts";
 import RiskDisclaimer from "./RiskDisclaimer";
+import AnswerBox from "./AnswerBox";
 
 interface TOCItem {
   id: string;
@@ -42,6 +44,14 @@ interface ArticleLayoutProps {
   ctaDescription?: string;
   ctaText?: string;
   ctaHref?: string;
+
+  // Semantic SEO & Topic Cluster Props (P0, P1, P2)
+  primaryEntity?: EntityItem;
+  secondaryEntities?: EntityItem[];
+  author?: AuthorInfo;
+  summaryAnswer?: string;
+  topicHierarchy?: string[];
+  parentPillarSlug?: string;
   children: React.ReactNode;
 }
 
@@ -64,6 +74,12 @@ export default function ArticleLayout({
   ctaDescription,
   ctaText,
   ctaHref,
+  primaryEntity,
+  secondaryEntities,
+  author,
+  summaryAnswer,
+  topicHierarchy = [],
+  parentPillarSlug,
   children
 }: ArticleLayoutProps) {
   const pageUrl = `https://www.yagacalls.com/blog/${slug}`;
@@ -79,13 +95,35 @@ export default function ArticleLayout({
     url: pageUrl,
     image: absoluteImageUrl,
     datePublished,
-    dateModified: dateModified || datePublished
+    dateModified: dateModified || datePublished,
+    authorName: author?.name,
+    authorType: author?.type,
+    authorSameAs: author?.sameAs,
+    primaryEntity,
+    secondaryEntities
   });
 
-  const breadcrumbSchema = createBreadcrumbSchema([
+  // Construct 4-tier Breadcrumb items: Home > Blog > Hub/Pillar or Category > Article Title
+  const parentPillarPost = parentPillarSlug ? blogPostsMetadata.find(p => p.slug === parentPillarSlug) : undefined;
+  
+  const breadcrumbItems = [
     { name: "Blog", item: "/blog" },
+    ...(parentPillarPost 
+      ? [{ name: parentPillarPost.title, item: `/blog/${parentPillarPost.slug}` }] 
+      : [{ name: category, item: `/blog` }]
+    ),
     { name: title, item: `/blog/${slug}` }
-  ]);
+  ];
+
+  const breadcrumbVisualItems = [
+    ...(parentPillarPost 
+      ? [{ label: parentPillarPost.title, href: `/blog/${parentPillarPost.slug}` }] 
+      : [{ label: category, href: `/blog` }]
+    ),
+    { label: title, href: `/blog/${slug}` }
+  ];
+
+  const breadcrumbSchema = createBreadcrumbSchema(breadcrumbItems);
 
   return (
     <>
@@ -104,12 +142,17 @@ export default function ArticleLayout({
               <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" /> Back to Blog Feed
             </Link>
 
-            <Breadcrumbs items={[{ label: title, href: `/blog/${slug}` }]} />
+            <Breadcrumbs items={breadcrumbVisualItems} />
 
             <div className="flex flex-wrap items-center gap-2 mb-4">
               <span className="text-[10px] font-black uppercase bg-primary/15 text-primary border border-primary/20 px-3 py-1 rounded-md tracking-wider">
                 {category}
               </span>
+              {parentPillarPost && (
+                <span className="text-[10px] font-black uppercase bg-surface border border-line text-text-muted px-2.5 py-1 rounded-md tracking-wider">
+                  Cluster Spoke
+                </span>
+              )}
             </div>
 
             <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight text-text-high mb-6">
@@ -152,7 +195,7 @@ export default function ArticleLayout({
         <Section className="py-16">
           <Container className="max-w-3xl">
             {/* Executive Summary card */}
-            <div className="bg-surface-deep/40 p-6 rounded-2xl border border-line mb-12 shadow-sm">
+            <div className="bg-surface-deep/40 p-6 rounded-2xl border border-line mb-8 shadow-sm">
               <h3 className="font-black mb-3 uppercase tracking-widest text-xs text-primary">
                 Executive Overview
               </h3>
@@ -160,6 +203,14 @@ export default function ArticleLayout({
                 {excerpt}
               </p>
             </div>
+
+            {/* AEO / GEO Direct Answer Box */}
+            {summaryAnswer && (
+              <AnswerBox
+                answer={summaryAnswer}
+                entityName={primaryEntity?.name}
+              />
+            )}
 
             {/* Table of Contents */}
             <TableOfContents items={tocItems} />

@@ -41,6 +41,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": [
+        { url: "https://www.yagacalls.com/feed.xml", title: "Yaga Calls RSS Feed" }
+      ]
+    }
   },
   verification: {
     yandex: "6b3ffe14a8810583",

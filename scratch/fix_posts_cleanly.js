@@ -1,4 +1,10 @@
-export interface FAQItem {
+const fs = require('fs');
+const path = require('path');
+
+const postsPath = 'f:/kalababas/content/blog/posts.ts';
+let content = fs.readFileSync(postsPath, 'utf8');
+
+const updatedFileContent = `export interface FAQItem {
   question: string;
   answer: string;
 }
@@ -770,3 +776,7 @@ export function getRelatedPostsSemantically(slug: string, limit = 2): BlogPostMe
 
   return candidates.slice(0, limit);
 }
+`;
+
+fs.writeFileSync(postsPath, updatedFileContent, 'utf8');
+console.log('Successfully cleaned and restructured posts.ts!');

@@ -125,6 +125,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       tocItems={post.tocItems}
       ctaText={post.ctaLabel}
       ctaHref={post.ctaHref}
+      primaryEntity={post.primaryEntity}
+      secondaryEntities={post.secondaryEntities}
+      author={post.author}
+      summaryAnswer={post.summaryAnswer}
+      topicHierarchy={post.topicHierarchy}
+      parentPillarSlug={post.parentPillarSlug}
     >
       <ArticleBodyComponent />
     </ArticleLayout>

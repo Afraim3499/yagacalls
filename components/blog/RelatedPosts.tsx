@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Clock, ChevronRight, BookOpen } from "lucide-react";
-import { blogPostsMetadata } from "@/content/blog/posts";
+import { blogPostsMetadata, getRelatedPostsSemantically } from "@/content/blog/posts";
 
 interface RelatedPostsProps {
   relatedSlugs?: string[];
@@ -10,10 +10,8 @@ interface RelatedPostsProps {
 }
 
 export default function RelatedPosts({ relatedSlugs = [], currentSlug }: RelatedPostsProps) {
-  // If no specific related slugs are provided, pick two random ones that aren't the current post
-  const displayPosts = relatedSlugs.length > 0
-    ? blogPostsMetadata.filter(post => relatedSlugs.includes(post.slug))
-    : blogPostsMetadata.filter(post => post.slug !== currentSlug).slice(0, 2);
+  // Use semantic cluster interlinking logic if manual override is not specified
+  const displayPosts = getRelatedPostsSemantically(currentSlug, 2);
 
   if (displayPosts.length === 0) return null;
 
@@ -22,7 +20,7 @@ export default function RelatedPosts({ relatedSlugs = [], currentSlug }: Related
       <div className="flex items-center gap-2 mb-8">
         <BookOpen className="w-5 h-5 text-primary" />
         <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-text-high">
-          Recommended Reading
+          Recommended Topic Cluster Reading
         </h3>
       </div>
 
@@ -62,7 +60,7 @@ export default function RelatedPosts({ relatedSlugs = [], currentSlug }: Related
               </div>
             </div>
             <div className="text-[10px] font-black text-primary uppercase tracking-widest mt-6 pt-4 border-t border-line flex items-center gap-1 group-hover:gap-2 transition-all">
-              Read Guide <ChevronRight className="w-3.5 h-3.5" />
+              <span>Read: {post.title}</span> <ChevronRight className="w-3.5 h-3.5 shrink-0" />
             </div>
           </Link>
         ))}

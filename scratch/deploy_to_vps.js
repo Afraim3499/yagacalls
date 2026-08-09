@@ -20,6 +20,15 @@ conn.on('ready', () => {
     stream.on('close', (code, signal) => {
       console.log(`\nDeployment finished with exit code: ${code}`);
       conn.end();
+
+      if (code === 0) {
+        console.log('\nTriggering Search Engine Pinging Pipeline...');
+        const { exec } = require('child_process');
+        exec('node scratch/ping_search_engines.js', (pingErr, stdout, stderr) => {
+          if (stdout) console.log(stdout);
+          if (stderr) console.error(stderr);
+        });
+      }
     }).on('data', (data) => {
       process.stdout.write(data);
     }).stderr.on('data', (data) => {
