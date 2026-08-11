@@ -178,15 +178,17 @@ export default function ArticleLayout({
         {/* Featured Image Section */}
         <Section className="py-0">
           <Container className="max-w-4xl">
-            <div className="relative aspect-video rounded-3xl overflow-hidden border border-line shadow-2xl bg-surface-deep/20">
+            <div className="relative w-full rounded-3xl overflow-hidden border border-line shadow-2xl bg-surface-deep/40">
               <Image
                 src={featuredImage}
                 alt={featuredImageAlt}
-                fill
-                className="object-cover"
+                width={1200}
+                height={675}
+                sizes="(max-width: 768px) 100vw, 896px"
+                className="w-full h-auto object-contain block rounded-3xl"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
             </div>
           </Container>
         </Section>
