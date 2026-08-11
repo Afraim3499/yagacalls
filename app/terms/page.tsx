@@ -66,8 +66,19 @@ export default function TermsPage() {
             We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated revision date. Continued use of our services constitutes acceptance of the modified terms.
           </p>
 
+          <h2 className="text-text-high text-xl font-bold pt-4 text-primary">6. Affiliate Program &amp; Partner Transparency Agreement</h2>
+          <p>
+            Participants in the Yaga Calls Affiliate &amp; Partner Program operate as independent performance marketers under the following terms:
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>100% Performance-Based Earning</strong>: Partners earn purely on verified subscription enrollments (15% to 25% depending on tier). No fixed salary, monthly retainer, or employment relationship is established.</li>
+            <li><strong>Tracking Mechanism</strong>: Tracking is automated via native Telegram Bot Chat Invite Links issued by <code className="text-primary font-mono">@yagaaffiliatebot</code>. Prospects joining the Yaga Calls Free Group via an affiliate link are permanently tagged to that partner account.</li>
+            <li><strong>Payout Terms &amp; Settlements</strong>: Commissions are calculated on net received subscription revenue and settled in USDT, USDC, SOL, or BTC. Minimum payout threshold is $50 USD, executed weekly every Friday. A 14-day clearance hold applies to new conversions to protect against refund or payment dispute fraud.</li>
+            <li><strong>Prohibited Conduct &amp; Immediate Termination</strong>: Partners must not engage in unsolicited spamming, false profit or win-rate guarantees, unauthorized brand impersonation, or self-referral accounts created for discount farming. Violation results in instant account termination and forfeiture of unpaid balances.</li>
+          </ul>
+
           <p className="pt-8 text-xs italic">
-            Last Updated: May 2026
+            Last Updated: August 2026
           </p>
         </div>
       </Container>
