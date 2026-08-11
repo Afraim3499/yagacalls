@@ -10,6 +10,7 @@ export function createOrganizationSchema() {
     name: BRAND_CONFIG.brandName,
     alternateName: BRAND_CONFIG.brandAliases,
     url: SITE_URL,
+    email: BRAND_CONFIG.officialEmail || 'partner@yagacalls.com',
     logo: {
       '@type': 'ImageObject',
       url: `${SITE_URL}/yaga_calls_logo.png`,
@@ -18,10 +19,22 @@ export function createOrganizationSchema() {
     },
     description: BRAND_CONFIG.brandDescription,
     areaServed: 'Global',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        email: 'partner@yagacalls.com',
+        contactType: 'customer service',
+        availableLanguage: ['English']
+      },
+      {
+        '@type': 'ContactPoint',
+        email: 'partner@yagacalls.com',
+        contactType: 'sales',
+        availableLanguage: ['English']
+      }
+    ],
     sameAs: [
       BRAND_CONFIG.officialTelegram
-      // TODO: Add official social/directory profiles ONLY after they are 
-      // verified, cleaned, and approved as per docs/p05-external-entity/
     ]
   };
 }

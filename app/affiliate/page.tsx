@@ -53,11 +53,23 @@ export default function AffiliatePage() {
               <span>🤖 Join Partner Bot on Telegram</span>
             </a>
             <a
+              href="mailto:partner@yagacalls.com"
+              className="px-6 py-4 rounded-2xl bg-surface-deep border border-line text-text-high hover:border-primary text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-2"
+            >
+              ✉️ partner@yagacalls.com
+            </a>
+            <a
               href="#handbook"
               className="px-6 py-4 rounded-2xl bg-surface-deep border border-line text-text-high hover:border-primary text-xs font-bold uppercase tracking-widest transition-colors"
             >
-              📘 Read Partner Handbook
+              📘 Read Handbook
             </a>
+          </div>
+
+          <div className="p-3 bg-primary/10 border border-primary/20 rounded-xl text-center max-w-xl mx-auto">
+            <p className="text-xs text-primary font-mono font-bold">
+              📬 Partner Inquiries &amp; Support: <a href="mailto:partner@yagacalls.com" className="underline hover:text-white">partner@yagacalls.com</a>
+            </p>
           </div>
 
           {/* Key Value Metrics */}

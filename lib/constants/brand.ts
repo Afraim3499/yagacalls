@@ -16,5 +16,6 @@ export const BRAND_CONFIG = {
   riskDisclaimer: "Educational market analysis only. Crypto trading involves risk. No signal provider can guarantee profit.",
   officialTelegramSafety: "Use only official Yaga Calls links from the website. Avoid fake admins, random DMs, copied logos, unofficial payment requests, and guaranteed-profit claims.",
   siteUrl: "https://www.yagacalls.com",
-  officialTelegram: "https://t.me/+JFf8kBf01mg3OTg1"
+  officialTelegram: "https://t.me/+JFf8kBf01mg3OTg1",
+  officialEmail: "partner@yagacalls.com"
 };

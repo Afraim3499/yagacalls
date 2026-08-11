@@ -19,18 +19,21 @@ export default function ContactHero() {
             <p className="text-xl md:text-2xl text-text-muted leading-tight">
               Premium access is handled manually through Telegram so serious members can confirm the plan, current discounted onboarding price, payment instructions, and private group access before joining.
             </p>
-            <div className="p-4 bg-primary/5 border-l-2 border-primary rounded-r-xl">
+            <div className="p-4 bg-primary/5 border-l-2 border-primary rounded-r-xl space-y-1">
               <p className="text-xs font-bold text-primary uppercase tracking-widest">
-                Use the official Telegram link only. Avoid fake admins, random DMs, and guaranteed-profit claims.
+                Official Contact Email: <a href="mailto:partner@yagacalls.com" className="underline hover:text-white">partner@yagacalls.com</a>
+              </p>
+              <p className="text-[11px] text-text-muted">
+                Use official Yaga Calls links only. Avoid fake admins, random DMs, and guaranteed-profit claims.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <CTAButton href="https://t.me/yagacalls47" target="_blank" trackingLabel="contact_hero_start">
                 Start Manual Onboarding
               </CTAButton>
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" variant="secondary" target="_blank" trackingLabel="contact_hero_free">
-                Join Free Telegram First
-              </CTAButton>
+              <a href="mailto:partner@yagacalls.com" className="px-6 py-3.5 rounded-xl border border-line bg-surface-deep text-text-high hover:border-primary font-bold text-sm text-center transition-colors">
+                ✉️ Email Support
+              </a>
             </div>
             <p className="text-[10px] text-text-muted/60 italic uppercase tracking-widest">
               Educational market analysis only. Crypto trading involves risk. No signal provider can guarantee profit.
