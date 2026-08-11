@@ -45,7 +45,7 @@ export default function AffiliatePage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
-              href="https://t.me/yagaaffiliatebot"
+              href="https://t.me/yaga_partner_program_bot"
               target="_blank"
               rel="noopener noreferrer"
               className="grad-button text-background px-8 py-4 rounded-2xl text-sm font-black uppercase tracking-widest shadow-2xl shadow-primary/30 hover:scale-105 transition-transform flex items-center gap-3"
@@ -115,7 +115,7 @@ export default function AffiliatePage() {
               </span>
               <h3 className="text-base font-bold text-text-high uppercase tracking-wider">Start The Bot</h3>
               <p className="text-xs text-text-muted leading-relaxed">
-                Open <a href="https://t.me/yagaaffiliatebot" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">@yagaaffiliatebot</a> on Telegram and tap <code className="text-primary font-mono">/start</code> to initialize your profile.
+                Open <a href="https://t.me/yaga_partner_program_bot" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">@yaga_partner_program_bot</a> on Telegram and tap <code className="text-primary font-mono">/start</code> to initialize your profile.
               </p>
             </div>
 
@@ -237,12 +237,12 @@ export default function AffiliatePage() {
           </p>
           <div className="pt-2">
             <a
-              href="https://t.me/yagaaffiliatebot"
+              href="https://t.me/yaga_partner_program_bot"
               target="_blank"
               rel="noopener noreferrer"
               className="grad-button text-background px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs shadow-2xl inline-block hover:scale-105 transition-transform"
             >
-              🤖 Launch Telegram Partner Bot (@yagaaffiliatebot)
+              🤖 Launch Telegram Partner Bot (@yaga_partner_program_bot)
             </a>
           </div>
         </Container>

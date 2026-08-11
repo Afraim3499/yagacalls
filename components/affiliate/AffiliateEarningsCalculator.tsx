@@ -145,7 +145,7 @@ export default function AffiliateEarningsCalculator() {
           </div>
 
           <a
-            href="https://t.me/yagaaffiliatebot"
+            href="https://t.me/yaga_partner_program_bot"
             target="_blank"
             rel="noopener noreferrer"
             className="grad-button text-background py-3.5 px-6 rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/20 block hover:scale-105 transition-transform"

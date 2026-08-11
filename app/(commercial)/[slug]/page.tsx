@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export async function generateStaticParams() {
-  const staticSlugs = ['free-vs-paid-crypto-signals', 'crypto-signals-with-risk-management'];
+  const staticSlugs = ['free-vs-paid-crypto-signals', 'crypto-signals-with-risk-management', 'affiliate'];
   return commercialPages
     .filter((page) => !staticSlugs.includes(page.slug))
     .map((page) => ({

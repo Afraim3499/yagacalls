@@ -72,7 +72,7 @@ export default function TermsPage() {
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>100% Performance-Based Earning</strong>: Partners earn purely on verified subscription enrollments (15% to 25% depending on tier). No fixed salary, monthly retainer, or employment relationship is established.</li>
-            <li><strong>Tracking Mechanism</strong>: Tracking is automated via native Telegram Bot Chat Invite Links issued by <code className="text-primary font-mono">@yagaaffiliatebot</code>. Prospects joining the Yaga Calls Free Group via an affiliate link are permanently tagged to that partner account.</li>
+            <li><strong>Tracking Mechanism</strong>: Tracking is automated via native Telegram Bot Chat Invite Links issued by <code className="text-primary font-mono">@yaga_partner_program_bot</code>. Prospects joining the Yaga Calls Free Group via an affiliate link are permanently tagged to that partner account.</li>
             <li><strong>Payout Terms &amp; Settlements</strong>: Commissions are calculated on net received subscription revenue and settled in USDT, USDC, SOL, or BTC. Minimum payout threshold is $50 USD, executed weekly every Friday. A 14-day clearance hold applies to new conversions to protect against refund or payment dispute fraud.</li>
             <li><strong>Prohibited Conduct &amp; Immediate Termination</strong>: Partners must not engage in unsolicited spamming, false profit or win-rate guarantees, unauthorized brand impersonation, or self-referral accounts created for discount farming. Violation results in instant account termination and forfeiture of unpaid balances.</li>
           </ul>
