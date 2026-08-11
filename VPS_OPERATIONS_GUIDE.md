@@ -12,7 +12,7 @@
 | **Main Server IP** | `104.234.134.236` |
 | **Hostname** | `vps.yagacalls.com` |
 | **SSH Username** | `root` |
-| **SSH Password** | `Rizwan@34` |
+| **SSH Password** | *(Configured in VPS / .env)* |
 | **SSH Port** | `22` |
 | **OS** | AlmaLinux 8.10 (Cerulean Leopard 64-bit) |
 
@@ -20,7 +20,8 @@
 - 🔒 **Main Website (Apex)**: [https://yagacalls.com](https://yagacalls.com) (Next.js 16 PM2 Port 3000)
 - 🔒 **Main Website (WWW)**: [https://www.yagacalls.com](https://www.yagacalls.com) (CNAME -> yagacalls.com)
 - 🔒 **Operations CRM**: [https://crm.yagacalls.com](https://crm.yagacalls.com) (Vite SPA static root)
-- 🤖 **Telegram Bot**: `@yagacontentbot` (Token: `8446355677:AAGln29V9MXOifeJc5NBZT0Dn68Z8innrQw`)
+- 🤖 **Telegram Bot**: `@yagacontentbot` (Token configured in VPS environment variable `TELEGRAM_BOT_TOKEN`)
+- 🤖 **Affiliate Bot**: `@yaga_partner_program_bot` (Token configured in VPS environment variable `TELEGRAM_AFFILIATE_BOT_TOKEN`)
 - 🎛️ **VPS Dashboard**: [https://yagacalls.com:9090](https://yagacalls.com:9090) (Red Hat Cockpit Console)
 
 ---

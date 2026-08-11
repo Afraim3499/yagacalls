@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+yaga partner program bot
+*bot*token*
+*.key
+*.pem
 
 # vercel
 .vercel
