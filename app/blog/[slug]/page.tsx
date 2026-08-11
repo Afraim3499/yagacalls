@@ -21,6 +21,7 @@ import CryptoAdoptionFunnelsArticle from "@/content/blog/articles/CryptoAdoption
 import GoogleTrendsNarrativeArticle from "@/content/blog/articles/GoogleTrendsNarrativeArticle";
 import ColdWalletCustodyArticle from "@/content/blog/articles/ColdWalletCustodyArticle";
 import FearGreedSentimentArticle from "@/content/blog/articles/FearGreedSentimentArticle";
+import CrvTradingCurvePriceUpdatesArticle from "@/content/blog/articles/CrvTradingCurvePriceUpdatesArticle";
 
 // Map slugs directly to their respective TSX content components
 const articleBodies: Record<string, React.ComponentType> = {
@@ -39,6 +40,7 @@ const articleBodies: Record<string, React.ComponentType> = {
   "google-trends-crypto-narrative-trading": GoogleTrendsNarrativeArticle,
   "cold-wallet-custody-vs-exchange-risk": ColdWalletCustodyArticle,
   "crypto-market-sentiment-tools-fear-greed": FearGreedSentimentArticle,
+  "crv-trading-curve-price-updates": CrvTradingCurvePriceUpdatesArticle,
 };
 
 export async function generateStaticParams() {
