@@ -47,3 +47,11 @@ next-env.d.ts
 # agent data
 /appDataDir/
 .gemini/
+
+# telegram session & exports
+*.session
+*.session-journal
+my_old_cmc_members.*
+telegram_exports/
+
+

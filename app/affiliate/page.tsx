@@ -2,6 +2,8 @@ import Metadata from "next";
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import AffiliateEarningsCalculator from "@/components/affiliate/AffiliateEarningsCalculator";
+import AffiliateLeaderboard from "@/components/affiliate/AffiliateLeaderboard";
+
 
 export const metadata = {
   title: "Yaga Calls Partner Program: Earn 15% to 25% Crypto Commissions",
@@ -100,10 +102,12 @@ export default function AffiliatePage() {
 
       {/* INTERACTIVE CALCULATOR SECTION */}
       <Section className="py-16">
-        <Container className="max-w-5xl">
+        <Container className="max-w-5xl space-y-12">
           <AffiliateEarningsCalculator />
+          <AffiliateLeaderboard />
         </Container>
       </Section>
+
 
       {/* 4-STEP HOW IT WORKS SECTION */}
       <Section className="py-16 bg-surface-deep/20">
