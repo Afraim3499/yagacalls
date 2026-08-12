@@ -107,11 +107,8 @@ export default function AffiliateLeaderboard() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className={`text-[10px] font-black font-mono tracking-wider uppercase px-2 py-0.5 rounded-md bg-background/60 border ${badgeStyle.border} ${badgeStyle.text}`}>
+                      <span className={`text-[10px] font-black font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-md bg-background/60 border ${badgeStyle.border} ${badgeStyle.text}`}>
                         {badgeStyle.badge}
-                      </span>
-                      <span className="text-xs text-text-muted font-mono">
-                        {item.free_joins || 0} Free Members
                       </span>
                     </div>
                     <div className="text-base font-black text-text-high font-mono mt-1">
@@ -120,25 +117,17 @@ export default function AffiliateLeaderboard() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto border-t sm:border-t-0 border-line/40 pt-3 sm:pt-0">
-                  <div className="text-left sm:text-right">
-                    <span className="text-[10px] uppercase font-bold text-text-muted block tracking-widest font-mono">
-                      VIP Conversions
-                    </span>
-                    <span className="text-sm font-black text-emerald-400 font-mono">
-                      {item.vip_conversions || 0} VIP Sales
-                    </span>
-                  </div>
-
+                <div className="flex items-center justify-end w-full sm:w-auto border-t sm:border-t-0 border-line/40 pt-3 sm:pt-0">
                   <div className="text-right">
                     <span className="text-[10px] uppercase font-bold text-text-muted block tracking-widest font-mono">
-                      15% Total Earned
+                      Total Earned
                     </span>
                     <span className="text-xl md:text-2xl font-black text-primary font-mono">
                       ${earnings}
                     </span>
                   </div>
                 </div>
+
               </div>
             );
           })}
