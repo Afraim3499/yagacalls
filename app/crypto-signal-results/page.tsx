@@ -12,10 +12,24 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/crypto-signal-results",
   },
   openGraph: {
-    title: "Yaga Calls Verified Signal Results",
+    title: "Yaga Calls Verified Signal Results & Performance Ledger",
     description: "Real-time trade performance logs, spot setup gains, and verified win rates from Yaga Calls crypto signal notes.",
     type: "article",
     url: "https://www.yagacalls.com/crypto-signal-results",
+    images: [
+      {
+        url: "https://www.yagacalls.com/api/og?title=Verified%20Signal%20Results&subtitle=Real-time%20trade%20performance%20logs%20%26%20verified%20win%20rates",
+        width: 1200,
+        height: 630,
+        alt: "Yaga Calls Verified Signal Results & Performance Ledger"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls Verified Signal Results & Performance Ledger",
+    description: "Real-time trade performance logs, spot setup gains, and verified win rates from Yaga Calls crypto signal notes.",
+    images: ["https://www.yagacalls.com/api/og?title=Verified%20Signal%20Results&subtitle=Real-time%20trade%20performance%20logs%20%26%20verified%20win%20rates"],
   }
 };
 

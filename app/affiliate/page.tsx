@@ -36,6 +36,20 @@ export const metadata = {
     description: "Earn $44.85 to $199.75 net per VIP subscriber. Fast daily crypto payouts in USDT/USDC (9–12h variable), native Telegram link tracking, 0% cookie loss.",
     url: "https://www.yagacalls.com/affiliate",
     type: "website",
+    images: [
+      {
+        url: "https://www.yagacalls.com/api/og?title=Partner%20%26%20Affiliate%20Program&subtitle=Earn%2015%25%E2%80%9325%25%20recurring%20commissions%20with%20daily%20USDT%20payouts",
+        width: 1200,
+        height: 630,
+        alt: "Yaga Calls Partner Program"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls Partner Program: Earn 15% to 25% Crypto Commissions",
+    description: "Earn $44.85 to $199.75 net per VIP subscriber. Fast daily crypto payouts in USDT/USDC, native Telegram link tracking.",
+    images: ["https://www.yagacalls.com/api/og?title=Partner%20%26%20Affiliate%20Program&subtitle=Earn%2015%25%E2%80%9325%25%20recurring%20commissions%20with%20daily%20USDT%20payouts"],
   }
 };
 
