@@ -162,24 +162,32 @@ export default function CareersPage() {
             </div>
 
             {/* JOB 1 CARD */}
-            <div className="bg-surface-deep border border-line rounded-3xl overflow-hidden shadow-2xl">
-              <div className="grid grid-cols-1 lg:grid-cols-12">
-                {/* Job Info Banner Image Column */}
-                <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-black border-b lg:border-b-0 lg:border-r border-line">
-                  <Image
-                    src="/images/pb8ql.jpg"
-                    alt="Remote Affiliate Marketer / Crypto Partner Job Opening"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent lg:hidden" />
+            <div className="bg-surface-deep border border-line rounded-3xl overflow-hidden shadow-2xl p-6 md:p-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
+                {/* Left Column: Square Flyer (lg:col-span-5) */}
+                <div className="lg:col-span-5 space-y-6">
+                  <div className="w-full aspect-square relative rounded-2xl overflow-hidden border border-line bg-black shadow-lg">
+                    <Image
+                      src="/images/pb8ql.jpg"
+                      alt="Remote Affiliate Marketer / Crypto Partner Job Opening Flyer"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                  {/* Sticky tips under image */}
+                  <div className="p-6 bg-primary/5 border border-primary/20 rounded-2xl hidden lg:block">
+                    <h4 className="text-xs font-black text-primary uppercase tracking-widest mb-2">⚡ Application Fast-Track</h4>
+                    <p className="text-xs text-text-muted leading-relaxed">
+                      All applications are reviewed within 12 hours. Ensure your social channels, audience metrics, and Telegram handle are clearly listed.
+                    </p>
+                  </div>
                 </div>
 
-                {/* Job Details Column */}
-                <div className="lg:col-span-7 p-8 md:p-12 space-y-8">
+                {/* Right Column: Job Details (lg:col-span-7) */}
+                <div className="lg:col-span-7 space-y-8">
                   <div className="space-y-4">
-                    <span className="text-xs font-black uppercase tracking-widest text-primary bg-primary/10 px-3 py-1.5 rounded-md border border-primary/20">
+                    <span className="text-xs font-black uppercase tracking-widest text-primary bg-primary/10 px-3 py-1.5 rounded-md border border-primary/20 inline-block">
                       100% Commission-Based Contract
                     </span>
                     <h3 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-white">
