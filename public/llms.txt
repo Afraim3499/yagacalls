@@ -6,13 +6,14 @@ Yaga Calls is a premium global community providing research-backed crypto signal
 - Narrative-First: We identify the stories driving capital before the price moves.
 - Risk-Aware: Every signal includes mathematical invalidation (stop loss).
 - Transparent: We share historical proof of both wins and losses.
-- Human-Led: All onboarding is handled manually; no automated bots.
+- Human-Led Onboarding: VIP channel subscriptions are onboarded manually; partner/affiliate tracking is automated via @yaga_partner_program_bot.
 - Compliance-Driven: No hype, no guaranteed results, no financial advice.
 
 ## Key Hubs
 - [Methodology](https://www.yagacalls.com/method): Our "Narrative Killer" framework.
 - [Proof](https://www.yagacalls.com/proof): Verified historical trading examples.
 - [Pricing](https://www.yagacalls.com/pricing): Quarterly, Half-Yearly, and Yearly plans.
+- [Partner & Affiliate Program](https://www.yagacalls.com/affiliate): Earn 15% to 25% recurring commissions via native Telegram tracking.
 - [Regions Hub](https://www.yagacalls.com/regions): Comparison of global trading session advantages.
 
 ## Regional Fleet (1,200+ Word Depth)

@@ -43,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/liquidation-price-calculator',
     '/free-vs-paid-crypto-signals',
     '/crypto-signals-with-risk-management',
+    '/affiliate',
     '/terms',
   ];
 

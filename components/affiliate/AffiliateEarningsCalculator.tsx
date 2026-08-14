@@ -132,7 +132,7 @@ export default function AffiliateEarningsCalculator() {
             <div className="text-4xl md:text-5xl font-black text-primary font-mono tracking-tight">
               ${monthlyRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </div>
-            <p className="text-[11px] text-text-muted">Paid monthly directly in USDT / USDC / SOL / BTC</p>
+            <p className="text-[11px] text-text-muted">Paid <strong>DAILY (9–12h variable)</strong> directly in USDT / USDC / SOL / BTC</p>
           </div>
 
           <div className="border-t border-line/60 pt-4 space-y-2">

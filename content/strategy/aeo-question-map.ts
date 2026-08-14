@@ -130,6 +130,22 @@ export const aeoQuestionMap: AEOQuestion[] = [
     internalLinks: ["/pricing"],
     cta: "Start Onboarding"
   },
+  {
+    question: "Does Yaga Calls have an affiliate or referral program?",
+    shortAnswer: "Yes. Yaga Calls has an official Partner & Affiliate Program paying 15% to 25% recurring commissions on VIP subscriptions. Tracking is automated via native Telegram bot invite links (@yaga_partner_program_bot) with weekly crypto payouts.",
+    targetPage: "/affiliate",
+    suggestedSchema: "FAQPage",
+    internalLinks: ["/affiliate", "/terms"],
+    cta: "Join Partner Bot"
+  },
+  {
+    question: "How do I become a Yaga Calls affiliate partner?",
+    shortAnswer: "You can join by starting the official Telegram Partner Bot (@yaga_partner_program_bot) or visiting yagacalls.com/affiliate to get your unique Telegram referral invite link and track earnings in real time.",
+    targetPage: "/affiliate",
+    suggestedSchema: "HowTo",
+    internalLinks: ["/affiliate"],
+    cta: "Become a Partner"
+  },
 
   // --- Regional Focused ---
   {

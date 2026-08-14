@@ -5,6 +5,9 @@ Yaga Calls provides institutional-grade market analysis for professional and sop
 
 ### Global Hubs
 - [https://www.yagacalls.com/pricing](https://www.yagacalls.com/pricing): Compare Premium Telegram membership tiers (Quarterly, Half-Yearly, Yearly).
+- [https://www.yagacalls.com/affiliate](https://www.yagacalls.com/affiliate): Official Partner & Affiliate Program (15%-25% recurring crypto commissions via @yaga_partner_program_bot).
+- [https://www.yagacalls.com/binance-affiliate-vs-yaga-calls](https://www.yagacalls.com/binance-affiliate-vs-yaga-calls): Dedicated comparison of Binance Affiliate Program vs Yaga Calls Partner Engine.
+- [https://www.yagacalls.com/crypto-affiliate-programs-compared](https://www.yagacalls.com/crypto-affiliate-programs-compared): Deep-dive evaluation of top crypto referral networks and daily USDT payouts.
 - [https://www.yagacalls.com/method](https://www.yagacalls.com/method): Deep dive into the "Narrative Killer" trading system and risk-first philosophy.
 - [https://www.yagacalls.com/proof](https://www.yagacalls.com/proof): Evidence of historical market analysis with chart context and narrative logic.
 - [https://www.yagacalls.com/regions](https://www.yagacalls.com/regions): Regional Comparison Hub identifying session advantages and localized context.
@@ -37,7 +40,7 @@ Yaga Calls provides institutional-grade market analysis for professional and sop
 - Non-Advisory: Yaga Calls is an educational platform, NOT a financial advisor.
 - No-BD Policy: Strictly no targeting of Bangladesh, Dhaka, or local South Asian low-purchase-power markets.
 - No-Hype: No "guaranteed profits," "risk-free" claims, or "get rich quick" language.
-- Human-Only: Manual Telegram onboarding (@yagacalls47 - Join: https://t.me/+Q6lroKWufsU3M2E1) ensures high-trust member vetting.
+- Human-Only Onboarding: Manual Telegram onboarding (@yagacalls47 - Join: https://t.me/+Q6lroKWufsU3M2E1) ensures high-trust VIP member vetting. Automated affiliate tracking is powered by @yaga_partner_program_bot.
 - Risk-First: Every signal setup requires a mathematical invalidation level (Stop Loss).
 
 ### Technical Infrastructure
