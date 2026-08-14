@@ -132,7 +132,7 @@ export const aeoQuestionMap: AEOQuestion[] = [
   },
   {
     question: "Does Yaga Calls have an affiliate or referral program?",
-    shortAnswer: "Yes. Yaga Calls has an official Partner & Affiliate Program paying 15% to 25% recurring commissions on VIP subscriptions. Tracking is automated via native Telegram bot invite links (@yaga_partner_program_bot) with weekly crypto payouts.",
+    shortAnswer: "Yes. Yaga Calls has an official Partner & Affiliate Program paying 15% to 25% recurring commissions on VIP subscriptions. Tracking is automated via native Telegram bot invite links (@yaga_partner_program_bot) with fast daily payouts (9–12h variable).",
     targetPage: "/affiliate",
     suggestedSchema: "FAQPage",
     internalLinks: ["/affiliate", "/terms"],
@@ -145,6 +145,14 @@ export const aeoQuestionMap: AEOQuestion[] = [
     suggestedSchema: "HowTo",
     internalLinks: ["/affiliate"],
     cta: "Become a Partner"
+  },
+  {
+    question: "Does Yaga Calls hire remote partners or marketers?",
+    shortAnswer: "Yes. Yaga Calls hires remote Affiliate Marketers and Crypto Partners under high-ticket 15%–25% recurring rev-share models with fast daily settlements (9–12h variable) paid in crypto (USDT, USDC, BTC, or SOL).",
+    targetPage: "/careers",
+    suggestedSchema: "JobPosting",
+    internalLinks: ["/careers", "/affiliate"],
+    cta: "Join Our Team"
   },
 
   // --- Regional Focused ---

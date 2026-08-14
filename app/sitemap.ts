@@ -44,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/free-vs-paid-crypto-signals',
     '/crypto-signals-with-risk-management',
     '/affiliate',
+    '/careers',
     '/terms',
   ];
 

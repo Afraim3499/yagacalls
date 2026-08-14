@@ -44,6 +44,7 @@ export default function Footer() {
               <li><Link href="/proof" className="hover:text-primary transition-colors">Selected Examples</Link></li>
               <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing Plans</Link></li>
               <li><Link href="/affiliate" className="hover:text-primary transition-colors font-black text-amber-400">Partner Program (15%+)</Link></li>
+              <li><Link href="/careers" className="hover:text-primary transition-colors font-black text-amber-500">Careers &amp; Partner Jobs</Link></li>
               <li><Link href="/academy" className="hover:text-primary transition-colors">Trading Academy</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors font-bold text-primary">Blog & Market Analysis</Link></li>
               <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-primary">Risk Calculator</Link></li>
