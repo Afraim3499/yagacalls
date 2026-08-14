@@ -6,7 +6,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Yaga Calls Live Trade Signal Results & Verified Performance Records",
+  title: "Verified Signal Results & Performance Ledger",
   description: "Explore authentic verified trade results, PnL performance reports, and spot setup outcomes from Yaga Calls Telegram signals. Updated automatically.",
   alternates: {
     canonical: "https://www.yagacalls.com/crypto-signal-results",
@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     description: "Real-time trade performance logs, spot setup gains, and verified win rates from Yaga Calls crypto signal notes.",
     type: "article",
     url: "https://www.yagacalls.com/crypto-signal-results",
+    siteName: "Yaga Calls",
+    locale: "en_US",
     images: [
       {
         url: "https://www.yagacalls.com/api/og?title=Verified%20Signal%20Results&subtitle=Real-time%20trade%20performance%20logs%20%26%20verified%20win%20rates",
@@ -29,6 +31,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Yaga Calls Verified Signal Results & Performance Ledger",
     description: "Real-time trade performance logs, spot setup gains, and verified win rates from Yaga Calls crypto signal notes.",
+    site: "@yagacalls",
+    creator: "@yagacalls",
     images: ["https://www.yagacalls.com/api/og?title=Verified%20Signal%20Results&subtitle=Real-time%20trade%20performance%20logs%20%26%20verified%20win%20rates"],
   }
 };

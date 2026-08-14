@@ -8,7 +8,7 @@ import { affiliateFaqs } from "@/content/data/affiliateFaqs";
 import AffiliateComparisonMatrix from "@/components/affiliate/AffiliateComparisonMatrix";
 
 export const metadata = {
-  title: "Yaga Calls Partner Program: Earn 15%–25% Crypto Commissions | Daily Payouts",
+  title: "Partner & Affiliate Program: Earn 15%–25%",
   description: "Join the official Yaga Calls Affiliate & Partner Program. Earn 15% to 25% recurring commissions per VIP subscriber. Fast daily payouts in USDT/USDC within 9–12 hours, zero cookie drop-off, native Telegram bot link tracking.",
   keywords: [
     "crypto affiliate program",
@@ -36,6 +36,8 @@ export const metadata = {
     description: "Earn $44.85 to $199.75 net per VIP subscriber. Fast daily crypto payouts in USDT/USDC (9–12h variable), native Telegram link tracking, 0% cookie loss.",
     url: "https://www.yagacalls.com/affiliate",
     type: "website",
+    siteName: "Yaga Calls",
+    locale: "en_US",
     images: [
       {
         url: "https://www.yagacalls.com/api/og?title=Partner%20%26%20Affiliate%20Program&subtitle=Earn%2015%25%E2%80%9325%25%20recurring%20commissions%20with%20daily%20USDT%20payouts",
@@ -49,6 +51,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "Yaga Calls Partner Program: Earn 15% to 25% Crypto Commissions",
     description: "Earn $44.85 to $199.75 net per VIP subscriber. Fast daily crypto payouts in USDT/USDC, native Telegram link tracking.",
+    site: "@yagacalls",
+    creator: "@yagacalls",
     images: ["https://www.yagacalls.com/api/og?title=Partner%20%26%20Affiliate%20Program&subtitle=Earn%2015%25%E2%80%9325%25%20recurring%20commissions%20with%20daily%20USDT%20payouts"],
   }
 };

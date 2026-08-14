@@ -7,6 +7,10 @@ import { LazyMotion, domMax } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+export const viewport = {
+  themeColor: "#0A0B0D",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.yagacalls.com"),
   title: {
@@ -22,6 +26,7 @@ export const metadata: Metadata = {
     'max-snippet': -1,
     'max-video-preview': -1,
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -36,7 +41,10 @@ export const metadata: Metadata = {
     images: ["/yaga_calls_logo.png"],
   },
   icons: {
-    icon: "/yaga_calls_favicon.webp",
+    icon: [
+      { url: "/yaga_calls_favicon.webp" },
+      { url: "/yaga_calls_favicon.webp", sizes: "32x32", type: "image/webp" }
+    ],
     apple: "/yaga_calls_favicon.webp",
   },
   alternates: {
