@@ -97,6 +97,7 @@ export function createBreadcrumbSchema(items: { name: string; item: string }[]) 
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    'name': 'Breadcrumbs',
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
@@ -110,6 +111,7 @@ export function createFAQSchema(faqs: { question: string; answer: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    'name': 'Frequently Asked Questions',
     mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
@@ -221,6 +223,7 @@ export function createItemListSchema(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
+    'name': 'ItemList',
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
