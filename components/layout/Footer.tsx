@@ -43,56 +43,56 @@ export default function Footer() {
               <li><Link href="/method" className="hover:text-primary transition-colors">Our Method</Link></li>
               <li><Link href="/proof" className="hover:text-primary transition-colors">Selected Examples</Link></li>
               <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing Plans</Link></li>
-              <li><Link href="/affiliate" className="hover:text-primary transition-colors font-black text-amber-400">Partner Program (15%+)</Link></li>
               <li><Link href="/careers" className="hover:text-primary transition-colors font-black text-amber-500">Careers &amp; Partner Jobs</Link></li>
-              <li><Link href="/academy" className="hover:text-primary transition-colors">Trading Academy</Link></li>
-              <li><Link href="/blog" className="hover:text-primary transition-colors font-bold text-primary">Blog & Market Analysis</Link></li>
-              <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-primary">Risk Calculator</Link></li>
-              <li><Link href="/leverage-trading-calculator" className="hover:text-primary transition-colors font-bold text-primary underline">Leverage Calculator</Link></li>
-              <li><Link href="/liquidation-price-calculator" className="hover:text-primary transition-colors font-bold text-primary">Liquidation Calculator</Link></li>
               <li><Link href="/about-yaga-calls" className="hover:text-primary transition-colors font-bold text-primary">About Yaga Calls</Link></li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Global Reach</h4>
+            <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Partners &amp; Regions</h4>
             <ul className="space-y-2 text-sm text-text-muted">
+              <li><Link href="/affiliate" className="hover:text-primary transition-colors font-black text-amber-400">Partner Program (15%+)</Link></li>
+              <li><Link href="/binance-affiliate-vs-yaga-calls" className="hover:text-primary transition-colors text-xs pl-2 text-text-muted">• Binance vs Yaga Calls</Link></li>
+              <li><Link href="/crypto-affiliate-programs-compared" className="hover:text-primary transition-colors text-xs pl-2 text-text-muted">• Affiliates Compared</Link></li>
+              <li className="pt-2"><Link href="/academy" className="hover:text-primary transition-colors">Trading Academy</Link></li>
+              <li><Link href="/blog" className="hover:text-primary transition-colors font-bold text-primary">Blog &amp; Market Analysis</Link></li>
+              <li className="pt-2 font-semibold text-xs uppercase tracking-wider text-primary">Global Reach</li>
               <li><Link href="/regions/dubai" className="hover:text-primary transition-colors">Dubai / UAE</Link></li>
               <li><Link href="/regions/uk" className="hover:text-primary transition-colors">United Kingdom</Link></li>
               <li><Link href="/regions/usa" className="hover:text-primary transition-colors">United States</Link></li>
               <li><Link href="/regions/singapore" className="hover:text-primary transition-colors">Singapore</Link></li>
-              <li><Link href="/regions" className="hover:text-primary transition-colors font-medium">All Regions →</Link></li>
+              <li><Link href="/regions" className="hover:text-primary transition-colors font-medium text-xs">All Regions →</Link></li>
             </ul>
           </div>
 
           <div className="space-y-4">
             <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Top Guides</h4>
             <ul className="space-y-2 text-sm text-text-muted">
-              <li><Link href="/what-are-crypto-signals" className="hover:text-primary transition-colors font-bold text-text-high">What Are Crypto Signals?</Link></li>
-              <li><Link href="/best-crypto-signal-groups-compared" className="hover:text-primary transition-colors font-bold text-text-high">Best Signal Groups Compared</Link></li>
-              <li><Link href="/how-to-choose-a-crypto-signal-provider" className="hover:text-primary transition-colors font-bold text-text-high">How to Choose a Provider</Link></li>
-              <li><Link href="/crypto-risk-management" className="hover:text-primary transition-colors font-bold text-text-high">Crypto Risk Management</Link></li>
-              <li><Link href="/how-to-set-stop-losses-in-crypto" className="hover:text-primary transition-colors font-bold text-text-high">How to Set Stop-Losses</Link></li>
-              <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-text-high">Position Sizing Calculator</Link></li>
-              <li><Link href="/leverage-trading-calculator" className="hover:text-primary transition-colors font-bold text-text-high">Leverage Trading Calculator</Link></li>
-              <li><Link href="/liquidation-price-calculator" className="hover:text-primary transition-colors font-bold text-text-high">Liquidation Price Calculator</Link></li>
-              <li><Link href="/telegram-crypto-signals" className="hover:text-primary transition-colors font-bold text-text-high">Telegram Crypto Signals</Link></li>
-              <li><Link href="/crypto-trading-group" className="hover:text-primary transition-colors font-bold text-text-high">Crypto Trading Group</Link></li>
-              <li><Link href="/crypto-trading-telegram-group" className="hover:text-primary transition-colors font-bold text-text-high">Telegram Trading Group</Link></li>
-              <li><Link href="/best-crypto-signal-provider" className="hover:text-primary transition-colors">Best Signal Provider</Link></li>
-              <li><Link href="/premium-telegram-crypto-signals" className="hover:text-primary transition-colors">Premium Telegram</Link></li>
-              <li><Link href="/proof" className="hover:text-primary transition-colors">Verified Proof</Link></li>
-              <li><Link href="/free-vs-paid-crypto-signals" className="hover:text-primary transition-colors font-bold text-text-high">Free vs Paid Signals</Link></li>
-              <li><Link href="/verified-crypto-signal-provider" className="hover:text-primary transition-colors">Verified Provider</Link></li>
-              <li><Link href="/crypto-signals-with-risk-management" className="hover:text-primary transition-colors">Risk Management</Link></li>
-              <li><Link href="/narrative-trading-crypto-signals" className="hover:text-primary transition-colors">Narrative Trading</Link></li>
-              <li><Link href="/crypto-signal-provider-comparison" className="hover:text-primary transition-colors">Provider Comparison</Link></li>
+              <li><Link href="/best-crypto-signals-group" className="hover:text-primary transition-colors font-bold text-text-high">Best Crypto Signals Group</Link></li>
+              <li><Link href="/premium-crypto-signals-telegram" className="hover:text-primary transition-colors font-bold text-text-high">Premium Signals Telegram</Link></li>
+              <li><Link href="/crypto-signals-with-proof" className="hover:text-primary transition-colors font-bold text-text-high">Signals With Proof</Link></li>
+              <li><Link href="/what-are-crypto-signals" className="hover:text-primary transition-colors">What Are Crypto Signals?</Link></li>
+              <li><Link href="/how-to-choose-a-crypto-signal-provider" className="hover:text-primary transition-colors">How to Choose a Provider</Link></li>
+              <li><Link href="/crypto-risk-management" className="hover:text-primary transition-colors">Crypto Risk Management</Link></li>
+              <li><Link href="/how-to-set-stop-losses-in-crypto" className="hover:text-primary transition-colors">How to Set Stop-Losses</Link></li>
+              <li><Link href="/free-vs-paid-crypto-signals" className="hover:text-primary transition-colors">Free vs Paid Signals</Link></li>
+              <li><Link href="/verified-crypto-signal-provider" className="hover:text-primary transition-colors">Verified Provider Checklist</Link></li>
+              <li><Link href="/crypto-signals-with-risk-management" className="hover:text-primary transition-colors">Signals with Risk Management</Link></li>
+              <li><Link href="/narrative-trading-crypto-signals" className="hover:text-primary transition-colors">Narrative Trading Signals</Link></li>
+              <li><Link href="/crypto-signal-provider-comparison" className="hover:text-primary transition-colors">Provider Comparison Hub</Link></li>
+              <li><Link href="/telegram-crypto-signals" className="hover:text-primary transition-colors">Telegram Crypto Signals</Link></li>
+              <li><Link href="/crypto-trading-group" className="hover:text-primary transition-colors">Crypto Trading Group</Link></li>
+              <li><Link href="/crypto-trading-telegram-group" className="hover:text-primary transition-colors">Telegram Trading Group</Link></li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Legal</h4>
+            <h4 className="font-bold uppercase tracking-widest text-sm text-primary">Calculators &amp; Legal</h4>
             <ul className="space-y-2 text-sm text-text-muted">
+              <li><Link href="/position-sizing-calculator" className="hover:text-primary transition-colors font-bold text-primary">Risk Calculator</Link></li>
+              <li><Link href="/leverage-trading-calculator" className="hover:text-primary transition-colors font-bold text-primary underline">Leverage Calculator</Link></li>
+              <li><Link href="/liquidation-price-calculator" className="hover:text-primary transition-colors font-bold text-primary">Liquidation Calculator</Link></li>
+              <li className="pt-2 font-semibold text-xs uppercase tracking-wider text-primary">Legal Links</li>
               <li><Link href="/risk-disclosure" className="hover:text-primary transition-colors">Risk Disclosure</Link></li>
               <li><Link href="/disclaimer" className="hover:text-primary transition-colors">Disclaimer</Link></li>
               <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>

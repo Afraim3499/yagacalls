@@ -60,12 +60,9 @@ export default function CareersPage() {
       "logo": "https://www.yagacalls.com/yaga_calls_logo.png"
     },
     "jobLocationType": "TELECOMMUTE",
-    "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US"
-      }
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "Worldwide"
     },
     "baseSalary": {
       "@type": "MonetaryAmount",
