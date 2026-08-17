@@ -6,6 +6,7 @@ import FAQSection from "@/components/shared/FAQSection";
 import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
+import { createHowToSchema } from "@/lib/schema";
 import {
   CheckCircle2,
   ShieldAlert,
@@ -95,6 +96,17 @@ export default function HowToChooseProviderPage() {
     }
   ];
 
+  const howToSchema = createHowToSchema({
+    name: "How to Choose a Crypto Signal Provider",
+    description: "A 3-step decision framework for evaluating a crypto signal provider before paying for premium access.",
+    url: "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider",
+    steps: [
+      { name: "Observe", text: "Join the free group, read public content, and watch how the provider communicates." },
+      { name: "Verify", text: "Check method, proof, risk language, Telegram safety, and pricing transparency." },
+      { name: "Decide", text: "Only consider premium access if the provider's structure fits your risk tolerance." }
+    ]
+  });
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -106,7 +118,8 @@ export default function HowToChooseProviderPage() {
         "description": "Use this 12-point checklist to evaluate crypto signal providers, verify proof, avoid pump groups, check Telegram safety, and choose with risk in mind.",
         "isPartOf": {
           "@id": "https://www.yagacalls.com/#website"
-        }
+        },
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] }
       },
       {
         "@type": "Article",
@@ -163,7 +176,8 @@ export default function HowToChooseProviderPage() {
             "text": faq.answer
           }
         }))
-      }
+      },
+      { ...howToSchema, "@context": undefined }
     ]
   };
 

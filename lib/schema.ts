@@ -64,6 +64,7 @@ export function createWebPageSchema(params: {
   authorType?: "Person" | "Organization";
   authorJobTitle?: string;
   authorUrl?: string;
+  speakableSelectors?: string[];
 }) {
   const author = params.authorName
     ? {
@@ -85,7 +86,10 @@ export function createWebPageSchema(params: {
     about: { '@id': `${SITE_URL}/#organization` },
     ...(author ? { author } : {}),
     datePublished: params.datePublished,
-    dateModified: params.dateModified || params.datePublished
+    dateModified: params.dateModified || params.datePublished,
+    ...(params.speakableSelectors && params.speakableSelectors.length > 0
+      ? { speakable: createSpeakableSchema(params.speakableSelectors) }
+      : {})
   };
 }
 
@@ -339,5 +343,97 @@ export function createImageObjectSchema(params: {
     contentUrl: params.url,
     caption: params.caption,
     description: `${params.caption} - Selected historical example, past performance not guaranteed.`
+  };
+}
+
+// HowTo — for step-by-step guide/calculator pages. Targets the "how do I..."
+// query shape AEO/AI-answer engines look for; distinct from Article/Course
+// schema, which don't carry step-by-step semantics.
+export function createHowToSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+  steps: { name: string; text: string }[];
+  totalTime?: string; // ISO 8601 duration, e.g. 'PT5M'
+  image?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    '@id': `${params.url}/#howto`,
+    name: params.name,
+    description: params.description,
+    ...(params.image ? { image: params.image } : {}),
+    ...(params.totalTime ? { totalTime: params.totalTime } : {}),
+    step: params.steps.map((s, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: s.name,
+      text: s.text
+    }))
+  };
+}
+
+// Review/AggregateRating — standardizes the Product+Review shape so it isn't
+// hand-rolled per component (that's what dropped the "name" property before;
+// see checkJsonLdNames in scripts/validate-seo.js for the exact bug class).
+export function createReviewSchema(params: {
+  productName: string;
+  description: string;
+  image: string;
+  brandName?: string;
+  averageRating: string;
+  reviewCount: number;
+  reviews: {
+    authorName: string;
+    datePublished: string;
+    reviewTitle: string;
+    reviewBody: string;
+    rating: number;
+  }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: params.productName,
+    image: params.image,
+    description: params.description,
+    brand: {
+      '@type': 'Brand',
+      name: params.brandName || BRAND_CONFIG.brandName
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: params.averageRating,
+      reviewCount: params.reviewCount.toString(),
+      bestRating: '5',
+      worstRating: '1'
+    },
+    review: params.reviews.map((r) => ({
+      '@type': 'Review',
+      name: r.reviewTitle,
+      author: { '@type': 'Person', name: r.authorName },
+      datePublished: r.datePublished,
+      reviewBody: r.reviewBody,
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: r.rating.toString(),
+        bestRating: '5',
+        worstRating: '1'
+      }
+    }))
+  };
+}
+
+// Speakable — marks which on-page sections are suitable for voice assistant/
+// AI text-to-speech readback. Embed the return value as the `speakable`
+// property on a WebPage schema node (see createWebPageSchema's
+// `speakableSelectors` param). cssSelectors should point at stable,
+// human-readable answer content (FAQ answers, key summary paragraphs) -
+// not entire sections, which defeats the purpose.
+export function createSpeakableSchema(cssSelectors: string[]) {
+  return {
+    '@type': 'SpeakableSpecification',
+    cssSelector: cssSelectors
   };
 }

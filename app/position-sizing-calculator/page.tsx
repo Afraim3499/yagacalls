@@ -7,6 +7,7 @@ import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import PositionSizingCalculator from "@/components/tools/PositionSizingCalculator";
+import { createHowToSchema } from "@/lib/schema";
 import {
   ShieldCheck,
   Target,
@@ -94,6 +95,19 @@ export default function PositionSizingCalculatorPage() {
     }
   ];
 
+  const howToSchema = createHowToSchema({
+    name: "How to Use the Crypto Position Sizing Calculator",
+    description: "Calculate a risk-aware crypto trade size from account equity, risk tolerance, and stop distance in five steps.",
+    url: "https://www.yagacalls.com/position-sizing-calculator",
+    steps: [
+      { name: "Enter account size and risk type", text: "Enter your account size and choose a risk type — a fixed percentage of equity or a fixed dollar amount." },
+      { name: "Set leverage", text: "Enter the leverage multiplier you're considering for the trade." },
+      { name: "Choose direction and entry price", text: "Select long or short, then enter your planned entry price." },
+      { name: "Enter stop-loss (and optional target)", text: "Enter your stop-loss price, and optionally a target price for risk-to-reward context." },
+      { name: "Review the calculated position size", text: "Review the calculated position size, dollar risk, and risk-to-reward before entering the trade." }
+    ]
+  });
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -103,7 +117,8 @@ export default function PositionSizingCalculatorPage() {
         "url": "https://www.yagacalls.com/position-sizing-calculator",
         "name": "Crypto Position Sizing Calculator | Risk & Stop-Loss Tool",
         "description": "Calculate crypto trade size from account equity, risk, and stop distance.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
+        "isPartOf": { "@id": "https://www.yagacalls.com/#website" },
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] }
       },
       {
         "@type": "SoftwareApplication",
@@ -133,7 +148,8 @@ export default function PositionSizingCalculatorPage() {
           "name": f.question,
           "acceptedAnswer": { "@type": "Answer", "text": f.answer }
         }))
-      }
+      },
+      { ...howToSchema, "@context": undefined }
     ]
   };
 

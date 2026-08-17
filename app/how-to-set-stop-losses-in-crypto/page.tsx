@@ -6,6 +6,7 @@ import FAQSection from "@/components/shared/FAQSection";
 import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
+import { createHowToSchema } from "@/lib/schema";
 import {
   ShieldCheck,
   Target,
@@ -94,6 +95,20 @@ export default function StopLossPillarPage() {
     }
   ];
 
+  const howToSchema = createHowToSchema({
+    name: "How to Set Stop-Losses in Crypto",
+    description: "Set a crypto stop-loss connected to invalidation, market structure, volatility, and position sizing — not a random percentage.",
+    url: "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto",
+    steps: [
+      { name: "Entry", text: "Define where the trade begins." },
+      { name: "Invalidation", text: "Identify the price level where the trade idea is wrong." },
+      { name: "Stop-Loss", text: "Place the stop-loss where downside is controlled, connected to invalidation." },
+      { name: "Position Size", text: "Size the position to fit the risk defined by the stop distance." },
+      { name: "Volatility", text: "Account for normal price movement depth so the stop isn't inside normal noise." },
+      { name: "Leverage", text: "Check leverage as a danger multiplier before finalizing the trade." }
+    ]
+  });
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -103,7 +118,8 @@ export default function StopLossPillarPage() {
         "url": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto",
         "name": "How to Set Stop-Losses in Crypto: Invalidation & Volatility",
         "description": "The definitive guide to crypto stop-loss placement, covering invalidation, structure, and position sizing.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
+        "isPartOf": { "@id": "https://www.yagacalls.com/#website" },
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] }
       },
       {
         "@type": "Article",
@@ -133,7 +149,8 @@ export default function StopLossPillarPage() {
           "name": f.question,
           "acceptedAnswer": { "@type": "Answer", "text": f.answer }
         }))
-      }
+      },
+      { ...howToSchema, "@context": undefined }
     ]
   };
 
