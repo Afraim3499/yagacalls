@@ -43,17 +43,27 @@ export default function AcademyPage() {
           <p className="text-lg text-text-muted">
             A practical knowledge base for tools, tactics, and the money management frameworks that actually compound wealth.
           </p>
+          <p className="text-sm text-text-muted mt-4">
+            New here? The {modules.length} modules below build on each other — start with Module 1 and work through in order.
+          </p>
         </Container>
       </Section>
- 
+
       <Section>
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {modules.map((mod) => (
+            {modules.map((mod, index) => (
               <Link href={`/academy/${mod.slug}`} key={mod.slug} className="block">
                 <GlowCard className="group cursor-pointer hover:border-primary/50 transition-all h-full flex flex-col">
-                  <div className="text-[10px] font-black uppercase bg-primary/10 text-primary px-2 py-1 rounded inline-block mb-4 w-fit">
-                    {mod.category}
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="text-[10px] font-black uppercase bg-primary/10 text-primary px-2 py-1 rounded inline-block w-fit">
+                      Module {index + 1} · {mod.category}
+                    </div>
+                    {index === 0 && (
+                      <div className="text-[10px] font-black uppercase bg-primary text-background px-2 py-1 rounded inline-block w-fit">
+                        Start Here
+                      </div>
+                    )}
                   </div>
                   <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{mod.title}</h3>
                   <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">{mod.description}</p>

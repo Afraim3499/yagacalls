@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import Link from "next/link";
-import { ArrowLeft, BookOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { createCourseSchema, createBreadcrumbSchema } from "@/lib/schema";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
@@ -79,11 +79,15 @@ export default async function AcademyModulePage({ params }: { params: { slug: st
   const filePath = path.join(process.cwd(), "content/data/academy.json");
   const jsonData = fs.readFileSync(filePath, "utf-8");
   const modules: AcademyModule[] = JSON.parse(jsonData);
-  const mod = modules.find((m) => m.slug === slug);
+  const modIndex = modules.findIndex((m) => m.slug === slug);
+  const mod = modules[modIndex];
 
   if (!mod) {
     notFound();
   }
+
+  const prevMod = modIndex > 0 ? modules[modIndex - 1] : null;
+  const nextMod = modIndex < modules.length - 1 ? modules[modIndex + 1] : null;
 
   const pageUrl = `https://www.yagacalls.com/academy/${slug}`;
   const author = getAuthorBySlug(mod.authorSlug);
@@ -113,7 +117,7 @@ export default async function AcademyModulePage({ params }: { params: { slug: st
             { label: mod.title, href: `/academy/${slug}` }
           ]} />
           <div className="text-[10px] font-black uppercase bg-primary/10 text-primary px-2 py-1 rounded inline-block mb-4">
-            {mod.category}
+            Module {modIndex + 1} of {modules.length} · {mod.category}
           </div>
           <h1 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
             {mod.title}
@@ -138,7 +142,34 @@ export default async function AcademyModulePage({ params }: { params: { slug: st
             dangerouslySetInnerHTML={{ __html: mod.content }}
           />
 
-          <div className="mt-20 p-8 bg-primary/5 border border-primary/20 rounded-3xl text-center">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {prevMod ? (
+              <Link
+                href={`/academy/${prevMod.slug}`}
+                className="group flex items-center gap-3 p-4 rounded-2xl border border-line hover:border-primary/50 transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5 text-primary shrink-0" />
+                <div className="text-left">
+                  <div className="text-[10px] font-black uppercase tracking-widest text-text-muted">Previous · Module {modIndex}</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">{prevMod.title}</div>
+                </div>
+              </Link>
+            ) : <div />}
+            {nextMod && (
+              <Link
+                href={`/academy/${nextMod.slug}`}
+                className="group flex items-center justify-end gap-3 p-4 rounded-2xl border border-line hover:border-primary/50 transition-colors text-right"
+              >
+                <div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-text-muted">Next · Module {modIndex + 2}</div>
+                  <div className="font-bold group-hover:text-primary transition-colors">{nextMod.title}</div>
+                </div>
+                <ArrowRight className="w-5 h-5 text-primary shrink-0" />
+              </Link>
+            )}
+          </div>
+
+          <div className="mt-8 p-8 bg-primary/5 border border-primary/20 rounded-3xl text-center">
             <BookOpen className="w-12 h-12 text-primary mx-auto mb-4 opacity-50" />
             <h3 className="text-2xl font-bold mb-4">Master the Narrative Killer Method</h3>
             <p className="text-text-muted mb-8 max-w-xl mx-auto">
