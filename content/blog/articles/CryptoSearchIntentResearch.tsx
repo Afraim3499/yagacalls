@@ -374,7 +374,7 @@ export default function CryptoSearchIntentResearch() {
 
           <div className="lg:col-span-5 relative aspect-square rounded-2xl overflow-hidden border border-line shadow-xl bg-surface-deep/30">
             <Image
-              src="/images/research-canada-funnel.png"
+              src="/images/research-canada-funnel.webp"
               alt="Canadian regulatory digital asset legislation and financial analytics desk"
               fill
               className="object-cover"
@@ -386,7 +386,7 @@ export default function CryptoSearchIntentResearch() {
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-t border-line pt-10">
           <div className="lg:col-span-5 relative aspect-square rounded-2xl overflow-hidden border border-line shadow-xl bg-surface-deep/30 order-2 lg:order-1">
             <Image
-              src="/images/research-uae-infrastructure.png"
+              src="/images/research-uae-infrastructure.webp"
               alt="Dubai International Financial Centre DIFC licensed digital asset exchange infrastructure"
               fill
               className="object-cover"
@@ -437,7 +437,7 @@ export default function CryptoSearchIntentResearch() {
 
           <div className="lg:col-span-5 relative aspect-square rounded-2xl overflow-hidden border border-line shadow-xl bg-surface-deep/30">
             <Image
-              src="/images/research-nigeria-access.png"
+              src="/images/research-nigeria-access.webp"
               alt="African mobile fintech developer conducting peer-to-peer crypto transactions in Lagos"
               fill
               className="object-cover"

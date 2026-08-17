@@ -424,9 +424,10 @@ export default function CommunityReviewsSection() {
                     {rev.screenshot_url && (
                       <div className="pt-2">
                         <a href={rev.screenshot_url} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-xl border border-line hover:border-primary/50 transition-colors">
-                          <img 
-                            src={rev.screenshot_url} 
-                            alt="Verified Setup Screenshot" 
+                          <img
+                            src={rev.screenshot_url}
+                            alt="Verified Setup Screenshot"
+                            loading="lazy"
                             className="w-full max-h-48 object-cover hover:scale-105 transition-transform"
                           />
                         </a>
