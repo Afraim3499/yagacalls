@@ -3,6 +3,7 @@ import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
 import Link from "next/link";
 import { MessageCircle, Search, FileText, CreditCard, ShieldCheck } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function EvaluationPath() {
   const steps = [
@@ -40,7 +41,7 @@ export default function EvaluationPath() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="eval_path_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="eval_path_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="/method" variant="secondary" trackingLabel="eval_path_method">

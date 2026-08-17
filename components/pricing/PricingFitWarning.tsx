@@ -3,6 +3,7 @@ import Section from "../shared/Section";
 import GlowCard from "../shared/GlowCard";
 import { CheckCircle2, XCircle } from "lucide-react";
 import CTAButton from "../shared/CTAButton";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function PricingFitWarning() {
   return (
@@ -56,7 +57,7 @@ export default function PricingFitWarning() {
                   ))}
                 </div>
                 <div className="pt-8 text-center">
-                  <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" variant="secondary" trackingLabel="fit_warning_stay_free">
+                  <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" variant="secondary" trackingLabel="fit_warning_stay_free">
                     Join Free Telegram First
                   </CTAButton>
                 </div>

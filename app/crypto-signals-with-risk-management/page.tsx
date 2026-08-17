@@ -7,6 +7,7 @@ import RiskAnatomy from "@/components/risk-management/RiskAnatomy";
 import FAQSection from "../../components/shared/FAQSection";
 import Link from "next/link";
 import { X, CheckCircle2, ShieldAlert, BarChart, Info } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Crypto Signals With Risk Management | Yaga Calls",
@@ -353,7 +354,7 @@ export default function RiskManagementPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="risk_final_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="risk_final_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="/pricing" variant="secondary" trackingLabel="risk_final_pricing">

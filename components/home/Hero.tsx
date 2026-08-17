@@ -5,6 +5,7 @@ import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
 import Image from "next/image";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function Hero() {
   return (
@@ -35,7 +36,7 @@ export default function Hero() {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               trackingLabel="hero_join_free"
             >

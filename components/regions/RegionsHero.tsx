@@ -2,6 +2,7 @@ import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
 import Image from "next/image";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function RegionsHero() {
   return (
@@ -25,7 +26,7 @@ export default function RegionsHero() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="regions_hero_free">
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="regions_hero_free">
                 Join Free Telegram
               </CTAButton>
               <CTAButton href="#region-grid" variant="secondary" trackingLabel="regions_hero_selector">

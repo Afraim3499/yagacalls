@@ -1,4 +1,5 @@
 import { RegionalPageData } from "@/types/content";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 // IMPORTANT — READ BEFORE EDITING CONTENT BELOW:
 //
@@ -111,7 +112,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Our Methodology", href: "/method" },
@@ -197,7 +198,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "See Premium Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Methodology", href: "/method" },
@@ -283,7 +284,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Learn the Method", href: "/method" },
@@ -365,7 +366,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "Compare Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Our Method", href: "/method" },
@@ -431,7 +432,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "See Premium Plans", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UAE Guide", href: "/regions/uae" },
@@ -493,7 +494,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "GCC Hub", href: "/regions/gcc" },
@@ -555,7 +556,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "GCC Hub", href: "/regions/gcc" },
@@ -621,7 +622,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UK Guide", href: "/regions/uk" },
@@ -687,7 +688,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Australia Guide", href: "/regions/australia" },
@@ -749,7 +750,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UK Guide", href: "/regions/uk" },
@@ -815,7 +816,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Singapore Hub", href: "/regions/singapore" },
@@ -877,7 +878,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "Germany Guide", href: "/regions/germany" },
@@ -939,7 +940,7 @@ export const regionalPages: RegionalPageData[] = [
       }
     ],
     riskDisclaimer: "Yaga Calls shares educational crypto market analysis and signal ideas. This is not financial advice. Crypto trading involves risk, and past examples do not guarantee future results.",
-    ctaPrimary: { label: "Join Free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1", variant: "primary" },
+    ctaPrimary: { label: "Join Free Telegram", href: BRAND_CONFIG.officialTelegram, variant: "primary" },
     ctaSecondary: { label: "View Pricing", href: "/pricing", variant: "outline" },
     internalLinks: [
       { label: "UK Guide", href: "/regions/uk" },

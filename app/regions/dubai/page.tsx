@@ -7,6 +7,7 @@ import { regionalPages } from "@/content/data/regions";
 import CTAButton from "@/components/shared/CTAButton";
 import Link from "next/link";
 import { CheckCircle2, X } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 const RegionalTrustBar = dynamic<{ regionName: string }>(() => import("@/components/regions/RegionalTrustBar.js").then(mod => mod.default));
 const FAQSection = dynamic<{ faqs: { question: string; answer: string }[] }>(() => import("@/components/shared/FAQSection.js").then(mod => mod.default));
@@ -250,7 +251,7 @@ export default function DubaiPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="dubai_final_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="dubai_final_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="/pricing" variant="secondary" trackingLabel="dubai_final_pricing">

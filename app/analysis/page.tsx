@@ -16,6 +16,7 @@ export const metadata = {
 
 import JsonLd from "@/components/seo/JsonLd";
 import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 async function getAnalysisData(): Promise<MarketAnalysisItem[]> {
   const filePath = path.join(process.cwd(), "content/data/analysis.json");
@@ -89,7 +90,7 @@ export default async function AnalysisPage() {
             Join our Telegram group for instant updates, exclusive calls, and deeper analysis before it hits the website.
           </p>
           <div className="flex justify-center">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" className="px-10">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" className="px-10">
               Join Telegram Group →
             </CTAButton>
           </div>

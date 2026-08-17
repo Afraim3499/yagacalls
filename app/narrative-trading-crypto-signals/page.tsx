@@ -7,6 +7,7 @@ import NarrativeSectors from "@/components/narrative-trading/NarrativeSectors";
 import FAQSection from "../../components/shared/FAQSection";
 import Link from "next/link";
 import { X, ArrowRight, MousePointer2, BarChart3, Users, LineChart } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Narrative Trading Crypto Signals | Yaga Calls",
@@ -346,7 +347,7 @@ export default function NarrativeTradingPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="narrative_final_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="narrative_final_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="/pricing" variant="secondary" trackingLabel="narrative_final_pricing">

@@ -1,6 +1,7 @@
 import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function FreeTelegramOption() {
   const points = [
@@ -22,7 +23,7 @@ export default function FreeTelegramOption() {
               You do not need to buy premium immediately. The free Telegram group is the best place to understand Yaga Calls before paying. You can review the communication style, selected market notes, educational updates, and public examples before deciding whether premium access makes sense.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="contact_free_join">
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="contact_free_join">
                 Join Free Telegram First
               </CTAButton>
               <CTAButton href="/pricing" variant="secondary" trackingLabel="contact_free_pricing">

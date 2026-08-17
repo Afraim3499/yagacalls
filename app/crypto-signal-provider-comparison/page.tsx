@@ -6,10 +6,10 @@ import FAQSection from "@/components/shared/FAQSection";
 import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
-import { 
-  CheckCircle2, 
-  ShieldAlert, 
-  Zap, 
+import {
+  CheckCircle2,
+  ShieldAlert,
+  Zap,
   Search,
   ArrowRight,
   X,
@@ -27,6 +27,7 @@ import {
   BarChart3,
   Globe
 } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Crypto Signal Provider Comparison | Free, Bots, VIP & Yaga",
@@ -206,7 +207,7 @@ export default function ComparisonPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                 <CTAButton 
-                  href="https://t.me/+JFf8kBf01mg3OTg1" 
+                  href={BRAND_CONFIG.officialTelegram} 
                   target="_blank"
                   trackingLabel="hero_comp_free"
                   className="px-8 py-4 text-sm"
@@ -537,7 +538,7 @@ export default function ComparisonPage() {
             </div>
 
             <div className="text-center pt-8">
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank">Join Free Telegram First</CTAButton>
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank">Join Free Telegram First</CTAButton>
             </div>
           </div>
         </Container>
@@ -721,7 +722,7 @@ export default function ComparisonPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               {[
-                { s: "1", t: "Observe", d: "Join free Telegram", href: "https://t.me/+JFf8kBf01mg3OTg1" },
+                { s: "1", t: "Observe", d: "Join free Telegram", href: BRAND_CONFIG.officialTelegram },
                 { s: "2", t: "Verify", d: "Read the Method", href: "/method" },
                 { s: "3", t: "Audit", d: "Inspect Proof", href: "/proof" },
                 { s: "4", t: "Compare", d: "Review Pricing", href: "/pricing" },
@@ -803,7 +804,7 @@ export default function ComparisonPage() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               trackingLabel="final_comp_free"
               className="px-10 py-5 text-base"

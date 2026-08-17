@@ -4,19 +4,20 @@ import { useState, useEffect, useMemo } from "react";
 import Container from "@/components/shared/Container";
 import GlowCard from "@/components/shared/GlowCard";
 import CTAButton from "@/components/shared/CTAButton";
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  BarChart3, 
-  Search, 
-  Award, 
-  Flame, 
-  CheckCircle2, 
-  Loader2, 
+import {
+  TrendingUp,
+  TrendingDown,
+  BarChart3,
+  Search,
+  Award,
+  Flame,
+  CheckCircle2,
+  Loader2,
   ExternalLink,
   ShieldCheck,
   X
 } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function LiveSignalResultsDesk() {
   const [signals, setSignals] = useState<any[]>([]);
@@ -335,7 +336,7 @@ export default function LiveSignalResultsDesk() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
           <CTAButton 
-            href="https://t.me/+JFf8kBf01mg3OTg1" 
+            href={BRAND_CONFIG.officialTelegram} 
             target="_blank"
             trackingLabel="results_join_free"
           >

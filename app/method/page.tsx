@@ -10,6 +10,7 @@ import FAQSection from "../../components/shared/FAQSection";
 import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "The Trading Method: Narrative & Risk Control",
@@ -399,7 +400,7 @@ export default function MethodPage() {
                   A structured Telegram signal note is easy to scan and includes the asset, setup type, entry zone, targets, invalidation, risk note, and market narrative.
                 </p>
                 <div className="flex gap-4 pt-4">
-                  <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="method_step8_free">Join Free Telegram</CTAButton>
+                  <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="method_step8_free">Join Free Telegram</CTAButton>
                 </div>
               </div>
               <div className="p-8 bg-background border border-line rounded-[32px] shadow-2xl relative overflow-hidden">
@@ -511,7 +512,7 @@ export default function MethodPage() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="method_final_free">
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="method_final_free">
                 Join Free Telegram
               </CTAButton>
               <CTAButton href="/proof" variant="secondary" trackingLabel="method_final_proof">

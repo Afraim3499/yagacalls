@@ -6,13 +6,13 @@ import FAQSection from "@/components/shared/FAQSection";
 import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
-import { 
-  ShieldCheck, 
-  Target, 
-  AlertTriangle, 
-  Zap, 
-  CheckCircle2, 
-  X, 
+import {
+  ShieldCheck,
+  Target,
+  AlertTriangle,
+  Zap,
+  CheckCircle2,
+  X,
   ArrowRight,
   MessageSquare,
   Lock,
@@ -29,6 +29,7 @@ import {
   Clock,
   HelpCircle
 } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Telegram Crypto Signals | How to Read & Verify Groups",
@@ -176,7 +177,7 @@ export default function TelegramCryptoSignalsPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                 <CTAButton 
-                  href="https://t.me/+JFf8kBf01mg3OTg1" 
+                  href={BRAND_CONFIG.officialTelegram} 
                   target="_blank"
                   trackingLabel="hero_telegram_free"
                 >
@@ -440,7 +441,7 @@ export default function TelegramCryptoSignalsPage() {
               </div>
               <div className="pt-4">
                 <CTAButton 
-                  href="https://t.me/+JFf8kBf01mg3OTg1" 
+                  href={BRAND_CONFIG.officialTelegram} 
                   target="_blank"
                   trackingLabel="sec_telegram_free"
                 >
@@ -813,7 +814,7 @@ export default function TelegramCryptoSignalsPage() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               trackingLabel="final_telegram_free"
               className="px-10 py-5 text-base"

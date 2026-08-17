@@ -7,13 +7,13 @@ import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import PositionSizingCalculator from "@/components/tools/PositionSizingCalculator";
-import { 
-  ShieldCheck, 
-  Target, 
-  AlertTriangle, 
-  Zap, 
-  CheckCircle2, 
-  X, 
+import {
+  ShieldCheck,
+  Target,
+  AlertTriangle,
+  Zap,
+  CheckCircle2,
+  X,
   ArrowRight,
   Calculator,
   Activity,
@@ -27,6 +27,7 @@ import {
   Briefcase,
   Eye
 } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Crypto Position Sizing Calculator | Risk & Stop-Loss Tool",
@@ -184,7 +185,7 @@ export default function PositionSizingCalculatorPage() {
                 Risk Management Guide
               </CTAButton>
               <CTAButton 
-                href="https://t.me/+JFf8kBf01mg3OTg1" 
+                href={BRAND_CONFIG.officialTelegram} 
                 variant="secondary"
                 target="_blank"
                 className="hidden sm:inline-flex"
@@ -724,7 +725,7 @@ export default function PositionSizingCalculatorPage() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               trackingLabel="final_calc_free"
               className="px-10 py-5 text-base"

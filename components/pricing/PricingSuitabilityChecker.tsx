@@ -2,6 +2,7 @@ import Container from "../shared/Container";
 import Section from "../shared/Section";
 import { CheckCircle2, XCircle } from "lucide-react";
 import CTAButton from "../shared/CTAButton";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function PricingSuitabilityChecker() {
   return (
@@ -63,7 +64,7 @@ export default function PricingSuitabilityChecker() {
               ))}
             </div>
             <div className="pt-4">
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" variant="secondary" fullWidth trackingLabel="suitability_free">
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" variant="secondary" fullWidth trackingLabel="suitability_free">
                 Join Free Telegram First
               </CTAButton>
             </div>
