@@ -62,6 +62,13 @@ export const metadata: Metadata = {
     url: CANONICAL_URL,
     type: "article",
     authors: [`${SITE_URL}/authors/${PAGE_AUTHOR_SLUG}`],
+    images: [{ url: `${SITE_URL}/api/og?title=Crypto%20Trading%20Group%20Guide&subtitle=Structure%2C%20Risk%20Awareness%20%26%20Telegram%20Safety`, width: 1200, height: 630, alt: "Crypto Trading Group Guide" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crypto Trading Group Guide",
+    description: "A serious guide to crypto trading groups: what to look for, what to avoid, Telegram safety, signal structure, risk management and Yaga Calls’ approach.",
+    images: [`${SITE_URL}/api/og?title=Crypto%20Trading%20Group%20Guide&subtitle=Structure%2C%20Risk%20Awareness%20%26%20Telegram%20Safety`],
   },
 };
 
