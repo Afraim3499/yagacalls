@@ -4,6 +4,7 @@ import path from 'path';
 import { regionalPages } from '../content/data/regions';
 import { commercialPages } from '../content/data/commercial';
 import { blogPostsMetadata } from '../content/blog/posts';
+import { authors } from '../content/data/authors';
 import { getFileLastModified, hasStaticPageFolder } from '../lib/gitLastModified';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -50,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/affiliate',
     '/careers',
     '/terms',
+    '/authors',
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = staticRoutePaths.map((route) => {
@@ -129,6 +131,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
+  // Add author profile pages
+  const authorsFileFallback = getFileLastModified('content/data/authors.ts', buildFallback);
+  const authorRoutes: MetadataRoute.Sitemap = authors.map((author) => ({
+    url: `${baseUrl}/authors/${author.slug}`,
+    lastModified: authorsFileFallback,
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
   // Add dynamic academy modules if data exists
   let academyRoutes: MetadataRoute.Sitemap = [];
   try {
@@ -145,5 +156,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     console.error('Sitemap academy error:', error);
   }
 
-  return [...staticRoutes, ...blogRoutes, ...academyRoutes, ...regionalRoutes, ...folderOnlyRegionRoutes, ...commercialRoutes];
+  return [...staticRoutes, ...blogRoutes, ...academyRoutes, ...authorRoutes, ...regionalRoutes, ...folderOnlyRegionRoutes, ...commercialRoutes];
 }

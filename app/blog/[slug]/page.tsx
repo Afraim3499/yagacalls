@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { blogPostsMetadata } from "@/content/blog/posts";
+import { getAuthorBySlug } from "@/content/data/authors";
 import ArticleLayout from "@/components/blog/ArticleLayout";
 
 // Import all TSX article bodies
@@ -62,6 +63,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) return {};
 
   const imageUrl = resolveImageUrl(post.featuredImage);
+  const author = getAuthorBySlug(post.authorSlug);
 
   return {
     title: post.metaTitle || post.title,
@@ -83,6 +85,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       type: 'article',
       publishedTime: post.datePublished,
       modifiedTime: post.dateModified || post.datePublished,
+      authors: author ? [`https://www.yagacalls.com/authors/${author.slug}`] : undefined,
       images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630, alt: post.featuredImageAlt }] : undefined,
     },
     twitter: {
@@ -129,7 +132,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       ctaHref={post.ctaHref}
       primaryEntity={post.primaryEntity}
       secondaryEntities={post.secondaryEntities}
-      author={post.author}
+      authorSlug={post.authorSlug}
       summaryAnswer={post.summaryAnswer}
       topicHierarchy={post.topicHierarchy}
       parentPillarSlug={post.parentPillarSlug}

@@ -14,13 +14,6 @@ export interface EntityItem {
   description?: string;
 }
 
-export interface AuthorInfo {
-  name: string;
-  type: "Person" | "Organization";
-  jobTitle?: string;
-  sameAs?: string;
-}
-
 export interface BlogPostMetadata {
   slug: string;
   title: string;
@@ -49,7 +42,8 @@ export interface BlogPostMetadata {
   isPillarPage?: boolean;
   parentPillarSlug?: string;
   topicHierarchy?: string[];
-  author?: AuthorInfo;
+  /** Slug into content/data/authors.ts — resolve with getAuthorBySlug(). */
+  authorSlug?: string;
   summaryAnswer?: string;
 }
 
@@ -63,11 +57,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Education",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "sarah-jenkins",
     readingTime: "12 min",
     featuredImage: "/images/blog-best-crypto-signals.webp",
     featuredImageAlt: "Professional crypto trading desk showing highly detailed candlestick charts and mathematical risk metrics for evaluating signals",
@@ -108,11 +98,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "marcus-vance",
     readingTime: "10 min",
     featuredImage: "/images/blog-trustworthy-telegram-alerts.webp",
     featuredImageAlt: "Close up of a smartphone displaying real-time cryptocurrency trading alerts and signals on a secure Telegram message feed",
@@ -152,11 +138,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Beginner",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "sarah-jenkins",
     readingTime: "11 min",
     featuredImage: "/images/blog-beginner-crypto-trading.webp",
     featuredImageAlt: "A beginner trader learning technical analysis by analyzing crypto signal charts on a laptop inside a clean workspace",
@@ -196,11 +178,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "marcus-vance",
     readingTime: "8 min",
     featuredImage: "/images/blog-stop-loss-capital-preservation.webp",
     featuredImageAlt: "A financial chart illustrating a protective stop-loss level invalidating a trade to preserve capital from a sudden market drawdown",
@@ -239,11 +217,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Analysis",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "elena-soto",
     readingTime: "12 min",
     featuredImage: "/images/blog-narrative-capital-rotation.webp",
     featuredImageAlt: "Ecosystem capital rotation map tracking volume surges in AI, DePIN, and RWA narrative altcoin sectors",
@@ -283,11 +257,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Analysis",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "chen-wei",
     readingTime: "9 min",
     featuredImage: "/images/blog-sui-breakout-case-study.webp",
     featuredImageAlt: "A detailed technical analysis chart showcasing the SUI breakout accumulation range and European session buy volume spikes",
@@ -351,11 +321,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
       { name: "Bitcoin", sameAs: "https://en.wikipedia.org/wiki/Bitcoin" },
       { name: "Binance", sameAs: "https://en.wikipedia.org/wiki/Binance" }
     ],
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "aisha-al-mansoori",
     summaryAnswer: "An empirical analysis of Google Trends data across Canada, the UAE, Nigeria, and Global markets reveals 4 distinct onboarding funnels: Canada operates as a Research-to-Action funnel, the UAE as an Infrastructure-to-Execution market (51% Binance search share under VARA licensing), Nigeria as an Access-to-Transaction market (89% Binance share for P2P/USD hedging), and Worldwide as a Market-Monitoring benchmark.",
 
     tocItems: [
@@ -430,11 +396,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
       { name: "Bank of Canada", sameAs: "https://en.wikipedia.org/wiki/Bank_of_Canada" },
       { name: "Financial Regulation", sameAs: "https://en.wikipedia.org/wiki/Financial_regulation" }
     ],
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "sarah-jenkins",
     summaryAnswer: "When US Senate leaders advanced the Digital Asset Market CLARITY Act in August 2026, Canadian crypto search interest surged due to deep cross-border liquidity and exchange integration between North American financial markets.",
 
     tocItems: [
@@ -487,11 +449,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
       { name: "Binance", sameAs: "https://en.wikipedia.org/wiki/Binance" },
       { name: "Dubai International Financial Centre", sameAs: "https://en.wikipedia.org/wiki/Dubai_International_Financial_Centre" }
     ],
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "aisha-al-mansoori",
     summaryAnswer: "Dubai's VARA framework has established an infrastructure-first crypto hub where licensed service providers like Binance FZE command 51% of regional search intent, backed by over $56B in annual MENA crypto transaction volume.",
 
     tocItems: [
@@ -520,11 +478,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "chidi-okeke",
     readingTime: "10 min",
     featuredImage: "/images/nigeria-p2p-crypto-hedging.png",
     featuredImageAlt: "African trader using smartphone displaying P2P crypto exchange transactions and currency hedging in Lagos",
@@ -558,11 +512,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Analysis",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "liam-gallagher-jones",
     readingTime: "10 min",
     featuredImage: "/images/polyx-rwa-tokenization-breakout.png",
     featuredImageAlt: "Digital asset tokenization diagram displaying institutional real-world assets on Polymesh blockchain network",
@@ -596,11 +546,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Education",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "elena-soto",
     readingTime: "12 min",
     featuredImage: "/images/crypto-four-adoption-funnels.png",
     featuredImageAlt: "A sleek infographic diagram illustrating the four global crypto search intent funnels: Research, Infrastructure, Access, and Monitoring",
@@ -635,11 +581,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "chen-wei",
     readingTime: "11 min",
     featuredImage: "/images/google-trends-narrative-discovery.png",
     featuredImageAlt: "Quantitative trader analyzing Google Trends search volume breakout charts and social sentiment momentum metrics",
@@ -673,11 +615,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Beginner",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "chidi-okeke",
     readingTime: "9 min",
     featuredImage: "/images/cold-wallet-custody-security.png",
     featuredImageAlt: "Hardware cold wallet device placed beside encrypted digital security key and financial risk protection charts",
@@ -711,11 +649,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "elena-soto",
     readingTime: "10 min",
     featuredImage: "/images/fear-greed-sentiment-structure.png",
     featuredImageAlt: "Market sentiment Fear and Greed meter alongside technical candlestick charts and order flow indicators",
@@ -776,11 +710,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
       { name: "LlamaLend V2", description: "Isolated lending protocol allowing Curve LP positions as collateral." },
       { name: "Convex Finance", description: "Yield and voting power optimizer for veCRV holders." }
     ],
-    author: {
-      name: "Yaga Calls Research Desk",
-      type: "Organization",
-      sameAs: "https://www.yagacalls.com"
-    },
+    authorSlug: "dmitry-voronov",
     summaryAnswer: "CRV trading activity has surged following a breakout from its multi-month $0.20 accumulation range. Fundamental drivers include LlamaLend V2 TVL scaling to $146M+, crvUSD borrowing reaching $37.8M backed by $70.5M collateral, 55% of circulating CRV (~851M tokens) locked as veCRV, and annual emissions declining by 15.9% toward ~97M CRV/yr. Key technical levels to watch for CRV price updates include $0.237–$0.245 support and resistance targets at $0.266, $0.33, and $0.40.",
     targetQuery: "CRV trading Curve price updates",
     searchIntent: "Informational",

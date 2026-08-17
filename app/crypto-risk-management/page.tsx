@@ -37,6 +37,13 @@ export const metadata: Metadata = {
     description: "A serious guide to crypto trading risk: position sizing, stop-losses, invalidation, leverage, drawdown, emotional control, and Yaga Calls’ risk-aware signal structure.",
     type: "article",
     url: "https://www.yagacalls.com/crypto-risk-management",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=Crypto%20Risk%20Management%20Guide&subtitle=Position%20Sizing%2C%20Stop-Losses%20%26%20Invalidation%20Logic", width: 1200, height: 630, alt: "Crypto Risk Management Guide" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crypto Risk Management Guide",
+    description: "A serious guide to crypto trading risk: position sizing, stop-losses, invalidation, leverage, drawdown, emotional control, and Yaga Calls’ risk-aware signal structure.",
+    images: ["https://www.yagacalls.com/api/og?title=Crypto%20Risk%20Management%20Guide&subtitle=Position%20Sizing%2C%20Stop-Losses%20%26%20Invalidation%20Logic"],
   }
 };
 

@@ -38,6 +38,13 @@ export const metadata: Metadata = {
     description: "Estimate crypto trade size using account size, risk per trade, entry, stop-loss and target price. Learn position sizing, stop distance and risk-to-reward.",
     type: "website",
     url: "https://www.yagacalls.com/position-sizing-calculator",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=Position%20Sizing%20Calculator&subtitle=Risk%2C%20Stop-Loss%20%26%20Target%20Price%20Tool", width: 1200, height: 630, alt: "Crypto Position Sizing Calculator" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crypto Position Sizing Calculator",
+    description: "Estimate crypto trade size using account size, risk per trade, entry, stop-loss and target price. Learn position sizing, stop distance and risk-to-reward.",
+    images: ["https://www.yagacalls.com/api/og?title=Position%20Sizing%20Calculator&subtitle=Risk%2C%20Stop-Loss%20%26%20Target%20Price%20Tool"],
   }
 };
 

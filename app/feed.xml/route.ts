@@ -1,4 +1,5 @@
 import { blogPostsMetadata } from "@/content/blog/posts";
+import { getAuthorBySlug } from "@/content/data/authors";
 
 export async function GET() {
   const baseUrl = "https://www.yagacalls.com";
@@ -11,6 +12,7 @@ export async function GET() {
       const imageUrl = post.featuredImage
         ? (post.featuredImage.startsWith("http") ? post.featuredImage : `${baseUrl}${post.featuredImage}`)
         : undefined;
+      const author = getAuthorBySlug(post.authorSlug);
 
       return `
     <item>
@@ -20,7 +22,7 @@ export async function GET() {
       <description><![CDATA[${post.excerpt || post.metaDescription}]]></description>
       <category><![CDATA[${post.category}]]></category>
       <pubDate>${new Date(post.datePublished).toUTCString()}</pubDate>
-      <dc:creator><![CDATA[${post.author?.name || "Yaga Calls Research Desk"}]]></dc:creator>
+      <dc:creator><![CDATA[${author?.name || "Yaga Calls Research Desk"}]]></dc:creator>
       ${imageUrl ? `<enclosure url="${imageUrl}" type="image/png" />` : ""}
     </item>`;
     })

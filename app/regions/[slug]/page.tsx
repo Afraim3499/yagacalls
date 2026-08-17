@@ -24,6 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   
   if (!page) return {};
 
+  const ogImageUrl = `https://www.yagacalls.com/api/og?title=${encodeURIComponent(page.metaTitle)}&subtitle=${encodeURIComponent(page.metaDescription)}`;
+
   return {
     title: page.metaTitle,
     description: page.metaDescription,
@@ -41,7 +43,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: page.metaTitle,
       description: page.metaDescription,
       url: `https://www.yagacalls.com/regions/${slug}`,
-      type: 'website'
+      type: 'website',
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: page.metaTitle }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.metaTitle,
+      description: page.metaDescription,
+      images: [ogImageUrl],
     }
   };
 }

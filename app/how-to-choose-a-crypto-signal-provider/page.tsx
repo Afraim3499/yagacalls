@@ -39,6 +39,13 @@ export const metadata: Metadata = {
     type: "article",
     url: "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider",
     siteName: "Yaga Calls",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=How%20to%20Choose%20a%20Signal%20Provider&subtitle=12-Point%20Evaluation%20Checklist", width: 1200, height: 630, alt: "How to Choose a Crypto Signal Provider" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Choose a Crypto Signal Provider",
+    description: "A serious checklist for evaluating crypto signal providers before joining or paying. Learn what to check, what to avoid, and how Yaga Calls approaches risk-aware signals.",
+    images: ["https://www.yagacalls.com/api/og?title=How%20to%20Choose%20a%20Signal%20Provider&subtitle=12-Point%20Evaluation%20Checklist"],
   }
 };
 

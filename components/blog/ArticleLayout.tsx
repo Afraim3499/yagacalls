@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Calendar, ArrowLeft } from "lucide-react";
+import { Clock, Calendar, ArrowLeft, PenLine } from "lucide-react";
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import JsonLd from "@/components/seo/JsonLd";
 import { createBlogPostingSchema, createBreadcrumbSchema } from "@/lib/schema";
-import { blogPostsMetadata, EntityItem, AuthorInfo } from "@/content/blog/posts";
+import { blogPostsMetadata, EntityItem } from "@/content/blog/posts";
+import { getAuthorBySlug } from "@/content/data/authors";
 import Breadcrumbs from "./Breadcrumbs";
 import TableOfContents from "./TableOfContents";
 import FAQSection from "./FAQSection";
@@ -48,7 +49,7 @@ interface ArticleLayoutProps {
   // Semantic SEO & Topic Cluster Props (P0, P1, P2)
   primaryEntity?: EntityItem;
   secondaryEntities?: EntityItem[];
-  author?: AuthorInfo;
+  authorSlug?: string;
   summaryAnswer?: string;
   topicHierarchy?: string[];
   parentPillarSlug?: string;
@@ -76,14 +77,16 @@ export default function ArticleLayout({
   ctaHref,
   primaryEntity,
   secondaryEntities,
-  author,
+  authorSlug,
   summaryAnswer,
   topicHierarchy = [],
   parentPillarSlug,
   children
 }: ArticleLayoutProps) {
   const pageUrl = `https://www.yagacalls.com/blog/${slug}`;
-  
+  const author = getAuthorBySlug(authorSlug);
+  const authorProfileUrl = author ? `https://www.yagacalls.com/authors/${author.slug}` : undefined;
+
   // Create absolute image URL for schemas
   const absoluteImageUrl = featuredImage.startsWith("http")
     ? featuredImage
@@ -96,9 +99,11 @@ export default function ArticleLayout({
     image: absoluteImageUrl,
     datePublished,
     dateModified: dateModified || datePublished,
-    authorName: author?.name,
-    authorType: author?.type,
-    authorSameAs: author?.sameAs,
+    authorName: author?.name ?? "Yaga Calls",
+    authorType: author ? "Person" : "Organization",
+    authorJobTitle: author?.jobTitle,
+    authorUrl: authorProfileUrl,
+    authorSameAs: authorProfileUrl,
     primaryEntity,
     secondaryEntities
   });
@@ -172,6 +177,22 @@ export default function ArticleLayout({
                 <Clock className="w-3.5 h-3.5 text-primary" /> {readingTime}
               </span>
             </div>
+
+            {author && authorProfileUrl && (
+              <div className="mt-4 flex items-center gap-2 text-xs">
+                <PenLine className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span className="text-text-muted">
+                  Written by{" "}
+                  <Link
+                    href={`/authors/${author.slug}`}
+                    className="font-bold text-text-high hover:text-primary transition-colors underline decoration-line underline-offset-4"
+                  >
+                    {author.name}
+                  </Link>
+                  <span className="text-text-muted">, {author.jobTitle} {author.countryFlag}</span>
+                </span>
+              </div>
+            )}
           </Container>
         </Section>
 

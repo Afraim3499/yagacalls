@@ -28,6 +28,13 @@ export const metadata: Metadata = {
     description: "Authentic member feedback, trade setup notes reviews, and risk-management ratings from active Yaga Calls Telegram subscribers.",
     type: "article",
     url: "https://www.yagacalls.com/yaga-calls-review",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=Yaga%20Calls%20Community%20Reviews&subtitle=Member%20Feedback%20%26%20Risk-Management%20Ratings", width: 1200, height: 630, alt: "Yaga Calls Community Reviews" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls Community Reviews",
+    description: "Authentic member feedback, trade setup notes reviews, and risk-management ratings from active Yaga Calls Telegram subscribers.",
+    images: ["https://www.yagacalls.com/api/og?title=Yaga%20Calls%20Community%20Reviews&subtitle=Member%20Feedback%20%26%20Risk-Management%20Ratings"],
   }
 };
 

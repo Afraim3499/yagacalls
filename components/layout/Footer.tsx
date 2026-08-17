@@ -56,6 +56,7 @@ export default function Footer() {
               <li><Link href="/crypto-affiliate-programs-compared" className="hover:text-primary transition-colors text-xs pl-2 text-text-muted">• Affiliates Compared</Link></li>
               <li className="pt-2"><Link href="/academy" className="hover:text-primary transition-colors">Trading Academy</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors font-bold text-primary">Blog &amp; Market Analysis</Link></li>
+              <li><Link href="/authors" className="hover:text-primary transition-colors">Our Analysts &amp; Writers</Link></li>
               <li><Link href="/news" className="hover:text-primary transition-colors">News</Link></li>
               <li><Link href="/analysis" className="hover:text-primary transition-colors">Analysis</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>

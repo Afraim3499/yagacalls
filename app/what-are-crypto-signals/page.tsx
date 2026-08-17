@@ -37,6 +37,13 @@ export const metadata: Metadata = {
     type: "article",
     url: "https://www.yagacalls.com/what-are-crypto-signals",
     siteName: "Yaga Calls",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=What%20Are%20Crypto%20Signals%3F&subtitle=Entries%2C%20Targets%20%26%20Stop-Loss%20Guide", width: 1200, height: 630, alt: "What Are Crypto Signals?" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "What Are Crypto Signals? A Serious Beginner’s Guide",
+    description: "Understand crypto signals before risking money. Learn entries, targets, stop-losses, invalidation, red flags, and the Yaga Calls signal structure.",
+    images: ["https://www.yagacalls.com/api/og?title=What%20Are%20Crypto%20Signals%3F&subtitle=Entries%2C%20Targets%20%26%20Stop-Loss%20Guide"],
   }
 };
 

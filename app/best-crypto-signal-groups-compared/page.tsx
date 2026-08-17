@@ -36,6 +36,13 @@ export const metadata: Metadata = {
     type: "article",
     url: "https://www.yagacalls.com/best-crypto-signal-groups-compared",
     siteName: "Yaga Calls",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=Best%20Crypto%20Signal%20Groups%20Compared&subtitle=Free%2C%20Paid%2C%20Telegram%20%26%20Risk-Managed%20Groups", width: 1200, height: 630, alt: "Best Crypto Signal Groups Compared" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Crypto Signal Groups Compared",
+    description: "A serious comparison of free, paid, Telegram, pump-style, and risk-managed crypto signal groups — with red flags, evaluation criteria, and safer decision rules.",
+    images: ["https://www.yagacalls.com/api/og?title=Best%20Crypto%20Signal%20Groups%20Compared&subtitle=Free%2C%20Paid%2C%20Telegram%20%26%20Risk-Managed%20Groups"],
   }
 };
 

@@ -135,6 +135,8 @@ export function createArticleSchema(params: {
   dateModified?: string;
   authorName?: string;
   authorType?: "Person" | "Organization";
+  authorJobTitle?: string;
+  authorUrl?: string;
   authorSameAs?: string;
   primaryEntity?: { name: string; sameAs?: string; description?: string };
   secondaryEntities?: { name: string; sameAs?: string }[];
@@ -143,7 +145,8 @@ export function createArticleSchema(params: {
   const authorObj = {
     '@type': authorType,
     name: params.authorName || 'Yaga Calls',
-    url: SITE_URL,
+    url: params.authorUrl || SITE_URL,
+    ...(authorType === 'Person' && params.authorJobTitle ? { jobTitle: params.authorJobTitle } : {}),
     ...(params.authorSameAs ? { sameAs: params.authorSameAs } : {})
   };
 
@@ -197,6 +200,8 @@ export function createBlogPostingSchema(params: {
   dateModified?: string;
   authorName?: string;
   authorType?: "Person" | "Organization";
+  authorJobTitle?: string;
+  authorUrl?: string;
   authorSameAs?: string;
   primaryEntity?: { name: string; sameAs?: string; description?: string };
   secondaryEntities?: { name: string; sameAs?: string }[];
@@ -263,6 +268,36 @@ export function createOfferSchema(params: {
     priceCurrency: 'USD',
     url: params.url.startsWith('http') ? params.url : `${SITE_URL}${params.url}`,
     availability: 'https://schema.org/InStock'
+  };
+}
+
+export function createProfilePageSchema(params: {
+  name: string;
+  jobTitle: string;
+  description: string;
+  url: string;
+  nationality?: string;
+  knowsAbout?: string[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': `${params.url}/#profilepage`,
+    name: `${params.name} — Yaga Calls`,
+    url: params.url,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    mainEntity: {
+      '@type': 'Person',
+      '@id': `${params.url}/#person`,
+      name: params.name,
+      jobTitle: params.jobTitle,
+      description: params.description,
+      url: params.url,
+      sameAs: params.url,
+      ...(params.nationality ? { nationality: params.nationality } : {}),
+      ...(params.knowsAbout ? { knowsAbout: params.knowsAbout } : {}),
+      worksFor: { '@id': `${SITE_URL}/#organization` }
+    }
   };
 }
 

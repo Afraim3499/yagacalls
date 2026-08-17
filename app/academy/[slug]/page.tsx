@@ -38,6 +38,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   if (!mod) return {};
 
+  const ogImageUrl = `https://www.yagacalls.com/api/og?title=${encodeURIComponent(mod.title)}&subtitle=${encodeURIComponent(mod.description)}`;
+
   return {
     title: `${mod.title} | Yaga Calls Academy`,
     description: mod.description,
@@ -56,6 +58,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: mod.description,
       url: `https://www.yagacalls.com/academy/${slug}`,
       type: 'article',
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: mod.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: mod.title,
+      description: mod.description,
+      images: [ogImageUrl],
     },
   };
 }
