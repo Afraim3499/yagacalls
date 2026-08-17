@@ -359,11 +359,19 @@ apply to it anyway).
     errors (100 pre-existing `react/no-unescaped-entities` errors remain, confirmed via
     grep none reference the new helper imports and all sit in body-copy JSX far from the
     edited schema blocks).
-24. **`/academy` has no learning sequence.** All 7 modules render as a flat grid tagged
-    only by category (Fundamentals/Strategy/Tactic/Safety/Tool) — no "start here," no
-    numbering, no suggested order. For a page framed as an "Academy," this is a real SXO
-    mismatch: a visitor's implied search/click intent ("teach me this in order") isn't
-    matched by the page's actual structure (a flat, unordered catalog).
+24. ✅ **Done (2026-08-17).** Reordered `content/data/academy.json` into a genuine
+    pedagogical sequence (what signals are → who to trust → free vs paid → scam safety →
+    execution mechanics → risk-management depth → the ATR tool as a capstone). Confirmed
+    via grep that array order isn't load-bearing anywhere else (`authorWorks.ts` and
+    `sitemap.ts` both key by slug, not position) before reordering. `/academy` hub now
+    shows "Module N · Category" on every card with a "Start Here" badge on module 1 and
+    an intro line pointing new visitors there; each module detail page
+    (`/academy/[slug]`) shows "Module N of 7 · Category" and has Previous/Next navigation
+    to the adjacent module, so the sequence is walkable end-to-end, not just labeled.
+    Verified: `tsc --noEmit` clean; `npm run build` succeeds (98/98 pages, `validate-seo`
+    passes); `eslint` zero issues on both touched files; built HTML inspected directly
+    (stripping React's SSR text-boundary comments) to confirm all 7 modules are numbered
+    1–7 in the intended order and prev/next labels point to the correct neighbors.
 25. **Pricing page: highest tier's differentiator features are all hedged with
     "(if available)"/"(if avail)."** The $700 Yearly plan lists "Gem Book access (if
     available)," "Portfolio review (if available)," and "1-on-1 strategy session (if
