@@ -12,6 +12,7 @@ import { CheckCircle2, X, MessageCircle } from "lucide-react";
 import RelatedRegions from "@/components/regions/RelatedRegions";
 import { regionalPages } from "@/content/data/regions";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Crypto Signals GCC | Premium Telegram Access",
@@ -80,12 +81,12 @@ export default function GCCPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/regions/gcc#webpage",
-        "url": "https://www.yagacalls.com/regions/gcc",
-        "name": "Crypto Signals GCC | Premium Telegram Signals for Gulf Traders",
-        "description": "Yaga Calls provides premium Telegram crypto signals and market analysis for serious GCC traders across UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
+        ...createWebPageSchema({
+          title: "Crypto Signals GCC | Premium Telegram Signals for Gulf Traders",
+          description: "Yaga Calls provides premium Telegram crypto signals and market analysis for serious GCC traders across UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman.",
+          url: "https://www.yagacalls.com/regions/gcc"
+        }),
+        "@context": undefined
       },
       {
         "@type": "ItemList",
@@ -100,24 +101,16 @@ export default function GCCPage() {
         ]
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/regions/gcc#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Regions", "item": "https://www.yagacalls.com/regions" },
-          { "@type": "ListItem", "position": 3, "name": "GCC", "item": "https://www.yagacalls.com/regions/gcc" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Regions", item: "/regions" },
+          { name: "GCC", item: "/regions/gcc" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/regions/gcc#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

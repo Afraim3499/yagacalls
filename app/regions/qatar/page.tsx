@@ -10,6 +10,7 @@ import { CheckCircle2, TrendingUp } from "lucide-react";
 import RelatedRegions from "@/components/regions/RelatedRegions";
 import { regionalPages } from "@/content/data/regions";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Crypto Signals Qatar | Premium Telegram Access",
@@ -78,12 +79,12 @@ export default function QatarPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalled.com/regions/qatar#webpage",
-        "url": "https://www.yagacalls.com/regions/qatar",
-        "name": "Crypto Signals Qatar | Premium Telegram Signals for Serious Traders",
-        "description": "Yaga Calls provides premium Telegram crypto signal notes and educational market analysis for serious Qatar traders, with narrative research, risk context, proof examples, and manual onboarding.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
+        ...createWebPageSchema({
+          title: "Crypto Signals Qatar | Premium Telegram Signals for Serious Traders",
+          description: "Yaga Calls provides premium Telegram crypto signal notes and educational market analysis for serious Qatar traders, with narrative research, risk context, proof examples, and manual onboarding.",
+          url: "https://www.yagacalls.com/regions/qatar"
+        }),
+        "@context": undefined
       },
       {
         "@type": "Service",
@@ -95,24 +96,16 @@ export default function QatarPage() {
         "description": "Telegram-first crypto signal notes with narrative research, entry zones, target planning, invalidation logic, and risk-aware trading context for serious Qatar traders."
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/regions/qatar#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Regions", "item": "https://www.yagacalls.com/regions" },
-          { "@type": "ListItem", "position": 3, "name": "Qatar", "item": "https://www.yagacalls.com/regions/qatar" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Regions", item: "/regions" },
+          { name: "Qatar", item: "/regions/qatar" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/regions/qatar#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

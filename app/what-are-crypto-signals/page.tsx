@@ -26,6 +26,7 @@ import {
   Briefcase
 } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "What Are Crypto Signals? Entries, Targets & Stop-Loss Guide | Yaga Calls",
@@ -97,70 +98,37 @@ export default function WhatAreCryptoSignalsPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/what-are-crypto-signals#webpage",
-        "url": "https://www.yagacalls.com/what-are-crypto-signals",
-        "name": "What Are Crypto Signals? A Complete Guide to Entries, Targets and Stop-Losses",
-        "description": "Learn what crypto signals are, how entries, targets, stop-losses and invalidation work, and how to evaluate signal groups without falling for hype.",
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        }
+        ...createWebPageSchema({
+          title: "What Are Crypto Signals? A Complete Guide to Entries, Targets and Stop-Losses",
+          description: "Learn what crypto signals are, how entries, targets, stop-losses and invalidation work, and how to evaluate signal groups without falling for hype.",
+          url: "https://www.yagacalls.com/what-are-crypto-signals"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "Article",
-        "@id": "https://www.yagacalls.com/what-are-crypto-signals#article",
-        "headline": "What Are Crypto Signals? A Complete Guide",
-        "description": "Learn what crypto signals are, how entries, targets, stop-losses and invalidation work, and how to evaluate signal groups without falling for hype.",
-        "author": { "@type": "Person", "name": "Sarah Jenkins", "jobTitle": "Lead Technical & Creative Writer", "url": "https://www.yagacalls.com/authors/sarah-jenkins" },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Yaga Calls",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.yagacalls.com/logo.png"
-          }
-        },
-        "mainEntityOfPage": {
-          "@id": "https://www.yagacalls.com/what-are-crypto-signals#webpage"
-        }
+        ...createArticleSchema({
+          title: "What Are Crypto Signals? A Complete Guide",
+          description: "Learn what crypto signals are, how entries, targets, stop-losses and invalidation work, and how to evaluate signal groups without falling for hype.",
+          url: "https://www.yagacalls.com/what-are-crypto-signals",
+          datePublished: "2026-05-15",
+          authorName: "Sarah Jenkins",
+          authorType: "Person",
+          authorJobTitle: "Lead Technical & Creative Writer",
+          authorUrl: "https://www.yagacalls.com/authors/sarah-jenkins"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/what-are-crypto-signals#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Guides",
-            "item": "https://www.yagacalls.com/academy"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "What Are Crypto Signals?",
-            "item": "https://www.yagacalls.com/what-are-crypto-signals"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/academy" },
+          { name: "What Are Crypto Signals?", item: "/what-are-crypto-signals" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/what-are-crypto-signals#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

@@ -8,6 +8,7 @@ import CTAButton from "@/components/shared/CTAButton";
 import Link from "next/link";
 import { CheckCircle2, X } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 const RegionalTrustBar = dynamic<{ regionName: string }>(() => import("@/components/regions/RegionalTrustBar.js").then(mod => mod.default));
 const FAQSection = dynamic<{ faqs: { question: string; answer: string }[] }>(() => import("@/components/shared/FAQSection.js").then(mod => mod.default));
@@ -80,12 +81,12 @@ export default function DubaiPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/regions/dubai#webpage",
-        "url": "https://www.yagacalls.com/regions/dubai",
-        "name": "Crypto Signals Dubai | Premium Telegram Signals for Serious Traders",
-        "description": "Yaga Calls provides premium Telegram crypto signal notes for serious Dubai traders, with narrative research, risk context, selected proof examples, and manual onboarding.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
+        ...createWebPageSchema({
+          title: "Crypto Signals Dubai | Premium Telegram Signals for Serious Traders",
+          description: "Yaga Calls provides premium Telegram crypto signal notes for serious Dubai traders, with narrative research, risk context, selected proof examples, and manual onboarding.",
+          url: "https://www.yagacalls.com/regions/dubai"
+        }),
+        "@context": undefined
       },
       {
         "@type": "Service",
@@ -97,24 +98,16 @@ export default function DubaiPage() {
         "description": "Telegram-first crypto signal notes with narrative research, entry zones, target planning, invalidation logic, and risk-aware trading context for serious Dubai traders."
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/regions/dubai#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Regions", "item": "https://www.yagacalls.com/regions" },
-          { "@type": "ListItem", "position": 3, "name": "Dubai", "item": "https://www.yagacalls.com/regions/dubai" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Regions", item: "/regions" },
+          { name: "Dubai", item: "/regions/dubai" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/regions/dubai#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

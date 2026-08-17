@@ -8,6 +8,7 @@ import FAQSection from "../../components/shared/FAQSection";
 import Link from "next/link";
 import { X, CheckCircle2, ShieldAlert, BarChart, Info } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Crypto Signals With Risk Management | Yaga Calls",
@@ -76,15 +77,16 @@ export default function RiskManagementPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/crypto-signals-with-risk-management#webpage",
-        "url": "https://www.yagacalls.com/crypto-signals-with-risk-management",
-        "name": "Crypto Signals With Risk Management | Yaga Calls",
-        "description": "Yaga Calls provides risk-aware Telegram crypto signal notes with market context, entry zones, targets, invalidation logic, stop-loss thinking, and disciplined setup planning.",
-        "author": { "@type": "Person", "name": "Marcus Vance", "jobTitle": "Senior Derivatives & Technical Analyst", "url": "https://www.yagacalls.com/authors/marcus-vance" },
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        }
+        ...createWebPageSchema({
+          title: "Crypto Signals With Risk Management | Yaga Calls",
+          description: "Yaga Calls provides risk-aware Telegram crypto signal notes with market context, entry zones, targets, invalidation logic, stop-loss thinking, and disciplined setup planning.",
+          url: "https://www.yagacalls.com/crypto-signals-with-risk-management",
+          authorName: "Marcus Vance",
+          authorType: "Person",
+          authorJobTitle: "Senior Derivatives & Technical Analyst",
+          authorUrl: "https://www.yagacalls.com/authors/marcus-vance"
+        }),
+        "@context": undefined
       },
       {
         "@type": "HowTo",
@@ -120,36 +122,15 @@ export default function RiskManagementPage() {
         ]
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/crypto-signals-with-risk-management#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Crypto Signals With Risk Management",
-            "item": "https://www.yagacalls.com/crypto-signals-with-risk-management"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Crypto Signals With Risk Management", item: "/crypto-signals-with-risk-management" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/crypto-signals-with-risk-management#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

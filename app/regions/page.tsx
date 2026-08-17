@@ -9,6 +9,7 @@ import CTAButton from "@/components/shared/CTAButton";
 import Link from "next/link";
 import { CheckCircle2, X } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Regions Hub | Global Crypto Signal Access",
@@ -101,23 +102,15 @@ export default function RegionsPage() {
         ]
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/regions#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Regions", "item": "https://www.yagacalls.com/regions" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Regions", item: "/regions" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/regions#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

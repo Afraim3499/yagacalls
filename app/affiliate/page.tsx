@@ -6,6 +6,7 @@ import AffiliateLeaderboard from "@/components/affiliate/AffiliateLeaderboard";
 import AffiliateFAQAccordion from "@/components/affiliate/AffiliateFAQAccordion";
 import { affiliateFaqs } from "@/content/data/affiliateFaqs";
 import AffiliateComparisonMatrix from "@/components/affiliate/AffiliateComparisonMatrix";
+import { createFAQSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata = {
   title: "Partner & Affiliate Program: Earn 15%–25%",
@@ -59,40 +60,13 @@ export const metadata = {
 
 export default function AffiliatePage() {
   // Structured Data — FAQPage Schema
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "name": "Frequently Asked Questions",
-    "mainEntity": affiliateFaqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  };
+  const faqSchema = createFAQSchema(affiliateFaqs);
 
   // Structured Data — BreadcrumbList Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "name": "Breadcrumbs",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.yagacalls.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Partner & Affiliate Program",
-        "item": "https://www.yagacalls.com/affiliate"
-      }
-    ]
-  };
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Partner & Affiliate Program", item: "/affiliate" }
+  ]);
 
   // Structured Data — SoftwareApplication Schema for @yaga_partner_program_bot
   const botSoftwareSchema = {

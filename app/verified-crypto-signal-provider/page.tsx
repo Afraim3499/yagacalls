@@ -8,6 +8,7 @@ import FAQSection from "../../components/shared/FAQSection";
 import Link from "next/link";
 import { X, ArrowRight } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Verified Crypto Signal Provider: How to Check Proof | Yaga Calls",
@@ -76,15 +77,16 @@ export default function VerifiedProviderPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/verified-crypto-signal-provider#webpage",
-        "url": "https://www.yagacalls.com/verified-crypto-signal-provider",
-        "name": "Verified Crypto Signal Provider: How to Check Proof | Yaga Calls",
-        "description": "Learn how to verify a crypto signal provider by checking proof, method, risk context, Telegram transparency, onboarding process, and scam red flags.",
-        "author": { "@type": "Person", "name": "Dmitry Voronov", "jobTitle": "Senior On-Chain & Data Analyst", "url": "https://www.yagacalls.com/authors/dmitry-voronov" },
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        }
+        ...createWebPageSchema({
+          title: "Verified Crypto Signal Provider: How to Check Proof | Yaga Calls",
+          description: "Learn how to verify a crypto signal provider by checking proof, method, risk context, Telegram transparency, onboarding process, and scam red flags.",
+          url: "https://www.yagacalls.com/verified-crypto-signal-provider",
+          authorName: "Dmitry Voronov",
+          authorType: "Person",
+          authorJobTitle: "Senior On-Chain & Data Analyst",
+          authorUrl: "https://www.yagacalls.com/authors/dmitry-voronov"
+        }),
+        "@context": undefined
       },
       {
         "@type": "HowTo",
@@ -120,36 +122,15 @@ export default function VerifiedProviderPage() {
         ]
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/verified-crypto-signal-provider#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Verified Crypto Signal Provider",
-            "item": "https://www.yagacalls.com/verified-crypto-signal-provider"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Verified Crypto Signal Provider", item: "/verified-crypto-signal-provider" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/verified-crypto-signal-provider#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

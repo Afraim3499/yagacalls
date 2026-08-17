@@ -6,7 +6,7 @@ import FAQSection from "@/components/shared/FAQSection";
 import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
-import { createHowToSchema } from "@/lib/schema";
+import { createHowToSchema, createWebPageSchema, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 import {
   CheckCircle2,
   ShieldAlert,
@@ -111,71 +111,38 @@ export default function HowToChooseProviderPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider#webpage",
-        "url": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider",
-        "name": "How to Choose a Crypto Signal Provider: 12 Checks Before You Join",
-        "description": "Use this 12-point checklist to evaluate crypto signal providers, verify proof, avoid pump groups, check Telegram safety, and choose with risk in mind.",
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        },
-        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] }
+        ...createWebPageSchema({
+          title: "How to Choose a Crypto Signal Provider: 12 Checks Before You Join",
+          description: "Use this 12-point checklist to evaluate crypto signal providers, verify proof, avoid pump groups, check Telegram safety, and choose with risk in mind.",
+          url: "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider",
+          speakableSelectors: [".faq-answer"]
+        }),
+        "@context": undefined
       },
       {
-        "@type": "Article",
-        "@id": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider#article",
-        "headline": "How to Choose a Crypto Signal Provider",
-        "description": "A serious decision-making framework for evaluating crypto signal providers before paying.",
-        "author": { "@type": "Person", "name": "Sarah Jenkins", "jobTitle": "Lead Technical & Creative Writer", "url": "https://www.yagacalls.com/authors/sarah-jenkins" },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Yaga Calls",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.yagacalls.com/logo.png"
-          }
-        },
-        "mainEntityOfPage": {
-          "@id": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider#webpage"
-        }
+        ...createArticleSchema({
+          title: "How to Choose a Crypto Signal Provider",
+          description: "A serious decision-making framework for evaluating crypto signal providers before paying.",
+          url: "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider",
+          datePublished: "2026-05-15",
+          authorName: "Sarah Jenkins",
+          authorType: "Person",
+          authorJobTitle: "Lead Technical & Creative Writer",
+          authorUrl: "https://www.yagacalls.com/authors/sarah-jenkins"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Guides",
-            "item": "https://www.yagacalls.com/academy"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "How to Choose a Crypto Signal Provider",
-            "item": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/academy" },
+          { name: "How to Choose a Crypto Signal Provider", item: "/how-to-choose-a-crypto-signal-provider" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       },
       { ...howToSchema, "@context": undefined }
     ]

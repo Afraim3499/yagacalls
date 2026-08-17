@@ -30,6 +30,7 @@ import {
   HelpCircle
 } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Telegram Crypto Signals | How to Read & Verify Groups",
@@ -100,43 +101,39 @@ export default function TelegramCryptoSignalsPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/telegram-crypto-signals#webpage",
-        "url": "https://www.yagacalls.com/telegram-crypto-signals",
-        "name": "Telegram Crypto Signals | How to Read & Verify Groups",
-        "description": "Educational guide on how to read, verify, and use Telegram crypto signal groups safely.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
+        ...createWebPageSchema({
+          title: "Telegram Crypto Signals | How to Read & Verify Groups",
+          description: "Educational guide on how to read, verify, and use Telegram crypto signal groups safely.",
+          url: "https://www.yagacalls.com/telegram-crypto-signals"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "Article",
-        "@id": "https://www.yagacalls.com/telegram-crypto-signals#article",
-        "headline": "Telegram Crypto Signals: How to Read, Verify and Use Signal Groups Safely",
-        "description": "Learn the structure of serious Telegram crypto signals, how to identify fake admins, and how to manage risk when following Telegram signal groups.",
-        "author": { "@type": "Person", "name": "Marcus Vance", "jobTitle": "Senior Derivatives & Technical Analyst", "url": "https://www.yagacalls.com/authors/marcus-vance" },
-        "publisher": { "@id": "https://www.yagacalls.com/#organization" },
-        "image": "https://www.yagacalls.com/og-telegram-signals.jpg",
-        "datePublished": "2024-05-15",
-        "dateModified": "2024-05-15"
+        ...createArticleSchema({
+          title: "Telegram Crypto Signals: How to Read, Verify and Use Signal Groups Safely",
+          description: "Learn the structure of serious Telegram crypto signals, how to identify fake admins, and how to manage risk when following Telegram signal groups.",
+          url: "https://www.yagacalls.com/telegram-crypto-signals",
+          image: "https://www.yagacalls.com/og-telegram-signals.jpg",
+          datePublished: "2024-05-15",
+          dateModified: "2024-05-15",
+          authorName: "Marcus Vance",
+          authorType: "Person",
+          authorJobTitle: "Senior Derivatives & Technical Analyst",
+          authorUrl: "https://www.yagacalls.com/authors/marcus-vance"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/telegram-crypto-signals#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.yagacalls.com/academy" },
-          { "@type": "ListItem", "position": 3, "name": "Telegram Crypto Signals", "item": "https://www.yagacalls.com/telegram-crypto-signals" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/academy" },
+          { name: "Telegram Crypto Signals", item: "/telegram-crypto-signals" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/telegram-crypto-signals#faq",
-        "mainEntity": faqs.map(f => ({
-          "@type": "Question",
-          "name": f.question,
-          "acceptedAnswer": { "@type": "Answer", "text": f.answer }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };
