@@ -310,16 +310,28 @@ apply to it anyway).
     output was inspected directly to confirm the homepage and pricing page HTML render the
     correct resolved URL. If this invite link ever needs rotating again, it's now a
     one-line change in `lib/constants/brand.ts`.
-22. **No HowTo, Review, or Speakable schema helpers exist** in `lib/schema.ts` — only
-    Organization/Website/WebPage/AboutPage/Breadcrumb/FAQ/Article/BlogPosting/Course/
-    ItemList/Service/Offer/ProfilePage/ImageObject. This is a real AEO gap: pages like
-    `how-to-set-stop-losses-in-crypto`, `how-to-choose-a-crypto-signal-provider`, and the
-    3 calculators (`position-sizing`, `leverage-trading`, `liquidation-price`) are natural
-    HowTo-schema candidates — HowTo markup targets exactly the "how do I..." query shape
-    that AEO/AI-answer-engine visibility depends on, and none of these pages have it.
-    Similarly, `components/reviews/CommunityReviewsSection.tsx` hand-rolls its own
-    Product/AggregateRating/Review JSON-LD directly in the component instead of through a
-    shared helper — no `createReviewSchema()` exists to standardize it.
+22. ✅ **Done (2026-08-17).** Added `createHowToSchema()`, `createReviewSchema()`, and
+    `createSpeakableSchema()` to `lib/schema.ts` (the last one embeddable via a new
+    `speakableSelectors` param on `createWebPageSchema()`). Applied HowTo schema to all 5
+    real candidate pages using each page's *actual* existing content, not invented copy —
+    `how-to-set-stop-losses-in-crypto` reuses its own 6-step "Stop-Loss Planning" card,
+    `how-to-choose-a-crypto-signal-provider` reuses its own 3-step "Decision Framework"
+    (Observe/Verify/Decide), and the 3 calculators (`position-sizing`,
+    `leverage-trading`, `liquidation-price`) get steps derived from each calculator's real
+    input fields in their real on-screen order. Added `speakable` (targeting a new
+    `.faq-answer` class added to the shared `FAQSection` component) to all 5 pages'
+    WebPage node. Refactored `components/reviews/CommunityReviewsSection.tsx`'s
+    hand-rolled Product/Review JSON-LD to use the new `createReviewSchema()` instead.
+    3 of the 5 HowTo pages hand-roll a `@graph` array rather than using the WebPage/Article
+    helpers (that's item 23's debt, deliberately not touched here) — the HowTo node was
+    inserted into their existing `@graph` with its redundant nested `@context` stripped so
+    it matches the shape of their other graph members.
+    **Verified**: `tsc --noEmit` clean; `npm run build` succeeds (98/98 pages,
+    `validate-seo` passes); `eslint` on all 8 touched files shows zero new
+    errors/warnings (`lib/schema.ts` and `FAQSection.tsx` show zero issues at all); the
+    actual `.next/server` built HTML was inspected for all 5 HowTo pages directly,
+    confirming exactly 1 HowTo block + 1 speakable reference each and zero stray
+    `@context` on graph nodes.
 23. **28 of the ~41 schema-bearing pages still hand-roll JSON-LD** instead of using the
     `lib/schema.ts` helpers (13 pages use the helpers). This is the same root cause that
     already produced the missing-`name`-property bug fixed in Phase B across 28 pages —
