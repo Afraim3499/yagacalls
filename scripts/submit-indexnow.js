@@ -23,10 +23,10 @@ const urls = [
   'https://www.yagacalls.com/regions/uae',
   'https://www.yagacalls.com/regions/dubai',
   'https://www.yagacalls.com/regions/uk',
-  'https://www.yagacalls.com/regions/london',
   'https://www.yagacalls.com/regions/usa',
-  'https://www.yagacalls.com/regions/canada',
-  'https://www.yagacalls.com/regions/singapore'
+  'https://www.yagacalls.com/regions/singapore',
+  'https://www.yagacalls.com/regions/gcc',
+  'https://www.yagacalls.com/regions/russia'
 ];
 
 async function submitToIndexNow(isDryRun = false) {

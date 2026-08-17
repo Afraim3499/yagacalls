@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Yaga Calls Proof — Selected Crypto Signal Examples",
     description: "Review selected Yaga Calls historical signal examples and proof snapshots. Educational only. Past performance does not guarantee future results.",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=Yaga%20Calls%20Proof%20%E2%80%94%20Selected%20Crypto%20Signal%20Examples&subtitle=Review%20selected%20Yaga%20Calls%20historical%20signal%20examples%20and%20proof%20snapshots.%20Educational%20only.%20Past%20performance%20does%20not%20guarantee%20future%20results.", width: 1200, height: 630, alt: "Yaga Calls Proof — Selected Crypto Signal Examples" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls Proof — Selected Crypto Signal Examples",
+    description: "Review selected Yaga Calls historical signal examples and proof snapshots. Educational only. Past performance does not guarantee future results.",
+    images: ["https://www.yagacalls.com/api/og?title=Yaga%20Calls%20Proof%20%E2%80%94%20Selected%20Crypto%20Signal%20Examples&subtitle=Review%20selected%20Yaga%20Calls%20historical%20signal%20examples%20and%20proof%20snapshots.%20Educational%20only.%20Past%20performance%20does%20not%20guarantee%20future%20results."],
   }
 };
 
@@ -89,6 +96,7 @@ export default function ProofPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/proof#breadcrumb",
         "itemListElement": [
           {
@@ -118,6 +126,7 @@ export default function ProofPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/proof#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

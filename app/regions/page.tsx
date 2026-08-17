@@ -101,6 +101,7 @@ export default function RegionsPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/regions#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
@@ -109,6 +110,7 @@ export default function RegionsPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/regions#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

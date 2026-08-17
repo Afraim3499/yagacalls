@@ -107,6 +107,7 @@ export default function StopLossPillarPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
@@ -116,6 +117,7 @@ export default function StopLossPillarPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#faq",
         "mainEntity": faqs.map(f => ({
           "@type": "Question",

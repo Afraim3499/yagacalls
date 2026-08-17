@@ -44,14 +44,23 @@ export default function CareersPage() {
     { name: "Careers", item: "/careers" }
   ]);
 
-  // Schema.org JobPosting for Google Jobs indexing
+  // Schema.org JobPosting for Google Jobs indexing.
+  // datePosted/validThrough are computed at build time (this page is statically
+  // generated) so a redeploy always refreshes them instead of the listing
+  // silently going stale or vanishing from Google Jobs once a hardcoded
+  // validThrough date passed.
+  const jobPostingDatePosted = new Date().toISOString().split("T")[0];
+  const jobPostingValidThrough = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split("T")[0];
+
   const jobPostingSchema = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
     "title": "Remote Affiliate Marketer / Crypto Partner",
     "description": "Join Yaga Calls as an Affiliate Partner. Earn 15% to 25% recurring monthly commissions on high-ticket tiers. Net payouts per sale: $45.00 to $175.00+ USD. Daily crypto settlements within 9–12 hours. Database-level Telegram tracking ensures 0% cookie loss. Promote verified setups, trading academy modules, and risk calculators to your audience.",
-    "datePosted": "2026-08-14",
-    "validThrough": "2027-08-14",
+    "datePosted": jobPostingDatePosted,
+    "validThrough": jobPostingValidThrough,
     "employmentType": "CONTRACTOR",
     "hiringOrganization": {
       "@type": "Organization",

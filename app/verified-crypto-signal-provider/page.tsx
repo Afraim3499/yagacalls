@@ -112,6 +112,7 @@ export default function VerifiedProviderPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/verified-crypto-signal-provider#breadcrumb",
         "itemListElement": [
           {
@@ -130,6 +131,7 @@ export default function VerifiedProviderPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/verified-crypto-signal-provider#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

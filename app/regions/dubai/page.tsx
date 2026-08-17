@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dubai Crypto Signals — Yaga Calls",
     description: "Premium Telegram crypto signal notes, market narrative research, risk-aware setup context, and manual onboarding for serious Dubai traders.",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=Dubai%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Premium%20Telegram%20crypto%20signal%20notes%2C%20market%20narrative%20research%2C%20risk-aware%20setup%20context%2C%20and%20manual%20onboarding%20for%20serious%20Dubai%20traders.", width: 1200, height: 630, alt: "Dubai Crypto Signals — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dubai Crypto Signals — Yaga Calls",
+    description: "Premium Telegram crypto signal notes, market narrative research, risk-aware setup context, and manual onboarding for serious Dubai traders.",
+    images: ["https://www.yagacalls.com/api/og?title=Dubai%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Premium%20Telegram%20crypto%20signal%20notes%2C%20market%20narrative%20research%2C%20risk-aware%20setup%20context%2C%20and%20manual%20onboarding%20for%20serious%20Dubai%20traders."],
   }
 };
 
@@ -90,6 +97,7 @@ export default function DubaiPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/regions/dubai#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
@@ -99,6 +107,7 @@ export default function DubaiPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/regions/dubai#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

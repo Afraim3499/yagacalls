@@ -122,6 +122,7 @@ export default function ComparisonPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/crypto-signal-provider-comparison#breadcrumb",
         "itemListElement": [
           {
@@ -146,6 +147,7 @@ export default function ComparisonPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/crypto-signal-provider-comparison#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

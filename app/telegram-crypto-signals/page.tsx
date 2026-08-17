@@ -111,6 +111,7 @@ export default function TelegramCryptoSignalsPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/telegram-crypto-signals#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
@@ -120,6 +121,7 @@ export default function TelegramCryptoSignalsPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/telegram-crypto-signals#faq",
         "mainEntity": faqs.map(f => ({
           "@type": "Question",

@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Qatar Crypto Signals — Yaga Calls",
     description: "Premium Telegram crypto signal notes, narrative research, risk-aware setup context, selected proof examples, and manual onboarding for serious Qatar traders.",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=Qatar%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Premium%20Telegram%20crypto%20signal%20notes%2C%20narrative%20research%2C%20risk-aware%20setup%20context%2C%20selected%20proof%20examples%2C%20and%20manual%20onboarding%20for%20serious%20Qatar%20traders.", width: 1200, height: 630, alt: "Qatar Crypto Signals — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Qatar Crypto Signals — Yaga Calls",
+    description: "Premium Telegram crypto signal notes, narrative research, risk-aware setup context, selected proof examples, and manual onboarding for serious Qatar traders.",
+    images: ["https://www.yagacalls.com/api/og?title=Qatar%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Premium%20Telegram%20crypto%20signal%20notes%2C%20narrative%20research%2C%20risk-aware%20setup%20context%2C%20selected%20proof%20examples%2C%20and%20manual%20onboarding%20for%20serious%20Qatar%20traders."],
   }
 };
 
@@ -88,6 +95,7 @@ export default function QatarPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/regions/qatar#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
@@ -97,6 +105,7 @@ export default function QatarPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/regions/qatar#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

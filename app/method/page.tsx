@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Yaga Calls Method — Narrative, Timing & Risk",
     description: "See how Yaga Calls structures crypto signal notes using market narratives, technical validation, entry zones, targets, invalidation, and risk-aware planning.",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=The%20Yaga%20Calls%20Method%20%E2%80%94%20Narrative%2C%20Timing%20%26%20Risk&subtitle=See%20how%20Yaga%20Calls%20structures%20crypto%20signal%20notes%20using%20market%20narratives%2C%20technical%20validation%2C%20entry%20zones%2C%20targets%2C%20invalidation%2C%20and%20risk-aware%20planning.", width: 1200, height: 630, alt: "The Yaga Calls Method — Narrative, Timing & Risk" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Yaga Calls Method — Narrative, Timing & Risk",
+    description: "See how Yaga Calls structures crypto signal notes using market narratives, technical validation, entry zones, targets, invalidation, and risk-aware planning.",
+    images: ["https://www.yagacalls.com/api/og?title=The%20Yaga%20Calls%20Method%20%E2%80%94%20Narrative%2C%20Timing%20%26%20Risk&subtitle=See%20how%20Yaga%20Calls%20structures%20crypto%20signal%20notes%20using%20market%20narratives%2C%20technical%20validation%2C%20entry%20zones%2C%20targets%2C%20invalidation%2C%20and%20risk-aware%20planning."],
   }
 };
 
@@ -125,6 +132,7 @@ export default function MethodPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/method#breadcrumb",
         "itemListElement": [
           {
@@ -143,6 +151,7 @@ export default function MethodPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/method#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/validate-seo.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "validate-seo": "node scripts/validate-seo.js",
     "indexnow:submit": "node scripts/submit-indexnow.js"
   },
   "dependencies": {

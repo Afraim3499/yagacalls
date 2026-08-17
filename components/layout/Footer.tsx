@@ -56,11 +56,24 @@ export default function Footer() {
               <li><Link href="/crypto-affiliate-programs-compared" className="hover:text-primary transition-colors text-xs pl-2 text-text-muted">• Affiliates Compared</Link></li>
               <li className="pt-2"><Link href="/academy" className="hover:text-primary transition-colors">Trading Academy</Link></li>
               <li><Link href="/blog" className="hover:text-primary transition-colors font-bold text-primary">Blog &amp; Market Analysis</Link></li>
+              <li><Link href="/news" className="hover:text-primary transition-colors">News</Link></li>
+              <li><Link href="/analysis" className="hover:text-primary transition-colors">Analysis</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               <li className="pt-2 font-semibold text-xs uppercase tracking-wider text-primary">Global Reach</li>
               <li><Link href="/regions/dubai" className="hover:text-primary transition-colors">Dubai / UAE</Link></li>
               <li><Link href="/regions/uk" className="hover:text-primary transition-colors">United Kingdom</Link></li>
               <li><Link href="/regions/usa" className="hover:text-primary transition-colors">United States</Link></li>
               <li><Link href="/regions/singapore" className="hover:text-primary transition-colors">Singapore</Link></li>
+              <li><Link href="/regions/gcc" className="hover:text-primary transition-colors">GCC</Link></li>
+              <li><Link href="/regions/saudi-arabia" className="hover:text-primary transition-colors">Saudi Arabia</Link></li>
+              <li><Link href="/regions/qatar" className="hover:text-primary transition-colors">Qatar</Link></li>
+              <li><Link href="/regions/europe" className="hover:text-primary transition-colors">Europe</Link></li>
+              <li><Link href="/regions/germany" className="hover:text-primary transition-colors">Germany</Link></li>
+              <li><Link href="/regions/switzerland" className="hover:text-primary transition-colors">Switzerland</Link></li>
+              <li><Link href="/regions/australia" className="hover:text-primary transition-colors">Australia</Link></li>
+              <li><Link href="/regions/russia" className="hover:text-primary transition-colors">Russia</Link></li>
+              <li><Link href="/regions/middle-east" className="hover:text-primary transition-colors">Middle East</Link></li>
+              <li><Link href="/regions/netherlands" className="hover:text-primary transition-colors">Netherlands</Link></li>
               <li><Link href="/regions" className="hover:text-primary transition-colors font-medium text-xs">All Regions →</Link></li>
             </ul>
           </div>

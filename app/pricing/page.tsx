@@ -29,6 +29,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.yagacalls.com/pricing",
   },
+  openGraph: {
+    title: "Yaga Calls Pricing — Premium Plans & Discounts",
+    description: "Compare Yaga Calls discounted premium crypto signal plans with Telegram onboarding, market analysis, structured setup notes, and risk-managed trading context.",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=Pricing%20Plans&subtitle=Quarterly%2C%20Half-Yearly%20%26%20Yearly%20Premium%20Access", width: 1200, height: 630, alt: "Yaga Calls Pricing Plans" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls Pricing — Premium Plans & Discounts",
+    description: "Compare Yaga Calls discounted premium crypto signal plans with Telegram onboarding, market analysis, structured setup notes, and risk-managed trading context.",
+    images: ["https://www.yagacalls.com/api/og?title=Pricing%20Plans&subtitle=Quarterly%2C%20Half-Yearly%20%26%20Yearly%20Premium%20Access"],
+  },
 };
 
 export default function PricingPage() {

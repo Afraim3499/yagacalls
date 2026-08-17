@@ -1,0 +1,3 @@
+[submodule "yaga-content-system"]
+	path = yaga-content-system
+	url = https://github.com/Afraim3499/yagacontentsystem.git

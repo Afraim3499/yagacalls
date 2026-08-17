@@ -1,5 +1,31 @@
 import { RegionalPageData } from "@/types/content";
 
+// IMPORTANT — READ BEFORE EDITING CONTENT BELOW:
+//
+// Editing the long-form fields on most of these entries (introSummary,
+// marketContext, contentSections, faqs, etc.) will NOT change what
+// visitors see on the live site. Next.js resolves a literal route segment
+// (e.g. app/regions/dubai/page.tsx) before it ever falls through to the
+// [slug] catch-all route that reads this file, so any slug with its own
+// folder under app/regions/<slug>/ is rendered entirely from that folder's
+// hand-written page.tsx — this file's copy for that slug is dead weight.
+//
+// As of this comment, that applies to every slug EXCEPT "middle-east" and
+// "netherlands", which have no app/regions/<slug>/ folder and are genuinely
+// rendered live through app/regions/[slug]/page.tsx + this data.
+//
+// What IS live for every entry regardless of shadowing: `slug`,
+// `regionName`, and `relatedRegions` — the static-folder pages import this
+// array purely to power the "Related Regions" cross-link widget
+// (components/regions/RelatedRegions.tsx). So keep those three fields
+// accurate even on "shadowed" entries; the rest is safe to ignore or
+// eventually delete, but isn't touched here to avoid breaking that
+// cross-linking without a broader content-architecture pass.
+//
+// Known gap: "gcc" and "russia" are real, live pages (app/regions/gcc,
+// app/regions/russia) but have no entry in this array, so any other
+// region's relatedRegions list that references them (see e.g. "uae" below)
+// silently drops that link instead of rendering it.
 export const regionalPages: RegionalPageData[] = [
   {
     slug: "uae",

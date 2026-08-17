@@ -112,6 +112,7 @@ export default function RiskManagementPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/crypto-signals-with-risk-management#breadcrumb",
         "itemListElement": [
           {
@@ -130,6 +131,7 @@ export default function RiskManagementPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/crypto-signals-with-risk-management#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

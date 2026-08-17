@@ -62,6 +62,7 @@ export default function AffiliatePage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "name": "Frequently Asked Questions",
     "mainEntity": affiliateFaqs.map(faq => ({
       "@type": "Question",
       "name": faq.question,
@@ -76,6 +77,7 @@ export default function AffiliatePage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "name": "Breadcrumbs",
     "itemListElement": [
       {
         "@type": "ListItem",

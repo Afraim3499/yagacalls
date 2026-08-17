@@ -34,7 +34,10 @@ export function createOrganizationSchema() {
       }
     ],
     sameAs: [
-      BRAND_CONFIG.officialTelegram
+      BRAND_CONFIG.officialTelegramChannel,
+      BRAND_CONFIG.officialX,
+      BRAND_CONFIG.officialLinkedIn,
+      BRAND_CONFIG.officialBinanceSquare
     ]
   };
 }

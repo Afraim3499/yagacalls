@@ -112,6 +112,7 @@ export default function NarrativeTradingPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/narrative-trading-crypto-signals#breadcrumb",
         "itemListElement": [
           {
@@ -130,6 +131,7 @@ export default function NarrativeTradingPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/narrative-trading-crypto-signals#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

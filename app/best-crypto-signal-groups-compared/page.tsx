@@ -119,6 +119,7 @@ export default function BestCryptoSignalGroupsComparedPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/best-crypto-signal-groups-compared#breadcrumb",
         "itemListElement": [
           {
@@ -143,6 +144,7 @@ export default function BestCryptoSignalGroupsComparedPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/best-crypto-signal-groups-compared#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

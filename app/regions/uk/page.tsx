@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "UK Crypto Signals — Yaga Calls",
     description: "Telegram-first crypto signal notes, market narrative research, risk-aware setup context, selected proof examples, and manual onboarding for serious UK traders.",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=UK%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Telegram-first%20crypto%20signal%20notes%2C%20market%20narrative%20research%2C%20risk-aware%20setup%20context%2C%20selected%20proof%20examples%2C%20and%20manual%20onboarding%20for%20serious%20UK%20traders.", width: 1200, height: 630, alt: "UK Crypto Signals — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "UK Crypto Signals — Yaga Calls",
+    description: "Telegram-first crypto signal notes, market narrative research, risk-aware setup context, selected proof examples, and manual onboarding for serious UK traders.",
+    images: ["https://www.yagacalls.com/api/og?title=UK%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Telegram-first%20crypto%20signal%20notes%2C%20market%20narrative%20research%2C%20risk-aware%20setup%20context%2C%20selected%20proof%20examples%2C%20and%20manual%20onboarding%20for%20serious%20UK%20traders."],
   }
 };
 
@@ -88,6 +95,7 @@ export default function UKPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/regions/uk#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
@@ -97,6 +105,7 @@ export default function UKPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/regions/uk#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

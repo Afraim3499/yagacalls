@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GCC Crypto Signals — Yaga Calls",
     description: "Premium Telegram crypto signal notes, narrative research, risk context, and manual onboarding for serious traders across the Gulf region.",
+    images: [{ url: "https://www.yagacalls.com/api/og?title=GCC%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Premium%20Telegram%20crypto%20signal%20notes%2C%20narrative%20research%2C%20risk%20context%2C%20and%20manual%20onboarding%20for%20serious%20traders%20across%20the%20Gulf%20region.", width: 1200, height: 630, alt: "GCC Crypto Signals — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GCC Crypto Signals — Yaga Calls",
+    description: "Premium Telegram crypto signal notes, narrative research, risk context, and manual onboarding for serious traders across the Gulf region.",
+    images: ["https://www.yagacalls.com/api/og?title=GCC%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Premium%20Telegram%20crypto%20signal%20notes%2C%20narrative%20research%2C%20risk%20context%2C%20and%20manual%20onboarding%20for%20serious%20traders%20across%20the%20Gulf%20region."],
   }
 };
 
@@ -93,6 +100,7 @@ export default function GCCPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/regions/gcc#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
@@ -102,6 +110,7 @@ export default function GCCPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/regions/gcc#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",

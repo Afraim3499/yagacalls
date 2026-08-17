@@ -63,6 +63,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Education",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "12 min",
     featuredImage: "/images/blog-best-crypto-signals.webp",
     featuredImageAlt: "Professional crypto trading desk showing highly detailed candlestick charts and mathematical risk metrics for evaluating signals",
@@ -103,6 +108,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "10 min",
     featuredImage: "/images/blog-trustworthy-telegram-alerts.webp",
     featuredImageAlt: "Close up of a smartphone displaying real-time cryptocurrency trading alerts and signals on a secure Telegram message feed",
@@ -142,6 +152,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Beginner",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "11 min",
     featuredImage: "/images/blog-beginner-crypto-trading.webp",
     featuredImageAlt: "A beginner trader learning technical analysis by analyzing crypto signal charts on a laptop inside a clean workspace",
@@ -181,6 +196,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "8 min",
     featuredImage: "/images/blog-stop-loss-capital-preservation.webp",
     featuredImageAlt: "A financial chart illustrating a protective stop-loss level invalidating a trade to preserve capital from a sudden market drawdown",
@@ -219,6 +239,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Analysis",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "12 min",
     featuredImage: "/images/blog-narrative-capital-rotation.webp",
     featuredImageAlt: "Ecosystem capital rotation map tracking volume surges in AI, DePIN, and RWA narrative altcoin sectors",
@@ -258,6 +283,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Analysis",
     datePublished: "2026-05-15",
     dateModified: "2026-05-19",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "9 min",
     featuredImage: "/images/blog-sui-breakout-case-study.webp",
     featuredImageAlt: "A detailed technical analysis chart showcasing the SUI breakout accumulation range and European session buy volume spikes",
@@ -490,6 +520,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "10 min",
     featuredImage: "/images/nigeria-p2p-crypto-hedging.png",
     featuredImageAlt: "African trader using smartphone displaying P2P crypto exchange transactions and currency hedging in Lagos",
@@ -523,6 +558,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Analysis",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "10 min",
     featuredImage: "/images/polyx-rwa-tokenization-breakout.png",
     featuredImageAlt: "Digital asset tokenization diagram displaying institutional real-world assets on Polymesh blockchain network",
@@ -556,6 +596,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Education",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "12 min",
     featuredImage: "/images/crypto-four-adoption-funnels.png",
     featuredImageAlt: "A sleek infographic diagram illustrating the four global crypto search intent funnels: Research, Infrastructure, Access, and Monitoring",
@@ -590,6 +635,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "11 min",
     featuredImage: "/images/google-trends-narrative-discovery.png",
     featuredImageAlt: "Quantitative trader analyzing Google Trends search volume breakout charts and social sentiment momentum metrics",
@@ -623,6 +673,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Beginner",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "9 min",
     featuredImage: "/images/cold-wallet-custody-security.png",
     featuredImageAlt: "Hardware cold wallet device placed beside encrypted digital security key and financial risk protection charts",
@@ -656,6 +711,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     category: "Strategy",
     datePublished: "2026-08-09",
     dateModified: "2026-08-09",
+    author: {
+      name: "Yaga Calls Research Desk",
+      type: "Organization",
+      sameAs: "https://www.yagacalls.com"
+    },
     readingTime: "10 min",
     featuredImage: "/images/fear-greed-sentiment-structure.png",
     featuredImageAlt: "Market sentiment Fear and Greed meter alongside technical candlestick charts and order flow indicators",

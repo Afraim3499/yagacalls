@@ -17,5 +17,12 @@ export const BRAND_CONFIG = {
   officialTelegramSafety: "Use only official Yaga Calls links from the website. Avoid fake admins, random DMs, copied logos, unofficial payment requests, and guaranteed-profit claims.",
   siteUrl: "https://www.yagacalls.com",
   officialTelegram: "https://t.me/+JFf8kBf01mg3OTg1",
-  officialEmail: "partner@yagacalls.com"
+  officialEmail: "partner@yagacalls.com",
+  // Permanent, public brand profile URLs — used for schema.org sameAs / entity
+  // consolidation. Kept separate from officialTelegram above, which is a
+  // rotatable invite link used for "Join Free Telegram" CTAs across the site.
+  officialTelegramChannel: "https://t.me/yagacalls",
+  officialX: "https://x.com/Yagacalls",
+  officialLinkedIn: "https://www.linkedin.com/company/yagacalls",
+  officialBinanceSquare: "https://www.binance.com/en/square/profile/square-creator-c8c5892a6ad3"
 };

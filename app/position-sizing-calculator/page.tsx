@@ -107,6 +107,7 @@ export default function PositionSizingCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/position-sizing-calculator#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
@@ -116,6 +117,7 @@ export default function PositionSizingCalculatorPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/position-sizing-calculator#faq",
         "mainEntity": faqs.map(f => ({
           "@type": "Question",

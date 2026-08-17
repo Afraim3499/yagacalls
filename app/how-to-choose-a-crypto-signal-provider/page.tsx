@@ -122,6 +122,7 @@ export default function HowToChooseProviderPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "name": "Breadcrumbs",
         "@id": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider#breadcrumb",
         "itemListElement": [
           {
@@ -146,6 +147,7 @@ export default function HowToChooseProviderPage() {
       },
       {
         "@type": "FAQPage",
+        "name": "Frequently Asked Questions",
         "@id": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider#faq",
         "mainEntity": faqs.map(faq => ({
           "@type": "Question",
