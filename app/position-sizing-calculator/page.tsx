@@ -7,7 +7,7 @@ import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import PositionSizingCalculator from "@/components/tools/PositionSizingCalculator";
-import { createHowToSchema } from "@/lib/schema";
+import { createHowToSchema, createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 import {
   ShieldCheck,
   Target,
@@ -112,13 +112,13 @@ export default function PositionSizingCalculatorPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/position-sizing-calculator#webpage",
-        "url": "https://www.yagacalls.com/position-sizing-calculator",
-        "name": "Crypto Position Sizing Calculator | Risk & Stop-Loss Tool",
-        "description": "Calculate crypto trade size from account equity, risk, and stop distance.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" },
-        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] }
+        ...createWebPageSchema({
+          title: "Crypto Position Sizing Calculator | Risk & Stop-Loss Tool",
+          description: "Calculate crypto trade size from account equity, risk, and stop distance.",
+          url: "https://www.yagacalls.com/position-sizing-calculator",
+          speakableSelectors: [".faq-answer"]
+        }),
+        "@context": undefined
       },
       {
         "@type": "SoftwareApplication",
@@ -130,24 +130,16 @@ export default function PositionSizingCalculatorPage() {
         "author": { "@type": "Person", "name": "Dmitry Voronov", "jobTitle": "Senior On-Chain & Data Analyst", "url": "https://www.yagacalls.com/authors/dmitry-voronov" }
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/position-sizing-calculator#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.yagacalls.com/academy" },
-          { "@type": "ListItem", "position": 3, "name": "Position Sizing Calculator", "item": "https://www.yagacalls.com/position-sizing-calculator" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Tools", item: "/academy" },
+          { name: "Position Sizing Calculator", item: "/position-sizing-calculator" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/position-sizing-calculator#faq",
-        "mainEntity": faqs.map(f => ({
-          "@type": "Question",
-          "name": f.question,
-          "acceptedAnswer": { "@type": "Answer", "text": f.answer }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       },
       { ...howToSchema, "@context": undefined }
     ]

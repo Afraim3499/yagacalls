@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FAQSection from "../../components/shared/FAQSection";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Signal Proof & Historical Results",
@@ -86,33 +87,19 @@ export default function ProofPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/proof#webpage",
-        "url": "https://www.yagacalls.com/proof",
-        "name": "Crypto Signals Proof & Selected Results | Yaga Calls",
-        "description": "View selected Yaga Calls crypto signal examples and historical proof snapshots. Educational proof only. Past performance does not guarantee future results.",
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        }
+        ...createWebPageSchema({
+          title: "Crypto Signals Proof & Selected Results | Yaga Calls",
+          description: "View selected Yaga Calls crypto signal examples and historical proof snapshots. Educational proof only. Past performance does not guarantee future results.",
+          url: "https://www.yagacalls.com/proof"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/proof#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Proof",
-            "item": "https://www.yagacalls.com/proof"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Proof", item: "/proof" }
+        ]),
+        "@context": undefined
       },
       {
         "@type": "ItemList",
@@ -126,17 +113,8 @@ export default function ProofPage() {
         }))
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/proof#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

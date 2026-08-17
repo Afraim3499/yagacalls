@@ -6,7 +6,7 @@ import FAQSection from "@/components/shared/FAQSection";
 import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
-import { createHowToSchema } from "@/lib/schema";
+import { createHowToSchema, createWebPageSchema, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 import {
   ShieldCheck,
   Target,
@@ -113,42 +113,38 @@ export default function StopLossPillarPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#webpage",
-        "url": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto",
-        "name": "How to Set Stop-Losses in Crypto: Invalidation & Volatility",
-        "description": "The definitive guide to crypto stop-loss placement, covering invalidation, structure, and position sizing.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" },
-        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] }
+        ...createWebPageSchema({
+          title: "How to Set Stop-Losses in Crypto: Invalidation & Volatility",
+          description: "The definitive guide to crypto stop-loss placement, covering invalidation, structure, and position sizing.",
+          url: "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto",
+          speakableSelectors: [".faq-answer"]
+        }),
+        "@context": undefined
       },
       {
-        "@type": "Article",
-        "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#article",
-        "headline": "How to Set Stop-Losses in Crypto",
-        "description": "Learn the professional method for setting stops using market structure and invalidation logic.",
-        "author": { "@type": "Person", "name": "Dmitry Voronov", "jobTitle": "Senior On-Chain & Data Analyst", "url": "https://www.yagacalls.com/authors/dmitry-voronov" },
-        "publisher": { "@type": "Organization", "name": "Yaga Calls" },
-        "mainEntityOfPage": { "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#webpage" }
+        ...createArticleSchema({
+          title: "How to Set Stop-Losses in Crypto",
+          description: "Learn the professional method for setting stops using market structure and invalidation logic.",
+          url: "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto",
+          datePublished: "2026-05-15",
+          authorName: "Dmitry Voronov",
+          authorType: "Person",
+          authorJobTitle: "Senior On-Chain & Data Analyst",
+          authorUrl: "https://www.yagacalls.com/authors/dmitry-voronov"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.yagacalls.com/academy" },
-          { "@type": "ListItem", "position": 3, "name": "How to Set Stop-Losses", "item": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/academy" },
+          { name: "How to Set Stop-Losses", item: "/how-to-set-stop-losses-in-crypto" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#faq",
-        "mainEntity": faqs.map(f => ({
-          "@type": "Question",
-          "name": f.question,
-          "acceptedAnswer": { "@type": "Answer", "text": f.answer }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       },
       { ...howToSchema, "@context": undefined }
     ]

@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "The Trading Method: Narrative & Risk Control",
@@ -79,14 +80,12 @@ export default function MethodPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/method#webpage",
-        "url": "https://www.yagacalls.com/method",
-        "name": "The Yaga Calls Method",
-        "description": "Learn how the Yaga Calls method uses market narratives, technical structure, entry zones, targets, invalidation, and risk management before sharing crypto signal notes.",
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        }
+        ...createWebPageSchema({
+          title: "The Yaga Calls Method",
+          description: "Learn how the Yaga Calls method uses market narratives, technical structure, entry zones, targets, invalidation, and risk management before sharing crypto signal notes.",
+          url: "https://www.yagacalls.com/method"
+        }),
+        "@context": undefined
       },
       {
         "@type": "HowTo",
@@ -132,36 +131,15 @@ export default function MethodPage() {
         ]
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/method#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Method",
-            "item": "https://www.yagacalls.com/method"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Method", item: "/method" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/method#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

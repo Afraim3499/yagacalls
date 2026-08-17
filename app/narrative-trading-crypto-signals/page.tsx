@@ -8,6 +8,7 @@ import FAQSection from "../../components/shared/FAQSection";
 import Link from "next/link";
 import { X, ArrowRight, MousePointer2, BarChart3, Users, LineChart } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Narrative Trading Crypto Signals | Yaga Calls",
@@ -76,15 +77,16 @@ export default function NarrativeTradingPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/narrative-trading-crypto-signals#webpage",
-        "url": "https://www.yagacalls.com/narrative-trading-crypto-signals",
-        "name": "Narrative Trading Crypto Signals | Yaga Calls",
-        "description": "Yaga Calls uses narrative-driven crypto signal research to track sector rotations, catalysts, market stories, technical structure, entries, targets, and risk context.",
-        "author": { "@type": "Person", "name": "Elena Soto", "jobTitle": "Market Sentiment & Narrative Analyst", "url": "https://www.yagacalls.com/authors/elena-soto" },
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        }
+        ...createWebPageSchema({
+          title: "Narrative Trading Crypto Signals | Yaga Calls",
+          description: "Yaga Calls uses narrative-driven crypto signal research to track sector rotations, catalysts, market stories, technical structure, entries, targets, and risk context.",
+          url: "https://www.yagacalls.com/narrative-trading-crypto-signals",
+          authorName: "Elena Soto",
+          authorType: "Person",
+          authorJobTitle: "Market Sentiment & Narrative Analyst",
+          authorUrl: "https://www.yagacalls.com/authors/elena-soto"
+        }),
+        "@context": undefined
       },
       {
         "@type": "HowTo",
@@ -120,36 +122,15 @@ export default function NarrativeTradingPage() {
         ]
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/narrative-trading-crypto-signals#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Narrative Trading Crypto Signals",
-            "item": "https://www.yagacalls.com/narrative-trading-crypto-signals"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Narrative Trading Crypto Signals", item: "/narrative-trading-crypto-signals" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/narrative-trading-crypto-signals#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

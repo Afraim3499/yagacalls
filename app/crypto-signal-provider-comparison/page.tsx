@@ -28,6 +28,7 @@ import {
   Globe
 } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Crypto Signal Provider Comparison | Free, Bots, VIP & Yaga",
@@ -99,70 +100,37 @@ export default function ComparisonPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/crypto-signal-provider-comparison#webpage",
-        "url": "https://www.yagacalls.com/crypto-signal-provider-comparison",
-        "name": "Crypto Signal Provider Comparison: Free Groups, Bots, VIP Groups and Yaga Calls",
-        "description": "Compare crypto signal providers by method, proof, Telegram delivery, risk management, pricing, onboarding, bots, free groups, VIP groups and Yaga Calls.",
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        }
+        ...createWebPageSchema({
+          title: "Crypto Signal Provider Comparison: Free Groups, Bots, VIP Groups and Yaga Calls",
+          description: "Compare crypto signal providers by method, proof, Telegram delivery, risk management, pricing, onboarding, bots, free groups, VIP groups and Yaga Calls.",
+          url: "https://www.yagacalls.com/crypto-signal-provider-comparison"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "Article",
-        "@id": "https://www.yagacalls.com/crypto-signal-provider-comparison#article",
-        "headline": "Crypto Signal Provider Comparison",
-        "description": "A side-by-side comparison of different crypto signal provider models, features, and risk levels.",
-        "author": { "@type": "Person", "name": "Liam Gallagher-Jones", "jobTitle": "Tokenomics & Governance Researcher", "url": "https://www.yagacalls.com/authors/liam-gallagher-jones" },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Yaga Calls",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.yagacalls.com/logo.png"
-          }
-        },
-        "mainEntityOfPage": {
-          "@id": "https://www.yagacalls.com/crypto-signal-provider-comparison#webpage"
-        }
+        ...createArticleSchema({
+          title: "Crypto Signal Provider Comparison",
+          description: "A side-by-side comparison of different crypto signal provider models, features, and risk levels.",
+          url: "https://www.yagacalls.com/crypto-signal-provider-comparison",
+          datePublished: "2026-05-10",
+          authorName: "Liam Gallagher-Jones",
+          authorType: "Person",
+          authorJobTitle: "Tokenomics & Governance Researcher",
+          authorUrl: "https://www.yagacalls.com/authors/liam-gallagher-jones"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/crypto-signal-provider-comparison#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Guides",
-            "item": "https://www.yagacalls.com/academy"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Crypto Signal Provider Comparison",
-            "item": "https://www.yagacalls.com/crypto-signal-provider-comparison"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/academy" },
+          { name: "Crypto Signal Provider Comparison", item: "/crypto-signal-provider-comparison" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/crypto-signal-provider-comparison#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

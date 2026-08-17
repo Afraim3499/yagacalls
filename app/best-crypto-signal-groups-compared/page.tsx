@@ -25,6 +25,7 @@ import {
   MessageSquare
 } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Best Crypto Signal Groups Compared | Free, Paid & Telegram",
@@ -96,70 +97,37 @@ export default function BestCryptoSignalGroupsComparedPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/best-crypto-signal-groups-compared#webpage",
-        "url": "https://www.yagacalls.com/best-crypto-signal-groups-compared",
-        "name": "Best Crypto Signal Groups Compared: Free, Paid, Telegram and Risk-Managed Groups",
-        "description": "Compare free, paid, Telegram, pump-style and risk-managed crypto signal groups. Learn what to avoid and how to evaluate signal groups safely.",
-        "isPartOf": {
-          "@id": "https://www.yagacalls.com/#website"
-        }
+        ...createWebPageSchema({
+          title: "Best Crypto Signal Groups Compared: Free, Paid, Telegram and Risk-Managed Groups",
+          description: "Compare free, paid, Telegram, pump-style and risk-managed crypto signal groups. Learn what to avoid and how to evaluate signal groups safely.",
+          url: "https://www.yagacalls.com/best-crypto-signal-groups-compared"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "Article",
-        "@id": "https://www.yagacalls.com/best-crypto-signal-groups-compared#article",
-        "headline": "Best Crypto Signal Groups Compared",
-        "description": "A serious comparison of free, paid, Telegram, pump-style, and risk-managed crypto signal groups.",
-        "author": { "@type": "Person", "name": "Chidi Okeke", "jobTitle": "DeFi Researcher & Yield Strategist", "url": "https://www.yagacalls.com/authors/chidi-okeke" },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Yaga Calls",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.yagacalls.com/logo.png"
-          }
-        },
-        "mainEntityOfPage": {
-          "@id": "https://www.yagacalls.com/best-crypto-signal-groups-compared#webpage"
-        }
+        ...createArticleSchema({
+          title: "Best Crypto Signal Groups Compared",
+          description: "A serious comparison of free, paid, Telegram, pump-style, and risk-managed crypto signal groups.",
+          url: "https://www.yagacalls.com/best-crypto-signal-groups-compared",
+          datePublished: "2026-05-15",
+          authorName: "Chidi Okeke",
+          authorType: "Person",
+          authorJobTitle: "DeFi Researcher & Yield Strategist",
+          authorUrl: "https://www.yagacalls.com/authors/chidi-okeke"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/best-crypto-signal-groups-compared#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.yagacalls.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Guides",
-            "item": "https://www.yagacalls.com/academy"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Best Crypto Signal Groups Compared",
-            "item": "https://www.yagacalls.com/best-crypto-signal-groups-compared"
-          }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/academy" },
+          { name: "Best Crypto Signal Groups Compared", item: "/best-crypto-signal-groups-compared" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/best-crypto-signal-groups-compared#faq",
-        "mainEntity": faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

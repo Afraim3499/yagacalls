@@ -27,6 +27,7 @@ import {
   BarChart3
 } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Crypto Risk Management | Position Sizing, Stops & Survival",
@@ -97,41 +98,37 @@ export default function RiskManagementPillarPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/crypto-risk-management#webpage",
-        "url": "https://www.yagacalls.com/crypto-risk-management",
-        "name": "Crypto Risk Management: Position Sizing, Stops & Survival",
-        "description": "The definitive guide to crypto risk management, covering position sizing, stop-losses, and account survival.",
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
+        ...createWebPageSchema({
+          title: "Crypto Risk Management: Position Sizing, Stops & Survival",
+          description: "The definitive guide to crypto risk management, covering position sizing, stop-losses, and account survival.",
+          url: "https://www.yagacalls.com/crypto-risk-management"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "Article",
-        "@id": "https://www.yagacalls.com/crypto-risk-management#article",
-        "headline": "Crypto Risk Management: The Discipline of Survival",
-        "description": "Learn how to protect your trading account using position sizing, stops, and invalidation logic.",
-        "author": { "@type": "Person", "name": "Dmitry Voronov", "jobTitle": "Senior On-Chain & Data Analyst", "url": "https://www.yagacalls.com/authors/dmitry-voronov" },
-        "publisher": { "@type": "Organization", "name": "Yaga Calls" },
-        "mainEntityOfPage": { "@id": "https://www.yagacalls.com/crypto-risk-management#webpage" }
+        ...createArticleSchema({
+          title: "Crypto Risk Management: The Discipline of Survival",
+          description: "Learn how to protect your trading account using position sizing, stops, and invalidation logic.",
+          url: "https://www.yagacalls.com/crypto-risk-management",
+          datePublished: "2026-05-15",
+          authorName: "Dmitry Voronov",
+          authorType: "Person",
+          authorJobTitle: "Senior On-Chain & Data Analyst",
+          authorUrl: "https://www.yagacalls.com/authors/dmitry-voronov"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/crypto-risk-management#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.yagacalls.com/academy" },
-          { "@type": "ListItem", "position": 3, "name": "Crypto Risk Management", "item": "https://www.yagacalls.com/crypto-risk-management" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Guides", item: "/academy" },
+          { name: "Crypto Risk Management", item: "/crypto-risk-management" }
+        ]),
+        "@context": undefined
       },
       {
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions",
-        "@id": "https://www.yagacalls.com/crypto-risk-management#faq",
-        "mainEntity": faqs.map(f => ({
-          "@type": "Question",
-          "name": f.question,
-          "acceptedAnswer": { "@type": "Answer", "text": f.answer }
-        }))
+        ...createFAQSchema(faqs),
+        "@context": undefined
       }
     ]
   };

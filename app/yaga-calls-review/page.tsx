@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import CommunityReviewsSection from "@/components/reviews/CommunityReviewsSection";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Yaga Calls Member Reviews & Community Feedback | Official Hub",
@@ -64,22 +65,23 @@ export default function YagaCallsReviewPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebPage",
-        "@id": "https://www.yagacalls.com/yaga-calls-review#webpage",
-        "url": "https://www.yagacalls.com/yaga-calls-review",
-        "name": "Yaga Calls Member Reviews & Community Feedback",
-        "description": "Verified member reviews and community ratings for Yaga Calls crypto signals and research.",
-        "author": { "@type": "Person", "name": "Elena Soto", "jobTitle": "Market Sentiment & Narrative Analyst", "url": "https://www.yagacalls.com/authors/elena-soto" },
-        "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
+        ...createWebPageSchema({
+          title: "Yaga Calls Member Reviews & Community Feedback",
+          description: "Verified member reviews and community ratings for Yaga Calls crypto signals and research.",
+          url: "https://www.yagacalls.com/yaga-calls-review",
+          authorName: "Elena Soto",
+          authorType: "Person",
+          authorJobTitle: "Market Sentiment & Narrative Analyst",
+          authorUrl: "https://www.yagacalls.com/authors/elena-soto"
+        }),
+        "@context": undefined
       },
       {
-        "@type": "BreadcrumbList",
-        "name": "Breadcrumbs",
-        "@id": "https://www.yagacalls.com/yaga-calls-review#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yagacalls.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Community Reviews", "item": "https://www.yagacalls.com/yaga-calls-review" }
-        ]
+        ...createBreadcrumbSchema([
+          { name: "Home", item: "/" },
+          { name: "Community Reviews", item: "/yaga-calls-review" }
+        ]),
+        "@context": undefined
       }
     ]
   };
