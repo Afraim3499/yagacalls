@@ -15,8 +15,8 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions",
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 max-w-5xl mx-auto">
           {faqs.map((faq, i) => (
             <div key={i} className="space-y-3">
-              <h3 className="text-xl font-bold tracking-tight leading-tight">{faq.question}</h3>
-              <p className="text-text-muted text-sm leading-relaxed">{faq.answer}</p>
+              <h3 className="faq-question text-xl font-bold tracking-tight leading-tight">{faq.question}</h3>
+              <p className="faq-answer text-text-muted text-sm leading-relaxed">{faq.answer}</p>
             </div>
           ))}
         </div>

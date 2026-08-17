@@ -30,11 +30,12 @@ import {
   Eye
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
-import { 
-  createWebPageSchema, 
-  createFAQSchema, 
+import {
+  createWebPageSchema,
+  createFAQSchema,
   createBreadcrumbSchema,
-  createOrganizationSchema
+  createOrganizationSchema,
+  createHowToSchema
 } from "@/lib/schema";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
 
@@ -104,7 +105,21 @@ export default function LeverageTradingCalculatorPage() {
     description: "Educational tool to estimate crypto trade margin, exposure, and risk.",
     url: CANONICAL_URL,
     datePublished: "2024-05-16",
-    dateModified: "2024-05-16"
+    dateModified: "2024-05-16",
+    speakableSelectors: [".faq-answer"]
+  });
+
+  const howToSchema = createHowToSchema({
+    name: "How to Use the Crypto Leverage Trading Calculator",
+    description: "Estimate margin required, notional exposure, PnL, and leverage risk for a crypto trade in five steps.",
+    url: CANONICAL_URL,
+    steps: [
+      { name: "Choose direction and account size", text: "Select long or short, then enter your account size in USD." },
+      { name: "Enter entry price and leverage", text: "Enter your planned entry price and the leverage multiplier you're considering." },
+      { name: "Set position size", text: "Enter your position size either as an asset quantity or a total notional value." },
+      { name: "Enter stop-loss and target", text: "Enter your stop-loss price and, optionally, a target price." },
+      { name: "Review margin, PnL, and risk warnings", text: "Review the estimated margin required, potential PnL, return on margin, and any leverage-risk warnings before trading." }
+    ]
   });
 
   const appSchema = {
@@ -133,6 +148,7 @@ export default function LeverageTradingCalculatorPage() {
       <JsonLd data={organizationSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={howToSchema} />
 
       {/* SECTION 0 — HERO */}
       <Section className="pt-32 pb-20 md:pt-48 md:pb-24 bg-surface-deep overflow-hidden relative border-b border-line">

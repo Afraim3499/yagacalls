@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Container from "@/components/shared/Container";
 import GlowCard from "@/components/shared/GlowCard";
+import { createReviewSchema } from "@/lib/schema";
 import { Star, CheckCircle2, ThumbsUp, Plus, ShieldCheck, X, Image as ImageIcon, Loader2, MessageSquare, Upload, Check } from "lucide-react";
 const supabaseUrl = "https://ghwvwtwktnveqdqivxmy.supabase.co";
 const supabaseApiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdod3Z3dHdrdG52ZXFkcWl2eG15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzNTY0NjIsImV4cCI6MjEwMDkzMjQ2Mn0.bka5GMEdehBvPgQ_AVJ6xZfEt9k17U0hVUYLMKeFKB4";
@@ -239,40 +240,20 @@ export default function CommunityReviewsSection() {
     ? (reviews.reduce((acc, r) => acc + (r.rating || 5), 0) / totalCount).toFixed(1)
     : null;
 
-  const googleSchema = totalCount > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Yaga Calls VIP Crypto Signals & Community Research",
-    "image": "https://www.yagacalls.com/og-image.png",
-    "description": "Verified member reviews, trade setup notes, and Telegram crypto signals by Yaga Calls.",
-    "brand": {
-      "@type": "Brand",
-      "name": "Yaga Calls"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": avgScore || "5.0",
-      "reviewCount": totalCount.toString(),
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": reviews.map(r => ({
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": r.author_name || "Verified Member"
-      },
-      "datePublished": r.created_at ? r.created_at.substring(0, 10) : "2026-08-07",
-      "reviewBody": r.content,
-      "name": r.title,
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": (r.rating || 5).toString(),
-        "bestRating": "5",
-        "worstRating": "1"
-      }
+  const googleSchema = totalCount > 0 ? createReviewSchema({
+    productName: "Yaga Calls VIP Crypto Signals & Community Research",
+    image: "https://www.yagacalls.com/og-image.png",
+    description: "Verified member reviews, trade setup notes, and Telegram crypto signals by Yaga Calls.",
+    averageRating: avgScore || "5.0",
+    reviewCount: totalCount,
+    reviews: reviews.map(r => ({
+      authorName: r.author_name || "Verified Member",
+      datePublished: r.created_at ? r.created_at.substring(0, 10) : "2026-08-07",
+      reviewBody: r.content,
+      reviewTitle: r.title,
+      rating: r.rating || 5
     }))
-  } : null;
+  }) : null;
 
   return (
     <div id="community-reviews" className="py-16">

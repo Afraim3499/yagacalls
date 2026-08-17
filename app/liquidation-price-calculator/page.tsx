@@ -33,11 +33,12 @@ import {
   Briefcase
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
-import { 
-  createWebPageSchema, 
-  createFAQSchema, 
+import {
+  createWebPageSchema,
+  createFAQSchema,
   createBreadcrumbSchema,
-  createOrganizationSchema
+  createOrganizationSchema,
+  createHowToSchema
 } from "@/lib/schema";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
 
@@ -107,7 +108,21 @@ export default function LiquidationPriceCalculatorPage() {
     description: "Educational tool to estimate crypto liquidation levels and risk.",
     url: CANONICAL_URL,
     datePublished: "2024-05-16",
-    dateModified: "2024-05-16"
+    dateModified: "2024-05-16",
+    speakableSelectors: [".faq-answer"]
+  });
+
+  const howToSchema = createHowToSchema({
+    name: "How to Use the Crypto Liquidation Price Calculator",
+    description: "Estimate an approximate liquidation-risk reference for a leveraged crypto trade in five steps.",
+    url: CANONICAL_URL,
+    steps: [
+      { name: "Choose direction and entry price", text: "Select long or short, then enter your planned entry price." },
+      { name: "Enter leverage and maintenance margin rate", text: "Enter the leverage multiplier and the maintenance margin rate for your exchange." },
+      { name: "Set position size", text: "Enter your position size either as an asset quantity or a total notional value." },
+      { name: "Enter additional margin and stop-loss", text: "Enter any additional margin you'd add and your planned stop-loss price." },
+      { name: "Review the estimated liquidation-risk reference", text: "Review the approximate liquidation-risk price area and fee buffer, and confirm your stop-loss sits before it." }
+    ]
   });
 
   const appSchema = {
@@ -136,11 +151,12 @@ export default function LiquidationPriceCalculatorPage() {
       <JsonLd data={organizationSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={howToSchema} />
 
       {/* SECTION 0 — HERO */}
       <Section className="pt-32 pb-20 md:pt-48 md:pb-24 bg-surface-deep overflow-hidden relative border-b border-line">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,183,141,0.05)_0%,transparent_70%)] pointer-events-none" />
-        
+
         <Container>
           <div className="max-w-4xl mx-auto space-y-12 text-center relative z-10">
             <div className="space-y-4">
