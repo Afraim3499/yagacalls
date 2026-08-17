@@ -44,7 +44,7 @@ const plans = [
       "Better monthly value",
       "Deeper market research notes",
       "Priority signal delivery",
-      "Gem Book access (if available)",
+      "Gem Book access (early-stage finds)",
       "Advanced research reports"
     ],
     bestFor: "Traders who want to follow Yaga Calls through more than one short market phase.",
@@ -66,8 +66,8 @@ const plans = [
       "🎁 EXTREME OFFER: High Table + Elite Group Access",
       "⭐ EXTREME OFFER: 14 Months Access (Instead of 12)",
       "Strongest total savings & priority communication",
-      "Portfolio review (if available)",
-      "1-on-1 strategy session (if avail)",
+      "Portfolio review (1x/quarter)",
+      "1-on-1 strategy session",
       "Long-term premium context"
     ],
     bestFor: "Committed traders who already understand the method and want longer-term access.",

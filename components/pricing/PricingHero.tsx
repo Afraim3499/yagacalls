@@ -18,7 +18,7 @@ export default function PricingHero() {
               Premium Crypto Signal Plans — Limited-Time Onboarding Pricing
             </h1>
             <p className="text-xl md:text-2xl text-text-muted leading-tight">
-              Choose the Yaga Calls plan that fits your trading commitment. For a limited time, premium access is available at reduced manual onboarding pricing for serious traders.
+              Choose the Yaga Calls plan that fits your trading commitment. Premium access is currently available at reduced onboarding pricing for serious traders — future pricing may rise as Yaga Calls expands premium research, signal delivery, and member access.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <CTAButton href="https://t.me/yagacalls47" target="_blank" trackingLabel="pricing_hero_onboarding">
