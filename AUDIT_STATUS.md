@@ -286,13 +286,15 @@ worse than the gap it fixes).
     `crypto-trading-telegram-group`, and `free-vs-paid-crypto-signals` — the last 3 pages
     still on the generic fallback image from the Phase C residual gap.
 
-### 🟡 New — UX/SEO/AEO/AIO/SXO deep-audit findings (found 2026-08-17, none fixed yet)
+### 🟢 UX/SEO/AEO/AIO/SXO deep-audit findings (found 2026-08-17, items 21-26 fixed same day)
 
 Full sweep of the public site (`yagacalls.com`) requested by the user, explicitly scoped
 to exclude the critical security items above. Verified live via browser (console, network,
 raw HTML fetch) plus static codebase analysis — not guessed. CRM UX is out of scope here
 (item 16 already covers it, skipped by user choice; CRM is `noindex`, so SEO/AEO/SXO don't
-apply to it anyway).
+apply to it anyway). All 6 findings below (21-26) were fixed, verified, and deployed to
+production the same day they were found — only item 16 (CRM mobile, skipped by explicit
+user choice) remains open from this pass.
 
 21. ✅ **Done (2026-08-17).** Telegram invite link was hardcoded in 130+ places instead of
     referencing `BRAND_CONFIG.officialTelegram` (`lib/constants/brand.ts`), which existed
@@ -372,22 +374,32 @@ apply to it anyway).
     passes); `eslint` zero issues on both touched files; built HTML inspected directly
     (stripping React's SSR text-boundary comments) to confirm all 7 modules are numbered
     1–7 in the intended order and prev/next labels point to the correct neighbors.
-25. **Pricing page: highest tier's differentiator features are all hedged with
-    "(if available)"/"(if avail)."** The $700 Yearly plan lists "Gem Book access (if
-    available)," "Portfolio review (if available)," and "1-on-1 strategy session (if
-    avail)" as bullet-point features — on the page asking for the largest single
-    commitment, the exact features meant to justify the higher price are the ones
-    presented as uncertain. Either firm these up (make them standard inclusions) or drop
-    them from the bullet list if they're genuinely conditional/discretionary.
-26. **Pricing page's "LIMITED-TIME ONBOARDING OFFER" badge doesn't match the copy
-    underneath it.** The badge and hero headline both use hard urgency language
-    ("LIMITED-TIME"), but `components/pricing/ScarcitySection.tsx`'s actual explanation is
-    open-ended — prices "may change" as the business "expands," with no date, threshold,
-    or trigger given. Not a deceptive countdown-timer dark pattern (no fake clock), but
-    the mismatch between urgent framing and vague justification reads as generic
-    scarcity-marketing filler once a visitor reads both, which undercuts trust rather than
-    building it. Either give the urgency claim something concrete to point to, or soften
-    the badge language to match the honest, open-ended copy already underneath it.
+25. ✅ **Done (2026-08-17).** `components/pricing/PricingCardsGrid.tsx`'s Half-Yearly and
+    Yearly tier features were hedged with "(if available)"/"(if avail)" — on the tiers
+    asking for the biggest commitment, the exact features meant to justify the higher
+    price read as uncertain. Replaced with confident, specific phrasing: "Gem Book access
+    (early-stage finds)," "Portfolio review (1x/quarter)," "1-on-1 strategy session" (no
+    hedge). Not invented — `components/pricing/PricingCards.tsx` (an orphaned, unimported
+    earlier version of this same pricing grid, still in the repo) already used this exact
+    confident framing for these same three features, including the "1x/quarter" cadence
+    for portfolio review; this restores that framing to the live component instead of
+    fabricating a new claim.
+26. ✅ **Done (2026-08-17).** `PricingHero.tsx`'s "Limited-Time Onboarding Offer"
+    badge/headline asserted urgency with no reason attached at first contact, while
+    `ScarcitySection.tsx` (further down the same page) gives the honest, open-ended
+    explanation with no concrete date/trigger. Rather than fabricate a fake deadline to
+    "justify" the badge (which would create a real dark pattern where none currently
+    exists), paired the hero's urgency claim with the same honest reasoning already used
+    consistently elsewhere on this exact page (`PricingComparisonTable.tsx`, the pricing
+    FAQ answers): "future pricing may rise as Yaga Calls expands premium research, signal
+    delivery, and member access." Badge/headline wording left as-is — "limited-time" is
+    already an established, consistently-reasoned term across the rest of the pricing
+    page; the gap was specifically the claim arriving with no reason attached.
+    **Verified** (both items): `tsc --noEmit` clean; `npm run build` succeeds (98/98
+    pages, `validate-seo` passes); `eslint` zero issues on both touched files; built HTML
+    inspected directly to confirm zero "if available"/"if avail" strings remain anywhere,
+    the new feature copy renders correctly, and the hero's new reasoning sentence is
+    present.
 
 **Checked and found solid** (for completeness/credibility, not action items): no console
 errors on homepage/pricing/academy; branded 404 correctly returns HTTP 404 and the correct
