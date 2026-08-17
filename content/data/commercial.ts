@@ -3,6 +3,7 @@ import { LandingPageData } from "@/types/content";
 export const commercialPages: LandingPageData[] = [
   {
     slug: "best-crypto-signals-group",
+    authorSlug: "liam-gallagher-jones",
     title: "Best Crypto Signals Group",
     displayTitle: "Best Crypto Signals Group: What Serious Traders Should Look For",
     metaTitle: "Best Crypto Signals Group 2026 | Reliable Telegram Trading | Yaga Calls",
@@ -93,6 +94,7 @@ export const commercialPages: LandingPageData[] = [
   },
   {
     slug: "premium-crypto-signals-telegram",
+    authorSlug: "liam-gallagher-jones",
     title: "Premium Crypto Signals Telegram",
     displayTitle: "Premium Crypto Signals on Telegram With Manual Onboarding",
     metaTitle: "Premium Crypto Signals Telegram | Exclusive Market Analysis | Yaga Calls",
@@ -175,6 +177,7 @@ export const commercialPages: LandingPageData[] = [
   },
   {
     slug: "crypto-signals-with-proof",
+    authorSlug: "chen-wei",
     title: "Crypto Signals With Proof",
     displayTitle: "Crypto Signals With Proof: How to Read Historical Examples",
     metaTitle: "Crypto Signals With Proof | Verified Historical Trading Results | Yaga Calls",
@@ -339,6 +342,7 @@ export const commercialPages: LandingPageData[] = [
   },
   {
     slug: "free-vs-paid-crypto-signals",
+    authorSlug: "aisha-al-mansoori",
     title: "Free vs Paid Crypto Signals",
     displayTitle: "Free vs Paid Crypto Signals: What Traders Should Know",
     metaTitle: "Free vs Paid Crypto Signals | Which Is Right for You? | Yaga Calls",
@@ -421,6 +425,7 @@ export const commercialPages: LandingPageData[] = [
   },
   {
     slug: "binance-affiliate-vs-yaga-calls",
+    authorSlug: "aisha-al-mansoori",
     title: "Binance Affiliate vs Yaga Calls Partner Program",
     displayTitle: "Binance Affiliate Program vs Yaga Calls: Highest Crypto Commission 2026",
     metaTitle: "Binance Affiliate vs Yaga Calls Partner Program | 2026 Comparison",
@@ -483,6 +488,7 @@ export const commercialPages: LandingPageData[] = [
   },
   {
     slug: "crypto-affiliate-programs-compared",
+    authorSlug: "aisha-al-mansoori",
     title: "Best Crypto Affiliate Programs Compared 2026",
     displayTitle: "Best Crypto Affiliate & Referral Programs Compared (2026)",
     metaTitle: "Best Crypto Affiliate Programs 2026 | Top Referral Networks Compared",

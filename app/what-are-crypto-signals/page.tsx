@@ -3,6 +3,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import FAQSection from "@/components/shared/FAQSection";
+import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import SignalCheck from "@/components/shared/SignalCheck";
 import Link from "next/link";
@@ -109,10 +110,7 @@ export default function WhatAreCryptoSignalsPage() {
         "@id": "https://www.yagacalls.com/what-are-crypto-signals#article",
         "headline": "What Are Crypto Signals? A Complete Guide",
         "description": "Learn what crypto signals are, how entries, targets, stop-losses and invalidation work, and how to evaluate signal groups without falling for hype.",
-        "author": {
-          "@type": "Organization",
-          "name": "Yaga Calls"
-        },
+        "author": { "@type": "Person", "name": "Sarah Jenkins", "jobTitle": "Lead Technical & Creative Writer", "url": "https://www.yagacalls.com/authors/sarah-jenkins" },
         "publisher": {
           "@type": "Organization",
           "name": "Yaga Calls",
@@ -191,6 +189,7 @@ export default function WhatAreCryptoSignalsPage() {
                   What Are <br />
                   <span className="text-primary">Crypto Signals?</span>
                 </h1>
+                <AuthorByline authorSlug="sarah-jenkins" className="mt-4 justify-center lg:justify-start" />
               </div>
 
               <div className="space-y-6">

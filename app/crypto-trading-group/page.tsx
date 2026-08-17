@@ -43,9 +43,12 @@ import {
   createArticleSchema
 } from "@/lib/schema";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { getAuthorBySlug } from "@/content/data/authors";
+import AuthorByline from "@/components/blog/AuthorByline";
 
 const SITE_URL = BRAND_CONFIG.siteUrl;
 const CANONICAL_URL = `${SITE_URL}/crypto-trading-group`;
+const PAGE_AUTHOR_SLUG = "chen-wei";
 
 export const metadata: Metadata = {
   title: "Crypto Trading Group | How to Choose a Serious Community",
@@ -58,6 +61,7 @@ export const metadata: Metadata = {
     description: "A serious guide to crypto trading groups: what to look for, what to avoid, Telegram safety, signal structure, risk management and Yaga Calls’ approach.",
     url: CANONICAL_URL,
     type: "article",
+    authors: [`${SITE_URL}/authors/${PAGE_AUTHOR_SLUG}`],
   },
 };
 
@@ -113,12 +117,20 @@ export default function CryptoTradingGroupPage() {
     dateModified: "2024-05-16"
   });
 
+  const author = getAuthorBySlug(PAGE_AUTHOR_SLUG);
+  const authorProfileUrl = author ? `${SITE_URL}/authors/${author.slug}` : undefined;
+
   const articleSchema = createArticleSchema({
     title: "Crypto Trading Group: How to Choose a Serious Risk-Aware Trading Community",
     description: "Learn how to choose a crypto trading group with real structure, risk awareness, Telegram safety, and market context.",
     url: CANONICAL_URL,
     datePublished: "2024-05-16",
-    dateModified: "2024-05-16"
+    dateModified: "2024-05-16",
+    authorName: author?.name,
+    authorType: author ? "Person" : undefined,
+    authorJobTitle: author?.jobTitle,
+    authorUrl: authorProfileUrl,
+    authorSameAs: authorProfileUrl,
   });
 
   const organizationSchema = createOrganizationSchema();
@@ -161,6 +173,7 @@ export default function CryptoTradingGroupPage() {
                 <p className="text-sm text-text-muted/80 leading-relaxed font-medium uppercase tracking-widest">
                   Some users describe Yaga Calls as a crypto trading group because it uses Telegram for market updates and signal notes. More accurately, Yaga Calls is a Telegram-first crypto signal and market analysis provider built around structured setup ideas and risk-aware communication.
                 </p>
+                <AuthorByline authorSlug={PAGE_AUTHOR_SLUG} className="justify-center lg:justify-start" />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">

@@ -6,6 +6,7 @@ import GlowCard from "@/components/shared/GlowCard";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import { authors, getPostsByAuthorSlug } from "@/content/data/authors";
+import { getWorksByAuthorSlug } from "@/content/data/authorWorks";
 import { createBreadcrumbSchema, createItemListSchema, createWebPageSchema } from "@/lib/schema";
 import { ArrowRight, Briefcase, MapPin } from "lucide-react";
 
@@ -72,7 +73,7 @@ export default function AuthorsIndexPage() {
           <Container className="max-w-4xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {authors.map((author) => {
-                const postCount = getPostsByAuthorSlug(author.slug).length;
+                const postCount = getPostsByAuthorSlug(author.slug).length + getWorksByAuthorSlug(author.slug).length;
                 return (
                   <Link key={author.slug} href={`/authors/${author.slug}`} className="block group">
                     <GlowCard className="h-full">

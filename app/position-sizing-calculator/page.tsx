@@ -3,6 +3,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import FAQSection from "@/components/shared/FAQSection";
+import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import PositionSizingCalculator from "@/components/tools/PositionSizingCalculator";
@@ -110,7 +111,7 @@ export default function PositionSizingCalculatorPage() {
         "operatingSystem": "Web",
         "description": "A free educational crypto position sizing calculator that estimates trade size from account size, risk, entry price, stop-loss price and optional target price.",
         "url": "https://www.yagacalls.com/position-sizing-calculator",
-        "author": { "@type": "Organization", "name": "Yaga Calls" }
+        "author": { "@type": "Person", "name": "Dmitry Voronov", "jobTitle": "Senior On-Chain & Data Analyst", "url": "https://www.yagacalls.com/authors/dmitry-voronov" }
       },
       {
         "@type": "BreadcrumbList",
@@ -156,6 +157,7 @@ export default function PositionSizingCalculatorPage() {
                 Crypto Position <br />
                 <span className="text-primary">Sizing Calculator</span>
               </h1>
+              <AuthorByline authorSlug="dmitry-voronov" className="mt-4 justify-center lg:justify-start" />
             </div>
 
             <div className="space-y-6 max-w-2xl mx-auto">

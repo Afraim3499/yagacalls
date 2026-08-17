@@ -80,6 +80,7 @@ export default function NarrativeTradingPage() {
         "url": "https://www.yagacalls.com/narrative-trading-crypto-signals",
         "name": "Narrative Trading Crypto Signals | Yaga Calls",
         "description": "Yaga Calls uses narrative-driven crypto signal research to track sector rotations, catalysts, market stories, technical structure, entries, targets, and risk context.",
+        "author": { "@type": "Person", "name": "Elena Soto", "jobTitle": "Market Sentiment & Narrative Analyst", "url": "https://www.yagacalls.com/authors/elena-soto" },
         "isPartOf": {
           "@id": "https://www.yagacalls.com/#website"
         }

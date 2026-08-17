@@ -3,6 +3,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import FAQSection from "@/components/shared/FAQSection";
+import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import SignalCheck from "@/components/shared/SignalCheck";
 import Link from "next/link";
@@ -108,10 +109,7 @@ export default function BestCryptoSignalGroupsComparedPage() {
         "@id": "https://www.yagacalls.com/best-crypto-signal-groups-compared#article",
         "headline": "Best Crypto Signal Groups Compared",
         "description": "A serious comparison of free, paid, Telegram, pump-style, and risk-managed crypto signal groups.",
-        "author": {
-          "@type": "Organization",
-          "name": "Yaga Calls"
-        },
+        "author": { "@type": "Person", "name": "Chidi Okeke", "jobTitle": "DeFi Researcher & Yield Strategist", "url": "https://www.yagacalls.com/authors/chidi-okeke" },
         "publisher": {
           "@type": "Organization",
           "name": "Yaga Calls",
@@ -188,6 +186,7 @@ export default function BestCryptoSignalGroupsComparedPage() {
                   Best Crypto Signal <br />
                   <span className="text-primary">Groups Compared</span>
                 </h1>
+                <AuthorByline authorSlug="chidi-okeke" className="mt-4 justify-center lg:justify-start" />
               </div>
 
               <div className="space-y-6">

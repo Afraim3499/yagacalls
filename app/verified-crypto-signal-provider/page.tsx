@@ -80,6 +80,7 @@ export default function VerifiedProviderPage() {
         "url": "https://www.yagacalls.com/verified-crypto-signal-provider",
         "name": "Verified Crypto Signal Provider: How to Check Proof | Yaga Calls",
         "description": "Learn how to verify a crypto signal provider by checking proof, method, risk context, Telegram transparency, onboarding process, and scam red flags.",
+        "author": { "@type": "Person", "name": "Dmitry Voronov", "jobTitle": "Senior On-Chain & Data Analyst", "url": "https://www.yagacalls.com/authors/dmitry-voronov" },
         "isPartOf": {
           "@id": "https://www.yagacalls.com/#website"
         }

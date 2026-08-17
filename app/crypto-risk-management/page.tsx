@@ -3,6 +3,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import FAQSection from "@/components/shared/FAQSection";
+import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import { 
@@ -107,7 +108,7 @@ export default function RiskManagementPillarPage() {
         "@id": "https://www.yagacalls.com/crypto-risk-management#article",
         "headline": "Crypto Risk Management: The Discipline of Survival",
         "description": "Learn how to protect your trading account using position sizing, stops, and invalidation logic.",
-        "author": { "@type": "Organization", "name": "Yaga Calls" },
+        "author": { "@type": "Person", "name": "Dmitry Voronov", "jobTitle": "Senior On-Chain & Data Analyst", "url": "https://www.yagacalls.com/authors/dmitry-voronov" },
         "publisher": { "@type": "Organization", "name": "Yaga Calls" },
         "mainEntityOfPage": { "@id": "https://www.yagacalls.com/crypto-risk-management#webpage" }
       },
@@ -156,6 +157,7 @@ export default function RiskManagementPillarPage() {
                   Crypto <br />
                   <span className="text-primary">Risk Management</span>
                 </h1>
+                <AuthorByline authorSlug="dmitry-voronov" className="mt-4 justify-center lg:justify-start" />
               </div>
 
               <div className="space-y-6">

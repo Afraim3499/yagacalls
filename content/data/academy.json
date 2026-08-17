@@ -2,6 +2,7 @@
   {
     "slug": "how-crypto-signals-work",
     "title": "How Crypto Signals Work",
+    "authorSlug": "chen-wei",
     "category": "Fundamentals",
     "description": "Learn how professional signal ideas are generated, structured, and delivered to traders.",
     "ctaLabel": "Learn the Yaga Calls Method",
@@ -11,6 +12,7 @@
   {
     "slug": "free-vs-paid-crypto-signals",
     "title": "Free vs Paid Crypto Signals",
+    "authorSlug": "chidi-okeke",
     "category": "Strategy",
     "description": "Understanding the difference between public teaser groups and premium research-driven setups.",
     "ctaLabel": "Compare Premium Plans",
@@ -20,6 +22,7 @@
   {
     "slug": "entry-target-stop-loss",
     "title": "How to Read Entry, Target, and Stop Loss",
+    "authorSlug": "dmitry-voronov",
     "category": "Tactic",
     "description": "Mastering the three pillars of trade management before you place your next order.",
     "ctaLabel": "Learn the Yaga Calls Method",
@@ -29,6 +32,7 @@
   {
     "slug": "choose-crypto-signals-provider",
     "title": "How to Choose a Crypto Signals Provider",
+    "authorSlug": "liam-gallagher-jones",
     "category": "Fundamentals",
     "description": "The essential checklist for identifying trustworthy traders in a sea of Telegram noise.",
     "ctaLabel": "View Selected Examples",
@@ -38,6 +42,7 @@
   {
     "slug": "avoid-pump-signal-scams",
     "title": "How to Avoid Pump Signal Scams",
+    "authorSlug": "marcus-vance",
     "category": "Safety",
     "description": "Learn the common red flags of 'pump and dump' groups and how to protect your capital.",
     "ctaLabel": "Read the Risk Disclosure",
@@ -47,6 +52,7 @@
   {
     "slug": "risk-management-crypto-signals",
     "title": "Risk Management for Crypto Signals",
+    "authorSlug": "dmitry-voronov",
     "category": "Strategy",
     "description": "The most important lesson in trading: how to size your positions and protect your portfolio equity.",
     "ctaLabel": "Learn the Yaga Calls Method",
@@ -56,6 +62,7 @@
   {
     "slug": "atr-stops",
     "title": "ATR Stops (14)",
+    "authorSlug": "dmitry-voronov",
     "category": "Tool",
     "description": "Volatility-adjusted stops using Average True Range to avoid noise-driven exits.",
     "ctaLabel": "Learn the Yaga Calls Method",

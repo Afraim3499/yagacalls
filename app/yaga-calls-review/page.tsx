@@ -4,6 +4,7 @@ import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
+import AuthorByline from "@/components/blog/AuthorByline";
 import { 
   ShieldCheck, 
   Target, 
@@ -67,6 +68,7 @@ export default function YagaCallsReviewPage() {
         "url": "https://www.yagacalls.com/yaga-calls-review",
         "name": "Yaga Calls Member Reviews & Community Feedback",
         "description": "Verified member reviews and community ratings for Yaga Calls crypto signals and research.",
+        "author": { "@type": "Person", "name": "Elena Soto", "jobTitle": "Market Sentiment & Narrative Analyst", "url": "https://www.yagacalls.com/authors/elena-soto" },
         "isPartOf": { "@id": "https://www.yagacalls.com/#website" }
       },
       {
@@ -102,6 +104,7 @@ export default function YagaCallsReviewPage() {
                 Yaga Calls <br />
                 <span className="text-primary">Member Reviews</span>
               </h1>
+              <AuthorByline authorSlug="elena-soto" className="mt-4 justify-center" />
             </div>
 
             <div className="space-y-4 max-w-2xl mx-auto">

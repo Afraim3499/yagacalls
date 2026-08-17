@@ -80,6 +80,7 @@ export default function RiskManagementPage() {
         "url": "https://www.yagacalls.com/crypto-signals-with-risk-management",
         "name": "Crypto Signals With Risk Management | Yaga Calls",
         "description": "Yaga Calls provides risk-aware Telegram crypto signal notes with market context, entry zones, targets, invalidation logic, stop-loss thinking, and disciplined setup planning.",
+        "author": { "@type": "Person", "name": "Marcus Vance", "jobTitle": "Senior Derivatives & Technical Analyst", "url": "https://www.yagacalls.com/authors/marcus-vance" },
         "isPartOf": {
           "@id": "https://www.yagacalls.com/#website"
         }

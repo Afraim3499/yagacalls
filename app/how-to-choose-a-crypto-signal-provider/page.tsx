@@ -3,6 +3,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import FAQSection from "@/components/shared/FAQSection";
+import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import { 
@@ -111,10 +112,7 @@ export default function HowToChooseProviderPage() {
         "@id": "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider#article",
         "headline": "How to Choose a Crypto Signal Provider",
         "description": "A serious decision-making framework for evaluating crypto signal providers before paying.",
-        "author": {
-          "@type": "Organization",
-          "name": "Yaga Calls"
-        },
+        "author": { "@type": "Person", "name": "Sarah Jenkins", "jobTitle": "Lead Technical & Creative Writer", "url": "https://www.yagacalls.com/authors/sarah-jenkins" },
         "publisher": {
           "@type": "Organization",
           "name": "Yaga Calls",
@@ -191,6 +189,7 @@ export default function HowToChooseProviderPage() {
                   How to Choose a <br />
                   <span className="text-primary">Crypto Signal Provider</span>
                 </h1>
+                <AuthorByline authorSlug="sarah-jenkins" className="mt-4 justify-center lg:justify-start" />
               </div>
 
               <div className="space-y-6">

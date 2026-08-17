@@ -14,6 +14,8 @@ import KeyTakeaways from '@/components/seo/KeyTakeaways';
 import ComparisonTable from '@/components/seo/ComparisonTable';
 import JsonLd from '@/components/seo/JsonLd';
 import { createArticleSchema, createBreadcrumbSchema, createFAQSchema } from '@/lib/schema';
+import { getAuthorBySlug } from '@/content/data/authors';
+import AuthorByline from '@/components/blog/AuthorByline';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!page) return {};
 
   const ogImageUrl = `https://www.yagacalls.com/api/og?title=${encodeURIComponent(page.metaTitle)}&subtitle=${encodeURIComponent(page.metaDescription)}`;
+  const authorForMeta = getAuthorBySlug(page.authorSlug);
 
   return {
     title: page.metaTitle,
@@ -45,6 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: page.metaDescription,
       url: `https://www.yagacalls.com/${slug}`,
       type: 'article',
+      authors: authorForMeta ? [`https://www.yagacalls.com/authors/${authorForMeta.slug}`] : undefined,
       images: [{ url: ogImageUrl, width: 1200, height: 630, alt: page.metaTitle }],
     },
     twitter: {
@@ -74,11 +78,18 @@ export default async function CommercialLandingPage({ params }: PageProps) {
   }
 
   const pageUrl = `https://www.yagacalls.com/${slug}`;
+  const author = getAuthorBySlug(page.authorSlug);
+  const authorProfileUrl = author ? `https://www.yagacalls.com/authors/${author.slug}` : undefined;
   const articleSchema = createArticleSchema({
     title: page.metaTitle,
     description: page.metaDescription,
     url: pageUrl,
-    datePublished: '2024-05-01' // Placeholder - ideally from data
+    datePublished: '2024-05-01', // Placeholder - ideally from data
+    authorName: author?.name,
+    authorType: author ? 'Person' : undefined,
+    authorJobTitle: author?.jobTitle,
+    authorUrl: authorProfileUrl,
+    authorSameAs: authorProfileUrl,
   });
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: page.title, item: `/${slug}` }
@@ -112,6 +123,7 @@ export default async function CommercialLandingPage({ params }: PageProps) {
         <Breadcrumbs items={[
           { label: page.title, href: `/${slug}` }
         ]} />
+        <AuthorByline authorSlug={page.authorSlug} className="mt-4" />
       </div>
 
       <section className="container mx-auto px-4">

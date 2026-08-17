@@ -3,6 +3,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import FAQSection from "@/components/shared/FAQSection";
+import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import { 
@@ -110,7 +111,7 @@ export default function TelegramCryptoSignalsPage() {
         "@id": "https://www.yagacalls.com/telegram-crypto-signals#article",
         "headline": "Telegram Crypto Signals: How to Read, Verify and Use Signal Groups Safely",
         "description": "Learn the structure of serious Telegram crypto signals, how to identify fake admins, and how to manage risk when following Telegram signal groups.",
-        "author": { "@type": "Organization", "name": "Yaga Calls" },
+        "author": { "@type": "Person", "name": "Marcus Vance", "jobTitle": "Senior Derivatives & Technical Analyst", "url": "https://www.yagacalls.com/authors/marcus-vance" },
         "publisher": { "@id": "https://www.yagacalls.com/#organization" },
         "image": "https://www.yagacalls.com/og-telegram-signals.jpg",
         "datePublished": "2024-05-15",
@@ -161,6 +162,7 @@ export default function TelegramCryptoSignalsPage() {
                   Telegram <br />
                   <span className="text-primary">Crypto Signals</span>
                 </h1>
+                <AuthorByline authorSlug="marcus-vance" className="mt-4 justify-center lg:justify-start" />
               </div>
 
               <div className="space-y-6 max-w-2xl mx-auto lg:mx-0">

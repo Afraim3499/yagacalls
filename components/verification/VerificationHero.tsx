@@ -2,6 +2,7 @@ import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
 import Image from "next/image";
+import AuthorByline from "../blog/AuthorByline";
 
 export default function VerificationHero() {
   return (
@@ -19,6 +20,7 @@ export default function VerificationHero() {
             <p className="text-xl md:text-2xl text-text-muted leading-tight">
               Before joining any crypto signal group, check the provider’s proof, method, risk context, Telegram safety, onboarding process, and communication style.
             </p>
+            <AuthorByline authorSlug="dmitry-voronov" />
             <div className="p-4 bg-primary/5 border-l-2 border-primary rounded-r-xl">
               <p className="text-xs font-bold text-primary uppercase tracking-widest">
                 A real provider should explain structure. A weak provider only sells excitement.

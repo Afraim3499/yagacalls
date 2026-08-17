@@ -47,9 +47,12 @@ import {
   createArticleSchema
 } from "@/lib/schema";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { getAuthorBySlug } from "@/content/data/authors";
+import AuthorByline from "@/components/blog/AuthorByline";
 
 const SITE_URL = BRAND_CONFIG.siteUrl;
 const CANONICAL_URL = `${SITE_URL}/crypto-trading-telegram-group`;
+const PAGE_AUTHOR_SLUG = "chidi-okeke";
 
 export const metadata: Metadata = {
   title: "Crypto Trading Telegram Group | Choose Safely Before Joining",
@@ -62,6 +65,7 @@ export const metadata: Metadata = {
     description: "A serious guide to crypto trading Telegram groups: signal structure, official links, fake admin safety, free vs premium access, and Yaga Calls’ approach.",
     url: CANONICAL_URL,
     type: "article",
+    authors: [`${SITE_URL}/authors/${PAGE_AUTHOR_SLUG}`],
   },
 };
 
@@ -117,12 +121,20 @@ export default function CryptoTradingTelegramGroupPage() {
     dateModified: "2024-05-16"
   });
 
+  const author = getAuthorBySlug(PAGE_AUTHOR_SLUG);
+  const authorProfileUrl = author ? `${SITE_URL}/authors/${author.slug}` : undefined;
+
   const articleSchema = createArticleSchema({
     title: "Crypto Trading Telegram Group: How to Choose a Serious Signal Community Safely",
     description: "Learn how to choose a crypto trading Telegram group safely. Check signals, entries, targets, invalidation, risk, fake admins and official links.",
     url: CANONICAL_URL,
     datePublished: "2024-05-16",
-    dateModified: "2024-05-16"
+    dateModified: "2024-05-16",
+    authorName: author?.name,
+    authorType: author ? "Person" : undefined,
+    authorJobTitle: author?.jobTitle,
+    authorUrl: authorProfileUrl,
+    authorSameAs: authorProfileUrl,
   });
 
   const organizationSchema = createOrganizationSchema();
@@ -165,6 +177,7 @@ export default function CryptoTradingTelegramGroupPage() {
                 <p className="text-sm text-text-muted/80 leading-relaxed font-medium uppercase tracking-widest">
                   Yaga Calls uses Telegram for crypto signal notes and market analysis, but the Telegram app is only the delivery layer. The real standard is the method behind the signal.
                 </p>
+                <AuthorByline authorSlug={PAGE_AUTHOR_SLUG} className="justify-center lg:justify-start" />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">

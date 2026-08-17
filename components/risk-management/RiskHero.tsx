@@ -2,6 +2,7 @@ import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
 import Image from "next/image";
+import AuthorByline from "../blog/AuthorByline";
 
 export default function RiskHero() {
   return (
@@ -19,6 +20,7 @@ export default function RiskHero() {
             <p className="text-xl md:text-2xl text-text-muted leading-tight">
               Yaga Calls provides risk-aware Telegram crypto signal notes built around market context, entry zones, target planning, invalidation logic, and disciplined setup review.
             </p>
+            <AuthorByline authorSlug="marcus-vance" />
             <div className="p-4 bg-primary/5 border-l-2 border-primary rounded-r-xl">
               <p className="text-xs font-bold text-primary uppercase tracking-widest">
                 A signal is not serious if it only talks about upside. It must also explain risk.

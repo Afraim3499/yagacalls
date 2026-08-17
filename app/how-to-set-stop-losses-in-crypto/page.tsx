@@ -3,6 +3,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import FAQSection from "@/components/shared/FAQSection";
+import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import { 
@@ -108,7 +109,7 @@ export default function StopLossPillarPage() {
         "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#article",
         "headline": "How to Set Stop-Losses in Crypto",
         "description": "Learn the professional method for setting stops using market structure and invalidation logic.",
-        "author": { "@type": "Organization", "name": "Yaga Calls" },
+        "author": { "@type": "Person", "name": "Dmitry Voronov", "jobTitle": "Senior On-Chain & Data Analyst", "url": "https://www.yagacalls.com/authors/dmitry-voronov" },
         "publisher": { "@type": "Organization", "name": "Yaga Calls" },
         "mainEntityOfPage": { "@id": "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto#webpage" }
       },
@@ -157,6 +158,7 @@ export default function StopLossPillarPage() {
                   How to Set <br />
                   <span className="text-primary">Stop-Losses</span>
                 </h1>
+                <AuthorByline authorSlug="dmitry-voronov" className="mt-4 justify-center lg:justify-start" />
               </div>
 
               <div className="space-y-6">

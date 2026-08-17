@@ -128,6 +128,8 @@ export interface LandingPageData {
   internalLinks: { label: string; href: string }[];
   lastReviewed?: string;
   schemaType?: string;
+  /** Slug into content/data/authors.ts — resolve with getAuthorBySlug(). */
+  authorSlug?: string;
 }
 
 export interface RegionalPageData extends LandingPageData {

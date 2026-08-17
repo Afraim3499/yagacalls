@@ -3,6 +3,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import CTAButton from "@/components/shared/CTAButton";
 import FAQSection from "@/components/shared/FAQSection";
+import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
 import { 
@@ -111,10 +112,7 @@ export default function ComparisonPage() {
         "@id": "https://www.yagacalls.com/crypto-signal-provider-comparison#article",
         "headline": "Crypto Signal Provider Comparison",
         "description": "A side-by-side comparison of different crypto signal provider models, features, and risk levels.",
-        "author": {
-          "@type": "Organization",
-          "name": "Yaga Calls"
-        },
+        "author": { "@type": "Person", "name": "Liam Gallagher-Jones", "jobTitle": "Tokenomics & Governance Researcher", "url": "https://www.yagacalls.com/authors/liam-gallagher-jones" },
         "publisher": {
           "@type": "Organization",
           "name": "Yaga Calls",
@@ -191,6 +189,7 @@ export default function ComparisonPage() {
                   Crypto Signal <br />
                   <span className="text-primary">Provider Comparison</span>
                 </h1>
+                <AuthorByline authorSlug="liam-gallagher-jones" className="mt-4 justify-center lg:justify-start" />
               </div>
 
               <div className="space-y-6">

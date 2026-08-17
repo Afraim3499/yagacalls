@@ -60,7 +60,20 @@ export function createWebPageSchema(params: {
   url: string;
   datePublished?: string;
   dateModified?: string;
+  authorName?: string;
+  authorType?: "Person" | "Organization";
+  authorJobTitle?: string;
+  authorUrl?: string;
 }) {
+  const author = params.authorName
+    ? {
+        '@type': params.authorType || 'Organization',
+        name: params.authorName,
+        url: params.authorUrl || SITE_URL,
+        ...(params.authorType === 'Person' && params.authorJobTitle ? { jobTitle: params.authorJobTitle } : {}),
+      }
+    : undefined;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -70,6 +83,7 @@ export function createWebPageSchema(params: {
     description: params.description,
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#organization` },
+    ...(author ? { author } : {}),
     datePublished: params.datePublished,
     dateModified: params.dateModified || params.datePublished
   };
@@ -216,14 +230,28 @@ export function createCourseSchema(params: {
   name: string;
   description: string;
   url: string;
+  authorName?: string;
+  authorType?: "Person" | "Organization";
+  authorJobTitle?: string;
+  authorUrl?: string;
 }) {
+  const author = params.authorName
+    ? {
+        '@type': params.authorType || 'Organization',
+        name: params.authorName,
+        url: params.authorUrl || SITE_URL,
+        ...(params.authorType === 'Person' && params.authorJobTitle ? { jobTitle: params.authorJobTitle } : {}),
+      }
+    : undefined;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Course',
     name: params.name,
     description: params.description,
     provider: { '@id': `${SITE_URL}/#organization` },
-    url: params.url
+    url: params.url,
+    ...(author ? { author } : {}),
   };
 }
 

@@ -33,6 +33,10 @@ import {
   createOrganizationSchema
 } from "@/lib/schema";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { getAuthorBySlug } from "@/content/data/authors";
+import AuthorByline from "@/components/blog/AuthorByline";
+
+const PAGE_AUTHOR_SLUG = "aisha-al-mansoori";
 
 const SITE_URL = BRAND_CONFIG.siteUrl;
 const CANONICAL_URL = `${SITE_URL}/free-vs-paid-crypto-signals`;
@@ -95,12 +99,19 @@ export default function FreeVsPaidCryptoSignalsPage() {
     }
   ];
 
+  const author = getAuthorBySlug(PAGE_AUTHOR_SLUG);
+  const authorProfileUrl = author ? `${SITE_URL}/authors/${author.slug}` : undefined;
+
   const webPageSchema = createWebPageSchema({
     title: "Free vs Paid Crypto Signals | What Premium Actually Adds",
     description: "Compare free vs paid crypto signals. Learn what free groups are good for, what premium may add, red flags, risk checks and when paid access makes sense.",
     url: CANONICAL_URL,
     datePublished: "2024-05-16",
-    dateModified: "2024-05-16"
+    dateModified: "2024-05-16",
+    authorName: author?.name,
+    authorType: author ? "Person" : undefined,
+    authorJobTitle: author?.jobTitle,
+    authorUrl: authorProfileUrl,
   });
 
   const organizationSchema = createOrganizationSchema();
@@ -142,6 +153,7 @@ export default function FreeVsPaidCryptoSignalsPage() {
                 <p className="text-sm text-text-muted leading-relaxed font-medium">
                   Before paying for any crypto signal provider, review the method, proof context, risk language, Telegram safety, pricing clarity, and whether premium access fits your trading style.
                 </p>
+                <AuthorByline authorSlug={PAGE_AUTHOR_SLUG} className="justify-center lg:justify-start" />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">

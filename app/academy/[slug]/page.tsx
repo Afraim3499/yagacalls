@@ -9,6 +9,8 @@ import { ArrowLeft, BookOpen } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { createCourseSchema, createBreadcrumbSchema } from "@/lib/schema";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import AuthorByline from "@/components/blog/AuthorByline";
+import { getAuthorBySlug } from "@/content/data/authors";
 
 interface AcademyModule {
   slug: string;
@@ -16,6 +18,7 @@ interface AcademyModule {
   title: string;
   description: string;
   content: string;
+  authorSlug?: string;
   ctaLabel?: string;
   ctaHref?: string;
 }
@@ -39,6 +42,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!mod) return {};
 
   const ogImageUrl = `https://www.yagacalls.com/api/og?title=${encodeURIComponent(mod.title)}&subtitle=${encodeURIComponent(mod.description)}`;
+  const authorForMeta = getAuthorBySlug(mod.authorSlug);
 
   return {
     title: `${mod.title} | Yaga Calls Academy`,
@@ -58,6 +62,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: mod.description,
       url: `https://www.yagacalls.com/academy/${slug}`,
       type: 'article',
+      authors: authorForMeta ? [`https://www.yagacalls.com/authors/${authorForMeta.slug}`] : undefined,
       images: [{ url: ogImageUrl, width: 1200, height: 630, alt: mod.title }],
     },
     twitter: {
@@ -81,10 +86,16 @@ export default async function AcademyModulePage({ params }: { params: { slug: st
   }
 
   const pageUrl = `https://www.yagacalls.com/academy/${slug}`;
+  const author = getAuthorBySlug(mod.authorSlug);
+  const authorProfileUrl = author ? `https://www.yagacalls.com/authors/${author.slug}` : undefined;
   const courseSchema = createCourseSchema({
     name: mod.title,
     description: mod.description,
-    url: pageUrl
+    url: pageUrl,
+    authorName: author?.name,
+    authorType: author ? "Person" : undefined,
+    authorJobTitle: author?.jobTitle,
+    authorUrl: authorProfileUrl,
   });
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Academy', item: '/academy' },
@@ -110,6 +121,7 @@ export default async function AcademyModulePage({ params }: { params: { slug: st
           <p className="text-xl text-text-muted leading-relaxed">
             {mod.description}
           </p>
+          <AuthorByline authorSlug={mod.authorSlug} className="mt-5" />
         </Container>
       </Section>
 

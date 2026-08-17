@@ -7,7 +7,8 @@ import GlowCard from "@/components/shared/GlowCard";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import { authors, getAuthorBySlug, getPostsByAuthorSlug } from "@/content/data/authors";
-import { createProfilePageSchema, createBreadcrumbSchema } from "@/lib/schema";
+import { getWorksByAuthorSlug } from "@/content/data/authorWorks";
+import { createProfilePageSchema, createBreadcrumbSchema, createItemListSchema } from "@/lib/schema";
 import { Calendar, Clock, Quote, ArrowRight, Briefcase, MapPin } from "lucide-react";
 
 interface PageProps {
@@ -64,6 +65,8 @@ export default async function AuthorProfilePage({ params }: PageProps) {
   }
 
   const posts = getPostsByAuthorSlug(slug);
+  const otherWorks = getWorksByAuthorSlug(slug);
+  const totalWorks = posts.length + otherWorks.length;
   const pageUrl = `https://www.yagacalls.com/authors/${slug}`;
 
   const profileSchema = createProfilePageSchema({
@@ -81,10 +84,18 @@ export default async function AuthorProfilePage({ params }: PageProps) {
     { name: author.name, item: `/authors/${slug}` },
   ]);
 
+  const worksListSchema = totalWorks > 0
+    ? createItemListSchema([
+        ...posts.map((p) => ({ name: p.title, url: `/blog/${p.slug}` })),
+        ...otherWorks.map((w) => ({ name: w.title, url: w.href })),
+      ])
+    : null;
+
   return (
     <>
       <JsonLd data={profileSchema} />
       <JsonLd data={breadcrumbSchema} />
+      {worksListSchema && <JsonLd data={worksListSchema} />}
 
       <div className="min-h-screen bg-black text-white">
         <Section className="bg-surface/30 pt-28 pb-16">
@@ -140,40 +151,75 @@ export default async function AuthorProfilePage({ params }: PageProps) {
               </div>
             </blockquote>
 
-            {posts.length > 0 && (
+            {totalWorks > 0 && (
               <div className="pt-8 border-t border-line">
                 <h2 className="text-xs font-black uppercase tracking-widest text-primary mb-5">
-                  Articles by {author.name} ({posts.length})
+                  Work by {author.name} ({totalWorks})
                 </h2>
-                <div className="space-y-4">
-                  {posts.map((post) => (
-                    <Link
-                      key={post.slug}
-                      href={`/blog/${post.slug}`}
-                      className="block p-5 rounded-2xl border border-line bg-surface-deep/30 hover:border-primary/50 transition-colors group"
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <span className="text-[10px] font-black uppercase bg-primary/15 text-primary border border-primary/20 px-2.5 py-0.5 rounded-md tracking-wider">
-                            {post.category}
-                          </span>
-                          <h3 className="text-base font-bold text-text-high mt-2 group-hover:text-primary transition-colors">
-                            {post.title}
-                          </h3>
-                          <div className="flex items-center gap-4 mt-2 text-[10px] font-black uppercase tracking-widest text-text-muted">
-                            <span className="flex items-center gap-1.5">
-                              <Calendar className="w-3 h-3" /> {post.datePublished}
+
+                {posts.length > 0 && (
+                  <div className="mb-8">
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-text-muted mb-3">
+                      Blog Articles ({posts.length})
+                    </h3>
+                    <div className="space-y-4">
+                      {posts.map((post) => (
+                        <Link
+                          key={post.slug}
+                          href={`/blog/${post.slug}`}
+                          className="block p-5 rounded-2xl border border-line bg-surface-deep/30 hover:border-primary/50 transition-colors group"
+                        >
+                          <div className="flex items-start justify-between gap-4">
+                            <div>
+                              <span className="text-[10px] font-black uppercase bg-primary/15 text-primary border border-primary/20 px-2.5 py-0.5 rounded-md tracking-wider">
+                                {post.category}
+                              </span>
+                              <h4 className="text-base font-bold text-text-high mt-2 group-hover:text-primary transition-colors">
+                                {post.title}
+                              </h4>
+                              <div className="flex items-center gap-4 mt-2 text-[10px] font-black uppercase tracking-widest text-text-muted">
+                                <span className="flex items-center gap-1.5">
+                                  <Calendar className="w-3 h-3" /> {post.datePublished}
+                                </span>
+                                <span className="flex items-center gap-1.5">
+                                  <Clock className="w-3 h-3" /> {post.readingTime}
+                                </span>
+                              </div>
+                            </div>
+                            <ArrowRight className="w-4 h-4 text-text-muted group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0 mt-1" />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {otherWorks.length > 0 && (
+                  <div>
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-text-muted mb-3">
+                      Guides &amp; Resources ({otherWorks.length})
+                    </h3>
+                    <div className="space-y-3">
+                      {otherWorks.map((work) => (
+                        <Link
+                          key={work.href}
+                          href={work.href}
+                          className="flex items-center justify-between gap-4 p-4 rounded-xl border border-line bg-surface-deep/20 hover:border-primary/50 transition-colors group"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <span className="text-[9px] font-black uppercase bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded tracking-wider shrink-0">
+                              {work.type}
                             </span>
-                            <span className="flex items-center gap-1.5">
-                              <Clock className="w-3 h-3" /> {post.readingTime}
+                            <span className="text-sm font-bold text-text-high group-hover:text-primary transition-colors truncate">
+                              {work.title}
                             </span>
                           </div>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-text-muted group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0 mt-1" />
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                          <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </Container>
