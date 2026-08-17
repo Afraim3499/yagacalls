@@ -286,6 +286,73 @@ worse than the gap it fixes).
     `crypto-trading-telegram-group`, and `free-vs-paid-crypto-signals` — the last 3 pages
     still on the generic fallback image from the Phase C residual gap.
 
+### 🟡 New — UX/SEO/AEO/AIO/SXO deep-audit findings (found 2026-08-17, none fixed yet)
+
+Full sweep of the public site (`yagacalls.com`) requested by the user, explicitly scoped
+to exclude the critical security items above. Verified live via browser (console, network,
+raw HTML fetch) plus static codebase analysis — not guessed. CRM UX is out of scope here
+(item 16 already covers it, skipped by user choice; CRM is `noindex`, so SEO/AEO/SXO don't
+apply to it anyway).
+
+21. **Telegram invite link hardcoded in 130+ files instead of one constant.**
+    `BRAND_CONFIG.officialTelegram` (`lib/constants/brand.ts`) exists specifically to
+    centralize `https://t.me/+JFf8kBf01mg3OTg1`, but only 5 files actually import and use
+    it (`free-vs-paid-crypto-signals`, `crypto-trading-telegram-group`,
+    `crypto-trading-group`, `leverage-trading-calculator`, `about-yaga-calls`). Every other
+    CTA across the site — 130+ occurrences — has the raw URL string hardcoded inline
+    instead. If this invite link ever needs rotating (expired, banned, compromised), it's
+    a manual find-and-replace across the entire codebase instead of a one-line constant
+    change. **Fix**: import `BRAND_CONFIG.officialTelegram` everywhere instead of the
+    literal string; a lint rule or `validate-seo.js` check could catch new hardcoded
+    occurrences going forward.
+22. **No HowTo, Review, or Speakable schema helpers exist** in `lib/schema.ts` — only
+    Organization/Website/WebPage/AboutPage/Breadcrumb/FAQ/Article/BlogPosting/Course/
+    ItemList/Service/Offer/ProfilePage/ImageObject. This is a real AEO gap: pages like
+    `how-to-set-stop-losses-in-crypto`, `how-to-choose-a-crypto-signal-provider`, and the
+    3 calculators (`position-sizing`, `leverage-trading`, `liquidation-price`) are natural
+    HowTo-schema candidates — HowTo markup targets exactly the "how do I..." query shape
+    that AEO/AI-answer-engine visibility depends on, and none of these pages have it.
+    Similarly, `components/reviews/CommunityReviewsSection.tsx` hand-rolls its own
+    Product/AggregateRating/Review JSON-LD directly in the component instead of through a
+    shared helper — no `createReviewSchema()` exists to standardize it.
+23. **28 of the ~41 schema-bearing pages still hand-roll JSON-LD** instead of using the
+    `lib/schema.ts` helpers (13 pages use the helpers). This is the same root cause that
+    already produced the missing-`name`-property bug fixed in Phase B across 28 pages —
+    the debt that caused it hasn't actually been paid down, just the one symptom was
+    patched. Any future required-property change (schema.org updates, a new AEO field)
+    means editing up to 28 files by hand instead of one helper.
+24. **`/academy` has no learning sequence.** All 7 modules render as a flat grid tagged
+    only by category (Fundamentals/Strategy/Tactic/Safety/Tool) — no "start here," no
+    numbering, no suggested order. For a page framed as an "Academy," this is a real SXO
+    mismatch: a visitor's implied search/click intent ("teach me this in order") isn't
+    matched by the page's actual structure (a flat, unordered catalog).
+25. **Pricing page: highest tier's differentiator features are all hedged with
+    "(if available)"/"(if avail)."** The $700 Yearly plan lists "Gem Book access (if
+    available)," "Portfolio review (if available)," and "1-on-1 strategy session (if
+    avail)" as bullet-point features — on the page asking for the largest single
+    commitment, the exact features meant to justify the higher price are the ones
+    presented as uncertain. Either firm these up (make them standard inclusions) or drop
+    them from the bullet list if they're genuinely conditional/discretionary.
+26. **Pricing page's "LIMITED-TIME ONBOARDING OFFER" badge doesn't match the copy
+    underneath it.** The badge and hero headline both use hard urgency language
+    ("LIMITED-TIME"), but `components/pricing/ScarcitySection.tsx`'s actual explanation is
+    open-ended — prices "may change" as the business "expands," with no date, threshold,
+    or trigger given. Not a deceptive countdown-timer dark pattern (no fake clock), but
+    the mismatch between urgent framing and vague justification reads as generic
+    scarcity-marketing filler once a visitor reads both, which undercuts trust rather than
+    building it. Either give the urgency claim something concrete to point to, or soften
+    the badge language to match the honest, open-ended copy already underneath it.
+
+**Checked and found solid** (for completeness/credibility, not action items): no console
+errors on homepage/pricing/academy; branded 404 correctly returns HTTP 404 and the correct
+`<title>`/meta on a real hard navigation (an initial same-tab client-navigation artifact
+during testing turned out to be a testing-tool quirk, not a production bug — reproduced
+clean in a fresh tab); mobile nav menu opens/closes and locks body scroll correctly; every
+commercial/region/blog slug referenced in footer/nav links resolves to a real
+`generateStaticParams()`-produced route (no broken internal links found via static href
+audit, though this doesn't cover dynamically-templated hrefs); third-party script
+footprint is lean (Cloudflare Insights beacon + GTM + gtag, nothing else).
+
 ---
 
 ## 5. Key conventions to follow if you extend this work
