@@ -332,12 +332,33 @@ apply to it anyway).
     actual `.next/server` built HTML was inspected for all 5 HowTo pages directly,
     confirming exactly 1 HowTo block + 1 speakable reference each and zero stray
     `@context` on graph nodes.
-23. **28 of the ~41 schema-bearing pages still hand-roll JSON-LD** instead of using the
-    `lib/schema.ts` helpers (13 pages use the helpers). This is the same root cause that
-    already produced the missing-`name`-property bug fixed in Phase B across 28 pages —
-    the debt that caused it hasn't actually been paid down, just the one symptom was
-    patched. Any future required-property change (schema.org updates, a new AEO field)
-    means editing up to 28 files by hand instead of one helper.
+23. ✅ **Done (2026-08-17).** Converted all 29 hand-rolling pages' WebPage/Article/
+    BreadcrumbList/FAQPage JSON-LD to `lib/schema.ts` helpers (`createWebPageSchema`,
+    `createArticleSchema`, `createBreadcrumbSchema`, `createFAQSchema`). Left hand-rolled
+    where no helper exists and forcing one would lose fidelity: `Service` (14 region
+    pages), `CollectionPage`/`ItemList` (`/regions` hub), `SoftwareApplication`/
+    `WebApplication` (calculators), and pre-existing hand-rolled `HowTo` nodes on 5 pages
+    (`crypto-signals-with-risk-management`, `method`, `narrative-trading-crypto-signals`,
+    `proof`'s `ItemList`, `verified-crypto-signal-provider`) — out of this item's scope,
+    a residual minor opportunity if `createHowToSchema` (item 22) gets applied there too.
+    **Found and fixed 2 real pre-existing bugs as a byproduct**: Qatar's WebPage `@id` had
+    a typo (`yagacalled.com`), and several pages' `Article.publisher.logo` pointed at
+    `/logo.png`, which doesn't exist in `public/` (404) — the helper correctly uses the
+    real `/yaga_calls_logo.png`.
+    **Verified by proof of equivalence, not by eye**: snapshotted live JSON-LD for all 29
+    pages before touching anything, then after refactoring diffed the fresh local build's
+    JSON-LD against those snapshots programmatically — every difference was individually
+    classified as either a known/intentional helper-shape change (added `about` link,
+    `@id` slash-format standardization, dropped `@id` on Breadcrumb/FAQ since the helper
+    doesn't set one, `Article.publisher` upgraded to a correct full inline object,
+    real git-derived `datePublished`/`dateModified` added where none existed — never a
+    fabricated date, `Article.image` array-wrapped, `Article.mainEntityOfPage`
+    added/corrected, trailing-slash URL normalization) or a real bug to fix; zero
+    differences went unexplained. Also: `tsc --noEmit` clean; `npm run build` succeeds
+    (98/98 pages, `validate-seo` passes); `eslint` across all 29 files shows zero new
+    errors (100 pre-existing `react/no-unescaped-entities` errors remain, confirmed via
+    grep none reference the new helper imports and all sit in body-copy JSX far from the
+    edited schema blocks).
 24. **`/academy` has no learning sequence.** All 7 modules render as a flat grid tagged
     only by category (Fundamentals/Strategy/Tactic/Safety/Tool) — no "start here," no
     numbering, no suggested order. For a page framed as an "Academy," this is a real SXO
