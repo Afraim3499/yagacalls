@@ -294,17 +294,22 @@ raw HTML fetch) plus static codebase analysis — not guessed. CRM UX is out of 
 (item 16 already covers it, skipped by user choice; CRM is `noindex`, so SEO/AEO/SXO don't
 apply to it anyway).
 
-21. **Telegram invite link hardcoded in 130+ files instead of one constant.**
-    `BRAND_CONFIG.officialTelegram` (`lib/constants/brand.ts`) exists specifically to
-    centralize `https://t.me/+JFf8kBf01mg3OTg1`, but only 5 files actually import and use
-    it (`free-vs-paid-crypto-signals`, `crypto-trading-telegram-group`,
-    `crypto-trading-group`, `leverage-trading-calculator`, `about-yaga-calls`). Every other
-    CTA across the site — 130+ occurrences — has the raw URL string hardcoded inline
-    instead. If this invite link ever needs rotating (expired, banned, compromised), it's
-    a manual find-and-replace across the entire codebase instead of a one-line constant
-    change. **Fix**: import `BRAND_CONFIG.officialTelegram` everywhere instead of the
-    literal string; a lint rule or `validate-seo.js` check could catch new hardcoded
-    occurrences going forward.
+21. ✅ **Done (2026-08-17).** Telegram invite link was hardcoded in 130+ places instead of
+    referencing `BRAND_CONFIG.officialTelegram` (`lib/constants/brand.ts`), which existed
+    for exactly this purpose but only 5 files actually used it. Fixed via a scripted
+    transform across 3 syntactic contexts (JSX attributes, object properties, default
+    params) — 110 occurrences across 72 files, plus 2 markdown-embedded links in
+    `content/data/commercial.ts` converted from plain strings to template literals so they
+    could interpolate the constant. `lib/constants/brand.ts` itself untouched (remains the
+    source of truth). The script's naive import-insertion logic initially corrupted 9
+    files with multi-line `lucide-react` imports (inserted the new import mid-statement);
+    caught immediately by `tsc --noEmit` and hand-fixed in all 9 before proceeding.
+    **Verified**: zero raw-literal occurrences remain outside `brand.ts` (grep-confirmed);
+    `tsc --noEmit` clean; `npm run build` succeeds (98/98 pages, `validate-seo` passes);
+    `eslint` zero errors across all 74 changed files; and the actual `.next/server` build
+    output was inspected directly to confirm the homepage and pricing page HTML render the
+    correct resolved URL. If this invite link ever needs rotating again, it's now a
+    one-line change in `lib/constants/brand.ts`.
 22. **No HowTo, Review, or Speakable schema helpers exist** in `lib/schema.ts` — only
     Organization/Website/WebPage/AboutPage/Breadcrumb/FAQ/Article/BlogPosting/Course/
     ItemList/Service/Offer/ProfilePage/ImageObject. This is a real AEO gap: pages like

@@ -7,15 +7,15 @@ import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import SignalCheck from "@/components/shared/SignalCheck";
 import Link from "next/link";
-import { 
-  CheckCircle2, 
-  ShieldAlert, 
-  BarChart, 
-  Info, 
-  ArrowRight, 
-  X, 
-  Zap, 
-  Layout, 
+import {
+  CheckCircle2,
+  ShieldAlert,
+  BarChart,
+  Info,
+  ArrowRight,
+  X,
+  Zap,
+  Layout,
   Globe,
   AlertTriangle,
   Search,
@@ -25,6 +25,7 @@ import {
   Clock,
   Briefcase
 } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "What Are Crypto Signals? Entries, Targets & Stop-Loss Guide | Yaga Calls",
@@ -206,7 +207,7 @@ export default function WhatAreCryptoSignalsPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                 <CTAButton 
-                  href="https://t.me/+JFf8kBf01mg3OTg1" 
+                  href={BRAND_CONFIG.officialTelegram} 
                   target="_blank"
                   trackingLabel="hero_what_are_signals_free"
                   className="px-8 py-4 text-sm"
@@ -760,7 +761,7 @@ export default function WhatAreCryptoSignalsPage() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <CTAButton 
-                href="https://t.me/+JFf8kBf01mg3OTg1" 
+                href={BRAND_CONFIG.officialTelegram} 
                 target="_blank"
                 trackingLabel="structure_free"
                 className="px-8"
@@ -890,7 +891,7 @@ export default function WhatAreCryptoSignalsPage() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               trackingLabel="final_signals_free"
               className="px-10 py-5 text-base"

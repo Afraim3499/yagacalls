@@ -3,6 +3,7 @@ import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
 import Image from "next/image";
 import AuthorByline from "../blog/AuthorByline";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function VerificationHero() {
   return (
@@ -30,7 +31,7 @@ export default function VerificationHero() {
               <CTAButton href="/proof" trackingLabel="verification_hero_proof">
                 Review Yaga Calls Proof
               </CTAButton>
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" variant="secondary" target="_blank" trackingLabel="verification_hero_free">
+              <CTAButton href={BRAND_CONFIG.officialTelegram} variant="secondary" target="_blank" trackingLabel="verification_hero_free">
                 Join Free Telegram
               </CTAButton>
             </div>

@@ -2,6 +2,7 @@ import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
 import Image from "next/image";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function PricingHero() {
   return (
@@ -23,7 +24,7 @@ export default function PricingHero() {
               <CTAButton href="https://t.me/yagacalls47" target="_blank" trackingLabel="pricing_hero_onboarding">
                 Start Manual Onboarding
               </CTAButton>
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" variant="secondary" trackingLabel="pricing_hero_free">
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" variant="secondary" trackingLabel="pricing_hero_free">
                 Join Free Telegram First
               </CTAButton>
             </div>

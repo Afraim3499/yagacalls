@@ -8,6 +8,7 @@ import FAQSection from "@/components/shared/FAQSection";
 import CTAButton from "@/components/shared/CTAButton";
 import Link from "next/link";
 import { CheckCircle2, X } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Regions Hub | Global Crypto Signal Access",
@@ -308,7 +309,7 @@ export default function RegionsPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="regions_final_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="regions_final_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="#region-grid" variant="secondary" trackingLabel="regions_final_selector">

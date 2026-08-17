@@ -17,6 +17,7 @@ import {
   MessageSquare
 } from "lucide-react";
 import CommunityReviewsSection from "@/components/reviews/CommunityReviewsSection";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Yaga Calls Member Reviews & Community Feedback | Official Hub",
@@ -124,7 +125,7 @@ export default function YagaCallsReviewPage() {
                 <MessageSquare size={16} /> Read & Submit Reviews
               </a>
               <CTAButton 
-                href="https://t.me/+JFf8kBf01mg3OTg1" 
+                href={BRAND_CONFIG.officialTelegram} 
                 target="_blank"
                 variant="secondary"
                 trackingLabel="hero_review_free"

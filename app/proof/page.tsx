@@ -6,6 +6,7 @@ import CTAButton from "@/components/shared/CTAButton";
 import Image from "next/image";
 import Link from "next/link";
 import FAQSection from "../../components/shared/FAQSection";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Signal Proof & Historical Results",
@@ -165,7 +166,7 @@ export default function ProofPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="proof_hero_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="proof_hero_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="/method" variant="secondary" trackingLabel="proof_hero_method">
@@ -507,7 +508,7 @@ export default function ProofPage() {
                 ))}
               </ul>
               <div className="flex flex-col sm:flex-row gap-4">
-                <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="proof_live_free">Join Free Telegram</CTAButton>
+                <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="proof_live_free">Join Free Telegram</CTAButton>
                 <CTAButton href="/pricing" variant="secondary" trackingLabel="proof_live_pricing">Compare Premium Plans</CTAButton>
               </div>
             </div>
@@ -537,7 +538,7 @@ export default function ProofPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="proof_final_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="proof_final_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="/pricing" variant="secondary" trackingLabel="proof_final_pricing">

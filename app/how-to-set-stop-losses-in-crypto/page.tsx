@@ -6,13 +6,13 @@ import FAQSection from "@/components/shared/FAQSection";
 import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
-import { 
-  ShieldCheck, 
-  Target, 
-  AlertTriangle, 
-  Zap, 
-  CheckCircle2, 
-  X, 
+import {
+  ShieldCheck,
+  Target,
+  AlertTriangle,
+  Zap,
+  CheckCircle2,
+  X,
   ArrowRight,
   Calculator,
   BarChart3,
@@ -27,6 +27,7 @@ import {
   HelpCircle,
   ShieldAlert
 } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "How to Set Stop-Losses in Crypto | Invalidation & Risk",
@@ -175,7 +176,7 @@ export default function StopLossPillarPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                 <CTAButton 
-                  href="https://t.me/+JFf8kBf01mg3OTg1" 
+                  href={BRAND_CONFIG.officialTelegram} 
                   target="_blank"
                   trackingLabel="hero_sl_free"
                 >
@@ -767,7 +768,7 @@ export default function StopLossPillarPage() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               trackingLabel="final_sl_free"
               className="px-10 py-5 text-base"

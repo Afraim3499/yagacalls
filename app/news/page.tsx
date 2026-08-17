@@ -15,6 +15,7 @@ export const metadata = {
 
 import JsonLd from "@/components/seo/JsonLd";
 import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 async function getNewsData(): Promise<NewsItem[]> {
   const filePath = path.join(process.cwd(), "content/data/news.json");
@@ -88,7 +89,7 @@ export default async function NewsPage() {
           </p>
           <div className="flex justify-center">
             <a 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank" 
               className="grad-button text-background px-10 py-4 rounded-xl font-bold transition-all hover:shadow-[0_0_25px_rgba(227,158,46,0.5)]"
             >

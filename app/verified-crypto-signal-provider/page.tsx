@@ -7,6 +7,7 @@ import VerificationChecklist from "@/components/verification/VerificationCheckli
 import FAQSection from "../../components/shared/FAQSection";
 import Link from "next/link";
 import { X, ArrowRight } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Verified Crypto Signal Provider: How to Check Proof | Yaga Calls",
@@ -358,7 +359,7 @@ export default function VerifiedProviderPage() {
               <CTAButton href="/proof" trackingLabel="verified_eval_proof">
                 Review Proof Examples
               </CTAButton>
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" variant="secondary" trackingLabel="verified_eval_free">
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" variant="secondary" trackingLabel="verified_eval_free">
                 Join Free Telegram
               </CTAButton>
             </div>

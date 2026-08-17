@@ -11,6 +11,7 @@ import Link from "next/link";
 import { CheckCircle2, X, MessageCircle } from "lucide-react";
 import RelatedRegions from "@/components/regions/RelatedRegions";
 import { regionalPages } from "@/content/data/regions";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Crypto Signals GCC | Premium Telegram Access",
@@ -315,7 +316,7 @@ export default function GCCPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="gcc_final_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="gcc_final_free">
               Join Free Telegram
             </CTAButton>
             <CTAButton href="/regions/dubai" variant="secondary" trackingLabel="gcc_final_dubai">

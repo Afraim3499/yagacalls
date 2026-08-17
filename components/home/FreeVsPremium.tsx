@@ -2,6 +2,7 @@ import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
 import { Check, X } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function FreeVsPremium() {
   return (
@@ -64,7 +65,7 @@ export default function FreeVsPremium() {
             </table>
           </div>
           <div className="p-8 bg-surface flex flex-col sm:flex-row gap-4 justify-center items-center border-t border-line">
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" variant="primary" trackingLabel="home_free_vs_premium_join">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" variant="primary" trackingLabel="home_free_vs_premium_join">
               Join Free Telegram First
             </CTAButton>
             <CTAButton href="/pricing" variant="secondary" trackingLabel="home_free_vs_premium_compare">

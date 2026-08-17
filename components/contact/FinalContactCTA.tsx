@@ -1,6 +1,7 @@
 import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function FinalContactCTA() {
   return (
@@ -20,7 +21,7 @@ export default function FinalContactCTA() {
             <CTAButton href="https://t.me/yagacalls47" target="_blank" trackingLabel="contact_final_start">
               Start Manual Onboarding
             </CTAButton>
-            <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" variant="secondary" target="_blank" trackingLabel="contact_final_free">
+            <CTAButton href={BRAND_CONFIG.officialTelegram} variant="secondary" target="_blank" trackingLabel="contact_final_free">
               Join Free Telegram First
             </CTAButton>
           </div>

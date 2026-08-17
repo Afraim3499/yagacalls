@@ -7,11 +7,11 @@ import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import SignalCheck from "@/components/shared/SignalCheck";
 import Link from "next/link";
-import { 
-  CheckCircle2, 
-  ShieldAlert, 
-  Zap, 
-  Layout, 
+import {
+  CheckCircle2,
+  ShieldAlert,
+  Zap,
+  Layout,
   Globe,
   AlertTriangle,
   ArrowRight,
@@ -24,6 +24,7 @@ import {
   TrendingUp,
   MessageSquare
 } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "Best Crypto Signal Groups Compared | Free, Paid & Telegram",
@@ -203,7 +204,7 @@ export default function BestCryptoSignalGroupsComparedPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                 <CTAButton 
-                  href="https://t.me/+JFf8kBf01mg3OTg1" 
+                  href={BRAND_CONFIG.officialTelegram} 
                   target="_blank"
                   trackingLabel="hero_compare_free"
                   className="px-8 py-4 text-sm"
@@ -419,7 +420,7 @@ export default function BestCryptoSignalGroupsComparedPage() {
                 </p>
               </div>
               <CTAButton 
-                href="https://t.me/+JFf8kBf01mg3OTg1" 
+                href={BRAND_CONFIG.officialTelegram} 
                 target="_blank"
                 trackingLabel="free_group_cta"
                 className="w-full sm:w-auto"
@@ -770,7 +771,7 @@ export default function BestCryptoSignalGroupsComparedPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="comp_free">Join Free Telegram</CTAButton>
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="comp_free">Join Free Telegram</CTAButton>
               <CTAButton href="/method" variant="secondary" trackingLabel="comp_method">Read the Method</CTAButton>
               <CTAButton href="/proof" variant="secondary" trackingLabel="comp_proof">Review Proof Examples</CTAButton>
             </div>
@@ -891,7 +892,7 @@ export default function BestCryptoSignalGroupsComparedPage() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               trackingLabel="final_compare_free"
               className="px-10 py-5 text-base"

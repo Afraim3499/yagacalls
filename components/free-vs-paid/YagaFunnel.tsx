@@ -1,13 +1,14 @@
 import Container from "../shared/Container";
 import Section from "../shared/Section";
 import Link from "next/link";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function YagaFunnel() {
   const steps = [
     {
       title: "Step 1 — Join Free",
       content: "Observe the tone, market notes, and communication style in our public Telegram group.",
-      link: "https://t.me/+JFf8kBf01mg3OTg1",
+      link: BRAND_CONFIG.officialTelegram,
       linkLabel: "Join Free"
     },
     {

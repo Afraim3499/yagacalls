@@ -816,7 +816,7 @@ export default function LiquidationPriceCalculatorPage() {
               Use Calculator Again
             </CTAButton>
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               variant="secondary"
               trackingLabel="final_liq_free"

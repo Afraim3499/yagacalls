@@ -8,6 +8,7 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import AnswerBox from "@/components/seo/AnswerBox";
 import BlogListingClient from "@/components/blog/BlogListingClient";
 import { blogPostsMetadata } from "@/content/blog/posts";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata = {
   title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
@@ -124,7 +125,7 @@ export default function BlogPage() {
                   Want to verify our communication style, narrative tracking, and setup parameters before upgrading? Join our unedited, public Telegram group to watch open ideas develop.
                 </p>
                 <Link 
-                  href="https://t.me/+JFf8kBf01mg3OTg1" 
+                  href={BRAND_CONFIG.officialTelegram} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="grad-button text-background text-center block w-full text-xs font-bold uppercase tracking-widest py-3 rounded-xl shadow-lg"

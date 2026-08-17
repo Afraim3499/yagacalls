@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, MessageSquare } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 interface CTABoxProps {
   title?: string;
@@ -13,7 +14,7 @@ export default function CTABox({
   title = "Ready to Trade with Professional Guidance?",
   description = "Get narrative-driven setups, strict risk invalidation levels, and precise entry targets sent directly to your private Telegram thread.",
   ctaText = "Join Public Telegram Free",
-  ctaHref = "https://t.me/+JFf8kBf01mg3OTg1"
+  ctaHref = BRAND_CONFIG.officialTelegram
 }: CTABoxProps) {
   const isExternal = ctaHref.startsWith("http");
 

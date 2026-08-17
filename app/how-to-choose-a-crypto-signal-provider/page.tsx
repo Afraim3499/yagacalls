@@ -6,10 +6,10 @@ import FAQSection from "@/components/shared/FAQSection";
 import AuthorByline from "@/components/blog/AuthorByline";
 import GlowCard from "@/components/shared/GlowCard";
 import Link from "next/link";
-import { 
-  CheckCircle2, 
-  ShieldAlert, 
-  Zap, 
+import {
+  CheckCircle2,
+  ShieldAlert,
+  Zap,
   Search,
   ArrowRight,
   X,
@@ -27,6 +27,7 @@ import {
   Copy,
   Info
 } from "lucide-react";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
   title: "How to Choose a Crypto Signal Provider | 12-Point Checklist | Yaga Calls",
@@ -206,7 +207,7 @@ export default function HowToChooseProviderPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                 <CTAButton 
-                  href="https://t.me/+JFf8kBf01mg3OTg1" 
+                  href={BRAND_CONFIG.officialTelegram} 
                   target="_blank"
                   trackingLabel="hero_choose_free"
                   className="px-8 py-4 text-sm"
@@ -704,7 +705,7 @@ export default function HowToChooseProviderPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="fit_free">Join Free Telegram</CTAButton>
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="fit_free">Join Free Telegram</CTAButton>
               <CTAButton href="/method" variant="secondary" trackingLabel="fit_method">Read the Method</CTAButton>
               <CTAButton href="/proof" variant="secondary" trackingLabel="fit_proof">Review Proof Examples</CTAButton>
             </div>
@@ -792,7 +793,7 @@ export default function HowToChooseProviderPage() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton 
-              href="https://t.me/+JFf8kBf01mg3OTg1" 
+              href={BRAND_CONFIG.officialTelegram} 
               target="_blank"
               trackingLabel="final_choose_free"
               className="px-10 py-5 text-base"

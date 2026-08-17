@@ -1,6 +1,7 @@
 import Container from "../../shared/Container";
 import Section from "../../shared/Section";
 import CTAButton from "../../shared/CTAButton";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export default function UAEHero() {
   return (
@@ -24,7 +25,7 @@ export default function UAEHero() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <CTAButton href="https://t.me/+JFf8kBf01mg3OTg1" target="_blank" trackingLabel="uae_hero_free">
+              <CTAButton href={BRAND_CONFIG.officialTelegram} target="_blank" trackingLabel="uae_hero_free">
                 Join Free Telegram
               </CTAButton>
               <CTAButton href="/pricing" variant="secondary" trackingLabel="uae_hero_pricing">
