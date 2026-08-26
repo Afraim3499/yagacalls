@@ -1,5 +1,25 @@
 # yagacalls.com Audit — Remediation Plan
 
+## STATUS (2026-08-26): Phases 1–5 complete and committed. Phases 6–10 need your input — see each section.
+
+All 5 code-executable phases are done, each verified (not just built — Phase 5
+specifically included live browser regression testing that caught and fixed a
+real CSP regression before it shipped). Commits on this branch, in order:
+1. `fix(audit): Phase 1` — mechanical SEO/security fixes
+2. `fix(a11y): Phase 2` — accessibility fixes
+3. `fix(blog): Phase 3` — breadcrumb fix (+ one audit finding retracted after
+   re-investigation — see `findings/10-user-journey.md`)
+4. `fix(analytics): Phase 4` — conversion tracking made to actually work
+5. `fix(deps): Phase 5` — Next.js/sharp upgrade, 0 vulnerabilities, CSP regression
+   caught live and fixed within the same phase
+
+Nothing has been pushed to the remote — everything is local on this branch,
+waiting on your review. Phases 6-10 below are unchanged from the original plan:
+they need something from you (a decision, external info, dashboard access, or a
+business/legal call) that I can't supply unilaterally.
+
+---
+
 Branch: `fix/technical-audit-remediation`. Built from the 31 findings catalogued in
 [00-WORKFLOW.md](00-WORKFLOW.md) / [findings/](findings/). Grouped into phases by
 **who can act and how safely**, not by which segment they came from — that's the
