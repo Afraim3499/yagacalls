@@ -108,22 +108,30 @@ export default function ArticleLayout({
     secondaryEntities
   });
 
-  // Construct 4-tier Breadcrumb items: Home > Blog > Hub/Pillar or Category > Article Title
+  // Construct Breadcrumb items: Home > Blog > [Parent Pillar >] Article Title.
+  // The middle "category" tier (Strategy/Analysis/Beginner/Education) was
+  // dropped for posts with no real parent pillar — there's no actual
+  // category archive page behind those names, so it used to render as a
+  // clickable breadcrumb step pointing at the exact same /blog URL as the
+  // "Blog" step right before it (both in the JSON-LD and in the visible
+  // on-page trail), which misled real readers, not just search engines.
+  // Posts that *do* have a real parentPillarSlug still get that genuine
+  // extra tier, since it points at a real, distinct page.
   const parentPillarPost = parentPillarSlug ? blogPostsMetadata.find(p => p.slug === parentPillarSlug) : undefined;
-  
+
   const breadcrumbItems = [
     { name: "Blog", item: "/blog" },
-    ...(parentPillarPost 
-      ? [{ name: parentPillarPost.title, item: `/blog/${parentPillarPost.slug}` }] 
-      : [{ name: category, item: `/blog` }]
+    ...(parentPillarPost
+      ? [{ name: parentPillarPost.title, item: `/blog/${parentPillarPost.slug}` }]
+      : []
     ),
     { name: title, item: `/blog/${slug}` }
   ];
 
   const breadcrumbVisualItems = [
-    ...(parentPillarPost 
-      ? [{ label: parentPillarPost.title, href: `/blog/${parentPillarPost.slug}` }] 
-      : [{ label: category, href: `/blog` }]
+    ...(parentPillarPost
+      ? [{ label: parentPillarPost.title, href: `/blog/${parentPillarPost.slug}` }]
+      : []
     ),
     { label: title, href: `/blog/${slug}` }
   ];

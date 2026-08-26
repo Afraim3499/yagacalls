@@ -23,27 +23,22 @@ list, identical to clicking "Blog." This raises the severity of the original Seg
 real category archive pages or drop the fake tier) now has a clear user-facing
 justification, not just a structured-data cleanliness one.
 
-## 🟢 Low — blog posts have no "related articles" or "read next" section; the only path off an article is scrolling into the footer
+## ❌ RETRACTED — "no related articles module" was wrong; the audit's own DOM check was mis-scoped
 
-**Evidence:** live-checked `/blog/best-crypto-signals-group`'s DOM structure:
-`<main>` contains exactly 2 JSON-LD `<script>` tags and one `<article>` — nothing
-else. `article.nextElementSibling` is `null`; `main`'s next sibling is `<footer>`
-directly. There is no "related posts," "read next," or dedicated end-of-article CTA
-banner between the content ending and the site footer beginning.
+**Original claim (2026-08-26, later same day):** blog posts have no "related
+articles"/"read next" section, only path off an article is scrolling into the footer.
 
-**What *is* there, to be fair:** the article body does contain two "Compare Premium
-Plans" / "View Premium Plans" links to `/pricing`, styled as part of what looks like
-a sidebar CTA widget (`md:col-span-4` layout classes) rather than being buried as
-plain inline text — so this isn't a true conversion dead-end, just a missed
-opportunity. There's no direct one-click Telegram join link inside the article
-itself (the site's actual conversion action per Segment 7), and no mechanism to keep
-an engaged reader browsing more site content once they finish reading.
-
-**Fix (optional, moderate effort):** add a lightweight "related posts" or "keep
-reading" module after the article closes, using the existing `blogPostsMetadata`
-category/tag data — this is exactly the kind of module that could also give the fake
-"Education"/"Strategy" breadcrumb category tier (finding above) somewhere real to
-point to, solving both at once.
+**Correction:** this was a false positive caused by checking for a module *after*
+`</article>` in the DOM rather than *inside* it. `components/blog/ArticleLayout.tsx`
+already renders `<RelatedPosts relatedSlugs={relatedSlugs} currentSlug={slug} />`
+near the end of the article body, and `components/blog/RelatedPosts.tsx` implements
+genuinely good semantic-clustering logic (`getRelatedPostsSemantically()` — manual
+override → parent pillar → sibling cluster posts → category-match fallback) to
+surface 2 related posts even when no manual `relatedSlugs` are set. Re-verified live:
+`curl .../blog/best-crypto-signals-group` contains "Recommended Topic Cluster
+Reading" — the exact page originally checked, which the flawed DOM check had missed.
+**No fix needed here — leaving this section in place, struck through, rather than
+deleting it, so the correction is visible rather than silently disappearing.**
 
 ## ✅ Verified clean
 
@@ -71,4 +66,4 @@ point to, solving both at once.
   things pure DOM inspection can't.
 
 ---
-**Segment 10 tally: 0 🔴 · 0 🟠 · 1 🟡 Medium · 1 🟢 Low · 3 ℹ️ · 2 clean checks confirmed**
+**Segment 10 tally (revised after retraction): 0 🔴 · 0 🟠 · 1 🟡 Medium · 0 🟢 · 3 ℹ️ · 2 clean checks confirmed + 1 finding retracted**

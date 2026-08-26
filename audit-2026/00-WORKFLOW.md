@@ -56,13 +56,18 @@ file before moving to the next segment, brief report given after each segment.
 | 7 | 0 | 1 | 0 | 1 | 3 | 5 |
 | 8 | 0 | 1 | 2 | 1 | 3 | 7 |
 | 9 | 0 | 0 | 1 | 0 | 3 | 4 |
-| 10 | 0 | 0 | 1 | 1 | 3 | 5 |
+| 10 | 0 | 0 | 1 | 0 | 3 | 4 |
 | 11 | 0 | 0 | 0 | 1 | 3 | 4 |
 | 12 | 0 | 1 | 0 | 0 | 4 | 5 |
 | 13 | 0 | 0 | 0 | 0 | 5 | 5 |
 | 14 | 1 | 0 | 0 | 1 | 5 | 7 |
 | 15 | 0 | 1 | 1 | 0 | 4 | 6 |
-| **FINAL TOTAL** | **2** | **7** | **10** | **9** | **50** | **78** |
+| **FINAL TOTAL (revised)** | **2** | **7** | **10** | **8** | **50** | **77** |
+
+*(2026-08-26, during remediation: Segment 10's "no related articles module" finding
+was retracted — the module already existed, the original DOM check was mis-scoped.
+See [10-user-journey.md](findings/10-user-journey.md) for the correction. Total
+revised from 78 to 77, 🟢 from 9 to 8.)*
 
 ## STATUS: ALL 15 SEGMENTS COMPLETE (2026-08-26)
 
