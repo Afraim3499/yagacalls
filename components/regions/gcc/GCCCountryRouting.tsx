@@ -1,10 +1,15 @@
+"use client";
+
 import Container from "../../shared/Container";
 import Section from "../../shared/Section";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, MapPin } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { trackTelegramClick } from "@/lib/trackTelegramClick";
 
 export default function GCCCountryRouting() {
+  const pathname = usePathname();
   const cards = [
     { 
       name: "UAE Crypto Signals", 
@@ -74,7 +79,7 @@ export default function GCCCountryRouting() {
                  <h3 className="text-xl font-black uppercase tracking-tighter">Kuwait, Bahrain & Oman</h3>
                  <p className="text-xs text-text-muted max-w-md">For traders in Kuwait, Bahrain, and Oman, use this GCC page as the central regional entry point until dedicated pages are created.</p>
                </div>
-               <Link href={BRAND_CONFIG.officialTelegram} target="_blank" className="px-8 py-4 bg-primary text-black text-xs font-black uppercase tracking-widest rounded-full hover:scale-105 transition-transform">
+               <Link href={BRAND_CONFIG.officialTelegram} target="_blank" className="px-8 py-4 bg-primary text-black text-xs font-black uppercase tracking-widest rounded-full hover:scale-105 transition-transform" onClick={() => trackTelegramClick("GCCCountryRouting: Join Free Telegram", pathname)}>
                  Join Free Telegram
                </Link>
             </div>

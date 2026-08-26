@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { trackTelegramClick } from "@/lib/trackTelegramClick";
 
 interface CTAButtonProps {
   href: string;
@@ -34,23 +35,10 @@ export default function CTAButton({
     outline: "border border-primary text-primary hover:bg-primary/10",
   };
 
-  const handleClick = async () => {
+  const handleClick = () => {
     // Determine if this is a conversion event (Telegram links)
     if (href.includes('t.me')) {
-      try {
-        await fetch('/api/track/telegram', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            event: 'telegram_click',
-            label: trackingLabel || children?.toString() || href,
-            path: pathname
-          })
-        });
-      } catch (e) {
-        // Fail silently - don't block the user
-        console.warn('Tracking failed', e);
-      }
+      trackTelegramClick(trackingLabel || children?.toString() || href, pathname);
     }
   };
 

@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Ticker from "./Ticker";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { trackTelegramClick } from "@/lib/trackTelegramClick";
 
 const navLinks = [
   { label: "Results", href: "/crypto-signal-results" },
@@ -80,6 +81,7 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             className="grad-button text-background px-4 lg:px-5 py-2 rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(227,158,46,0.3)] hover:shadow-[0_0_25px_rgba(227,158,46,0.5)] transition-all whitespace-nowrap"
+            onClick={() => trackTelegramClick("Header: Join Public Group", pathname)}
           >
             Join Public Group
           </Link>
@@ -123,7 +125,10 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className="grad-button text-background w-full py-4 rounded-2xl text-center font-black uppercase tracking-widest text-sm shadow-xl block"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                trackTelegramClick("Header (mobile): Join Public Telegram Group", pathname);
+                setIsOpen(false);
+              }}
             >
               💬 Join Public Telegram Group
             </Link>

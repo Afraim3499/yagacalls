@@ -54,4 +54,18 @@ next-env.d.ts
 my_old_cmc_members.*
 telegram_exports/
 
+# runtime data (server-side conversion-event log, etc.) — never committed
+/data/
+
+# secret-adjacent local files flagged in audit-2026/findings/06-security.md
+# and 14-infrastructure-devops.md — previously untracked-but-unprotected,
+# meaning one `git add -A` away from being committed. Listed explicitly by
+# name (rather than only broader patterns) since the existing *bot*token*
+# pattern above didn't match this file's actual name.
+/yaga client relation bot
+/hightable_exports/
+/scrape_all_free_members.py
+/scrape_deep_subscribers.py
+/scrape_remaining_to_5109.py
+/searched_with_*.csv
 

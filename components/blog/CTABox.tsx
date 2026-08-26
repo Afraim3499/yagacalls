@@ -1,7 +1,11 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, MessageSquare } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { trackTelegramClick } from "@/lib/trackTelegramClick";
 
 interface CTABoxProps {
   title?: string;
@@ -17,6 +21,7 @@ export default function CTABox({
   ctaHref = BRAND_CONFIG.officialTelegram
 }: CTABoxProps) {
   const isExternal = ctaHref.startsWith("http");
+  const pathname = usePathname();
 
   return (
     <div className="relative overflow-hidden border border-line bg-gradient-to-br from-surface-deep/40 to-primary/5 rounded-3xl p-8 my-12 shadow-2xl">
@@ -37,6 +42,7 @@ export default function CTABox({
               target="_blank"
               rel="noopener noreferrer"
               className="grad-button text-background text-xs font-black uppercase tracking-widest px-6 py-4 rounded-xl inline-flex items-center justify-center gap-2 text-center"
+              onClick={() => ctaHref.includes('t.me') && trackTelegramClick(`CTABox: ${ctaText}`, pathname)}
             >
               <MessageSquare className="w-4 h-4" /> {ctaText}
             </Link>

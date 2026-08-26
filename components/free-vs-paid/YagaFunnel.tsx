@@ -1,9 +1,14 @@
+"use client";
+
 import Container from "../shared/Container";
 import Section from "../shared/Section";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { trackTelegramClick } from "@/lib/trackTelegramClick";
 
 export default function YagaFunnel() {
+  const pathname = usePathname();
   const steps = [
     {
       title: "Step 1 — Join Free",
@@ -62,10 +67,11 @@ export default function YagaFunnel() {
                     <h3 className="font-bold uppercase tracking-tight text-sm">{step.title}</h3>
                     <p className="text-xs text-text-muted leading-relaxed min-h-[60px]">{step.content}</p>
                   </div>
-                  <Link 
-                    href={step.link} 
+                  <Link
+                    href={step.link}
                     className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary hover:gap-3 transition-all"
                     target={step.link.startsWith("http") ? "_blank" : undefined}
+                    onClick={() => step.link.includes('t.me') && trackTelegramClick(`YagaFunnel: ${step.linkLabel}`, pathname)}
                   >
                     {step.linkLabel} <span className="text-lg">→</span>
                   </Link>
