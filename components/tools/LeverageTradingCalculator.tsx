@@ -235,9 +235,10 @@ Yaga Calls Leverage Trade Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Account Size ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="ltc-account-size" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Account Size ($)</label>
+                  <input
+                    id="ltc-account-size"
+                    type="number"
                     value={accountSize}
                     onChange={(e) => setAccountSize(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -246,9 +247,10 @@ Yaga Calls Leverage Trade Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Entry Price ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="ltc-entry-price" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Entry Price ($)</label>
+                  <input
+                    id="ltc-entry-price"
+                    type="number"
                     value={entryPrice}
                     onChange={(e) => setEntryPrice(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -256,10 +258,11 @@ Yaga Calls Leverage Trade Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Leverage (x)</label>
+                  <label htmlFor="ltc-leverage" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Leverage (x)</label>
                   <div className="relative">
-                    <input 
-                      type="number" 
+                    <input
+                      id="ltc-leverage"
+                      type="number"
                       value={leverage}
                       onChange={(e) => setLeverage(Number(e.target.value))}
                       className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -299,9 +302,10 @@ Yaga Calls Leverage Trade Estimate:
 
                 {sizeType === 'quantity' ? (
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Asset Quantity</label>
-                    <input 
-                      type="number" 
+                    <label htmlFor="ltc-asset-quantity" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Asset Quantity</label>
+                    <input
+                      id="ltc-asset-quantity"
+                      type="number"
                       value={assetQuantity}
                       onChange={(e) => setAssetQuantity(Number(e.target.value))}
                       className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -310,9 +314,10 @@ Yaga Calls Leverage Trade Estimate:
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Notional Value ($)</label>
-                    <input 
-                      type="number" 
+                    <label htmlFor="ltc-notional-value" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Notional Value ($)</label>
+                    <input
+                      id="ltc-notional-value"
+                      type="number"
                       value={notionalInput}
                       onChange={(e) => setNotionalInput(Number(e.target.value))}
                       className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -332,9 +337,10 @@ Yaga Calls Leverage Trade Estimate:
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Stop-Loss Price ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="ltc-stop-loss" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Stop-Loss Price ($)</label>
+                  <input
+                    id="ltc-stop-loss"
+                    type="number"
                     value={stopLoss}
                     onChange={(e) => setStopLoss(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -342,9 +348,10 @@ Yaga Calls Leverage Trade Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Target Price ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="ltc-target-price" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Target Price ($)</label>
+                  <input
+                    id="ltc-target-price"
+                    type="number"
                     value={targetPrice}
                     onChange={(e) => setTargetPrice(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -352,9 +359,10 @@ Yaga Calls Leverage Trade Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Maint. Margin Buffer (%)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="ltc-maintenance-buffer" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Maint. Margin Buffer (%)</label>
+                  <input
+                    id="ltc-maintenance-buffer"
+                    type="number"
                     value={maintenanceBuffer}
                     onChange={(e) => setMaintenanceBuffer(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"

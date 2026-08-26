@@ -96,9 +96,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-background focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
+        >
+          Skip to main content
+        </a>
         <Header />
         <LazyMotion features={domMax}>
-          <main className="flex-grow pt-[80px]">
+          <main id="main-content" className="flex-grow pt-[80px]">
             {children}
           </main>
         </LazyMotion>

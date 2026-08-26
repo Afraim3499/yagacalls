@@ -46,7 +46,8 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions" 
             >
               <button
                 onClick={() => toggleIndex(idx)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-text-high hover:text-primary transition-colors focus:outline-none"
+                aria-expanded={isOpen}
+                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-text-high hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 <span className="text-base uppercase tracking-tight leading-snug">{faq.question}</span>
                 <span className="shrink-0 text-primary p-1 bg-surface rounded-lg border border-line">

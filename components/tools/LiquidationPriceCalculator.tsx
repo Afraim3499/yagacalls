@@ -210,9 +210,10 @@ Yaga Calls Liquidation Risk Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Entry Price ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="lpc-entry-price" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Entry Price ($)</label>
+                  <input
+                    id="lpc-entry-price"
+                    type="number"
                     value={entryPrice}
                     onChange={(e) => setEntryPrice(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -221,10 +222,11 @@ Yaga Calls Liquidation Risk Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Leverage (x)</label>
+                  <label htmlFor="lpc-leverage" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Leverage (x)</label>
                   <div className="relative">
-                    <input 
-                      type="number" 
+                    <input
+                      id="lpc-leverage"
+                      type="number"
                       value={leverage}
                       onChange={(e) => setLeverage(Number(e.target.value))}
                       className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -234,9 +236,10 @@ Yaga Calls Liquidation Risk Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Maint. Margin Rate (%)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="lpc-maint-margin-rate" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Maint. Margin Rate (%)</label>
+                  <input
+                    id="lpc-maint-margin-rate"
+                    type="number"
                     value={maintMarginRate}
                     onChange={(e) => setMaintMarginRate(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -274,9 +277,10 @@ Yaga Calls Liquidation Risk Estimate:
 
                 {sizeType === 'quantity' ? (
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Asset Quantity</label>
-                    <input 
-                      type="number" 
+                    <label htmlFor="lpc-asset-quantity" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Asset Quantity</label>
+                    <input
+                      id="lpc-asset-quantity"
+                      type="number"
                       value={assetQuantity}
                       onChange={(e) => setAssetQuantity(Number(e.target.value))}
                       className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -284,9 +288,10 @@ Yaga Calls Liquidation Risk Estimate:
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Notional Value ($)</label>
-                    <input 
-                      type="number" 
+                    <label htmlFor="lpc-notional-value" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Notional Value ($)</label>
+                    <input
+                      id="lpc-notional-value"
+                      type="number"
                       value={notionalInput}
                       onChange={(e) => setNotionalInput(Number(e.target.value))}
                       className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -305,9 +310,10 @@ Yaga Calls Liquidation Risk Estimate:
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Additional Margin ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="lpc-additional-margin" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Additional Margin ($)</label>
+                  <input
+                    id="lpc-additional-margin"
+                    type="number"
                     value={additionalMargin}
                     onChange={(e) => setAdditionalMargin(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -316,9 +322,10 @@ Yaga Calls Liquidation Risk Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Stop-Loss Price ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="lpc-stop-loss" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Stop-Loss Price ($)</label>
+                  <input
+                    id="lpc-stop-loss"
+                    type="number"
                     value={stopLoss}
                     onChange={(e) => setStopLoss(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -327,9 +334,10 @@ Yaga Calls Liquidation Risk Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Fee Buffer (%)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="lpc-fee-buffer" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Fee Buffer (%)</label>
+                  <input
+                    id="lpc-fee-buffer"
+                    type="number"
                     value={feeBuffer}
                     onChange={(e) => setFeeBuffer(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"

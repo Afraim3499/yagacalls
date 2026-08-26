@@ -169,9 +169,10 @@ Yaga Calls Position Size Estimate:
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Account Size ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="psc-account-size" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Account Size ($)</label>
+                  <input
+                    id="psc-account-size"
+                    type="number"
                     value={accountSize}
                     onChange={(e) => setAccountSize(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -197,11 +198,12 @@ Yaga Calls Position Size Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">
+                  <label htmlFor="psc-risk-amount" className="text-[10px] font-black uppercase tracking-widest text-text-muted">
                     {riskType === 'percent' ? 'Risk Per Trade (%)' : 'Fixed Risk Amount ($)'}
                   </label>
-                  <input 
-                    type="number" 
+                  <input
+                    id="psc-risk-amount"
+                    type="number"
                     value={riskType === 'percent' ? riskPercent : riskFixed}
                     onChange={(e) => riskType === 'percent' ? setRiskPercent(Number(e.target.value)) : setRiskFixed(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -209,10 +211,11 @@ Yaga Calls Position Size Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Leverage (x)</label>
+                  <label htmlFor="psc-leverage" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Leverage (x)</label>
                   <div className="relative">
-                    <input 
-                      type="number" 
+                    <input
+                      id="psc-leverage"
+                      type="number"
                       value={leverage}
                       onChange={(e) => setLeverage(Number(e.target.value))}
                       className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -250,9 +253,10 @@ Yaga Calls Position Size Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Entry Price ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="psc-entry-price" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Entry Price ($)</label>
+                  <input
+                    id="psc-entry-price"
+                    type="number"
                     value={entryPrice}
                     onChange={(e) => setEntryPrice(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -260,9 +264,10 @@ Yaga Calls Position Size Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Stop-Loss Price ($)</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="psc-stop-loss" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Stop-Loss Price ($)</label>
+                  <input
+                    id="psc-stop-loss"
+                    type="number"
                     value={stopLoss}
                     onChange={(e) => setStopLoss(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"
@@ -270,9 +275,10 @@ Yaga Calls Position Size Estimate:
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted">Target Price ($) — Optional</label>
-                  <input 
-                    type="number" 
+                  <label htmlFor="psc-target-price" className="text-[10px] font-black uppercase tracking-widest text-text-muted">Target Price ($) — Optional</label>
+                  <input
+                    id="psc-target-price"
+                    type="number"
                     value={targetPrice}
                     onChange={(e) => setTargetPrice(Number(e.target.value))}
                     className="w-full bg-surface-deep border border-line rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none transition-colors"

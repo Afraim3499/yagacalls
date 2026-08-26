@@ -90,6 +90,8 @@ export default function Header() {
           className="md:hidden text-text p-2 cursor-pointer z-50"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav-menu"
         >
           {isOpen ? <X size={28} className="text-primary" /> : <Menu size={28} />}
         </button>
@@ -97,7 +99,7 @@ export default function Header() {
 
       {/* 100% OPAQUE FULL-SCREEN MOBILE MENU OVERLAY */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-[#080a0f] w-screen h-screen flex flex-col p-6 pt-28 gap-6 md:hidden overflow-y-auto animate-in fade-in duration-200">
+        <div id="mobile-nav-menu" className="fixed inset-0 z-40 bg-[#080a0f] w-screen h-screen flex flex-col p-6 pt-28 gap-6 md:hidden overflow-y-auto animate-in fade-in duration-200">
           <div className="flex flex-col gap-4 border-t border-line/50 pt-4">
             {navLinks.map((link) => (
               <Link
