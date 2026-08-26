@@ -75,7 +75,17 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self' data:",
-              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
+              // The reviews section, live signal-results desk, and affiliate
+              // leaderboard all fetch/write directly to Supabase client-side
+              // (components/reviews/CommunityReviewsSection.tsx,
+              // components/results/LiveSignalResultsDesk.tsx,
+              // components/affiliate/AffiliateLeaderboard.tsx,
+              // components/home/ReviewTrustBar.tsx) — verified live against a
+              // production build that omitting this silently breaks those
+              // features (blocked fetch, swallowed by their own catch blocks
+              // with no visible error to the user, which is exactly why this
+              // needed a real browser-console check, not just a build check).
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://ghwvwtwktnveqdqivxmy.supabase.co",
               "frame-ancestors 'self'",
               "object-src 'none'",
               "base-uri 'self'",
