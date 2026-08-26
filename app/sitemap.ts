@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/method',
     '/proof',
+    '/crypto-signal-results',
     '/pricing',
     '/analysis',
     '/news',

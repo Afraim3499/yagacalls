@@ -14,7 +14,7 @@ const RegionalBlock = dynamic(() => import("@/components/home/RegionalBlock.js")
 const FinalCTA = dynamic(() => import("@/components/home/FinalCTA.js").then(mod => mod.default));
 const FAQSection = dynamic(() => import("@/components/home/FAQSection.js").then(mod => mod.default));
 import JsonLd from "@/components/seo/JsonLd";
-import { createWebPageSchema, createFAQSchema, createOrganizationSchema, createWebsiteSchema, createServiceSchema, createBreadcrumbSchema } from "@/lib/schema";
+import { createWebPageSchema, createFAQSchema, createServiceSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata = {
   title: "Professional Crypto Signals & Risk-Aware Trading",
@@ -37,8 +37,10 @@ export default function HomePage() {
     url: "https://www.yagacalls.com/"
   });
 
-  const organizationSchema = createOrganizationSchema();
-  const websiteSchema = createWebsiteSchema();
+  // Organization and WebSite JSON-LD are already emitted site-wide by
+  // app/layout.tsx (rendered on every page, including this one) — do not
+  // re-declare them here, that previously caused the homepage to emit two
+  // byte-identical copies of each.
   const serviceSchema = createServiceSchema({
     name: "Premium Telegram Crypto Signals",
     description: "Premium Telegram-first crypto signal notes with market narrative research, entry zones, targets, invalidation logic, and risk-managed trading context."
@@ -87,8 +89,6 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={webPageSchema} />
-      <JsonLd data={organizationSchema} />
-      <JsonLd data={websiteSchema} />
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />

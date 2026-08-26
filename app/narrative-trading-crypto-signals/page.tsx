@@ -11,7 +11,7 @@ import { BRAND_CONFIG } from "@/lib/constants/brand";
 import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Narrative Trading Crypto Signals | Yaga Calls",
+  title: "Narrative Trading Crypto Signals",
   description: "Yaga Calls uses narrative-driven crypto signal research to track sector rotations, catalysts, market stories, technical structure, entries, targets, and risk context.",
   alternates: {
     canonical: "https://www.yagacalls.com/narrative-trading-crypto-signals",

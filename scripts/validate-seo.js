@@ -143,10 +143,93 @@ function checkSitemapCoversRegionFolders() {
   }
 }
 
+// ── Check 5: page titles must not already contain the layout's own suffix ──
+// app/layout.tsx sets a global metadata title template ("%s | Yaga Calls") that
+// Next.js appends to whatever `title` a page returns. A page whose own title
+// string already ends in "| Yaga Calls" gets it appended a second time, shipping
+// "...Yaga Calls | Yaga Calls" to search results. This shipped on 13 pages at once
+// (4 static legal pages, 6 SEO landing pages, 3 commercial.ts entries) because the
+// bug can be introduced independently in any file that sets a top-level page title
+// — this check scans all of them so it can't silently regress.
+function checkNoDoubledTitleSuffix() {
+  const SUFFIX_RE = /\|\s*Yaga Calls\s*$/;
+
+  // app/**/page.tsx: only the *first* `title:` inside `export const metadata`
+  // (before openGraph/twitter, which have their own independent titles that are
+  // allowed to keep the suffix) is the one the layout template applies to.
+  const pageFiles = walk(path.join(ROOT, 'app'), (f) => f.endsWith('page.tsx'));
+  for (const file of pageFiles) {
+    const src = fs.readFileSync(file, 'utf8');
+    const metaMatch = src.match(/export const metadata[^{]*\{/);
+    if (!metaMatch) continue;
+    const start = metaMatch.index + metaMatch[0].length;
+    const boundary = src.slice(start).search(/\b(openGraph|twitter)\s*:/);
+    const block = boundary === -1 ? src.slice(start) : src.slice(start, start + boundary);
+    const titleMatch = block.match(/title:\s*"([^"]*)"/);
+    if (titleMatch && SUFFIX_RE.test(titleMatch[1])) {
+      const line = src.slice(0, start + block.indexOf(titleMatch[0])).split('\n').length;
+      fail(`${path.relative(ROOT, file)}:${line} — page title "${titleMatch[1]}" already ends in "| Yaga Calls"; app/layout.tsx's title template will append it again, shipping "...Yaga Calls | Yaga Calls".`);
+    }
+  }
+
+  // content/data/*.ts and content/blog/posts.ts: `metaTitle` fields are fed
+  // directly into `title` by the [slug] catch-all routes the same way.
+  const dataFiles = [
+    path.join(ROOT, 'content', 'data', 'commercial.ts'),
+    path.join(ROOT, 'content', 'data', 'regions.ts'),
+    path.join(ROOT, 'content', 'blog', 'posts.ts'),
+  ];
+  for (const file of dataFiles) {
+    if (!fs.existsSync(file)) continue;
+    const src = fs.readFileSync(file, 'utf8');
+    const re = /metaTitle:\s*"([^"]*)"/g;
+    let match;
+    while ((match = re.exec(src)) !== null) {
+      if (SUFFIX_RE.test(match[1])) {
+        const line = src.slice(0, match.index).split('\n').length;
+        fail(`${path.relative(ROOT, file)}:${line} — metaTitle "${match[1]}" already ends in "| Yaga Calls"; the layout title template will double it.`);
+      }
+    }
+  }
+}
+
+// ── Check 6: every top-level static route folder must be listed in sitemap.ts ──
+// Generalizes Check 4 (which only covered app/regions/*) after finding
+// app/crypto-signal-results/ was a live, linked page missing from
+// staticRoutePaths — silently absent from sitemap.xml despite being fully public.
+function checkStaticRoutesCoveredBySitemap() {
+  const appDir = path.join(ROOT, 'app');
+  const sitemapFile = path.join(ROOT, 'app', 'sitemap.ts');
+  if (!fs.existsSync(appDir) || !fs.existsSync(sitemapFile)) return;
+
+  // Folders with their own dynamic sitemap logic (own [slug] route + a
+  // dedicated block in sitemap.ts), route groups, and non-page special routes.
+  const EXEMPT = new Set(['api', 'academy', 'authors', 'blog', 'regions', 'feed.xml', '(commercial)']);
+
+  const sitemapSrc = fs.readFileSync(sitemapFile, 'utf8');
+  const staticRouteBlockMatch = sitemapSrc.match(/staticRoutePaths\s*=\s*\[([\s\S]*?)\];/);
+  const listedPaths = staticRouteBlockMatch
+    ? new Set([...staticRouteBlockMatch[1].matchAll(/'([^']*)'/g)].map((m) => m[1]))
+    : new Set();
+
+  const folders = fs.readdirSync(appDir, { withFileTypes: true }).filter((e) => e.isDirectory());
+  for (const folder of folders) {
+    if (EXEMPT.has(folder.name) || folder.name.startsWith('.') || folder.name.startsWith('[')) continue;
+    const pageFile = path.join(appDir, folder.name, 'page.tsx');
+    if (!fs.existsSync(pageFile)) continue; // not a real route (e.g. a shared layout-only folder)
+    const routePath = `/${folder.name}`;
+    if (!listedPaths.has(routePath)) {
+      fail(`app/${folder.name}/page.tsx is a real, live route but "${routePath}" is missing from staticRoutePaths in app/sitemap.ts — it won't appear in sitemap.xml.`);
+    }
+  }
+}
+
 checkRobotsDuplication();
 checkJsonLdNames();
 checkRegionReferencesAreReal();
 checkSitemapCoversRegionFolders();
+checkNoDoubledTitleSuffix();
+checkStaticRoutesCoveredBySitemap();
 
 if (errors.length > 0) {
   console.error(`\n✖ SEO validation failed with ${errors.length} issue(s):\n`);

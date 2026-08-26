@@ -369,7 +369,7 @@ Yaga Calls Position Size Estimate:
                 <div className="pt-4 space-y-4">
                   <div className="p-4 bg-background border border-line rounded-2xl">
                     <p className="text-[10px] text-text-muted leading-relaxed italic uppercase tracking-tight text-center">
-                      "With a ${accountSize} account and {results.riskAmount.toFixed(0)} risk, an entry at ${entryPrice} with a ${stopLoss} stop-loss requires an estimated {results.positionSize.toFixed(2)} units."
+                      "With a ${accountSize} account and ${results.riskAmount.toFixed(0)} risk, an entry at ${entryPrice} with a ${stopLoss} stop-loss requires an estimated {results.positionSize.toFixed(2)} units."
                     </p>
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-text-muted/50 text-center">

@@ -11,7 +11,7 @@ import { BRAND_CONFIG } from "@/lib/constants/brand";
 import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Verified Crypto Signal Provider: How to Check Proof | Yaga Calls",
+  title: "Verified Crypto Signal Provider: How to Check Proof",
   description: "Learn how to verify a crypto signal provider by checking proof, method, risk context, Telegram transparency, onboarding process, and scam red flags.",
   alternates: {
     canonical: "https://www.yagacalls.com/verified-crypto-signal-provider",

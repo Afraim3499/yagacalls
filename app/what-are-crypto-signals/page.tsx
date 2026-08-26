@@ -29,7 +29,7 @@ import { BRAND_CONFIG } from "@/lib/constants/brand";
 import { createWebPageSchema, createArticleSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "What Are Crypto Signals? Entries, Targets & Stop-Loss Guide | Yaga Calls",
+  title: "What Are Crypto Signals? Entries, Targets & Stop-Loss Guide",
   description: "Learn what crypto signals are, how entries, targets, stop-losses and invalidation work, and how to evaluate signal groups without falling for hype.",
   alternates: {
     canonical: "https://www.yagacalls.com/what-are-crypto-signals",

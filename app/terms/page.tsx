@@ -2,7 +2,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 
 export const metadata = {
-  title: "Terms of Service | Yaga Calls",
+  title: "Terms of Service",
   description: "Read the official Terms of Service for Yaga Calls. Learn about our educational content disclaimer, community safety rules, and subscription terms.",
   alternates: {
     canonical: "https://www.yagacalls.com/terms",

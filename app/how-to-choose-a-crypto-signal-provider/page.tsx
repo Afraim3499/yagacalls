@@ -31,7 +31,7 @@ import {
 import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 export const metadata: Metadata = {
-  title: "How to Choose a Crypto Signal Provider | 12-Point Checklist | Yaga Calls",
+  title: "How to Choose a Crypto Signal Provider | 12-Point Checklist",
   description: "Use this 12-point checklist to evaluate crypto signal providers, verify proof, avoid pump groups, check Telegram safety, and choose with risk in mind.",
   alternates: {
     canonical: "https://www.yagacalls.com/how-to-choose-a-crypto-signal-provider",

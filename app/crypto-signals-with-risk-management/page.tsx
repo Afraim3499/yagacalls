@@ -11,7 +11,7 @@ import { BRAND_CONFIG } from "@/lib/constants/brand";
 import { createWebPageSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Crypto Signals With Risk Management | Yaga Calls",
+  title: "Crypto Signals With Risk Management",
   description: "Yaga Calls provides risk-aware Telegram crypto signal notes with market context, entry zones, targets, invalidation logic, stop-loss thinking, and disciplined setup planning.",
   alternates: {
     canonical: "https://www.yagacalls.com/crypto-signals-with-risk-management",

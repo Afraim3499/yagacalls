@@ -2,7 +2,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 
 export const metadata = {
-  title: "Privacy Policy | Yaga Calls",
+  title: "Privacy Policy",
   description: "Learn how Yaga Calls handles your data and privacy with transparency and minimal data collection.",
   alternates: {
     canonical: "https://www.yagacalls.com/privacy",

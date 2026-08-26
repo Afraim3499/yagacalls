@@ -19,7 +19,7 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Best Crypto Signal Provider for Serious Traders | Yaga Calls",
+  title: "Best Crypto Signal Provider for Serious Traders",
   description: "Looking for the best crypto signal provider? Learn how serious traders compare crypto signal groups by research quality, Telegram delivery, risk management, proof, and transparency.",
   alternates: {
     canonical: "https://www.yagacalls.com/best-crypto-signal-provider",

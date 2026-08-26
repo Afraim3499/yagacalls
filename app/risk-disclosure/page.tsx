@@ -2,7 +2,7 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 
 export const metadata = {
-  title: "Crypto Trading Risk Disclosure | Yaga Calls",
+  title: "Crypto Trading Risk Disclosure",
   description: "Read important risk disclosures before using crypto trading signals. Yaga Calls does not provide financial advice or guaranteed results.",
   alternates: {
     canonical: "https://www.yagacalls.com/risk-disclosure",
