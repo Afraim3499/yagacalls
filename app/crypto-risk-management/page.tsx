@@ -767,7 +767,13 @@ export default function RiskManagementPillarPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-center">The Risk Management <br /><span className="text-primary">Checklist</span></h2>
-            
+            <p className="text-sm text-text-muted leading-relaxed text-center max-w-2xl mx-auto">
+              For a step-by-step walkthrough of applying this to Telegram signals specifically, see the Academy's{" "}
+              <Link href="/academy/risk-management-crypto-signals" className="text-primary hover:underline font-bold">
+                risk management for crypto signals guide
+              </Link>.
+            </p>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 p-10 md:p-14 bg-background border border-line rounded-[48px]">
               {[
                 "Account size is clear and defined.",

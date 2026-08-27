@@ -489,6 +489,12 @@ export default function StopLossPillarPage() {
                 <p className="text-text-muted leading-relaxed font-medium">
                   Volatile coins need wider stops. Liquid markets need tighter stops. If your stop ignores ATR (Average True Range) or wick depth, you'll be stopped out before the thesis plays out.
                 </p>
+                <p className="text-text-muted leading-relaxed text-sm">
+                  For the full mechanics, see the Academy's{" "}
+                  <Link href="/academy/atr-stops" className="text-primary hover:underline font-bold">
+                    guide to ATR-based stop placement
+                  </Link>.
+                </p>
                 <div className="p-4 bg-background border border-primary/20 rounded-xl">
                   <p className="text-[10px] font-black uppercase tracking-widest text-primary">Core Principle:</p>
                   <p className="text-xs text-text font-bold uppercase">Wider volatility = Smaller position size.</p>

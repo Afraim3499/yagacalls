@@ -203,6 +203,12 @@ export default function VerifiedProviderPage() {
               <p className="text-text-muted leading-relaxed">
                 Be careful if a provider avoids basic transparency. Weak providers often hide losing calls, missing context, or the actual method behind the alerts.
               </p>
+              <p className="text-text-muted leading-relaxed text-sm">
+                See the full pattern in the Academy's{" "}
+                <Link href="/academy/avoid-pump-signal-scams" className="text-primary hover:underline font-bold">
+                  guide to spotting and avoiding pump signal scams
+                </Link>.
+              </p>
               <div className="p-8 bg-surface-deep border border-line rounded-3xl space-y-4">
                 <p className="text-xs font-black uppercase tracking-widest text-danger">The Hype Filter</p>
                 <ul className="space-y-2">

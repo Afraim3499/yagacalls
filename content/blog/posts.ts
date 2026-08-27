@@ -240,7 +240,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     featuredImage: "/images/blog-narrative-capital-rotation.webp",
     featuredImageAlt: "Ecosystem capital rotation map tracking volume surges in AI, DePIN, and RWA narrative altcoin sectors",
     keywords: ["narrative trading crypto", "sector rotation crypto", "AI DePIN RWA altcoins", "ecosystem capital flow"],
-    relatedPosts: ["how-we-called-sui-rally", "best-crypto-signals-group"],
+    relatedPosts: ["how-we-called-sui-rally", "best-crypto-signals-group", "crv-trading-curve-price-updates"],
     ctaLabel: "Explore the Pricing Plans",
     ctaHref: "/pricing",
 
@@ -328,7 +328,7 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     featuredImage: "/images/research-global-crypto-trends.webp",
     featuredImageAlt: "Global financial data researchers analyzing cryptocurrency search intent metrics and regional search funnels on sleek modern displays",
     keywords: ["crypto search intent", "Google Trends crypto research", "Canada crypto regulation", "UAE Binance search trends", "Nigeria crypto access", "crypto market funnels"],
-    relatedPosts: ["canada-crypto-regulation-clarity-act", "uae-crypto-licensing-vara-binance"],
+    relatedPosts: ["canada-crypto-regulation-clarity-act", "uae-crypto-licensing-vara-binance", "crypto-search-intent-funnel-guide"],
     ctaLabel: "Read the Yaga Calls Research Method",
     ctaHref: "/method",
 

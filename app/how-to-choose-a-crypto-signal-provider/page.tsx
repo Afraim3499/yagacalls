@@ -329,6 +329,12 @@ export default function HowToChooseProviderPage() {
               <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto font-medium">
                 A provider passes the first test when it helps you think more clearly before acting.
               </p>
+              <p className="text-sm text-text-muted leading-relaxed max-w-2xl mx-auto">
+                The Academy walks through this same checklist in more depth:{" "}
+                <Link href="/academy/choose-crypto-signals-provider" className="text-primary hover:underline font-bold">
+                  how to choose a crypto signals provider
+                </Link>.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

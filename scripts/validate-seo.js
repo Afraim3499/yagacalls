@@ -19,9 +19,18 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const errors = [];
+const warnings = [];
 
 function fail(message) {
   errors.push(message);
+}
+
+// Unlike fail(), a warning doesn't block the build (exit code stays 0) —
+// used for content-quality signals where a false positive is plausible
+// (e.g. a brand-new post genuinely has no cross-links yet) rather than a
+// clear-cut technical defect.
+function warn(message) {
+  warnings.push(message);
 }
 
 function walk(dir, filterFn, results = []) {
@@ -227,12 +236,86 @@ function checkStaticRoutesCoveredBySitemap() {
   }
 }
 
+// ── Check 7: flag blog posts / academy modules with zero curated cross-links ──
+// A static proxy for the real internal-link-graph crawl run manually during
+// the sitemap/internal-linking audit (see audit-2026/), which found several
+// posts reachable only from their own index page's generic .map() listing —
+// with zero relatedPosts entries, zero parentPillarSlug references, and zero
+// hardcoded contextual links from any commercial/pillar page. This can't
+// replace a real crawl (it doesn't count *how many* links, or resolve
+// dynamic hrefs built at runtime), but it catches the exact failure mode
+// that motivated the audit: a slug that no other file in the whole codebase
+// ever mentions by name, meaning nothing was ever curated to point at it on
+// purpose. A warning, not a failure — a brand-new post legitimately has no
+// cross-links yet until someone adds them, and that shouldn't block a deploy.
+function checkContentHasCuratedCrossLinks() {
+  const appAndComponentsFiles = [
+    ...walk(path.join(ROOT, 'app'), (f) => f.endsWith('.tsx')),
+    ...walk(path.join(ROOT, 'components'), (f) => f.endsWith('.tsx')),
+  ];
+  const combinedSource = appAndComponentsFiles.map((f) => fs.readFileSync(f, 'utf8')).join('\n');
+
+  function countReferences(slug, ownFileSrc, ownEntryRange) {
+    // References elsewhere in the same data file (other entries' relatedPosts/
+    // parentPillarSlug pointing at this slug) — exclude the entry's own block.
+    const outsideOwnEntry = ownFileSrc.slice(0, ownEntryRange[0]) + ownFileSrc.slice(ownEntryRange[1]);
+    const inOwnDataFile = (outsideOwnEntry.match(new RegExp(`["'\`]${slug}["'\`]`, 'g')) || []).length;
+    const inAppOrComponents = (combinedSource.match(new RegExp(`/(?:blog|academy)/${slug}\\b`, 'g')) || []).length;
+    return inOwnDataFile + inAppOrComponents;
+  }
+
+  // Blog posts
+  const postsFile = path.join(ROOT, 'content', 'blog', 'posts.ts');
+  if (fs.existsSync(postsFile)) {
+    const src = fs.readFileSync(postsFile, 'utf8');
+    const slugMatches = [...src.matchAll(/slug:\s*"([^"]+)"/g)];
+    for (let i = 0; i < slugMatches.length; i++) {
+      const slug = slugMatches[i][1];
+      const entryStart = slugMatches[i].index;
+      const entryEnd = i + 1 < slugMatches.length ? slugMatches[i + 1].index : src.length;
+      const ownEntrySrc = src.slice(entryStart, entryEnd);
+      // A post with its own clusterId gets real, dynamic sibling cross-links
+      // at runtime via getClusterArticles()/RelatedPosts — invisible to a
+      // static string scan, but a genuine link nonetheless. Only posts with
+      // neither a static reference nor cluster membership are truly unlinked.
+      const hasClusterMembership = /clusterId:\s*"[^"]+"/.test(ownEntrySrc);
+      const refCount = countReferences(slug, src, [entryStart, entryEnd]);
+      if (refCount === 0 && !hasClusterMembership) {
+        warn(`content/blog/posts.ts: "${slug}" has no curated cross-link anywhere (no relatedPosts entry, no parentPillarSlug, no clusterId, no hardcoded /blog/${slug} link in app/ or components/) — only reachable via /blog's generic listing.`);
+      }
+    }
+  }
+
+  // Academy modules
+  const academyFile = path.join(ROOT, 'content', 'data', 'academy.json');
+  if (fs.existsSync(academyFile)) {
+    try {
+      const academyData = JSON.parse(fs.readFileSync(academyFile, 'utf8'));
+      for (const mod of academyData) {
+        const inAppOrComponents = (combinedSource.match(new RegExp(`/academy/${mod.slug}\\b`, 'g')) || []).length;
+        if (inAppOrComponents === 0) {
+          warn(`content/data/academy.json: "${mod.slug}" has no hardcoded link anywhere in app/ or components/ — only reachable via /academy's generic listing.`);
+        }
+      }
+    } catch {
+      // Malformed JSON is already a build-breaking problem elsewhere; not this check's job to report it.
+    }
+  }
+}
+
 checkRobotsDuplication();
 checkJsonLdNames();
 checkRegionReferencesAreReal();
 checkSitemapCoversRegionFolders();
 checkNoDoubledTitleSuffix();
 checkStaticRoutesCoveredBySitemap();
+checkContentHasCuratedCrossLinks();
+
+if (warnings.length > 0) {
+  console.warn(`\n⚠ ${warnings.length} content cross-linking warning(s) (does not block the build):\n`);
+  warnings.forEach((w) => console.warn(`  - ${w}`));
+  console.warn('');
+}
 
 if (errors.length > 0) {
   console.error(`\n✖ SEO validation failed with ${errors.length} issue(s):\n`);
