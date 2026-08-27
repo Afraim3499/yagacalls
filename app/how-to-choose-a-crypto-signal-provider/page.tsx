@@ -269,6 +269,13 @@ export default function HowToChooseProviderPage() {
                   <p className="text-text-muted leading-relaxed">
                     A serious provider should explain why a setup exists and where the idea becomes wrong. Avoid providers that promise guaranteed profit, hide risk, pressure users into payment, or rely only on screenshots.
                   </p>
+                  <p className="text-text-muted leading-relaxed">
+                    Telegram safety specifically deserves its own checklist —{" "}
+                    <Link href="/blog/telegram-crypto-signals-trustworthy" className="text-primary hover:underline font-bold">
+                      see what makes a Telegram crypto signals group trustworthy
+                    </Link>{" "}
+                    before you evaluate anything else about a provider.
+                  </p>
                 </div>
               </div>
             </div>
@@ -495,6 +502,12 @@ export default function HowToChooseProviderPage() {
                   </p>
                   <p className="text-text-muted leading-relaxed">
                     Good proof shows the setup, timing, communication style, market context, and outcome. Weak proof only shows profit screenshots without explaining the original idea or the risk involved.
+                  </p>
+                  <p className="text-text-muted leading-relaxed">
+                    For the full breakdown of what "weak proof" actually looks like in practice, read{" "}
+                    <Link href="/blog/best-crypto-signals-group" className="text-primary hover:underline font-bold">
+                      what serious traders should look for in a crypto signals group
+                    </Link>.
                   </p>
                 </div>
                 <div className="p-8 bg-surface-deep border border-line rounded-[32px] space-y-4">

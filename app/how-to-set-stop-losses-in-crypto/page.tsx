@@ -278,6 +278,12 @@ export default function StopLossPillarPage() {
                   <p className="text-text-muted leading-relaxed">
                     A stop-loss should be placed where the setup is no longer valid, not at a random percentage chosen after entry. The stop should also match the amount of account risk the trader is prepared to accept before entering.
                   </p>
+                  <p className="text-text-muted leading-relaxed text-sm">
+                    For why skipping this step is the single most common way accounts get wiped out, read{" "}
+                    <Link href="/blog/why-stop-loss-matters" className="text-primary hover:underline font-bold">
+                      why stop-loss matters in crypto signals
+                    </Link>.
+                  </p>
                 </div>
               </div>
             </div>

@@ -274,6 +274,13 @@ export default function RiskManagementPillarPage() {
                   <p className="text-text-muted leading-relaxed">
                     Good risk management does not guarantee profit. It helps traders avoid letting one bad decision damage the whole account. It is the bridge between gambling and systematic trading.
                   </p>
+                  <p className="text-text-muted leading-relaxed">
+                    Emotional discipline is often the hardest part to systematize — see how{" "}
+                    <Link href="/blog/crypto-market-sentiment-tools-fear-greed" className="text-primary hover:underline font-bold">
+                      Fear &amp; Greed Index data compares to technical market structure
+                    </Link>{" "}
+                    for a way to check whether a decision is driven by a real setup or by crowd sentiment.
+                  </p>
                 </div>
               </div>
             </div>
@@ -437,6 +444,12 @@ export default function RiskManagementPillarPage() {
                   <p className="text-text font-bold">Position size is not the same as risk amount.</p>
                   <p className="text-text-muted leading-relaxed">
                     Position sizing decides how large a trade should be based on account size, risk percentage, entry price, and stop-loss distance. It prevents traders from risking too much when volatility is high.
+                  </p>
+                  <p className="text-text-muted leading-relaxed">
+                    None of this works without a real stop-loss —{" "}
+                    <Link href="/blog/why-stop-loss-matters" className="text-primary hover:underline font-bold">
+                      see why stop-loss placement is the foundation this formula depends on
+                    </Link>.
                   </p>
                 </div>
                 <div className="p-6 bg-background border border-line rounded-2xl">

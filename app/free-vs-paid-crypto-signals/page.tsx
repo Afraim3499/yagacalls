@@ -272,6 +272,17 @@ export default function FreeVsPaidCryptoSignalsPage() {
                   <p className="text-text-muted leading-relaxed">
                     Paid does not automatically mean better. A serious trader should compare method, proof context, risk language, entries, targets, invalidation, Telegram safety, and pricing before paying. The transition from free to paid should only happen after a trader understands the provider's process and confirms that the added structure fits their trading style.
                   </p>
+                  <p className="text-text-muted leading-relaxed text-sm">
+                    Still building the fundamentals first? The{" "}
+                    <Link href="/academy/free-vs-paid-crypto-signals" className="text-primary hover:underline font-bold">
+                      Academy's free vs. paid breakdown
+                    </Link>{" "}
+                    and{" "}
+                    <Link href="/blog/crypto-signals-for-beginners" className="text-primary hover:underline font-bold">
+                      our practical beginner's guide
+                    </Link>{" "}
+                    are the right starting points.
+                  </p>
                 </div>
               </div>
             </div>

@@ -172,6 +172,12 @@ export default function NarrativeTradingPage() {
                 <p className="text-text-muted leading-relaxed">
                   Narrative trading is the process of identifying the market stories that attract attention, liquidity, and speculation. In crypto, attention often moves before fundamentals fully catch up.
                 </p>
+                <p className="text-text-muted leading-relaxed text-sm">
+                  For the full framework behind this, read{" "}
+                  <Link href="/blog/narrative-trading-crypto" className="text-primary hover:underline font-bold">
+                    how market stories actually move altcoins
+                  </Link>.
+                </p>
                 <div className="space-y-4">
                   {[
                     "Sector rotations (AI, DeFi, RWA)",
@@ -279,6 +285,17 @@ export default function NarrativeTradingPage() {
               <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">How to Use Narrative Signals</h2>
               <p className="text-text-muted leading-relaxed">
                 Narrative-based signals should be used as market analysis, not blind instructions. A narrative can explain opportunity, but risk management decides whether it is worth taking.
+              </p>
+              <p className="text-text-muted leading-relaxed text-sm">
+                See it applied to a real setup:{" "}
+                <Link href="/blog/how-we-called-sui-rally" className="text-primary hover:underline font-bold">
+                  the SUI breakout case study
+                </Link>{" "}
+                walks through timing and invalidation on an actual trade, and{" "}
+                <Link href="/blog/google-trends-crypto-narrative-trading" className="text-primary hover:underline font-bold">
+                  Google Trends for finding narratives early
+                </Link>{" "}
+                covers spotting the story before it's obvious.
               </p>
               <div className="space-y-4">
                 {[

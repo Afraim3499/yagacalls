@@ -293,7 +293,14 @@ export default function WhatAreCryptoSignalsPage() {
                     Crypto signals are trading setup notes that suggest a possible market opportunity in a cryptocurrency pair. A signal may include the asset, direction, entry zone, target levels, stop-loss or invalidation area, market reason, and risk context.
                   </p>
                   <p className="text-text-muted leading-relaxed">
-                    A serious crypto signal does not simply say “buy now.” It gives the trader enough information to understand why the setup exists, where the idea makes sense, and where the trade thesis becomes wrong.
+                    A serious crypto signal does not simply say "buy now." It gives the trader enough information to understand why the setup exists, where the idea makes sense, and where the trade thesis becomes wrong.
+                  </p>
+                  <p className="text-text-muted leading-relaxed">
+                    New to reading signals at all? The{" "}
+                    <Link href="/academy/how-crypto-signals-work" className="text-primary hover:underline font-bold">
+                      Academy's breakdown of how crypto signals work
+                    </Link>{" "}
+                    covers the same fundamentals with a step-by-step walkthrough.
                   </p>
                 </div>
               </div>
@@ -447,6 +454,12 @@ export default function WhatAreCryptoSignalsPage() {
                   </h3>
                   <p className="text-text-muted leading-relaxed">
                     Invalidation is the condition where the original trade idea becomes wrong. This may be a price level, a market structure break, or a change in the reason behind the setup.
+                  </p>
+                  <p className="text-text-muted leading-relaxed text-sm">
+                    See a worked example of all four in{" "}
+                    <Link href="/academy/entry-target-stop-loss" className="text-primary hover:underline font-bold">
+                      how to read entry, target, and stop-loss together
+                    </Link>.
                   </p>
                 </div>
               </div>

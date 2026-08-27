@@ -65,6 +65,10 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["telegram-crypto-signals-trustworthy", "crypto-signals-for-beginners"],
     ctaLabel: "Compare Premium Plans",
     ctaHref: "/pricing",
+
+    // Semantic SEO & Cluster Metadata — pillar of the provider-evaluation cluster
+    clusterId: "provider-evaluation-cluster",
+    isPillarPage: true,
     tocItems: [
       { id: "what-is-signals-group", text: "What is a Crypto Signals Group?" },
       { id: "separating-useful-from-noisy", text: "Separating Useful Groups from Noisy Alert channels" },
@@ -106,6 +110,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["best-crypto-signals-group", "why-stop-loss-matters"],
     ctaLabel: "Learn the Yaga Calls Method",
     ctaHref: "/method",
+
+    // Semantic SEO & Cluster Metadata — spoke of best-crypto-signals-group
+    clusterId: "provider-evaluation-cluster",
+    isPillarPage: false,
+    parentPillarSlug: "best-crypto-signals-group",
     tocItems: [
       { id: "why-telegram-is-popular", text: "Why Telegram is Popular for Crypto Signals" },
       { id: "fake-groups-scam-behavior", text: "Exposing the Scams: The Deceptive Tricks of Fake Groups" },
@@ -146,6 +155,10 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["best-crypto-signals-group", "why-stop-loss-matters"],
     ctaLabel: "View Pricing and Onboarding",
     ctaHref: "/pricing",
+
+    // Semantic SEO & Cluster Metadata — pillar of the beginner-fundamentals cluster
+    clusterId: "beginner-fundamentals-cluster",
+    isPillarPage: true,
     tocItems: [
       { id: "what-are-crypto-signals", text: "What Exactly is a Crypto Trade Signal?" },
       { id: "signal-format-breakdown", text: "Decoding the Components of a Professional Signal" },
@@ -186,6 +199,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["telegram-crypto-signals-trustworthy", "crypto-signals-for-beginners"],
     ctaLabel: "Read the Risk Disclosure",
     ctaHref: "/risk-disclosure",
+
+    // Semantic SEO & Cluster Metadata — spoke of crypto-signals-for-beginners
+    clusterId: "beginner-fundamentals-cluster",
+    isPillarPage: false,
+    parentPillarSlug: "crypto-signals-for-beginners",
     tocItems: [
       { id: "what-is-stop-loss", text: "What is a Stop Loss and How Does It Protect You?" },
       { id: "why-beginners-ignore", text: "The Psychology of Hope: Why Beginners Ignore Stop Losses" },
@@ -225,6 +243,10 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["how-we-called-sui-rally", "best-crypto-signals-group"],
     ctaLabel: "Explore the Pricing Plans",
     ctaHref: "/pricing",
+
+    // Semantic SEO & Cluster Metadata — pillar of the narrative-trading cluster
+    clusterId: "narrative-trading-cluster",
+    isPillarPage: true,
     tocItems: [
       { id: "what-is-narrative-trading", text: "What is Narrative Trading and Why Does It Move Crypto?" },
       { id: "leading-sector-catalysts", text: "The Major Sector Catalysts of 2026" },
@@ -265,6 +287,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["narrative-trading-crypto", "best-crypto-signals-group"],
     ctaLabel: "View Selected Verified Examples",
     ctaHref: "/proof",
+
+    // Semantic SEO & Cluster Metadata — spoke of narrative-trading-crypto
+    clusterId: "narrative-trading-cluster",
+    isPillarPage: false,
+    parentPillarSlug: "narrative-trading-crypto",
     tocItems: [
       { id: "market-context", text: "Market Context: The Accumulation Launchpad" },
       { id: "technical-levels", text: "The Technical Blueprint and Entry Parameters" },
@@ -486,6 +513,13 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["crypto-search-intent-across-markets", "cold-wallet-custody-vs-exchange-risk"],
     ctaLabel: "Use the Risk Management Calculator",
     ctaHref: "/position-sizing-calculator",
+
+    // Semantic SEO & Cluster Metadata — completes the regional-benchmark
+    // cluster's 3 named markets (Canada + UAE were already wired; Nigeria
+    // — explicitly named in the pillar's own title — was missing).
+    clusterId: "crypto-search-intent-2026",
+    isPillarPage: false,
+    parentPillarSlug: "crypto-search-intent-across-markets",
     tocItems: [
       { id: "global-ranking", text: "Nigeria's #6 Global Adoption Ranking" },
       { id: "binance-paradox", text: "The 89% Search Share & Regulatory Tension" },
@@ -520,6 +554,14 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["crypto-search-intent-across-markets", "uae-crypto-licensing-vara-binance"],
     ctaLabel: "Learn Narrative Trading Framework",
     ctaHref: "/method",
+
+    // Semantic SEO & Cluster Metadata — this post's own excerpt and
+    // manually-curated relatedPosts already point at the regional-benchmark
+    // cluster (UAE search-trend breakout), so it joins that cluster rather
+    // than narrative-trading-crypto despite the "narrative momentum" framing.
+    clusterId: "crypto-search-intent-2026",
+    isPillarPage: false,
+    parentPillarSlug: "crypto-search-intent-across-markets",
     tocItems: [
       { id: "polyx-surge", text: "The +5,000% Search Breakout Anomaly" },
       { id: "rwa-tokenization", text: "Polymesh v8 & Institutional RWA Security Tokens" },
@@ -589,6 +631,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["narrative-trading-crypto", "crypto-search-intent-across-markets"],
     ctaLabel: "View Verified Signal Proof",
     ctaHref: "/proof",
+
+    // Semantic SEO & Cluster Metadata — spoke of narrative-trading-crypto
+    clusterId: "narrative-trading-cluster",
+    isPillarPage: false,
+    parentPillarSlug: "narrative-trading-crypto",
     tocItems: [
       { id: "google-trends-basics", text: "Understanding Google Trends Relative Volume Metrics" },
       { id: "breakout-score-meaning", text: "What +5,000% Breakout Scores Actually Signal" },
@@ -623,6 +670,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["crypto-signals-for-beginners", "why-stop-loss-matters"],
     ctaLabel: "Read Capital Protection Guidelines",
     ctaHref: "/risk-disclosure",
+
+    // Semantic SEO & Cluster Metadata — spoke of crypto-signals-for-beginners
+    clusterId: "beginner-fundamentals-cluster",
+    isPillarPage: false,
+    parentPillarSlug: "crypto-signals-for-beginners",
     tocItems: [
       { id: "search-intent-custody", text: "Why Custody Queries Lead Global Crypto Search" },
       { id: "cold-vs-hot-wallets", text: "Cold Wallet Hardware vs Hot Exchange Storage" },
@@ -657,6 +709,11 @@ export const blogPostsMetadata: BlogPostMetadata[] = [
     relatedPosts: ["why-stop-loss-matters", "narrative-trading-crypto"],
     ctaLabel: "View Verified Trade Proof",
     ctaHref: "/proof",
+
+    // Semantic SEO & Cluster Metadata — spoke of narrative-trading-crypto
+    clusterId: "narrative-trading-cluster",
+    isPillarPage: false,
+    parentPillarSlug: "narrative-trading-crypto",
     tocItems: [
       { id: "sentiment-overview", text: "What is the Crypto Fear & Greed Index?" },
       { id: "advanced-trader-signals", text: "Decoding Advanced Sentiment Search Queries" },
