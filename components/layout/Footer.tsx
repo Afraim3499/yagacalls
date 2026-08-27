@@ -112,6 +112,7 @@ export default function Footer() {
               <li><Link href="/disclaimer" className="hover:text-primary transition-colors">Disclaimer</Link></li>
               <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              <li><Link href="/sitemap" className="hover:text-primary transition-colors">Sitemap</Link></li>
               <li><a href="mailto:partner@yagacalls.com" className="hover:text-primary transition-colors font-bold text-amber-400">partner@yagacalls.com</a></li>
               <li><Link href="https://t.me/yagacalls47" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Contact Support (@yagacalls47)</Link></li>
             </ul>

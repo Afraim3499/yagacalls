@@ -23,7 +23,7 @@ type SitemapEntry = {
 
 const LEGAL_PATHS = new Set(['/disclaimer', '/privacy', '/risk-disclosure', '/terms']);
 const FREQUENT_PATHS = new Set(['/news', '/analysis']);
-const HUB_PATHS = new Set(['/blog', '/academy', '/regions', '/authors']);
+const HUB_PATHS = new Set(['/blog', '/academy', '/regions', '/authors', '/sitemap']);
 
 function staticRouteChangeFrequency(route: string): SitemapEntry['changeFrequency'] {
   if (route === '') return 'weekly'; // homepage
@@ -76,6 +76,7 @@ function buildSitemapEntries(): SitemapEntry[] {
     '/careers',
     '/terms',
     '/authors',
+    '/sitemap',
   ];
 
   const staticRoutes: SitemapEntry[] = staticRoutePaths.map((route) => {
