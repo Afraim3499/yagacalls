@@ -61,7 +61,8 @@ export default function Footer() {
               <li><Link href="/analysis" className="hover:text-primary transition-colors">Analysis</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               <li className="pt-2 font-semibold text-xs uppercase tracking-wider text-primary">Global Reach</li>
-              <li><Link href="/regions/dubai" className="hover:text-primary transition-colors">Dubai / UAE</Link></li>
+              <li><Link href="/regions/uae" className="hover:text-primary transition-colors">UAE</Link></li>
+              <li><Link href="/regions/dubai" className="hover:text-primary transition-colors">Dubai</Link></li>
               <li><Link href="/regions/uk" className="hover:text-primary transition-colors">United Kingdom</Link></li>
               <li><Link href="/regions/usa" className="hover:text-primary transition-colors">United States</Link></li>
               <li><Link href="/regions/singapore" className="hover:text-primary transition-colors">Singapore</Link></li>
