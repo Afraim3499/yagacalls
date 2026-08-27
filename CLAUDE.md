@@ -4,6 +4,12 @@ This file exists to save the next engineer (or agent) from re-discovering the sa
 non-obvious things the hard way. It intentionally does not restate what the code
 already makes clear — it covers the parts that aren't visible from a quick read.
 
+**If you're picking up an in-progress SEO/AEO/GEO/UX/security audit and remediation
+effort, read [`AUDIT_STATUS.md`](AUDIT_STATUS.md) first** — it has the full history of
+what's been fixed, what's still pending (including a live list of open security items),
+and the conventions established along the way (author attribution system, CRM confirm
+dialogs, table virtualization pattern, etc.).
+
 ## What lives where
 
 This repo (`F:\kalababas`, remote `github.com/Afraim3499/yagacalls`) is the **public
