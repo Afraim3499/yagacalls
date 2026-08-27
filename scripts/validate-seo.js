@@ -116,9 +116,9 @@ function checkRegionReferencesAreReal() {
   }
 }
 
-// ── Check 4: sitemap.ts includes every real static region folder ──
+// ── Check 4: sitemap.xml/route.ts includes every real static region folder ──
 function checkSitemapCoversRegionFolders() {
-  const sitemapFile = path.join(ROOT, 'app', 'sitemap.ts');
+  const sitemapFile = path.join(ROOT, 'app', 'sitemap.xml', 'route.ts');
   const regionsDir = path.join(ROOT, 'app', 'regions');
   if (!fs.existsSync(sitemapFile) || !fs.existsSync(regionsDir)) return;
 
@@ -138,7 +138,7 @@ function checkSitemapCoversRegionFolders() {
 
   for (const slug of folderSlugs) {
     if (!dataSlugs.has(slug) && !folderOnlySlugs.includes(slug)) {
-      fail(`app/regions/${slug}/ is a real page but is missing from both content/data/regions.ts and sitemap.ts's folderOnlyRegionSlugs — it won't appear in sitemap.xml.`);
+      fail(`app/regions/${slug}/ is a real page but is missing from both content/data/regions.ts and sitemap.xml/route.ts's folderOnlyRegionSlugs — it won't appear in sitemap.xml.`);
     }
   }
 }
@@ -193,18 +193,21 @@ function checkNoDoubledTitleSuffix() {
   }
 }
 
-// ── Check 6: every top-level static route folder must be listed in sitemap.ts ──
+// ── Check 6: every top-level static route folder must be listed in sitemap.xml/route.ts ──
 // Generalizes Check 4 (which only covered app/regions/*) after finding
 // app/crypto-signal-results/ was a live, linked page missing from
 // staticRoutePaths — silently absent from sitemap.xml despite being fully public.
 function checkStaticRoutesCoveredBySitemap() {
   const appDir = path.join(ROOT, 'app');
-  const sitemapFile = path.join(ROOT, 'app', 'sitemap.ts');
+  const sitemapFile = path.join(ROOT, 'app', 'sitemap.xml', 'route.ts');
   if (!fs.existsSync(appDir) || !fs.existsSync(sitemapFile)) return;
 
   // Folders with their own dynamic sitemap logic (own [slug] route + a
-  // dedicated block in sitemap.ts), route groups, and non-page special routes.
-  const EXEMPT = new Set(['api', 'academy', 'authors', 'blog', 'regions', 'feed.xml', '(commercial)']);
+  // dedicated block in sitemap.xml/route.ts), route groups, non-page special
+  // routes, and the sitemap route itself (app/sitemap.xml/ has a route.ts,
+  // not a page.tsx, so it's already skipped by the pageFile check below —
+  // listed here too for clarity).
+  const EXEMPT = new Set(['api', 'academy', 'authors', 'blog', 'regions', 'feed.xml', 'sitemap.xml', '(commercial)']);
 
   const sitemapSrc = fs.readFileSync(sitemapFile, 'utf8');
   const staticRouteBlockMatch = sitemapSrc.match(/staticRoutePaths\s*=\s*\[([\s\S]*?)\];/);
@@ -219,7 +222,7 @@ function checkStaticRoutesCoveredBySitemap() {
     if (!fs.existsSync(pageFile)) continue; // not a real route (e.g. a shared layout-only folder)
     const routePath = `/${folder.name}`;
     if (!listedPaths.has(routePath)) {
-      fail(`app/${folder.name}/page.tsx is a real, live route but "${routePath}" is missing from staticRoutePaths in app/sitemap.ts — it won't appear in sitemap.xml.`);
+      fail(`app/${folder.name}/page.tsx is a real, live route but "${routePath}" is missing from staticRoutePaths in app/sitemap.xml/route.ts — it won't appear in sitemap.xml.`);
     }
   }
 }

@@ -51,6 +51,67 @@ export function getFileLastModified(relativePath: string, fallback: Date): Date 
   return result;
 }
 
+/**
+ * Returns a real, entity-specific last-modified date derived from git's
+ * per-line history (`git log -L`), for content files that hold several
+ * independent entities in one file (e.g. content/data/authors.ts — one file
+ * per author isn't practical, but each author's own block can still get an
+ * honest, individual date this way instead of every entity in the file
+ * sharing one file-level timestamp).
+ *
+ * `anchorText` must be a string unique to one line within the entity's
+ * block (a slug is the natural choice) — that line becomes the start of the
+ * tracked range; the range ends just before the next line matching
+ * `nextEntityLinePattern` (or after a 25-line cap, whichever comes first),
+ * so it only covers this one entity's fields.
+ *
+ * Falls back to the whole file's date (via getFileLastModified) if the
+ * anchor can't be found or git's line-range history lookup fails for any
+ * reason — never silently returns something worse than the file-level date
+ * this replaces.
+ */
+export function getEntityLastModified(
+  relativePath: string,
+  anchorText: string,
+  nextEntityLinePattern: RegExp,
+  fallback: Date
+): Date {
+  const cacheKey = `${relativePath}::${anchorText}`;
+  const cached = cache.get(cacheKey);
+  if (cached) return cached;
+
+  let result: Date;
+  try {
+    // turbopackIgnore: see note in getFileLastModified above.
+    const fullPath = path.join(/* turbopackIgnore: true */ process.cwd(), relativePath);
+    const lines = fs.readFileSync(fullPath, "utf8").split("\n");
+    const startIdx = lines.findIndex((l) => l.includes(anchorText));
+    if (startIdx === -1) throw new Error("anchor not found");
+
+    let endIdx = startIdx;
+    for (let i = startIdx + 1; i < lines.length && i < startIdx + 25; i++) {
+      if (nextEntityLinePattern.test(lines[i])) break;
+      endIdx = i;
+    }
+
+    const out = execSync(
+      `git log -L ${startIdx + 1},${endIdx + 1}:"${relativePath}" --format=%aI -1 --no-patch`,
+      { cwd: process.cwd(), stdio: ["ignore", "pipe", "ignore"] }
+    )
+      .toString()
+      .trim()
+      .split("\n")[0];
+
+    if (!out) throw new Error("no git history for entity range");
+    result = new Date(out);
+  } catch {
+    result = getFileLastModified(relativePath, fallback);
+  }
+
+  cache.set(cacheKey, result);
+  return result;
+}
+
 /** Returns true if app/<slug>/page.tsx exists as its own static folder route. */
 export function hasStaticPageFolder(routeSegment: string): boolean {
   try {

@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
       { source: '/contact.html', destination: '/contact', permanent: true },
       { source: '/disclaimer.html', destination: '/disclaimer', permanent: true },
       { source: '/privacy.html', destination: '/privacy', permanent: true },
-      // Canonicalize the bare domain to www — app/robots.ts, app/sitemap.ts, and
+      // Canonicalize the bare domain to www — app/robots.ts, app/sitemap.xml/route.ts, and
       // every page's <link rel="canonical"> already treat www.yagacalls.com as
       // canonical; this closes the gap where the bare domain previously served
       // identical content directly with no redirect (Segment 1 finding).
