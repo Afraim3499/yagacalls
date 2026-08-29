@@ -51,23 +51,23 @@ export default function Ticker() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!isMounted || !data) return <div className="h-8 bg-surface-deep animate-pulse" />;
+  if (!isMounted || !data) return <div className="h-8 bg-[#0A0907] border-b border-[rgba(243,208,129,0.06)] animate-pulse" />;
 
   return (
-    <div className="h-8 bg-surface-deep border-b border-line overflow-hidden flex items-center">
+    <div className="h-8 bg-[#0A0907] border-b border-[rgba(243,208,129,0.06)] overflow-hidden flex items-center shrink-0">
       <div className="flex animate-ticker whitespace-nowrap gap-8 px-4">
         {[...coinMap, ...coinMap].map((coin, i) => {
           const price = data[coin.key]?.usd;
           const chg = data[coin.key]?.usd_24h_change;
           return (
-            <div key={`${coin.sym}-${i}`} className="flex items-center gap-2 text-[11px] font-bold">
-              <span className="text-text-muted">{coin.sym}</span>
-              <span className="text-text-high">
+            <div key={`${coin.sym}-${i}`} className="flex items-center gap-2 text-[11px] font-bold font-mono">
+              <span className="text-[#8A8A93]">{coin.sym}</span>
+              <span className="text-[#FFFFFF]">
                 ${price ? price.toLocaleString(undefined, { minimumFractionDigits: 2 }) : "—"}
               </span>
               <span className={cn(
                 "text-[10px]",
-                chg >= 0 ? "text-success" : "text-danger"
+                chg >= 0 ? "text-[#22C55E]" : "text-[#EF4444]"
               )}>
                 {chg >= 0 ? "+" : ""}{chg?.toFixed(2)}%
               </span>

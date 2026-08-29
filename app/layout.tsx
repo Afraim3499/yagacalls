@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import GlobalAtmosphericShell from "@/components/layout/GlobalAtmosphericShell";
 import { LazyMotion, domMax } from "framer-motion";
 
 const GTM_CONTAINER_ID = "GTM-M824DP22";
@@ -11,7 +12,7 @@ const GTM_CONTAINER_ID = "GTM-M824DP22";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const viewport = {
-  themeColor: "#0A0B0D",
+  themeColor: "#070605",
 };
 
 export const metadata: Metadata = {
@@ -85,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');`}
         </Script>
       </head>
-      <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-background text-foreground`}>
+      <body className={`${inter.variable} antialiased min-h-screen flex flex-col bg-[#070605] text-[#FFFFFF] relative`}>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
@@ -94,17 +95,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        
+        {/* GLOBAL ATMOSPHERIC LIGHTING SHELL (100% route coverage) */}
+        <GlobalAtmosphericShell />
+
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-background focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#E2C896] focus:text-[#09090B] focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
         >
           Skip to main content
         </a>
         <Header />
         <LazyMotion features={domMax}>
-          <main id="main-content" className="flex-grow pt-[80px]">
+          <main id="main-content" className="flex-grow pt-[80px] relative z-10">
             {children}
           </main>
         </LazyMotion>

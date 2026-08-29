@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Hero from "@/components/home/Hero";
+import BackgroundSpine from "@/components/home/BackgroundSpine";
 import ReviewTrustBar from "@/components/home/ReviewTrustBar";
 import TrustStrip from "@/components/home/TrustStrip";
 import DirectAnswer from "@/components/home/DirectAnswer";
@@ -37,10 +38,6 @@ export default function HomePage() {
     url: "https://www.yagacalls.com/"
   });
 
-  // Organization and WebSite JSON-LD are already emitted site-wide by
-  // app/layout.tsx (rendered on every page, including this one) — do not
-  // re-declare them here, that previously caused the homepage to emit two
-  // byte-identical copies of each.
   const serviceSchema = createServiceSchema({
     name: "Premium Telegram Crypto Signals",
     description: "Premium Telegram-first crypto signal notes with market narrative research, entry zones, targets, invalidation logic, and risk-managed trading context."
@@ -87,25 +84,73 @@ export default function HomePage() {
   ]);
 
   return (
-    <>
+    <div className="relative bg-[#070605] overflow-hidden min-h-screen">
       <JsonLd data={webPageSchema} />
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
-      
+
+      {/* 3-POINT LIGHTING SPINE & CONTINUOUS GRID MATRIX CANVAS */}
+      <BackgroundSpine />
+
+      {/* HERO & REVIEW TRUST BAR */}
       <Hero />
       <ReviewTrustBar />
+
+      {/* SECTION DIVIDER STROKE 1 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <DirectAnswer />
+
+      {/* SECTION DIVIDER STROKE 2 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <TrustStrip />
+      
+      {/* SECTION DIVIDER STROKE 3 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <WhyJoin />
+
+      {/* SECTION DIVIDER STROKE 4 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <ComparisonTrap />
+
+      {/* SECTION DIVIDER STROKE 5 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <WhatYouGet />
+
+      {/* SECTION DIVIDER STROKE 6 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <FreeVsPremium />
+
+      {/* SECTION DIVIDER STROKE 7 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <AudienceSection />
+
+      {/* SECTION DIVIDER STROKE 8 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <ProofPreview />
+
+      {/* SECTION DIVIDER STROKE 9 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <RegionalBlock />
+
+      {/* SECTION DIVIDER STROKE 10 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <FinalCTA />
+
+      {/* SECTION DIVIDER STROKE 11 */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[rgba(243,208,129,0.15)] to-transparent relative z-20" />
+
       <FAQSection />
-    </>
+    </div>
   );
 }

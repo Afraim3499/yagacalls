@@ -17,23 +17,23 @@ const regions = [
 
 export default function RegionalBlock() {
   return (
-    <Section className="bg-surface-deep">
+    <Section className="bg-transparent relative z-10 py-16 sm:py-20">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight">Built for Serious Crypto Traders Worldwide</h2>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight text-[#FFFFFF]">Built for Serious Crypto Traders Worldwide</h2>
             <div className="space-y-6">
-              <p className="text-lg text-text-muted leading-relaxed">
-                Yaga Calls is designed for traders in high-purchase-power <a href="/regions" className="text-primary hover:underline">crypto signal regions</a> who want better crypto market structure, not low-quality signal noise.
+              <p className="text-lg text-[#A1A1AA] leading-relaxed">
+                Yaga Calls is designed for traders in high-purchase-power <a href="/regions" className="text-[#E2C896] hover:underline font-bold">crypto signal regions</a> who want better crypto market structure, not low-quality signal noise.
               </p>
-              <p className="text-sm font-bold text-primary uppercase tracking-widest">
+              <p className="text-sm font-bold text-[#E2C896] uppercase tracking-widest">
                 The service is relevant for traders in:
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-4">
                 {regions.map((region) => (
                   <div key={region} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    <span className="text-sm font-bold uppercase tracking-tight">{region}</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#E2C896]" />
+                    <span className="text-sm font-bold uppercase tracking-tight text-[#FFFFFF]">{region}</span>
                   </div>
                 ))}
               </div>
@@ -44,7 +44,7 @@ export default function RegionalBlock() {
               </div>
             </div>
           </div>
-          <div className="relative aspect-video rounded-3xl overflow-hidden border border-line shadow-2xl bg-black">
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-[rgba(243,208,129,0.15)] shadow-2xl bg-[#070605]">
              <Image 
                src="/regions-hero.webp" 
                alt="Yaga Calls Global Crypto Regions Dashboard" 
@@ -52,7 +52,7 @@ export default function RegionalBlock() {
                sizes="(max-width: 1024px) 100vw, 600px"
                className="object-contain"
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+             <div className="absolute inset-0 bg-gradient-to-t from-[#070605]/40 to-transparent" />
           </div>
         </div>
       </Container>

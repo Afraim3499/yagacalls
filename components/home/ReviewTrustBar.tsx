@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Star, ShieldCheck, ArrowRight, MessageSquare } from "lucide-react";
+import { Star, ShieldCheck, ArrowRight, MessageSquare, Activity } from "lucide-react";
 import Container from "../shared/Container";
 
 export default function ReviewTrustBar() {
@@ -39,7 +39,7 @@ export default function ReviewTrustBar() {
   const displayRating = avgRating.toFixed(1);
 
   return (
-    <div className="w-full bg-gradient-to-r from-emerald-950/40 via-surface-deep to-slate-950 border-y border-primary/20 py-4 shadow-xl backdrop-blur-md relative z-20">
+    <div className="w-full bg-[#0C0B09] border-y border-[rgba(243,208,129,0.08)] py-4 shadow-xl backdrop-blur-md relative z-20 overflow-hidden">
       <Container>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Left: Dynamic Star Ratings & Live Score */}
@@ -52,28 +52,29 @@ export default function ReviewTrustBar() {
                     key={i} 
                     className={`w-4 h-4 ${
                       isFilled 
-                        ? "text-amber-400 fill-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" 
-                        : "text-slate-700 fill-slate-800"
+                        ? "text-[#F3D081] fill-[#F3D081] drop-shadow-[0_0_8px_rgba(243,208,129,0.4)]" 
+                        : "text-[#3F3F46] fill-[#27272A]"
                     }`} 
                   />
                 );
               })}
             </div>
 
-            <span className="text-xs font-black uppercase tracking-wider text-text">
-              {displayRating} / 5.0 Rating
+            <span className="text-xs font-black uppercase tracking-wider text-[#FFFFFF] font-mono">
+              {displayRating} / 5.0 RATING
             </span>
 
-            <div className="hidden sm:flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black uppercase tracking-widest text-primary">
-              <ShieldCheck className="w-3 h-3 text-primary" />
-              <span>{reviewCount > 0 ? `${reviewCount} Verified ${reviewCount === 1 ? 'Review' : 'Reviews'}` : 'Verified Members'}</span>
+            {/* Verified Reviews pill: translucent dark fill + champagne border + gold text + PULSING TELEMETRY DOT */}
+            <div className="hidden sm:flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[rgba(226,200,150,0.08)] border border-[#A38B5D]/40 text-[10px] font-black uppercase tracking-widest text-[#E2C896] font-mono">
+              <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
+              <span>{reviewCount > 0 ? `${reviewCount} VERIFIED ${reviewCount === 1 ? 'REVIEW' : 'REVIEWS'}` : 'VERIFIED MEMBERS'}</span>
             </div>
           </div>
 
           {/* Center: Live Real Data Tagline */}
           <div className="text-center md:text-left">
-            <p className="text-xs md:text-sm font-bold text-text-muted">
-              Rated <span className="text-primary font-black">{displayRating} Stars</span> by verified community members for structured signal logic & risk management.
+            <p className="text-xs md:text-sm font-bold text-[#A1A1AA]">
+              Rated <span className="text-[#E2C896] font-black">{displayRating} Stars</span> by verified community members for structured signal logic & risk management.
             </p>
           </div>
 
@@ -81,7 +82,7 @@ export default function ReviewTrustBar() {
           <div className="flex items-center gap-3">
             <Link
               href="/yaga-calls-review"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/30 hover:border-primary/50 text-primary rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-200 group shadow-lg shadow-primary/10"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[rgba(226,200,150,0.06)] hover:bg-[rgba(226,200,150,0.14)] border border-[rgba(243,208,129,0.18)] hover:border-[rgba(243,208,129,0.40)] text-[#E2C896] rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-200 group shadow-lg shadow-[rgba(226,200,150,0.05)]"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               <span>See Member Reviews</span>

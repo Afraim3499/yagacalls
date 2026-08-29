@@ -30,9 +30,9 @@ export default function CTAButton({
   const baseStyles = "inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold transition-all duration-200 active:scale-95 cursor-pointer";
   
   const variants = {
-    primary: "grad-button text-background shadow-[0_0_15px_rgba(227,158,46,0.3)] hover:shadow-[0_0_25px_rgba(227,158,46,0.5)]",
-    secondary: "bg-surface border border-line text-primary hover:bg-line",
-    outline: "border border-primary text-primary hover:bg-primary/10",
+    primary: "bg-[linear-gradient(135deg,#E2C896_0%,#CBB079_50%,#A38B5D_100%)] text-[#09090B] shadow-[0_0_15px_rgba(226,200,150,0.20)] hover:shadow-[0_0_25px_rgba(226,200,150,0.40)]",
+    secondary: "bg-[rgba(14,15,18,0.70)] backdrop-blur-md border border-[rgba(243,208,129,0.12)] text-[#E2C896] hover:border-[rgba(243,208,129,0.30)] hover:bg-[rgba(18,17,15,0.85)]",
+    outline: "border border-[#A38B5D] text-[#E2C896] hover:bg-[rgba(226,200,150,0.08)]",
   };
 
   const handleClick = () => {

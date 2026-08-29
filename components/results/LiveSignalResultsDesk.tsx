@@ -18,6 +18,7 @@ import {
   X
 } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
+import { getCoinLogoUrl } from "@/components/home/HeroDynamicPipeline";
 
 export default function LiveSignalResultsDesk() {
   const [signals, setSignals] = useState<any[]>([]);
@@ -247,9 +248,11 @@ export default function LiveSignalResultsDesk() {
                 {/* Coin Symbol & Leverage Info */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-background border border-line flex items-center justify-center font-black text-primary text-xl">
-                      ${s.symbol.charAt(0)}
-                    </div>
+                    <img 
+                      src={getCoinLogoUrl(s.symbol)} 
+                      alt={s.symbol}
+                      className="w-12 h-12 rounded-2xl border border-primary/40 object-cover bg-background shrink-0"
+                    />
                     <div>
                       <div className="text-xl font-black text-text tracking-tight uppercase flex items-center gap-2">
                         <span>${s.symbol}</span>

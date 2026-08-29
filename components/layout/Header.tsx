@@ -48,39 +48,49 @@ export default function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "bg-background/90 backdrop-blur-md border-b border-line" : "bg-background/80"
+      scrolled ? "bg-[#070605]/95 backdrop-blur-md border-b border-[rgba(243,208,129,0.08)]" : "bg-[#070605]/90"
     )}>
       <Ticker />
       <Container className={cn(
         "flex items-center justify-between transition-all duration-300 relative z-50",
-        scrolled ? "py-3" : "py-4"
+        scrolled ? "py-1.5 sm:py-2" : "py-2 sm:py-2.5"
       )}>
-        <Link href="/" className="relative w-32 h-10 transition-transform hover:scale-105" onClick={() => setIsOpen(false)}>
+        {/* HEADER LOGO: COMPACT & ELEGANT YAGACALLS TYPOGRAPHY */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 text-white font-semibold hover:opacity-90 transition-all cursor-pointer group" 
+          onClick={() => setIsOpen(false)}
+        >
           <Image
-            src="/yaga_calls_logo.webp"
-            alt="Yaga Calls"
-            fill
-            sizes="128px"
-            className="object-contain"
+            src="/yagacalls-icon.jpg"
+            alt="YAGACALLS Logo"
+            width={28}
+            height={28}
+            className="w-7 h-7 rounded-lg object-cover border border-[#A38B5D]/40 group-hover:border-[#E2C896] transition-all shadow-[0_0_12px_rgba(226,200,150,0.20)] shrink-0"
             priority
           />
+          <span className="whitespace-nowrap font-bold tracking-wider text-sm sm:text-base text-white group-hover:text-[#E2C896] transition-colors">
+            YAGACALLS
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-4 lg:gap-6">
-          <Link href="/crypto-signal-results" className="text-xs font-black uppercase tracking-widest text-primary hover:brightness-110 transition-all bg-primary/10 px-2.5 py-1 rounded-lg border border-primary/20">Results</Link>
-          <Link href="/yaga-calls-review" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Reviews</Link>
-          <Link href="/pricing" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Pricing</Link>
-          <Link href="/method" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Method</Link>
-          <Link href="/proof" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Proof</Link>
-          <Link href="/academy" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Academy</Link>
-          <Link href="/blog" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Blog</Link>
-          <Link href="/contact" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Contact</Link>
+        {/* Desktop Nav - Consistent Plain Text Links */}
+        <nav className="hidden md:flex items-center gap-3.5 lg:gap-5">
+          <Link href="/crypto-signal-results" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Results</Link>
+          <Link href="/yaga-calls-review" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Reviews</Link>
+          <Link href="/pricing" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Pricing</Link>
+          <Link href="/method" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Method</Link>
+          <Link href="/proof" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Proof</Link>
+          <Link href="/academy" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Academy</Link>
+          <Link href="/blog" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Blog</Link>
+          <Link href="/contact" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Contact</Link>
+          
+          {/* Subtle Ghost Border Button */}
           <Link
             href={BRAND_CONFIG.officialTelegram}
             target="_blank"
             rel="noopener noreferrer"
-            className="grad-button text-background px-4 lg:px-5 py-2 rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(227,158,46,0.3)] hover:shadow-[0_0_25px_rgba(227,158,46,0.5)] transition-all whitespace-nowrap"
+            className="border border-[#A38B5D]/40 text-[#E2C896] hover:bg-[rgba(226,200,150,0.08)] hover:border-[#E2C896] px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap"
             onClick={() => trackTelegramClick("Header: Join Public Group", pathname)}
           >
             Join Public Group
@@ -89,42 +99,42 @@ export default function Header() {
 
         {/* Mobile Toggle Button */}
         <button
-          className="md:hidden text-text p-2 cursor-pointer z-50"
+          className="md:hidden text-white p-1.5 cursor-pointer z-50"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
           aria-controls="mobile-nav-menu"
         >
-          {isOpen ? <X size={28} className="text-primary" /> : <Menu size={28} />}
+          {isOpen ? <X size={24} className="text-[#E2C896]" /> : <Menu size={24} />}
         </button>
       </Container>
 
       {/* 100% OPAQUE FULL-SCREEN MOBILE MENU OVERLAY */}
       {isOpen && (
-        <div id="mobile-nav-menu" className="fixed inset-0 z-40 bg-[#080a0f] w-screen h-screen flex flex-col p-6 pt-28 gap-6 md:hidden overflow-y-auto animate-in fade-in duration-200">
-          <div className="flex flex-col gap-4 border-t border-line/50 pt-4">
+        <div id="mobile-nav-menu" className="fixed inset-0 z-40 bg-[#070605] w-screen h-screen flex flex-col p-6 pt-24 gap-5 md:hidden overflow-y-auto animate-in fade-in duration-200">
+          <div className="flex flex-col gap-3 border-t border-[rgba(243,208,129,0.08)] pt-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-2xl font-black uppercase tracking-tight py-2 border-b border-line/30 transition-colors flex items-center justify-between",
-                  pathname === link.href ? "text-primary" : "text-text hover:text-primary"
+                  "text-lg font-semibold uppercase tracking-tight py-2 border-b border-[rgba(243,208,129,0.06)] transition-colors flex items-center justify-between",
+                  pathname === link.href ? "text-[#E2C896]" : "text-white hover:text-[#E2C896]"
                 )}
                 onClick={() => setIsOpen(false)}
               >
                 <span>{link.label}</span>
-                {pathname === link.href && <span className="text-xs bg-primary/20 text-primary px-2.5 py-0.5 rounded-full font-mono">Active</span>}
+                {pathname === link.href && <span className="text-xs bg-[rgba(226,200,150,0.12)] text-[#E2C896] px-2.5 py-0.5 rounded-full font-mono font-medium">Active</span>}
               </Link>
             ))}
           </div>
 
-          <div className="pt-4 mt-auto">
+          <div className="pt-3 mt-auto">
             <Link
               href={BRAND_CONFIG.officialTelegram}
               target="_blank"
               rel="noopener noreferrer"
-              className="grad-button text-background w-full py-4 rounded-2xl text-center font-black uppercase tracking-widest text-sm shadow-xl block"
+              className="text-[#09090B] w-full py-3 rounded-full text-center font-bold uppercase tracking-wider text-xs bg-[linear-gradient(135deg,#E2C896_0%,#CBB079_50%,#A38B5D_100%)] shadow-xl block border-none"
               onClick={() => {
                 trackTelegramClick("Header (mobile): Join Public Telegram Group", pathname);
                 setIsOpen(false);
@@ -132,7 +142,7 @@ export default function Header() {
             >
               💬 Join Public Telegram Group
             </Link>
-            <p className="text-[10px] text-text-muted text-center font-mono mt-3 uppercase tracking-widest">
+            <p className="text-[10px] text-[#71717A] text-center font-mono mt-2.5 uppercase tracking-widest">
               Official Yaga Calls Channel • Verified Access
             </p>
           </div>
