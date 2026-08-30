@@ -457,19 +457,19 @@ export default function HeroDynamicPipeline() {
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
 
             {/* TradingView Top Action Header Bar */}
-            <div className="bg-[#161412]/80 backdrop-blur-md px-3 py-2 border-b border-white/[0.06] flex items-center justify-between shrink-0 font-mono text-[#EAF2FF]">
+            <div className="bg-[#161412]/80 backdrop-blur-md px-3 py-1.5 border-b border-white/[0.06] flex items-center justify-between shrink-0 font-mono text-[#EAF2FF]">
               <div className="flex items-center gap-2 min-w-0">
-                <div className="flex items-center gap-1.5 bg-[#0E0D0C]/80 px-2.5 py-1 rounded border border-white/[0.08] text-[#E2C896] font-semibold text-xs">
-                  <Search className="w-3.5 h-3.5 text-[#E2C896]" />
+                <div className="flex items-center gap-1.5 bg-[#0E0D0C]/80 px-2 py-0.5 rounded border border-white/[0.08] text-[#E2C896] font-semibold text-[11px]">
+                  <Search className="w-3 h-3 text-[#E2C896]" />
                   <span className="truncate text-[#FFFFFF]">${activeSignal.symbol}USDT</span>
                 </div>
 
-                <div className="hidden sm:flex items-center gap-1 text-[#71717A] text-[11px]">
+                <div className="hidden sm:flex items-center gap-1 text-[#71717A] text-[10.5px]">
                   {["15m", "1h", "4h", "1D"].map(tf => (
                     <button 
                       key={tf} 
                       onClick={() => setActiveTf(tf)}
-                      className={`px-2 py-0.5 rounded font-medium transition-all ${
+                      className={`px-1.5 py-0.5 rounded font-medium transition-all ${
                         activeTf === tf ? "text-[#E2C896] bg-[#E2C896]/10 border border-[#E2C896]/30 font-semibold" : "hover:text-white"
                       }`}
                     >
@@ -478,29 +478,29 @@ export default function HeroDynamicPipeline() {
                   ))}
                 </div>
 
-                <div className="h-4 w-[1px] bg-white/[0.06] hidden sm:block" />
+                <div className="h-3.5 w-[1px] bg-white/[0.06] hidden sm:block" />
 
-                <span className="hidden sm:flex items-center gap-1 text-[#71717A] font-medium text-[11px] hover:text-[#E2C896] cursor-pointer">
-                  <Sliders className="w-3.5 h-3.5" />
+                <span className="hidden sm:flex items-center gap-1 text-[#71717A] font-medium text-[10.5px] hover:text-[#E2C896] cursor-pointer">
+                  <Sliders className="w-3 h-3" />
                   <span>ƒx</span>
                 </span>
               </div>
               
-              <div className="flex items-center gap-2 text-xs text-[#71717A]">
-                <RotateCcw className="w-3.5 h-3.5 hover:text-white cursor-pointer" />
-                <Save className="w-3.5 h-3.5 hover:text-white cursor-pointer" />
-                <span className="text-[#E2C896] font-semibold bg-[#E2C896]/10 px-2.5 py-0.5 rounded border border-[#A38B5D]/30 text-[10.5px]">
+              <div className="flex items-center gap-1.5 text-[11px] text-[#71717A]">
+                <RotateCcw className="w-3 h-3 hover:text-white cursor-pointer" />
+                <Save className="w-3 h-3 hover:text-white cursor-pointer" />
+                <span className="text-[#E2C896] font-semibold bg-[#E2C896]/10 px-2 py-0.5 rounded border border-[#A38B5D]/30 text-[10px]">
                   {activeSignal.leverage}
                 </span>
               </div>
             </div>
 
             {/* TradingView OHLC Bar */}
-            <div className="bg-[#0E0D0C]/60 px-3 py-1.5 border-b border-white/[0.06] flex justify-between items-center text-[10.5px] font-mono text-[#71717A] shrink-0">
+            <div className="bg-[#0E0D0C]/60 px-2.5 py-1 border-b border-white/[0.06] flex justify-between items-center text-[9.5px] font-mono text-[#71717A] shrink-0">
               <div className="flex items-center gap-1 truncate">
                 <span className="font-semibold text-[#FFFFFF]">{activeChartData.ohlcText}</span>
               </div>
-              <div className="flex items-center gap-1.5 text-[10px] bg-[#161412]/80 px-2 py-0.5 rounded border border-white/[0.06]">
+              <div className="flex items-center gap-1.5 text-[9.5px] bg-[#161412]/80 px-1.5 py-0.5 rounded border border-white/[0.06]">
                 <span className="text-[#FFFFFF] font-semibold">Buy {activeChartData.buyRatio}</span>
                 <span className="text-[#71717A] font-semibold">Sell {activeChartData.sellRatio}</span>
               </div>
@@ -508,13 +508,13 @@ export default function HeroDynamicPipeline() {
 
             {/* Chart Area */}
             <div className="flex-1 flex bg-transparent overflow-hidden relative">
-              <div className="w-8 bg-[#161412]/80 border-r border-white/[0.06] flex flex-col items-center py-3 gap-3 text-[#71717A] shrink-0">
-                <Crosshair className="w-4 h-4 text-[#E2C896]" />
-                <TrendingUp className="w-4 h-4 hover:text-white cursor-pointer" />
-                <Type className="w-4 h-4 hover:text-white cursor-pointer" />
-                <Smile className="w-4 h-4 hover:text-white cursor-pointer" />
-                <Ruler className="w-4 h-4 hover:text-white cursor-pointer" />
-                <ZoomIn className="w-4 h-4 hover:text-white cursor-pointer" />
+              <div className="w-7 bg-[#161412]/80 border-r border-white/[0.06] flex flex-col items-center py-2.5 gap-2.5 text-[#71717A] shrink-0">
+                <Crosshair className="w-3.5 h-3.5 text-[#E2C896]" />
+                <TrendingUp className="w-3.5 h-3.5 hover:text-white cursor-pointer" />
+                <Type className="w-3.5 h-3.5 hover:text-white cursor-pointer" />
+                <Smile className="w-3.5 h-3.5 hover:text-white cursor-pointer" />
+                <Ruler className="w-3.5 h-3.5 hover:text-white cursor-pointer" />
+                <ZoomIn className="w-3.5 h-3.5 hover:text-white cursor-pointer" />
               </div>
 
               <div className="relative flex-1 h-full">
@@ -600,21 +600,21 @@ export default function HeroDynamicPipeline() {
                   {/* FOREGROUND PRICE LABELS WITH BACKDROP PILLS (RENDERED ON TOP OF CANDLES) */}
                   <g>
                     {/* Take Profit Badge */}
-                    <rect x="10" y={activeChartData.tpY - 14} width="174" height="13" fill="#0E0D0C" rx="3" stroke="#E2C896" strokeWidth="0.6" opacity="0.95" />
-                    <text x="14" y={activeChartData.tpY - 4} fill="#E2C896" fontSize="9" fontWeight="600" fontFamily="monospace">
-                      Take Profit: {activePrices.tp3_formatted} ({activePrices.tpTargetText})
+                    <rect x="8" y={activeChartData.tpY - 13} width="162" height="12" fill="#0E0D0C" rx="2.5" stroke="#E2C896" strokeWidth="0.6" opacity="0.95" />
+                    <text x="11" y={activeChartData.tpY - 4} fill="#E2C896" fontSize="8" fontWeight="600" fontFamily="monospace">
+                      TP: {activePrices.tp3_formatted} ({activePrices.tpTargetText})
                     </text>
 
                     {/* Entry Badge */}
-                    <rect x="10" y={activeChartData.entryY - 14} width="142" height="13" fill="#0E0D0C" rx="3" stroke="#FFFFFF" strokeWidth="0.6" opacity="0.95" />
-                    <text x="14" y={activeChartData.entryY - 4} fill="#FFFFFF" fontSize="9" fontWeight="600" fontFamily="monospace">
+                    <rect x="8" y={activeChartData.entryY - 13} width="130" height="12" fill="#0E0D0C" rx="2.5" stroke="#FFFFFF" strokeWidth="0.6" opacity="0.95" />
+                    <text x="11" y={activeChartData.entryY - 4} fill="#FFFFFF" fontSize="8" fontWeight="600" fontFamily="monospace">
                       Entry: {activePrices.entry_formatted}
                     </text>
 
                     {/* Stop Loss Badge */}
-                    <rect x="10" y={activeChartData.slY + 2} width="138" height="13" fill="#0E0D0C" rx="3" stroke="#71717A" strokeWidth="0.6" opacity="0.95" />
-                    <text x="14" y={activeChartData.slY + 12} fill="#71717A" fontSize="9" fontWeight="600" fontFamily="monospace">
-                      Stop Loss (SL): {activePrices.sl_formatted}
+                    <rect x="8" y={activeChartData.slY + 1} width="126" height="12" fill="#0E0D0C" rx="2.5" stroke="#71717A" strokeWidth="0.6" opacity="0.95" />
+                    <text x="11" y={activeChartData.slY + 10} fill="#71717A" fontSize="8" fontWeight="600" fontFamily="monospace">
+                      SL: {activePrices.sl_formatted}
                     </text>
                   </g>
 
@@ -644,12 +644,12 @@ export default function HeroDynamicPipeline() {
 
             </div>
 
-            <div className="bg-[#161412]/80 backdrop-blur-md px-3 py-2 border-t border-white/[0.06] text-xs font-mono text-[#EAF2FF] truncate flex items-center justify-between shrink-0">
-              <div className="flex items-center gap-2 truncate">
-                <img src={activeIconUrl} alt="" className="w-4 h-4 rounded-full object-cover shrink-0 border border-[#E2C896]/30" />
+            <div className="bg-[#161412]/80 backdrop-blur-md px-2.5 py-1.5 border-t border-white/[0.06] text-[11px] font-mono text-[#EAF2FF] truncate flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-1.5 truncate">
+                <img src={activeIconUrl} alt="" className="w-3.5 h-3.5 rounded-full object-cover shrink-0 border border-[#E2C896]/30" />
                 <span className="truncate text-[#71717A] font-normal">"{activeSignal.custom_notes}"</span>
               </div>
-              <span className="text-[#E2C896] font-semibold shrink-0 ml-2 bg-[#181920] px-2 py-0.5 rounded border border-[#A38B5D]/30 text-[10.5px]">✓ Verified</span>
+              <span className="text-[#E2C896] font-semibold shrink-0 ml-1.5 bg-[#181920] px-1.5 py-0.5 rounded border border-[#A38B5D]/30 text-[10px]">✓ Verified</span>
             </div>
 
           </div>
@@ -679,85 +679,85 @@ export default function HeroDynamicPipeline() {
             {/* 3. DYNAMIC BORDER BEAM (Conic Traveling Light Gradient Stroke) */}
             <div className="absolute -inset-[100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,rgba(243,208,129,0.9)_360deg)] animate-[spin_4s_linear_infinite] opacity-80 pointer-events-none z-0" />
 
-            <div className="w-full h-full bg-[linear-gradient(160deg,rgba(243,208,129,0.05)_0%,rgba(18,16,14,0.75)_40%,rgba(10,9,8,0.95)_100%)] backdrop-blur-xl rounded-[43px] p-2 flex flex-col justify-between relative z-10 overflow-hidden">
+            <div className="w-full h-full bg-[linear-gradient(160deg,rgba(243,208,129,0.05)_0%,rgba(18,16,14,0.75)_40%,rgba(10,9,8,0.95)_100%)] backdrop-blur-xl rounded-[43px] p-1.5 flex flex-col justify-between relative z-10 overflow-hidden">
               
               {/* Top Specular Edge */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
 
-              <div className="w-26 h-3.5 bg-[#050507] rounded-full mx-auto mb-1 relative z-20 flex items-center justify-center border border-white/[0.08] shrink-0">
-                <div className="w-2 h-2 rounded-full bg-[#0E0D0C]" />
+              <div className="w-24 h-3 bg-[#050507] rounded-full mx-auto mb-0.5 relative z-20 flex items-center justify-center border border-white/[0.08] shrink-0">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#0E0D0C]" />
               </div>
 
-              <div className="bg-[#0E0D0C]/70 rounded-[34px] p-2.5 space-y-1.5 text-[#EAF2FF] flex-1 flex flex-col justify-between relative overflow-hidden">
+              <div className="bg-[#0E0D0C]/70 rounded-[32px] p-2 space-y-1 text-[#EAF2FF] flex-1 flex flex-col justify-between relative overflow-hidden">
                 
-                <div className="bg-[#161412]/80 backdrop-blur-md rounded-t-2xl p-2.5 flex items-center justify-between border-b border-white/[0.06] shrink-0 -mx-2.5 -mt-2.5">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <ChevronLeft className="w-4 h-4 text-[#71717A] shrink-0" />
-                    <img src="/images/high-table-avatar.png" alt="High Table VIP" className="w-7.5 h-7.5 rounded-full object-cover border border-[#E2C896]/40 shrink-0" />
+                <div className="bg-[#161412]/80 backdrop-blur-md rounded-t-2xl p-2 flex items-center justify-between border-b border-white/[0.06] shrink-0 -mx-2 -mt-2">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <ChevronLeft className="w-3.5 h-3.5 text-[#71717A] shrink-0" />
+                    <img src="/images/high-table-avatar.png" alt="High Table VIP" className="w-6.5 h-6.5 rounded-full object-cover border border-[#E2C896]/40 shrink-0" />
                     <div className="flex flex-col min-w-0">
                       <div className="flex items-center gap-1">
-                        <span className="text-xs font-semibold text-[#FFFFFF] truncate">High Table</span>
-                        <BadgeCheck className="w-3.5 h-3.5 text-[#E2C896] fill-[#E2C896] text-[#080808] shrink-0" />
+                        <span className="text-[11px] font-semibold text-[#FFFFFF] truncate">High Table</span>
+                        <BadgeCheck className="w-3 h-3 text-[#E2C896] fill-[#E2C896] text-[#080808] shrink-0" />
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[#71717A]">
-                    <Search className="w-3.5 h-3.5" />
-                    <MoreVertical className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-1.5 text-[#71717A]">
+                    <Search className="w-3 h-3" />
+                    <MoreVertical className="w-3 h-3" />
                   </div>
                 </div>
 
-                <div className="bg-[#161412]/80 border-l-2 border-[#E2C896] px-2.5 py-1 flex items-center justify-between text-[10px] shrink-0 -mx-2.5">
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <Pin className="w-3 h-3 text-[#E2C896] shrink-0" />
+                <div className="bg-[#161412]/80 border-l-2 border-[#E2C896] px-2 py-0.5 flex items-center justify-between text-[9.5px] shrink-0 -mx-2">
+                  <div className="flex items-center gap-1 min-w-0">
+                    <Pin className="w-2.5 h-2.5 text-[#E2C896] shrink-0" />
                     <div className="truncate">
-                      <span className="text-[#E2C896] font-semibold block">Pinned message</span>
-                      <span className="text-[#71717A] truncate block">Last 15 days trade history and results...</span>
+                      <span className="text-[#E2C896] font-semibold block leading-tight">Pinned message</span>
+                      <span className="text-[#71717A] truncate block leading-tight">Last 15 days trade history...</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Telegram Post - LUXURY DARK MODE WITH FADED GOLD BADGES */}
-                <div className="bg-[#161412]/90 border border-white/[0.06] p-2.5 rounded-2xl space-y-2 font-mono text-[10.5px] flex-1 flex flex-col justify-between shadow-lg relative">
+                <div className="bg-[#161412]/90 border border-white/[0.06] p-2 rounded-xl space-y-1.5 font-mono text-[9.5px] flex-1 flex flex-col justify-between shadow-lg relative">
                   
-                  <div className="border-l-2 border-[#E2C896] pl-2 py-0.5 bg-[#181920] rounded flex items-center justify-between shrink-0">
-                    <span className="text-[10px] font-semibold text-[#E2C896]">High Table VIP Alert</span>
-                    <span className="text-[8.5px] text-[#E2C896] font-semibold bg-[#181920] px-1.5 py-0.2 rounded border border-[#A38B5D]/30">Verified Call</span>
+                  <div className="border-l-2 border-[#E2C896] pl-1.5 py-0.5 bg-[#181920] rounded flex items-center justify-between shrink-0">
+                    <span className="text-[9.5px] font-semibold text-[#E2C896]">High Table VIP Alert</span>
+                    <span className="text-[8px] text-[#E2C896] font-semibold bg-[#181920] px-1 py-0.2 rounded border border-[#A38B5D]/30">Verified Call</span>
                   </div>
 
                   {/* EXACT MATCHING USER SIGNAL FORMAT - CRISP WHITE (#FFFFFF) NUMBERS */}
-                  <div className="space-y-2 text-[10.5px] leading-relaxed font-mono">
+                  <div className="space-y-1 text-[9.5px] leading-tight font-mono">
                     
                     {/* $SYMBOL (Scalping) */}
-                    <div className="text-xs font-bold text-[#E2C896] flex items-center gap-1 bg-[#0E0D0C]/80 px-2 py-1 rounded border border-white/[0.06]">
-                      <img src={activeIconUrl} alt="" className="w-3.5 h-3.5 rounded-full object-cover shrink-0" />
+                    <div className="text-[11px] font-bold text-[#E2C896] flex items-center gap-1 bg-[#0E0D0C]/80 px-1.5 py-0.5 rounded border border-white/[0.06]">
+                      <img src={activeIconUrl} alt="" className="w-3 h-3 rounded-full object-cover shrink-0" />
                       <span>${activeSignal.symbol}</span>
                       <span className="text-[#71717A] font-normal">{activePrices.strategy}</span>
                     </div>
 
                     {/* Entry & Stop Loss */}
-                    <div className="space-y-1 text-[#FFFFFF] pt-0.5 bg-[#0E0D0C]/80 p-2 rounded-xl border border-white/[0.06]">
-                      <div className="flex items-center gap-1 text-[10px]">
+                    <div className="space-y-0.5 text-[#FFFFFF] pt-0.5 bg-[#0E0D0C]/80 p-1.5 rounded-lg border border-white/[0.06]">
+                      <div className="flex items-center gap-1 text-[9px]">
                         <span className="text-[#E2C896] font-semibold">*</span>
                         <span className="text-[#71717A]">Entry:</span>
                         <span className="font-bold text-[#FFFFFF]">{activePrices.entry_formatted}</span>
                       </div>
 
-                      <div className="flex items-center gap-1 text-[10px]">
+                      <div className="flex items-center gap-1 text-[9px]">
                         <span className="text-[#71717A] font-semibold">*</span>
-                        <span className="text-[#71717A]">Stop Loss (SL):</span>
+                        <span className="text-[#71717A]">SL:</span>
                         <span className="font-bold text-[#FFFFFF]">{activePrices.sl_formatted}</span>
                       </div>
                     </div>
 
                     {/* Take Profit Levels */}
-                    <div className="space-y-1 bg-[#0E0D0C]/80 p-2 rounded-xl border border-white/[0.06]">
-                      <div className="text-[#E2C896] font-semibold flex items-center gap-1 text-[10px]">
+                    <div className="space-y-0.5 bg-[#0E0D0C]/80 p-1.5 rounded-lg border border-white/[0.06]">
+                      <div className="text-[#E2C896] font-semibold flex items-center gap-1 text-[9px]">
                         <span>🎯</span>
                         <span>Take Profit Levels</span>
                       </div>
                       
-                      <div className="pl-2 space-y-0.5 text-[#FFFFFF] font-bold text-[10px]">
+                      <div className="pl-1.5 space-y-0.2 text-[#FFFFFF] font-bold text-[9px]">
                         <div>* TP1: {activePrices.tp1_formatted}</div>
                         <div>* TP2: {activePrices.tp2_formatted}</div>
                         <div>* TP3: {activePrices.tp3_formatted}</div>
@@ -766,18 +766,18 @@ export default function HeroDynamicPipeline() {
 
                   </div>
 
-                  <div className="pt-1.5 border-t border-white/[0.06] flex items-center justify-between text-[9px] text-[#71717A] shrink-0">
-                    <div className="flex items-center gap-1">
+                  <div className="pt-1 border-t border-white/[0.06] flex items-center justify-between text-[8.5px] text-[#71717A] shrink-0">
+                    <div className="flex items-center gap-0.5">
                       {activeSignal.reactions?.map((r: any, i: number) => (
-                        <span key={i} className="bg-[#0E0D0C]/80 px-1.5 py-0.5 rounded-full border border-white/[0.08] flex items-center gap-0.5 font-medium text-[8.5px]">
+                        <span key={i} className="bg-[#0E0D0C]/80 px-1 py-0.2 rounded-full border border-white/[0.08] flex items-center gap-0.5 font-medium text-[8px]">
                           <span>{r.emoji}</span>
                           <span className="text-[#71717A]">{r.count}</span>
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex items-center gap-1 font-mono text-[9px] text-[#71717A]">
-                      <Eye className="w-3 h-3 text-[#71717A]" />
+                    <div className="flex items-center gap-1 font-mono text-[8.5px] text-[#71717A]">
+                      <Eye className="w-2.5 h-2.5 text-[#71717A]" />
                       <span>{activeSignal.views}</span>
                       <span>·</span>
                       <span>11:35 AM</span>
@@ -787,7 +787,7 @@ export default function HeroDynamicPipeline() {
 
                 </div>
 
-                <div className="bg-[#161412]/90 border border-white/[0.08] rounded-xl py-1.5 px-3 flex items-center justify-center text-[10.5px] font-semibold text-[#E2C896] shrink-0 uppercase tracking-wider shadow">
+                <div className="bg-[#161412]/90 border border-white/[0.08] rounded-lg py-1 px-2 flex items-center justify-center text-[9.5px] font-semibold text-[#E2C896] shrink-0 uppercase tracking-wider shadow">
                   UNMUTE
                 </div>
 
@@ -815,63 +815,63 @@ export default function HeroDynamicPipeline() {
         {/* FRAME 3: AUDIT LEDGER (Translucent Obsidian Glass Surface)                */}
         {/* ========================================================================= */}
         <div className="lg:col-span-3 flex flex-col items-center">
-          <div className="w-full h-[435px] bg-[linear-gradient(160deg,rgba(243,208,129,0.05)_0%,rgba(18,16,14,0.65)_40%,rgba(10,9,8,0.85)_100%)] backdrop-blur-xl border border-white/[0.08] hover:border-[#E2C896]/30 rounded-3xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative overflow-hidden flex flex-col justify-between group transition-all duration-300">
+          <div className="w-full h-[435px] bg-[linear-gradient(160deg,rgba(243,208,129,0.05)_0%,rgba(18,16,14,0.65)_40%,rgba(10,9,8,0.85)_100%)] backdrop-blur-xl border border-white/[0.08] hover:border-[#E2C896]/30 rounded-3xl p-3 shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative overflow-hidden flex flex-col justify-between group transition-all duration-300">
             
             {/* Top Specular Edge Highlight */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
 
-            <div className="flex justify-between items-center border-b border-white/[0.06] pb-2.5 shrink-0">
+            <div className="flex justify-between items-center border-b border-white/[0.06] pb-2 shrink-0">
               <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#E2C896]" />
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#E2C896]">
-                  YAGA AUDIT LEDGER
+                <ShieldCheck className="w-3.5 h-3.5 text-[#E2C896]" />
+                <span className="text-[10.5px] font-semibold uppercase tracking-wider text-[#E2C896]">
+                  YAGA TRADE RESULT
                 </span>
               </div>
 
               {/* FADED GOLD VERIFICATION BADGE */}
-              <div className="text-[#E2C896] border border-[#E2C896]/30 bg-[#E2C896]/10 px-2 py-0.8 rounded flex items-center gap-1 text-[8.5px] font-semibold">
-                <Check className="w-3 h-3 text-[#E2C896]" />
+              <div className="text-[#E2C896] border border-[#E2C896]/30 bg-[#E2C896]/10 px-1.5 py-0.5 rounded flex items-center gap-1 text-[8px] font-semibold">
+                <Check className="w-2.5 h-2.5 text-[#E2C896]" />
                 <span>CONFIRMED</span>
               </div>
             </div>
 
             {/* Clean Executive Outcome Section - PURE CRISP WHITE (#FFFFFF) */}
-            <div className="space-y-3 my-auto">
-              <div className="text-[10px] font-semibold uppercase tracking-widest text-[#E2C896]">
+            <div className="space-y-2 my-auto">
+              <div className="text-[9.5px] font-semibold uppercase tracking-widest text-[#E2C896]">
                 LOCKED PNL OUTCOME
               </div>
 
-              <div className="bg-[#161412]/80 border border-white/[0.06] p-3.5 rounded-2xl text-center space-y-1.5 shadow-md">
-                <div className="flex items-center justify-center gap-1.5 text-xs font-mono text-[#E2C896] font-semibold uppercase">
-                  <img src={activeIconUrl} alt="" className="w-4 h-4 rounded-full object-cover shrink-0 border border-[#E2C896]/30" />
+              <div className="bg-[#161412]/80 border border-white/[0.06] p-2.5 rounded-xl text-center space-y-1 shadow-md">
+                <div className="flex items-center justify-center gap-1 text-[11px] font-mono text-[#E2C896] font-semibold uppercase">
+                  <img src={activeIconUrl} alt="" className="w-3.5 h-3.5 rounded-full object-cover shrink-0 border border-[#E2C896]/30" />
                   <span>{activeSignal.pnl_summary_text}</span>
                 </div>
 
                 {/* PURE CRISP WHITE HIGH IMPACT PNL VALUE */}
-                <div className="text-2xl font-bold text-[#FFFFFF] tracking-tight flex items-center justify-center gap-2 font-mono">
-                  <CheckCircle2 className="w-5 h-5 text-[#E2C896] shrink-0" />
+                <div className="text-xl font-bold text-[#FFFFFF] tracking-tight flex items-center justify-center gap-1.5 font-mono">
+                  <CheckCircle2 className="w-4.5 h-4.5 text-[#E2C896] shrink-0" />
                   <span>+${activeSignal.dollarPnlNum ? activeSignal.dollarPnlNum.toLocaleString() : '5,750'} Gain</span>
                 </div>
 
-                <div className="text-xs font-medium text-[#71717A]">
+                <div className="text-[11px] font-medium text-[#71717A]">
                   ({activeSignal.pnl_percentage}% Track Record Return)
                 </div>
               </div>
 
               {/* 4. AUDIT LEDGER SHIMMER SWEEP ACROSS GOLD PROGRESS BAR */}
-              <div className="bg-[#161412]/80 p-2.5 rounded-xl border border-white/[0.06] space-y-1.5 text-[9.5px] font-mono">
+              <div className="bg-[#161412]/80 p-2 rounded-xl border border-white/[0.06] space-y-1 text-[9px] font-mono">
                 <div className="flex justify-between text-[#EAF2FF]">
                   <span>Target Progress</span>
-                  <span className="text-[#E2C896] font-semibold">100% Milestone Achieved</span>
+                  <span className="text-[#E2C896] font-semibold">100% Achieved</span>
                 </div>
 
-                <div className="w-full h-2 bg-[#0E0D0C]/80 rounded-full overflow-hidden flex border border-white/[0.06] relative">
+                <div className="w-full h-1.5 bg-[#0E0D0C]/80 rounded-full overflow-hidden flex border border-white/[0.06] relative">
                   <div className="w-full bg-gradient-to-r from-[#27272A] to-[#E2C896] h-full" />
                   {/* Diagonal Shimmer Sweep */}
                   <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/50 to-transparent animate-shimmer-sweep pointer-events-none" />
                 </div>
 
-                <div className="flex justify-between text-[8.5px] text-[#71717A]">
+                <div className="flex justify-between text-[8px] text-[#71717A]">
                   <span className="text-[#E2C896] font-semibold">TP1 ✓</span>
                   <span className="text-[#E2C896] font-semibold">TP2 ✓</span>
                   <span className="text-[#E2C896] font-semibold">TP3 SMASHED 🌕</span>
@@ -880,15 +880,15 @@ export default function HeroDynamicPipeline() {
             </div>
 
             {/* Clean Authentic On-Chain Proof Box */}
-            <div className="bg-[#161412]/80 border border-white/[0.06] p-2.5 rounded-2xl space-y-1 font-mono text-[9.5px] relative shrink-0">
-              <div className="text-[10px] font-semibold uppercase tracking-wider text-[#E2C896] mb-1 flex items-center justify-between border-b border-white/[0.06] pb-1">
+            <div className="bg-[#161412]/80 border border-white/[0.06] p-2 rounded-xl space-y-1 font-mono text-[9px] relative shrink-0">
+              <div className="text-[9.5px] font-semibold uppercase tracking-wider text-[#E2C896] mb-0.5 flex items-center justify-between border-b border-white/[0.06] pb-0.5">
                 <span>ON-CHAIN AUDIT PROOF</span>
-                <span className="text-[8.5px] text-[#E2C896] font-semibold">VERIFIED</span>
+                <span className="text-[8px] text-[#E2C896] font-semibold">VERIFIED</span>
               </div>
               <div className="flex justify-between text-[#71717A] items-center">
                 <span>ASSET PAIR:</span>
                 <span className="text-[#FFFFFF] font-semibold flex items-center gap-1">
-                  <img src={activeIconUrl} alt="" className="w-3.5 h-3.5 rounded-full object-cover shrink-0" />
+                  <img src={activeIconUrl} alt="" className="w-3 h-3 rounded-full object-cover shrink-0" />
                   ${activeSignal.symbol} / USDT
                 </span>
               </div>
@@ -901,11 +901,11 @@ export default function HeroDynamicPipeline() {
                 <span>PROOF HASH:</span>
                 <button 
                   onClick={() => setShowExplorerModal(true)}
-                  className="text-[#E2C896] hover:text-white font-semibold flex items-center gap-1 bg-[#0E0D0C]/80 px-2 py-0.5 rounded border border-white/[0.08] transition-all shadow-sm"
+                  className="text-[#E2C896] hover:text-white font-semibold flex items-center gap-1 bg-[#0E0D0C]/80 px-1.5 py-0.2 rounded border border-white/[0.08] transition-all shadow-sm"
                   title="Click to view On-Chain Verification Explorer"
                 >
                   <span>{activeSignal.hash}</span>
-                  <ExternalLink className="w-3 h-3 text-[#E2C896]" />
+                  <ExternalLink className="w-2.5 h-2.5 text-[#E2C896]" />
                 </button>
               </div>
 
@@ -916,22 +916,22 @@ export default function HeroDynamicPipeline() {
             </div>
 
             {showExplorerModal && (
-              <div className="absolute inset-0 bg-[#0A0B0E]/98 backdrop-blur-md z-30 p-3.5 flex flex-col justify-between border border-[#E2C896]/40 rounded-3xl animate-in fade-in zoom-in duration-200">
-                <div className="flex justify-between items-center border-b border-white/[0.06] pb-2">
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-[#E2C896] font-semibold">
-                    <ShieldCheck className="w-4 h-4" />
-                    <span>ON-CHAIN VERIFICATION EXPLORER</span>
+              <div className="absolute inset-0 bg-[#0A0B0E]/98 backdrop-blur-md z-30 p-3 flex flex-col justify-between border border-[#E2C896]/40 rounded-2xl animate-in fade-in zoom-in duration-200">
+                <div className="flex justify-between items-center border-b border-white/[0.06] pb-1.5">
+                  <div className="flex items-center gap-1 text-[11px] font-mono text-[#E2C896] font-semibold">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>ON-CHAIN EXPLORER</span>
                   </div>
                   <button 
                     onClick={() => setShowExplorerModal(false)}
-                    className="p-1 text-[#71717A] hover:text-white rounded-lg bg-[#161820]"
+                    className="p-0.5 text-[#71717A] hover:text-white rounded-lg bg-[#161820]"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
-                <div className="space-y-2 font-mono text-[10px] text-[#71717A]">
-                  <div className="bg-[#161820] p-2.5 rounded-xl border border-white/[0.06] space-y-1">
+                <div className="space-y-1.5 font-mono text-[9.5px] text-[#71717A]">
+                  <div className="bg-[#161820] p-2 rounded-lg border border-white/[0.06] space-y-0.5">
                     <div className="flex justify-between">
                       <span>Status:</span>
                       <span className="text-[#E2C896] font-semibold">✓ Success (Block #{activeSignal.blockNum})</span>
@@ -946,7 +946,7 @@ export default function HeroDynamicPipeline() {
                     </div>
                   </div>
 
-                  <div className="bg-[#161820] p-2.5 rounded-xl border border-white/[0.06] space-y-1">
+                  <div className="bg-[#161820] p-2 rounded-lg border border-white/[0.06] space-y-0.5">
                     <div className="flex justify-between">
                       <span>Recorded PnL:</span>
                       <span className="text-[#FFFFFF] font-semibold">+{activeSignal.pnl_percentage}% Gain</span>
@@ -960,9 +960,9 @@ export default function HeroDynamicPipeline() {
 
                 <button 
                   onClick={copyHashToClipboard}
-                  className="w-full bg-[linear-gradient(135deg,#E2C896_0%,#CBB079_50%,#A38B5D_100%)] text-[#09090B] font-mono font-bold text-[10.5px] py-2 rounded-xl flex items-center justify-center gap-1 shadow-md hover:scale-[1.01] transition-all"
+                  className="w-full bg-[linear-gradient(135deg,#E2C896_0%,#CBB079_50%,#A38B5D_100%)] text-[#09090B] font-mono font-bold text-[10px] py-1.5 rounded-lg flex items-center justify-center gap-1 shadow-md hover:scale-[1.01] transition-all"
                 >
-                  {copiedHash ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copiedHash ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                   <span>{copiedHash ? "HASH COPIED!" : "COPY TRANSACTION HASH"}</span>
                 </button>
               </div>

@@ -18,28 +18,28 @@ export default function PricingComparisonTable() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto overflow-hidden rounded-3xl border border-line bg-surface shadow-2xl">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+        <div className="max-w-4xl mx-auto overflow-hidden rounded-3xl border border-line bg-surface shadow-2xl relative">
+          <div className="overflow-x-auto scrollbar-thin">
+            <table className="w-full text-left border-collapse min-w-[540px]">
               <thead>
                 <tr className="bg-surface-deep border-b border-line">
-                  <th className="p-6 text-sm font-black uppercase tracking-widest text-text-muted">Plan</th>
-                  <th className="p-6 text-sm font-black uppercase tracking-widest text-text-muted">Regular</th>
-                  <th className="p-6 text-sm font-black uppercase tracking-widest text-primary">Onboarding</th>
-                  <th className="p-6 text-sm font-black uppercase tracking-widest text-danger">Savings</th>
-                  <th className="p-6 text-sm font-black uppercase tracking-widest text-text-muted">Monthly Eq.</th>
-                  <th className="p-6 text-sm font-black uppercase tracking-widest text-text-muted">Best For</th>
+                  <th className="p-3.5 sm:p-5 text-xs sm:text-sm font-black uppercase tracking-widest text-text-muted whitespace-nowrap">Plan</th>
+                  <th className="p-3.5 sm:p-5 text-xs sm:text-sm font-black uppercase tracking-widest text-text-muted whitespace-nowrap">Regular</th>
+                  <th className="p-3.5 sm:p-5 text-xs sm:text-sm font-black uppercase tracking-widest text-primary whitespace-nowrap">Onboarding</th>
+                  <th className="p-3.5 sm:p-5 text-xs sm:text-sm font-black uppercase tracking-widest text-danger whitespace-nowrap">Savings</th>
+                  <th className="p-3.5 sm:p-5 text-xs sm:text-sm font-black uppercase tracking-widest text-text-muted whitespace-nowrap">Monthly Eq.</th>
+                  <th className="p-3.5 sm:p-5 text-xs sm:text-sm font-black uppercase tracking-widest text-text-muted">Best For</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-line">
                 {rows.map(([plan, regular, onboarding, savings, monthly, bestFor]) => (
-                  <tr key={plan} className="hover:bg-surface-deep/50 transition-colors text-sm font-bold">
-                    <td className="p-6">{plan}</td>
-                    <td className="p-6 text-text-muted line-through opacity-50">{regular}</td>
-                    <td className="p-6 text-text">{onboarding}</td>
-                    <td className="p-6 text-danger">{savings}</td>
-                    <td className="p-6">{monthly}</td>
-                    <td className="p-6 text-xs text-text-muted uppercase tracking-tight">{bestFor}</td>
+                  <tr key={plan} className="hover:bg-surface-deep/50 transition-colors text-xs sm:text-sm font-bold">
+                    <td className="p-3.5 sm:p-5 whitespace-nowrap">{plan}</td>
+                    <td className="p-3.5 sm:p-5 text-text-muted line-through opacity-50 whitespace-nowrap">{regular}</td>
+                    <td className="p-3.5 sm:p-5 text-text whitespace-nowrap">{onboarding}</td>
+                    <td className="p-3.5 sm:p-5 text-danger whitespace-nowrap">{savings}</td>
+                    <td className="p-3.5 sm:p-5 whitespace-nowrap">{monthly}</td>
+                    <td className="p-3.5 sm:p-5 text-[11px] sm:text-xs text-text-muted uppercase tracking-tight">{bestFor}</td>
                   </tr>
                 ))}
               </tbody>

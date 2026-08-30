@@ -54,7 +54,11 @@ export default function Ticker() {
   if (!isMounted || !data) return <div className="h-8 bg-[#0A0907] border-b border-[rgba(243,208,129,0.06)] animate-pulse" />;
 
   return (
-    <div className="h-8 bg-[#0A0907] border-b border-[rgba(243,208,129,0.06)] overflow-hidden flex items-center shrink-0">
+    <div className="h-8 bg-[#0A0907] border-b border-[rgba(243,208,129,0.06)] overflow-hidden flex items-center shrink-0 relative max-w-full">
+      {/* Left/Right Edge Fading Gradient Mask Overlay */}
+      <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0A0907] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0A0907] to-transparent z-10 pointer-events-none" />
+
       <div className="flex animate-ticker whitespace-nowrap gap-8 px-4">
         {[...coinMap, ...coinMap].map((coin, i) => {
           const price = data[coin.key]?.usd;

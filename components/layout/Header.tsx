@@ -47,18 +47,18 @@ export default function Header() {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-w-full overflow-x-clip",
       scrolled ? "bg-[#070605]/95 backdrop-blur-md border-b border-[rgba(243,208,129,0.08)]" : "bg-[#070605]/90"
     )}>
       <Ticker />
       <Container className={cn(
-        "flex items-center justify-between transition-all duration-300 relative z-50",
+        "flex items-center justify-between transition-all duration-300 relative z-50 max-w-full",
         scrolled ? "py-1.5 sm:py-2" : "py-2 sm:py-2.5"
       )}>
         {/* HEADER LOGO: COMPACT & ELEGANT YAGACALLS TYPOGRAPHY */}
         <Link 
           href="/" 
-          className="inline-flex items-center gap-2 text-white font-semibold hover:opacity-90 transition-all cursor-pointer group" 
+          className="inline-flex items-center gap-2 text-white font-semibold hover:opacity-90 transition-all cursor-pointer group shrink-0" 
           onClick={() => setIsOpen(false)}
         >
           <Image
@@ -75,7 +75,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav - Consistent Plain Text Links */}
-        <nav className="hidden md:flex items-center gap-3.5 lg:gap-5">
+        <nav className="hidden md:flex items-center gap-2 lg:gap-4 font-sans">
           <Link href="/crypto-signal-results" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Results</Link>
           <Link href="/yaga-calls-review" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Reviews</Link>
           <Link href="/pricing" className="text-[11.5px] font-medium uppercase tracking-wider text-[#A1A1AA] hover:text-[#E2C896] transition-colors">Pricing</Link>
