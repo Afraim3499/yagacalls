@@ -4,7 +4,7 @@ import React from "react";
 import Container from "../shared/Container";
 import Section from "../shared/Section";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
-import { Send, ArrowRight, ShieldCheck, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Sparkles } from "lucide-react";
 
 export default function FinalCTA() {
   return (
@@ -38,15 +38,15 @@ export default function FinalCTA() {
             <polygon points="620,400 1200,350 1200,600 480,600" fill="url(#shardGrad1)" />
           </svg>
 
-          {/* 3. TOP TELEMETRY STATUS BAR */}
+          {/* 3. TOP CONVERSATIONAL STATUS BAR */}
           <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.08] pb-6 mb-8 text-xs font-mono tracking-widest text-[#A1A1AA] uppercase">
             <div className="flex items-center gap-2">
               <span className="inline-block h-2 w-2 rounded-full bg-[#10B981] animate-ping" />
-              <span className="text-white font-bold">● SIGNAL DISPATCH ACTIVE</span>
+              <span className="text-white font-bold">● FREE TELEGRAM COMMUNITY</span>
             </div>
             <div className="flex items-center gap-6">
-              <span className="hidden sm:inline">ACCURACY: <strong className="text-[#F3D081]">80%+ VERIFIED</strong></span>
-              <span>ACCESS: <strong className="text-white">PUBLIC & VIP</strong></span>
+              <span className="hidden sm:inline">MEMBERS: <strong className="text-[#F3D081]">2,800+ TRADERS</strong></span>
+              <span>ACCESS: <strong className="text-white">100% FREE TO WATCH</strong></span>
             </div>
           </div>
 
@@ -55,11 +55,11 @@ export default function FinalCTA() {
             
             {/* Left Column: Copy & Value Proposition (7 Cols on LG) */}
             <div className="lg:col-span-7 space-y-6">
-              <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-[1.1]">
+              <h2 className="text-2xl sm:text-[28px] lg:text-[30px] font-black tracking-tight text-white leading-snug">
                 Ready to Stop Donating Your Money to the Market?
               </h2>
               
-              <p className="text-base sm:text-lg text-[#A1A1AA] leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-base text-[#A1A1AA] leading-relaxed max-w-xl">
                 Stop guessing tops and bottoms in noisy chatrooms. Get clear setups with exact entry zones, strict stop-losses, and live targets delivered straight to your phone.
               </p>
 
@@ -77,26 +77,26 @@ export default function FinalCTA() {
               </div>
             </div>
 
-            {/* Right Column: Live Intercept Card & Action Hub (5 Cols on LG) */}
+            {/* Right Column: Live Setup Ticket & Action Hub (5 Cols on LG) */}
             <div className="lg:col-span-5 flex flex-col gap-5">
               
-              {/* Live Setup Ticket Artifact */}
+              {/* Live Setup Ticket */}
               <div className="relative overflow-hidden rounded-2xl border border-[#F3D081]/30 bg-[#0E0F14]/90 p-5 backdrop-blur-xl shadow-2xl">
                 <div className="flex items-center justify-between text-xs text-[#717684] pb-3 border-b border-white/[0.06]">
                   <span className="font-mono text-[#F3D081] font-bold flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-[#F3D081]" /> LATEST DISPATCH #4092
+                    <Sparkles className="w-3 h-3 text-[#F3D081]" /> LATEST TRADE EXAMPLE
                   </span>
-                  <span className="text-[#10B981] font-semibold">● 100% SMASHED</span>
+                  <span className="text-[#10B981] font-semibold">● TARGET SMASHED</span>
                 </div>
                 
                 <div className="pt-3 flex justify-between items-center">
                   <div>
-                    <div className="text-lg font-black text-white">$SOL / USDT</div>
-                    <div className="text-xs text-[#A1A1AA]">Entry: $158.00 ─► Final TP: $210.00</div>
+                    <div className="text-base font-black text-white">$SOL / USDT</div>
+                    <div className="text-xs text-[#A1A1AA]">Entry: $158.00 ─► Target: $210.00</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xl font-extrabold text-[#F3D081]">+142.4%</div>
-                    <div className="text-[10px] text-[#717684] uppercase tracking-wider">Audited Profit</div>
+                    <div className="text-lg font-extrabold text-[#F3D081]">+142.4%</div>
+                    <div className="text-[10px] text-[#717684] uppercase tracking-wider">Trade Result</div>
                   </div>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function FinalCTA() {
                   href={BRAND_CONFIG.officialTelegram} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-r from-[#F3D081] via-[#E2B75B] to-[#C99738] px-8 py-4 text-sm sm:text-base font-black text-[#080808] shadow-[0_0_35px_rgba(243,208,129,0.35)] transition-all duration-300 hover:brightness-110 active:scale-[0.98]"
+                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-r from-[#F3D081] via-[#E2B75B] to-[#C99738] px-8 py-3.5 text-xs sm:text-sm font-black text-[#080808] shadow-[0_0_35px_rgba(243,208,129,0.35)] transition-all duration-300 hover:brightness-110 active:scale-[0.98]"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     JOIN FREE TELEGRAM CHANNEL
@@ -117,7 +117,7 @@ export default function FinalCTA() {
 
                 <a 
                   href="/pricing" 
-                  className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.03] px-8 py-3.5 text-sm font-bold text-white transition-all hover:border-[#F3D081]/40 hover:bg-white/[0.07] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.03] px-8 py-3 text-xs sm:text-sm font-bold text-white transition-all hover:border-[#F3D081]/40 hover:bg-white/[0.07] active:scale-[0.98]"
                 >
                   Compare VIP Membership Plans
                 </a>
@@ -128,7 +128,7 @@ export default function FinalCTA() {
           </div>
 
           {/* 5. FOOTER DISCLAIMER & SEO LINKS */}
-          <div className="relative z-10 pt-10 mt-10 border-t border-white/[0.06] text-center space-y-4">
+          <div className="relative z-10 pt-8 mt-8 border-t border-white/[0.06] text-center space-y-4">
             <p className="text-[10px] text-[#71717A] italic uppercase tracking-widest max-w-2xl mx-auto">
               Yaga Calls provides educational market analysis and signal ideas. Crypto trading involves risk. No content on this website should be treated as financial advice.
             </p>

@@ -19,7 +19,7 @@ export default function FreeVsPremium() {
             <Crown className="w-3.5 h-3.5 text-[#E2C896]" />
             <span>PICK YOUR ACCESS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-[#FFFFFF]">
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-[#FFFFFF]">
             Start Free. Upgrade When You Are Ready.
           </h2>
           <p className="text-[#A1A1AA] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
