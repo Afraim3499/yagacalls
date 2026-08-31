@@ -1,10 +1,29 @@
+"use client";
+
+import React, { useState } from "react";
 import Container from "../shared/Container";
 import Section from "../shared/Section";
-import { Check, X, UserCheck, ShieldAlert } from "lucide-react";
+import CTAButton from "../shared/CTAButton";
+import { UserCheck, ShieldAlert, Check, X, ArrowRight, Zap, AlertTriangle } from "lucide-react";
 
 export default function AudienceSection() {
+  const [selectedMindset, setSelectedMindset] = useState<"gambler" | "trader" | null>(null);
+
   return (
-    <Section className="bg-transparent relative z-10 py-16 sm:py-20">
+    <Section className="bg-transparent relative z-10 py-16 sm:py-24">
+      {/* CSS STAMP ANIMATIONS */}
+      <style>{`
+        @keyframes stampBounce {
+          0% { transform: scale(3) rotate(-15deg); opacity: 0; }
+          70% { transform: scale(0.95) rotate(-5deg); opacity: 1; }
+          100% { transform: scale(1) rotate(-3deg); opacity: 1; }
+        }
+
+        .animate-stamp {
+          animation: stampBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+      `}</style>
+
       <Container>
         {/* SECTION HEADER */}
         <div className="text-center mb-14 space-y-3 max-w-3xl mx-auto">
@@ -13,104 +32,113 @@ export default function AudienceSection() {
             <span>BEFORE YOU JOIN</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-[#FFFFFF]">
-            Is Yaga Calls Right for You?
+            Be Honest: What Kind of Trader Are You?
           </h2>
           <p className="text-[#A1A1AA] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            We want people who take trading seriously. Read this before signing up.
+            Click one of the mindset options below to test your qualification before joining Yaga Calls.
           </p>
         </div>
 
-        {/* POLARIZED SPLIT CARDS */}
+        {/* INTERACTIVE TRADE BOUNCER TERMINAL */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
           
-          {/* LEFT CARD (GOLD): YOU WILL LOVE IT HERE IF... */}
-          <div className="relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-[rgba(14,15,18,0.80)] backdrop-blur-[20px] border border-[rgba(243,208,129,0.15)] shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col justify-between">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E2C896]/40 to-transparent" />
-            
-            <div>
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E2C896] bg-[rgba(226,200,150,0.08)] px-3 py-1 rounded-full border border-[#A38B5D]/30 flex items-center gap-1.5">
-                  <UserCheck className="w-3.5 h-3.5 text-[#E2C896]" />
-                  <span>QUALIFIED PROFILE</span>
-                </span>
-                <span className="text-[10px] font-mono text-[#22C55E] uppercase tracking-widest font-bold">
-                  ● PERFECT FIT
-                </span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#FFFFFF] mb-6">
-                You Will Love It Here If...
-              </h3>
-
-              <div className="space-y-4">
-                {[
-                  "You want simple, clear trades instead of 50 spam messages a day.",
-                  "You care about protecting your money and using a stop-loss.",
-                  "You want to trade calmly from your phone with direct alerts.",
-                  "You want steady gains over time, not overnight lottery tickets."
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-3.5 items-start">
-                    <div className="w-6 h-6 rounded-full bg-[rgba(226,200,150,0.15)] border border-[#A38B5D]/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 text-[#E2C896]" />
-                    </div>
-                    <span className="text-sm sm:text-base font-bold text-[#FFFFFF] leading-snug">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-8 pt-4 border-t border-[rgba(243,208,129,0.08)]">
-              <p className="text-xs text-[#E2C896] font-mono font-bold uppercase tracking-widest text-center">
-                ✓ Built for disciplined crypto traders
-              </p>
-            </div>
-          </div>
-
-          {/* RIGHT CARD (CHARCOAL/RED): PLEASE DO NOT JOIN IF... */}
-          <div className="relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-[rgba(15,10,10,0.80)] backdrop-blur-[20px] border border-[#EF4444]/20 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col justify-between">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#EF4444]/40 to-transparent" />
+          {/* LEFT OPTION: GAMBLER MINDSET (RED BUTTON) */}
+          <div 
+            onClick={() => setSelectedMindset("gambler")}
+            className={`relative overflow-hidden rounded-3xl p-6 sm:p-10 transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[320px] select-none ${
+              selectedMindset === "gambler"
+                ? "bg-[#2A0C0C] border-2 border-[#EF4444] shadow-[0_0_50px_rgba(239,68,68,0.5)] scale-[1.02]"
+                : "bg-[rgba(15,10,10,0.80)] backdrop-blur-[20px] border border-[#EF4444]/30 hover:border-[#EF4444] hover:shadow-[0_10px_30px_rgba(239,68,68,0.2)]"
+            }`}
+          >
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#EF4444]/50 to-transparent" />
 
             <div>
               <div className="flex items-center justify-between mb-6">
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#EF4444] bg-[#EF4444]/10 px-3 py-1 rounded-full border border-[#EF4444]/30 flex items-center gap-1.5">
-                  <ShieldAlert className="w-3.5 h-3.5 text-[#EF4444]" />
-                  <span>DISQUALIFIED PROFILE</span>
+                  <AlertTriangle className="w-3.5 h-3.5 text-[#EF4444]" />
+                  <span>OPTION A</span>
                 </span>
                 <span className="text-[10px] font-mono text-[#EF4444] uppercase tracking-widest font-bold">
-                  ✕ DO NOT JOIN
+                  ● TAP TO TEST
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#FFFFFF] mb-6">
-                Please Do NOT Join If...
+              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#FFFFFF] mb-3">
+                🔴 "I WANT 100x IN 24 HOURS"
               </h3>
-
-              <div className="space-y-4">
-                {[
-                  "You expect every trade to win with zero losing days.",
-                  "You gamble your whole balance on dangerous 50x leverage.",
-                  "You blame others when you ignore the stop-loss.",
-                  "You are looking for pump-and-dump meme coins."
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-3.5 items-start">
-                    <div className="w-6 h-6 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <X className="w-3.5 h-3.5 text-[#EF4444]" />
-                    </div>
-                    <span className="text-sm sm:text-base font-medium text-[#A1A1AA] leading-snug">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-8 pt-4 border-t border-[#EF4444]/15">
-              <p className="text-xs text-[#71717A] italic leading-relaxed text-center">
-                Crypto trading involves risk. We protect capital and enforce trade discipline.
+              <p className="text-sm sm:text-base font-medium text-[#A1A1AA] leading-relaxed">
+                "I want quick money, meme coins, and huge leverage."
               </p>
             </div>
+
+            {/* STAMP / REJECTION STATE */}
+            {selectedMindset === "gambler" ? (
+              <div className="animate-stamp mt-6 p-4 rounded-2xl bg-[#3F0D0D] border-2 border-[#EF4444] text-[#EF4444] font-mono font-black text-center shadow-2xl">
+                <div className="flex items-center justify-center gap-2 text-base sm:text-lg uppercase tracking-wider">
+                  <X className="w-6 h-6 text-[#EF4444]" />
+                  <span>REJECTED: NOT A FIT</span>
+                </div>
+                <p className="text-xs font-sans text-[#FFFFFF] mt-1">
+                  You will lose your money gambling here. We don't do casino calls or pump-and-dump signals.
+                </p>
+              </div>
+            ) : (
+              <div className="mt-8 pt-4 border-t border-[#EF4444]/20 text-center text-xs font-mono text-[#EF4444] font-bold uppercase tracking-widest">
+                Tap to test Option A qualification →
+              </div>
+            )}
+          </div>
+
+          {/* RIGHT OPTION: DISCIPLINED TRADER MINDSET (GOLD BUTTON) */}
+          <div 
+            onClick={() => setSelectedMindset("trader")}
+            className={`relative overflow-hidden rounded-3xl p-6 sm:p-10 transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[320px] select-none ${
+              selectedMindset === "trader"
+                ? "bg-[linear-gradient(145deg,rgba(35,30,23,0.95)_0%,rgba(18,16,14,0.98)_100%)] border-2 border-[#E2C896] shadow-[0_0_60px_rgba(243,208,129,0.4)] scale-[1.02]"
+                : "bg-[rgba(14,15,18,0.85)] backdrop-blur-[20px] border border-[rgba(243,208,129,0.2)] hover:border-[#E2C896] hover:shadow-[0_10px_30px_rgba(243,208,129,0.2)]"
+            }`}
+          >
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E2C896]/60 to-transparent" />
+
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-xs font-mono font-extrabold uppercase tracking-widest text-[#09090B] bg-[#E2C896] px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-[#09090B]" />
+                  <span>OPTION B</span>
+                </span>
+                <span className="text-[10px] font-mono text-[#22C55E] uppercase tracking-widest font-bold">
+                  ● RECOMMENDED
+                </span>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#FFFFFF] mb-3">
+                🟡 "I WANT TO GROW SAFELY"
+              </h3>
+              <p className="text-sm sm:text-base font-bold text-[#E2C896] leading-relaxed">
+                "I want strict stop-losses, real setups, and steady profits."
+              </p>
+            </div>
+
+            {/* STAMP / UNLOCK CLEARANCE STATE */}
+            {selectedMindset === "trader" ? (
+              <div className="animate-stamp mt-6 p-4 rounded-2xl bg-[rgba(226,200,150,0.15)] border-2 border-[#E2C896] text-[#E2C896] font-mono font-black text-center shadow-2xl">
+                <div className="flex items-center justify-center gap-2 text-base sm:text-lg uppercase tracking-wider text-[#FFFFFF]">
+                  <Check className="w-6 h-6 text-[#22C55E]" />
+                  <span className="text-[#E2C896]">ACCESS CLEARED: YOU BELONG HERE</span>
+                </div>
+                <p className="text-xs font-sans text-[#A1A1AA] mt-1 mb-3">
+                  You are ready for disciplined trading. Join our network today.
+                </p>
+                <CTAButton href="/pricing" variant="primary" fullWidth trackingLabel="home_bouncer_cleared">
+                  Get Started Now <ArrowRight className="w-4 h-4 ml-1" />
+                </CTAButton>
+              </div>
+            ) : (
+              <div className="mt-8 pt-4 border-t border-[rgba(243,208,129,0.15)] text-center text-xs font-mono text-[#E2C896] font-bold uppercase tracking-widest">
+                Tap to test Option B qualification →
+              </div>
+            )}
           </div>
 
         </div>
