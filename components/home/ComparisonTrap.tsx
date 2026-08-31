@@ -3,55 +3,33 @@
 import React, { useState } from "react";
 import Container from "../shared/Container";
 import Section from "../shared/Section";
-import { ShieldAlert, Zap, Target, Check, AlertTriangle } from "lucide-react";
+import { ShieldAlert, Target, Check, AlertTriangle } from "lucide-react";
 
 export default function ComparisonTrap() {
   const [isHoveredChaos, setIsHoveredChaos] = useState(false);
 
   const noiseTags = [
-    { text: "100x GEM 🚀", top: "12%", left: "15%", delay: "0s", duration: "1.2s", scatter: "translate-x-[-40px] translate-y-[-30px] rotate-[-12deg]" },
-    { text: "BUY NOW OR DIE", top: "25%", left: "50%", delay: "0.2s", duration: "0.9s", scatter: "translate-x-[50px] translate-y-[-40px] rotate-[15deg]" },
-    { text: "DELETED POST", top: "42%", left: "20%", delay: "0.4s", duration: "1.1s", scatter: "translate-x-[-60px] translate-y-[30px] rotate-[-20deg]" },
-    { text: "NO STOP LOSS", top: "35%", left: "62%", delay: "0.1s", duration: "1.3s", scatter: "translate-x-[45px] translate-y-[45px] rotate-[10deg]" },
-    { text: "REKT", top: "62%", left: "18%", delay: "0.3s", duration: "0.8s", scatter: "translate-x-[-35px] translate-y-[50px] rotate-[-8deg]" },
-    { text: "PUMP & DUMP", top: "58%", left: "55%", delay: "0.5s", duration: "1.0s", scatter: "translate-x-[55px] translate-y-[-25px] rotate-[18deg]" },
-    { text: "FOMO NOW!!", top: "78%", left: "32%", delay: "0.2s", duration: "1.4s", scatter: "translate-x-[-25px] translate-y-[60px] rotate-[-15deg]" },
-    { text: "100X LEVERAGE", top: "72%", left: "65%", delay: "0.6s", duration: "0.95s", scatter: "translate-x-[60px] translate-y-[35px] rotate-[12deg]" }
+    { text: "100x GEM 🚀", top: "12%", left: "15%", delay: "0s", duration: "6s", scatter: "translate-x-[-40px] translate-y-[-30px] rotate-[-12deg]" },
+    { text: "BUY NOW!!", top: "25%", left: "50%", delay: "1.2s", duration: "5.5s", scatter: "translate-x-[50px] translate-y-[-40px] rotate-[15deg]" },
+    { text: "DELETED LOSS", top: "42%", left: "20%", delay: "2.4s", duration: "6.5s", scatter: "translate-x-[-60px] translate-y-[30px] rotate-[-20deg]" },
+    { text: "NO STOP LOSS", top: "35%", left: "62%", delay: "0.8s", duration: "7s", scatter: "translate-x-[45px] translate-y-[45px] rotate-[10deg]" },
+    { text: "REKT", top: "62%", left: "18%", delay: "1.8s", duration: "5s", scatter: "translate-x-[-35px] translate-y-[50px] rotate-[-8deg]" },
+    { text: "PUMP & DUMP", top: "58%", left: "55%", delay: "3s", duration: "6.2s", scatter: "translate-x-[55px] translate-y-[-25px] rotate-[18deg]" },
+    { text: "FOMO NOW!!", top: "78%", left: "32%", delay: "1.5s", duration: "6.8s", scatter: "translate-x-[-25px] translate-y-[60px] rotate-[-15deg]" },
+    { text: "100X LEVERAGE", top: "72%", left: "65%", delay: "3.5s", duration: "5.8s", scatter: "translate-x-[60px] translate-y-[35px] rotate-[12deg]" }
   ];
 
   return (
     <Section className="bg-transparent relative z-10 py-16 sm:py-24">
-      {/* CSS KEYFRAMES FOR JITTER & PULSE */}
+      {/* CSS KEYFRAMES FOR GENTLE DRIFT */}
       <style>{`
-        @keyframes chaosJitter {
-          0% { transform: translate(0px, 0px) rotate(0deg); }
-          20% { transform: translate(-3px, 2px) rotate(-1deg); }
-          40% { transform: translate(3px, -2px) rotate(1.5deg); }
-          60% { transform: translate(-2px, -3px) rotate(-0.5deg); }
-          80% { transform: translate(2px, 3px) rotate(1deg); }
-          100% { transform: translate(0px, 0px) rotate(0deg); }
+        @keyframes gentleDrift {
+          0%, 100% { transform: translate(0px, 0px); }
+          50% { transform: translate(2px, -2px); }
         }
 
-        @keyframes laserPulse {
-          0%, 100% { opacity: 0.4; transform: scaleX(0.98); }
-          50% { opacity: 0.95; transform: scaleX(1.02); }
-        }
-
-        @keyframes goldCirclePulse {
-          0%, 100% { box-shadow: 0 0 25px rgba(243, 208, 129, 0.2), inset 0 0 15px rgba(243, 208, 129, 0.1); }
-          50% { box-shadow: 0 0 45px rgba(243, 208, 129, 0.45), inset 0 0 25px rgba(243, 208, 129, 0.25); }
-        }
-
-        .animate-chaos-jitter {
-          animation: chaosJitter infinite ease-in-out;
-        }
-
-        .animate-laser-beam {
-          animation: laserPulse 2.5s infinite ease-in-out;
-        }
-
-        .animate-gold-pulse {
-          animation: goldCirclePulse 3s infinite ease-in-out;
+        .animate-gentle-drift {
+          animation: gentleDrift infinite ease-in-out;
         }
       `}</style>
 
@@ -66,47 +44,46 @@ export default function ComparisonTrap() {
             99% of Telegram Groups Are Just Loud Noise
           </h2>
           <p className="text-[#A1A1AA] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Hover over the chaos cloud below to see how hype groups scatter when pressure hits, compared to the steady calm of Yaga Calls.
+            Here is why most Telegram channels wreck your account, and how we do things differently.
           </p>
         </div>
 
-        {/* GRAVITY FIELDS COMPARISON CONTAINER */}
+        {/* 2 SIDE-BY-SIDE VISUAL ZONES */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto">
           
-          {/* LEFT ZONE: THE CHAOS CLOUD */}
+          {/* LEFT ZONE: OTHER SIGNAL GROUPS (NOISE CLOUD) */}
           <div 
             onMouseEnter={() => setIsHoveredChaos(true)}
             onMouseLeave={() => setIsHoveredChaos(false)}
             className="relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-[rgba(15,10,10,0.85)] backdrop-blur-[20px] border border-[#EF4444]/30 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col justify-between group transition-all duration-500 cursor-pointer min-h-[380px] sm:min-h-[420px]"
           >
-            {/* Red Specular Top Line */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#EF4444]/50 to-transparent" />
 
             {/* Header Badge */}
             <div className="flex items-center justify-between z-10">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#EF4444] bg-[#EF4444]/10 px-3 py-1 rounded-full border border-[#EF4444]/30 flex items-center gap-1.5">
                 <AlertTriangle className="w-3.5 h-3.5 text-[#EF4444]" />
-                <span>THE CHAOS CLOUD</span>
+                <span>OTHER SIGNAL GROUPS</span>
               </span>
               <span className="text-[10px] font-mono text-[#EF4444]/80 uppercase tracking-widest font-bold">
-                ✕ SHAKING NOISE
+                ✕ MESSY SPAM
               </span>
             </div>
 
-            {/* CHAOS GRAVITY FIELD (CANVAS AREA WITH VIBRATING & SCATTERING WORDS) */}
-            <div className="relative flex-1 w-full my-4 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_center,rgba(239,68,68,0.12)_0%,rgba(10,8,8,0.95)_80%)] border border-[#EF4444]/15">
+            {/* FLOATING SPAM WORDS CANVAS */}
+            <div className="relative flex-1 w-full my-4 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_center,rgba(239,68,68,0.10)_0%,rgba(10,8,8,0.95)_80%)] border border-[#EF4444]/15">
               
-              {/* Background SVG Grid Pattern */}
-              <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+              {/* Background Grid */}
+              <svg className="absolute inset-0 w-full h-full opacity-15 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <pattern id="chaos-grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <pattern id="chaos-grid-2" width="30" height="30" patternUnits="userSpaceOnUse">
                     <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#EF4444" strokeWidth="0.5" strokeDasharray="2 2" />
                   </pattern>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#chaos-grid)" />
+                <rect width="100%" height="100%" fill="url(#chaos-grid-2)" />
               </svg>
 
-              {/* Floating Jittering & Scattering Text Tags */}
+              {/* Floating Gentle Tags */}
               {noiseTags.map((tag, idx) => (
                 <div
                   key={idx}
@@ -116,82 +93,74 @@ export default function ComparisonTrap() {
                     animationDuration: tag.duration,
                     animationDelay: tag.delay
                   }}
-                  className={`absolute font-mono font-black uppercase text-xs sm:text-sm px-2.5 py-1 rounded-lg border shadow-lg transition-all duration-500 pointer-events-none ${
+                  className={`absolute font-mono font-bold uppercase text-xs sm:text-sm px-2.5 py-1 rounded-lg border transition-all duration-500 pointer-events-none ${
                     isHoveredChaos 
-                      ? `${tag.scatter} bg-[#EF4444]/30 border-[#EF4444] text-[#FFFFFF] scale-110 shadow-[0_0_20px_rgba(239,68,68,0.6)]` 
-                      : "animate-chaos-jitter bg-[rgba(25,12,12,0.85)] border-[#EF4444]/40 text-[#EF4444] shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+                      ? `${tag.scatter} bg-[#EF4444]/30 border-[#EF4444] text-[#FFFFFF] scale-105 shadow-[0_0_15px_rgba(239,68,68,0.5)]` 
+                      : "animate-gentle-drift bg-[rgba(25,12,12,0.85)] border-[#EF4444]/40 text-[#EF4444]"
                   }`}
                 >
                   {tag.text}
                 </div>
               ))}
-
-              {/* Center Chaos Core Indicator */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-32 h-32 rounded-full border border-[#EF4444]/20 animate-ping opacity-25" />
-              </div>
             </div>
 
             {/* Bottom Copy Label */}
             <div className="pt-3 border-t border-[#EF4444]/20 text-center">
               <p className="text-xs sm:text-sm font-bold text-[#EF4444] leading-tight">
-                The Noise Cloud: <span className="text-[#A1A1AA] font-normal">Constant spam, deleted losses, zero risk plan.</span>
+                Other Signal Groups: <span className="text-[#A1A1AA] font-normal">Constant spam, deleted losses, zero risk plan.</span>
               </p>
             </div>
           </div>
 
-          {/* RIGHT ZONE: THE GOLDEN NEEDLE */}
+          {/* RIGHT ZONE: THE YAGA STANDARD */}
           <div className="relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-[rgba(14,15,18,0.85)] backdrop-blur-[20px] border-2 border-[#E2C896] shadow-[0_0_45px_rgba(226,200,150,0.15)] flex flex-col justify-between min-h-[380px] sm:min-h-[420px]">
-            {/* Gold Specular Top Line */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E2C896]/60 to-transparent" />
 
             {/* Header Badge */}
             <div className="flex items-center justify-between z-10">
               <span className="text-xs font-mono font-extrabold uppercase tracking-widest text-[#09090B] bg-[#E2C896] px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
-                <Target className="w-3.5 h-3.5 text-[#09090B]" />
-                <span>THE GOLDEN NEEDLE</span>
+                <Check className="w-3.5 h-3.5 text-[#09090B]" />
+                <span>THE YAGA STANDARD</span>
               </span>
               <span className="text-[10px] font-mono text-[#22C55E] uppercase tracking-widest font-bold">
-                ● QUIET PRECISION
+                ● 1 CLEAR TRADE
               </span>
             </div>
 
-            {/* GOLDEN NEEDLE CANVAS (RAZOR SHARP GOLDEN CIRCLE & STEADY LASER BEAM) */}
-            <div className="relative flex-1 w-full my-4 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_center,rgba(243,208,129,0.12)_0%,rgba(10,9,8,0.98)_85%)] border border-[rgba(243,208,129,0.25)] flex items-center justify-center">
+            {/* CLEAN SETUP CARD */}
+            <div className="relative flex-1 w-full my-4 overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_center,rgba(243,208,129,0.12)_0%,rgba(10,9,8,0.98)_85%)] border border-[rgba(243,208,129,0.25)] flex items-center justify-center p-4">
               
-              {/* Horizontal Golden Laser Trajectory Beam */}
-              <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-[#E2C896] to-transparent animate-laser-beam z-0 shadow-[0_0_15px_#E2C896]" />
+              <div className="w-full max-w-sm bg-[rgba(18,16,14,0.95)] border border-[#E2C896]/40 rounded-2xl p-5 shadow-2xl space-y-3 font-mono">
+                <div className="flex items-center justify-between border-b border-[rgba(243,208,129,0.15)] pb-2.5">
+                  <span className="text-xs font-bold text-[#E2C896] uppercase">Trade Setup #104</span>
+                  <span className="text-[10px] text-[#22C55E] font-bold">ACTIVE</span>
+                </div>
 
-              {/* Central Razor-Sharp Golden Circle */}
-              <div className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full border-2 border-[#E2C896] bg-[rgba(18,16,14,0.95)] backdrop-blur-md animate-gold-pulse flex flex-col items-center justify-center p-2 text-center">
-                <div className="w-2 h-2 rounded-full bg-[#E2C896] mb-1 animate-ping" />
-                <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-[#E2C896]">
-                  YAGA SETUP
-                </span>
-                <span className="text-xs sm:text-sm font-black text-[#FFFFFF] font-mono">
-                  $0.8400
-                </span>
-                <span className="text-[9px] font-mono text-[#22C55E] font-bold mt-0.5">
-                  TARGET +70%
-                </span>
-              </div>
+                <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div className="bg-[rgba(243,208,129,0.06)] p-2 rounded-xl border border-[rgba(243,208,129,0.15)]">
+                    <span className="text-[10px] text-[#A1A1AA] block">BUY AT</span>
+                    <span className="font-bold text-[#FFFFFF]">$0.8400</span>
+                  </div>
+                  <div className="bg-[rgba(239,68,68,0.06)] p-2 rounded-xl border border-[#EF4444]/20">
+                    <span className="text-[10px] text-[#A1A1AA] block">SAFETY EXIT</span>
+                    <span className="font-bold text-[#EF4444]">$0.7900</span>
+                  </div>
+                  <div className="bg-[rgba(34,197,94,0.06)] p-2 rounded-xl border border-[#22C55E]/20">
+                    <span className="text-[10px] text-[#A1A1AA] block">PROFIT TARGET</span>
+                    <span className="font-bold text-[#22C55E]">+$700</span>
+                  </div>
+                </div>
 
-              {/* HUD Parameter Cards Flanking the Needle */}
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 hidden sm:block bg-[rgba(10,9,8,0.90)] border border-[rgba(243,208,129,0.2)] rounded-xl p-2 font-mono text-[10px] text-[#A1A1AA] shadow-lg">
-                <div className="text-[#E2C896] font-bold">ENTRY</div>
-                <div className="text-[#FFFFFF] font-bold">$0.8400</div>
-              </div>
-
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:block bg-[rgba(10,9,8,0.90)] border border-[#EF4444]/30 rounded-xl p-2 font-mono text-[10px] text-[#A1A1AA] shadow-lg text-right">
-                <div className="text-[#EF4444] font-bold">STOP LOSS</div>
-                <div className="text-[#FFFFFF] font-bold">$0.7900</div>
+                <div className="text-[11px] text-[#A1A1AA] font-sans text-center pt-1">
+                  Simple setup logic. Clear safety rules. No noise.
+                </div>
               </div>
             </div>
 
             {/* Bottom Copy Label */}
             <div className="pt-3 border-t border-[rgba(243,208,129,0.2)] text-center">
               <p className="text-xs sm:text-sm font-bold text-[#E2C896] leading-tight">
-                Yaga Calls: <span className="text-[#FFFFFF] font-normal">1 solid setup. Exact safety exit. Complete calm.</span>
+                The Yaga Standard: <span className="text-[#FFFFFF] font-normal">1 solid setup. Exact safety exit. Complete calm.</span>
               </p>
             </div>
           </div>

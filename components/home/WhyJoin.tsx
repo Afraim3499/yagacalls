@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Container from "../shared/Container";
 import Section from "../shared/Section";
-import { Filter, Zap, Send, ShieldCheck, Check } from "lucide-react";
+import { Filter, Zap, Send, Check } from "lucide-react";
 
 export default function WhyJoin() {
   const badCoins = [
@@ -43,17 +43,8 @@ export default function WhyJoin() {
           }
         }
 
-        @keyframes goldWinnerPulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 25px rgba(243, 208, 129, 0.4); }
-          50% { transform: scale(1.04); box-shadow: 0 0 45px rgba(243, 208, 129, 0.7); }
-        }
-
         .animate-coin-fall {
           animation: coinFallAndZap 4.5s infinite linear;
-        }
-
-        .animate-gold-winner {
-          animation: goldWinnerPulse 2.5s infinite ease-in-out;
         }
       `}</style>
 
@@ -72,22 +63,20 @@ export default function WhyJoin() {
           </p>
         </div>
 
-        {/* COIN GRINDER FUNNEL MACHINE TERMINAL */}
+        {/* COIN FILTER TERMINAL CONTAINER */}
         <div className="max-w-4xl mx-auto overflow-hidden rounded-3xl p-6 sm:p-10 bg-[rgba(14,15,18,0.85)] backdrop-blur-[20px] border border-[rgba(243,208,129,0.2)] shadow-[0_20px_50px_rgba(0,0,0,0.7)] relative">
           
-          {/* Specular Top Reflection */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E2C896]/50 to-transparent" />
 
-          {/* FUNNEL ANIMATION ENGINE AREA */}
+          {/* FUNNEL ANIMATION AREA */}
           <div className="relative w-full h-[360px] sm:h-[400px] flex flex-col items-center justify-between overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_top,rgba(243,208,129,0.08)_0%,rgba(7,6,5,0.98)_75%)] border border-white/[0.06] p-4">
             
-            {/* TOP INPUT ZONE: FAINT BAD COINS FALLING */}
+            {/* TOP INPUT: FAINT BAD COINS FALLING */}
             <div className="w-full h-24 relative z-10">
               <div className="text-center text-[10px] font-mono font-bold uppercase tracking-widest text-[#71717A] mb-2">
-                ▼ SCANNING 500+ MARKET ASSETS DAILY
+                ▼ WE SCAN 500+ MARKET COINS DAILY
               </div>
               
-              {/* Falling Coins */}
               {badCoins.map((coin, i) => (
                 <div
                   key={i}
@@ -102,47 +91,42 @@ export default function WhyJoin() {
               ))}
             </div>
 
-            {/* MID SVG LASER FUNNEL GRID (WITH ZAP SPARKS) */}
+            {/* MID SVG LASER FUNNEL GRID */}
             <div className="relative w-full max-w-md h-36 flex items-center justify-center z-20">
               <svg className="w-full h-full overflow-visible" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <linearGradient id="funnelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="funnelGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#E2C896" stopOpacity="0.8" />
                     <stop offset="50%" stopColor="#EF4444" stopOpacity="0.6" />
                     <stop offset="100%" stopColor="#E2C896" stopOpacity="0.8" />
                   </linearGradient>
                 </defs>
 
-                {/* Laser Funnel Walls */}
-                <path d="M 20 10 L 160 120 L 240 120 L 380 10" stroke="url(#funnelGrad)" strokeWidth="3" strokeDasharray="6 3" />
+                <path d="M 20 10 L 160 120 L 240 120 L 380 10" stroke="url(#funnelGrad2)" strokeWidth="3" strokeDasharray="6 3" />
                 <line x1="160" y1="120" x2="240" y2="120" stroke="#E2C896" strokeWidth="4" />
 
-                {/* Red Zap Filter Grid Lines */}
                 <line x1="80" y1="50" x2="320" y2="50" stroke="#EF4444" strokeWidth="1.5" strokeOpacity="0.4" />
                 <line x1="120" y1="85" x2="280" y2="85" stroke="#EF4444" strokeWidth="1.5" strokeOpacity="0.6" />
 
-                {/* Zap Particles */}
                 <circle cx="140" cy="90" r="3" fill="#EF4444" className="animate-ping" />
                 <circle cx="260" cy="90" r="3" fill="#EF4444" className="animate-ping" style={{ animationDelay: '0.4s' }} />
               </svg>
 
-              {/* Filter Label Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-[#EF4444] bg-[#180A0A] border border-[#EF4444]/40 px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
-                  <Zap className="w-3 h-3 text-[#EF4444] animate-pulse" />
-                  <span>99% DISQUALIFIED & REJECTED</span>
+                  <Zap className="w-3 h-3 text-[#EF4444]" />
+                  <span>99% HYPE & TRAPS THROWN AWAY</span>
                 </span>
               </div>
             </div>
 
-            {/* BOTTOM OUTPUT ZONE: SINGLE SURVIVING GOLD TOKEN WITH EXACT PLAN */}
+            {/* BOTTOM OUTPUT: 100% STATIC SOL BREAKOUT SETUP BOX (NO MOVING / NO BOUNCING) */}
             <div className="w-full flex flex-col items-center z-30 pb-2">
-              <div className="animate-gold-winner bg-[linear-gradient(135deg,#231E17_0%,#12100E_100%)] border-2 border-[#E2C896] rounded-2xl p-4 sm:p-5 text-center max-w-sm w-full relative">
+              <div className="bg-[linear-gradient(135deg,#231E17_0%,#12100E_100%)] border-2 border-[#E2C896] shadow-[0_0_30px_rgba(243,208,129,0.3)] rounded-2xl p-4 sm:p-5 text-center max-w-sm w-full relative">
                 
-                {/* Top Badge */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E2C896] text-[#09090B] text-[9px] font-mono font-black uppercase tracking-widest px-3 py-0.5 rounded-full shadow-md flex items-center gap-1">
                   <Check className="w-3 h-3 text-[#09090B]" />
-                  <span>100% HIGHEST CONVICTION</span>
+                  <span>1 HIGHEST CONVICTION TRADE</span>
                 </div>
 
                 <div className="text-base sm:text-lg font-black text-[#FFFFFF] font-mono tracking-tight mt-1">
@@ -162,7 +146,7 @@ export default function WhyJoin() {
 
                 <div className="mt-2.5 flex items-center justify-center gap-1.5 text-[10px] font-mono font-bold text-[#E2C896] uppercase tracking-wider">
                   <Send className="w-3 h-3 text-[#E2C896]" />
-                  <span>Sent Direct To Your Telegram Phone Alert</span>
+                  <span>Sent Straight To Your Telegram Alert</span>
                 </div>
               </div>
             </div>

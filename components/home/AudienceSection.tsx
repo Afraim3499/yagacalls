@@ -4,23 +4,23 @@ import React, { useState } from "react";
 import Container from "../shared/Container";
 import Section from "../shared/Section";
 import CTAButton from "../shared/CTAButton";
-import { UserCheck, ShieldAlert, Check, X, ArrowRight, Zap, AlertTriangle } from "lucide-react";
+import { UserCheck, Check, X, ArrowRight, Zap, AlertTriangle } from "lucide-react";
 
 export default function AudienceSection() {
   const [selectedMindset, setSelectedMindset] = useState<"gambler" | "trader" | null>(null);
 
   return (
     <Section className="bg-transparent relative z-10 py-16 sm:py-24">
-      {/* CSS STAMP ANIMATIONS */}
+      {/* CSS STAMP ANIMATION */}
       <style>{`
         @keyframes stampBounce {
-          0% { transform: scale(3) rotate(-15deg); opacity: 0; }
-          70% { transform: scale(0.95) rotate(-5deg); opacity: 1; }
-          100% { transform: scale(1) rotate(-3deg); opacity: 1; }
+          0% { transform: scale(2) rotate(-10deg); opacity: 0; }
+          70% { transform: scale(0.98) rotate(-3deg); opacity: 1; }
+          100% { transform: scale(1) rotate(-2deg); opacity: 1; }
         }
 
         .animate-stamp {
-          animation: stampBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+          animation: stampBounce 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
       `}</style>
 
@@ -35,11 +35,11 @@ export default function AudienceSection() {
             Be Honest: What Kind of Trader Are You?
           </h2>
           <p className="text-[#A1A1AA] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Click one of the mindset options below to test your qualification before joining Yaga Calls.
+            Pick the option below that matches your trading mindset.
           </p>
         </div>
 
-        {/* INTERACTIVE TRADE BOUNCER TERMINAL */}
+        {/* 1-CLICK MINDSET TERMINAL */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
           
           {/* LEFT OPTION: GAMBLER MINDSET (RED BUTTON) */}
@@ -77,15 +77,15 @@ export default function AudienceSection() {
               <div className="animate-stamp mt-6 p-4 rounded-2xl bg-[#3F0D0D] border-2 border-[#EF4444] text-[#EF4444] font-mono font-black text-center shadow-2xl">
                 <div className="flex items-center justify-center gap-2 text-base sm:text-lg uppercase tracking-wider">
                   <X className="w-6 h-6 text-[#EF4444]" />
-                  <span>REJECTED: NOT A FIT</span>
+                  <span>NOT A FIT</span>
                 </div>
                 <p className="text-xs font-sans text-[#FFFFFF] mt-1">
-                  You will lose your money gambling here. We don't do casino calls or pump-and-dump signals.
+                  You will lose your money gambling. We don't do casino calls or pump-and-dump signals.
                 </p>
               </div>
             ) : (
               <div className="mt-8 pt-4 border-t border-[#EF4444]/20 text-center text-xs font-mono text-[#EF4444] font-bold uppercase tracking-widest">
-                Tap to test Option A qualification →
+                Tap to test Option A →
               </div>
             )}
           </div>
@@ -125,10 +125,10 @@ export default function AudienceSection() {
               <div className="animate-stamp mt-6 p-4 rounded-2xl bg-[rgba(226,200,150,0.15)] border-2 border-[#E2C896] text-[#E2C896] font-mono font-black text-center shadow-2xl">
                 <div className="flex items-center justify-center gap-2 text-base sm:text-lg uppercase tracking-wider text-[#FFFFFF]">
                   <Check className="w-6 h-6 text-[#22C55E]" />
-                  <span className="text-[#E2C896]">ACCESS CLEARED: YOU BELONG HERE</span>
+                  <span className="text-[#E2C896]">WELCOME: YOU BELONG HERE</span>
                 </div>
                 <p className="text-xs font-sans text-[#A1A1AA] mt-1 mb-3">
-                  You are ready for disciplined trading. Join our network today.
+                  You are ready for simple, disciplined trades. Join our network today.
                 </p>
                 <CTAButton href="/pricing" variant="primary" fullWidth trackingLabel="home_bouncer_cleared">
                   Get Started Now <ArrowRight className="w-4 h-4 ml-1" />
@@ -136,7 +136,7 @@ export default function AudienceSection() {
               </div>
             ) : (
               <div className="mt-8 pt-4 border-t border-[rgba(243,208,129,0.15)] text-center text-xs font-mono text-[#E2C896] font-bold uppercase tracking-widest">
-                Tap to test Option B qualification →
+                Tap to test Option B →
               </div>
             )}
           </div>
