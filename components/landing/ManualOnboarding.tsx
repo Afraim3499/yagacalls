@@ -13,7 +13,7 @@ const ManualOnboarding: React.FC<ManualOnboardingProps> = ({ content }) => {
           <div className="inline-block px-4 py-1 bg-amber-500/10 text-amber-500 text-xs font-black uppercase tracking-[0.2em] mb-6 border border-amber-500/20">
             Exclusive Access
           </div>
-          <h2 className="text-3xl md:text-5xl font-black mb-8 uppercase tracking-tighter">
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black mb-8 uppercase tracking-tighter">
             Manual Telegram Onboarding
           </h2>
           <p className="text-xl text-gray-400 mb-10 leading-relaxed">

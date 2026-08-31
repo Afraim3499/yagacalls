@@ -34,7 +34,7 @@ export default function MemberExpectations() {
     <Section>
       <Container>
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">What Serious Traders Should Expect</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">What Serious Traders Should Expect</h2>
           <p className="text-text-muted text-lg max-w-2xl mx-auto">
             A serious paid crypto signal service should not sell magic. It should provide structure.
           </p>

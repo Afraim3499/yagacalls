@@ -15,7 +15,7 @@ export default function NarrativeHero() {
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Research-Led Signals
             </div>
-            <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight">
               Narrative Trading Crypto Signals for Serious Traders
             </h1>
             <p className="text-xl md:text-2xl text-text-muted leading-tight">

@@ -6,7 +6,7 @@ export default function DirectAnswerSection() {
     <Section>
       <Container className="max-w-4xl">
         <div className="space-y-8">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">What Are Premium Telegram Crypto Signals?</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">What Are Premium Telegram Crypto Signals?</h2>
           <div className="space-y-6 text-lg text-text-muted leading-relaxed">
             <p>
               Premium Telegram crypto signals are paid trading setup notes delivered through Telegram. A serious signal should include more than a ticker name. It should explain the asset, entry zone, target levels, invalidation or stop-loss context, and the market reasoning behind the idea. Read more on how to evaluate a <a href="/crypto-trading-telegram-group" className="text-primary hover:underline font-bold">crypto trading Telegram group</a> before joining any premium service.

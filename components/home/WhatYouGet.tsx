@@ -15,7 +15,7 @@ export default function WhatYouGet() {
             <Zap className="w-3.5 h-3.5 text-[#E2C896]" />
             <span>Institutional Signal Ecosystem</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center tracking-tight uppercase text-[#FFFFFF]">
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black text-center tracking-tight uppercase text-[#FFFFFF]">
             What You Get Inside Yaga Calls
           </h2>
           <p className="text-[#A1A1AA] text-sm sm:text-base leading-relaxed">

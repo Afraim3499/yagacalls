@@ -15,7 +15,7 @@ export default function WhyTelegramSection() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Crypto Moves Fast. Telegram Matches the Speed.</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Crypto Moves Fast. Telegram Matches the Speed.</h2>
             <div className="space-y-6 text-lg text-text-muted leading-relaxed">
               <p>
                 Crypto markets move quickly. Narratives rotate fast. Price levels can change in minutes. Traders need updates in a format that is fast, simple, and mobile-friendly.

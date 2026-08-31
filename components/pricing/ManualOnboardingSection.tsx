@@ -30,7 +30,7 @@ export default function ManualOnboardingSection() {
     <Section className="bg-surface-deep">
       <Container>
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">How to Claim Discounted Premium Access</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">How to Claim Discounted Premium Access</h2>
           <p className="text-text-muted max-w-2xl mx-auto">
             The onboarding process is manual so serious members can confirm details and payment instructions safely.
           </p>

@@ -128,7 +128,7 @@ export default function USAPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6 text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for USA Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for USA Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls provides USA-focused crypto signal and market analysis content for serious traders who prefer Telegram-first delivery, structured setup notes, market narrative research, entry and target planning, invalidation logic, risk-aware context, selected proof examples, and manual premium onboarding.
@@ -147,7 +147,7 @@ export default function USAPage() {
             {/* Why Better Quality */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-12">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Risk-First Analysis</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Risk-First Analysis</h2>
                 <p className="text-text-muted leading-relaxed">
                   US traders should look for quality and trust. A serious provider should explain both opportunity and risk with professional discipline, avoiding guaranteed-profit language or "safe investment" claims.
                 </p>
@@ -180,7 +180,7 @@ export default function USAPage() {
       <Section className="bg-surface-deep border-y border-line">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">NY, California, Texas, Florida & USA Traders</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">NY, California, Texas, Florida & USA Traders</h2>
             <p className="text-text-muted">Structured crypto signal notes for major US hubs:</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                {["New York", "California", "Texas", "Florida", "Illinois", "Washington", "New Jersey", "Massachusetts"].map((state) => (
@@ -201,7 +201,7 @@ export default function USAPage() {
       <Section className="bg-background">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Free, Then Decide.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

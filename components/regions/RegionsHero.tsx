@@ -14,10 +14,10 @@ export default function RegionsHero() {
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Global Trading Hub
             </div>
-            <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight">
               Crypto Signals by Region for Serious Traders Worldwide
             </h1>
-            <p className="text-xl md:text-2xl text-text-muted leading-tight">
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed">
               Explore Yaga Calls regional pages for serious crypto traders in GCC, UAE, Dubai, Saudi Arabia, Qatar, UK, Europe, Germany, Switzerland, USA, Australia, Singapore, Russia, and other global markets.
             </p>
             <div className="p-4 bg-primary/5 border-l-2 border-primary rounded-r-xl">

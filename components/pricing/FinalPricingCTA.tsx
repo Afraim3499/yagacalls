@@ -8,7 +8,7 @@ export default function FinalPricingCTA() {
     <Section className="bg-surface-deep">
       <Container className="text-center space-y-12">
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Choose Your Next Step</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Choose Your Next Step</h2>
           <p className="text-text-muted text-lg max-w-2xl mx-auto leading-relaxed">
             If you are serious and ready for premium access, use the current discounted onboarding price. If you are still evaluating, join the free Telegram group first.
           </p>

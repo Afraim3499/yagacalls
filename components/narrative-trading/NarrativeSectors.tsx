@@ -21,7 +21,7 @@ export default function NarrativeSectors() {
       <Container>
         <div className="space-y-16">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">
               Narratives We Track
             </h2>
             <p className="text-text-muted max-w-2xl mx-auto text-lg leading-relaxed">

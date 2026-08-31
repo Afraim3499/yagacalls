@@ -42,7 +42,7 @@ export default function GCCCountryRouting() {
       <Container>
         <div className="space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">GCC Country Coverage</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">GCC Country Coverage</h2>
             <p className="text-text-muted max-w-2xl mx-auto leading-relaxed">
               Yaga Calls provides localized trust framing and onboarding for major Gulf markets. Choose your country-specific page for dedicated insights.
             </p>

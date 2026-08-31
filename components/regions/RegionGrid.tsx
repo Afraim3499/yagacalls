@@ -25,7 +25,7 @@ export default function RegionGrid() {
       <Container>
         <div className="space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Choose Your Region</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Choose Your Region</h2>
             <p className="text-text-muted max-w-2xl mx-auto">
               Select the region closest to your location or trading session. Each regional page explains Yaga Calls’ positioning for that market.
             </p>

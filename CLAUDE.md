@@ -99,6 +99,35 @@ root and `crm-app`-bundled copies). None of this is specific to this file's scop
 you're touching CRM auth or any of those API routes, know that the surrounding security
 model needs a real rework, not incremental patches.
 
+## How the owner wants an agent to work in this repo
+
+Written by the owner, not by the codebase. Applies to every session here.
+
+- **No sugarcoating.** If a plan, a file, or an existing decision is wrong, broken, or a bad
+  idea, lead with that. Don't bury it under caveats, don't open with praise, don't soften a
+  real problem into a "consideration". Name the risk even when it wasn't asked for.
+- **Answer first, detail after.** No preamble, no restating the request, no narrating what
+  you're about to do, no recapping steps that are already visible in the transcript.
+- **Spend tokens on the task, not on talking about the task.** Read the actual code rather
+  than guessing — but read what the task needs: targeted `grep`/ranged reads over dumping
+  whole files. Don't summarize tool output between steps; deliver once, at the end.
+- **Ship finished work, not sketches.** Real paths, real commands, real values. "You could
+  try X" is not an answer here. If something is genuinely uncertain, say so in one line and
+  move on — don't hedge through the whole response.
+- **This repo is the dev surface.** Development, servers, bots, CRM, scripts, deploys. The
+  owner's content/social work happens elsewhere; don't drift into it here.
+
+### Orientation for a cold start
+
+- `SYSTEM_DOCUMENTATION.md` — the operational map: `@yagacontentbot` join-request and
+  `/enroll_vip` flows, the group IDs, commission math (5% associate / 2% parent override /
+  25% management), the `community_members_log` schema, and the `vip-checker` daemon.
+- `VPS_OPERATIONS_GUIDE.md` — host, PM2 process names, Nginx/SSL paths, DNS. Note that it
+  and several `yaga-content-system` docs contain plaintext secrets (VPS root password,
+  bot token, Supabase keys). Treat those as compromised-by-default and rotate rather than
+  reuse; never echo them into new files, commits, or logs.
+- `AUDIT_STATUS.md` — open security/SEO remediation items and established conventions.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know

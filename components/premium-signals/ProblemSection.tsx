@@ -22,7 +22,7 @@ export default function ProblemSection() {
         <div className="space-y-8">
           <div className="flex items-center gap-3 text-danger">
             <AlertCircle className="w-6 h-6" />
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Most Telegram Crypto Signal Groups Are Too Noisy</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Most Telegram Crypto Signal Groups Are Too Noisy</h2>
           </div>
           <div className="space-y-6 text-lg text-text-muted leading-relaxed">
             <p>

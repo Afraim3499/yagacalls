@@ -9,7 +9,7 @@ export default function PricingSuitabilityChecker() {
     <Section>
       <Container>
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Should You Use the Discounted Premium Price?</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Should You Use the Discounted Premium Price?</h2>
           <p className="text-text-muted max-w-2xl mx-auto">
             A discount should not make you join emotionally. Use this checklist first to see if Yaga Calls matches your trading style.
           </p>

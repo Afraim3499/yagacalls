@@ -17,7 +17,7 @@ export default function RiskAnatomy() {
       <Container>
         <div className="space-y-16">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">
               The Anatomy of a Risk-Managed Signal
             </h2>
             <p className="text-text-muted max-w-2xl mx-auto text-lg">
@@ -43,7 +43,7 @@ export default function RiskAnatomy() {
             <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <h3 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">Entry, Target, and Invalidation</h3>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tighter">Entry, Target, and Invalidation</h3>
                 <p className="text-text-muted leading-relaxed">
                   These three markers form the skeleton of any serious signal. Entry shows where the trade starts. Targets show where it may be reviewed. Invalidation shows where discipline matters.
                 </p>

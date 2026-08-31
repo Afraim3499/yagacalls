@@ -14,7 +14,7 @@ export default function TelegramHero() {
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Telegram-First Delivery
             </div>
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
+            <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight">
               Premium Telegram Crypto Signals for Serious Traders
             </h1>
             <p className="text-xl md:text-2xl text-text-muted leading-tight">

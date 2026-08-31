@@ -128,7 +128,7 @@ export default function SingaporePage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6 text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Singapore Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Singapore Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls provides Singapore-focused crypto signal and market analysis content for serious traders who prefer Telegram-first delivery, structured setup notes, market narrative research, entry and target planning, invalidation logic, risk-aware context, selected proof examples, and manual premium onboarding.
@@ -147,7 +147,7 @@ export default function SingaporePage() {
             {/* Premium Quality */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-12">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Finance-Grade Analysis</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Finance-Grade Analysis</h2>
                 <p className="text-text-muted leading-relaxed">
                   Singapore traders demand a higher standard of intelligence. We focus on narrative research, technical structure review, and risk-aware setup context, providing the transparency needed for serious decision-making.
                 </p>
@@ -179,7 +179,7 @@ export default function SingaporePage() {
       <Section className="bg-surface-deep border-y border-line">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Singapore vs Global Markets</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Singapore vs Global Markets</h2>
             <p className="text-text-muted">Explore tailored crypto signal intelligence for your specific region:</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                {[
@@ -202,7 +202,7 @@ export default function SingaporePage() {
       <Section className="bg-background">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Free, Then Decide.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

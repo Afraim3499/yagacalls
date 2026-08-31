@@ -21,7 +21,7 @@ export default function RegionalBlock() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight text-[#FFFFFF]">Built for Serious Crypto Traders Worldwide</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-tight text-[#FFFFFF]">Built for Serious Crypto Traders Worldwide</h2>
             <div className="space-y-6">
               <p className="text-lg text-[#A1A1AA] leading-relaxed">
                 Yaga Calls is designed for traders in high-purchase-power <a href="/regions" className="text-[#E2C896] hover:underline font-bold">crypto signal regions</a> who want better crypto market structure, not low-quality signal noise.

@@ -149,7 +149,7 @@ export default function VerifiedProviderPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">How Do You Verify a Crypto Signal Provider?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">How Do You Verify a Crypto Signal Provider?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   To verify a crypto signal provider, check whether the provider shows selected proof examples, explains its signal method, includes entry and target context, defines invalidation or risk notes, avoids guaranteed-profit claims, uses official Telegram links, and has a clear onboarding process.
@@ -167,7 +167,7 @@ export default function VerifiedProviderPage() {
 
             {/* Section 3 — Why Verification Matters */}
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Why Crypto Signal Verification Matters</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Why Crypto Signal Verification Matters</h2>
               <p className="text-xl text-text-muted leading-relaxed">
                 Crypto signal groups are easy to create and hard to trust. Many groups can post screenshots or claim results without having a repeatable process. Before following any provider, ask these hard questions:
               </p>
@@ -199,7 +199,7 @@ export default function VerifiedProviderPage() {
         <Container>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">What Weak Providers Usually Hide</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">What Weak Providers Usually Hide</h2>
               <p className="text-text-muted leading-relaxed">
                 Be careful if a provider avoids basic transparency. Weak providers often hide losing calls, missing context, or the actual method behind the alerts.
               </p>
@@ -223,7 +223,7 @@ export default function VerifiedProviderPage() {
             </div>
             
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">How Yaga Calls Supports Due Diligence</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">How Yaga Calls Supports Due Diligence</h2>
               <p className="text-text-muted leading-relaxed">
                 Yaga Calls is positioned as a provider that gives visitors enough information to evaluate the service before premium onboarding.
               </p>
@@ -252,7 +252,7 @@ export default function VerifiedProviderPage() {
       <Section className="bg-surface-deep border-y border-line">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-center">Red Flags: Avoid These Groups</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-center">Red Flags: Avoid These Groups</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 "Guarantees monthly profit",
@@ -282,7 +282,7 @@ export default function VerifiedProviderPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Verified Provider vs Pump Group</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Verified Provider vs Pump Group</h2>
               <p className="text-text-muted">Serious traders do not need louder hype. They need clearer process.</p>
             </div>
 
@@ -321,7 +321,7 @@ export default function VerifiedProviderPage() {
       <Section className="bg-surface-deep border-t border-line">
         <Container>
           <div className="max-w-4xl mx-auto text-center space-y-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">How to Evaluate Yaga Calls Before Paying</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">How to Evaluate Yaga Calls Before Paying</h2>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               {[
                 { step: "1", title: "Proof", desc: "Review snapshots" },

@@ -55,8 +55,8 @@ export default function WhyJoin() {
             <Filter className="w-3.5 h-3.5 text-[#E2C896]" />
             <span>HOW WE TRADE</span>
           </div>
-          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-[#FFFFFF]">
-            We Kill 99 Bad Setups So You Only Trade The 1 That Works
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-extrabold tracking-tight text-[#FFFFFF] leading-snug max-w-xl mx-auto text-balance">
+            We Filter 99 Weak Setups So You Only Get The Best 1
           </h2>
           <p className="text-[#A1A1AA] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             The Filter: We scan the entire market, throw away the hype and traps, and send only the highest-conviction setup straight to your Telegram.

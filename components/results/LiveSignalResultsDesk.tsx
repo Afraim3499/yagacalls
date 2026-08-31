@@ -111,7 +111,7 @@ export default function LiveSignalResultsDesk() {
             <span className="text-[10px] font-black uppercase tracking-widest">Verified Win Rate</span>
             <Award className="w-4 h-4 text-primary" />
           </div>
-          <div className="text-3xl md:text-4xl font-black text-primary tracking-tight">
+          <div className="text-xl sm:text-2xl lg:text-[28px] font-black text-primary tracking-tight">
             {stats.winRate}%
           </div>
           <div className="text-[11px] text-text-muted font-medium mt-1">
@@ -124,7 +124,7 @@ export default function LiveSignalResultsDesk() {
             <span className="text-[10px] font-black uppercase tracking-widest">Cumulative Net Return</span>
             <TrendingUp className="w-4 h-4 text-primary" />
           </div>
-          <div className="text-3xl md:text-4xl font-black text-primary tracking-tight">
+          <div className="text-xl sm:text-2xl lg:text-[28px] font-black text-primary tracking-tight">
             +{stats.totalPnl}%
           </div>
           <div className="text-[11px] text-text-muted font-medium mt-1">
@@ -137,7 +137,7 @@ export default function LiveSignalResultsDesk() {
             <span className="text-[10px] font-black uppercase tracking-widest">Completed Trades</span>
             <Flame className="w-4 h-4 text-amber-400" />
           </div>
-          <div className="text-3xl md:text-4xl font-black text-text tracking-tight">
+          <div className="text-xl sm:text-2xl lg:text-[28px] font-black text-text tracking-tight">
             {stats.totalCalls} <span className="text-sm font-bold text-text-muted">Calls</span>
           </div>
           <div className="text-[11px] text-text-muted font-medium mt-1">
@@ -329,7 +329,7 @@ export default function LiveSignalResultsDesk() {
           <span className="text-xs font-black uppercase tracking-[0.3em] text-primary bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full inline-block">
             Start Trading With Structure
           </span>
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-text">
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-text">
             Ready To Receive Our <br /><span className="text-primary">Next Signal Call?</span>
           </h2>
           <p className="text-xs md:text-sm text-text-muted font-medium uppercase tracking-wide leading-relaxed">

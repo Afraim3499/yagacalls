@@ -11,7 +11,7 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions",
   return (
     <Section className={className}>
       <Container>
-        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-center mb-16">{title}</h2>
+        <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-center mb-16">{title}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 max-w-5xl mx-auto">
           {faqs.map((faq, i) => (
             <div key={i} className="space-y-3">

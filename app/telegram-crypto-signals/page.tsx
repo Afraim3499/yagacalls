@@ -156,7 +156,7 @@ export default function TelegramCryptoSignalsPage() {
                 <span className="text-xs font-black uppercase tracking-[0.3em] text-primary bg-primary/10 px-4 py-2 rounded-full inline-block">
                   Telegram Signal Guide
                 </span>
-                <h1 className="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9]">
+                <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight">
                   Telegram <br />
                   <span className="text-primary">Crypto Signals</span>
                 </h1>
@@ -278,7 +278,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-5xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter leading-none">Why Telegram Is <br /><span className="text-primary">Used for Crypto</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">Why Telegram Is <br /><span className="text-primary">Used for Crypto</span></h2>
               <p className="text-xl text-text-muted max-w-2xl mx-auto font-bold uppercase tracking-tight">
                 Telegram solves delivery speed. It does not solve signal quality.
               </p>
@@ -315,7 +315,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-5xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Channel, Group <br /><span className="text-primary">or Community?</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Channel, Group <br /><span className="text-primary">or Community?</span></h2>
               <p className="text-xl text-text-muted max-w-2xl mx-auto font-bold">
                 The platform is not the edge. The process is the edge. Read our full guide on choosing a <Link href="/crypto-trading-telegram-group" className="text-primary hover:underline font-bold">crypto trading Telegram group</Link> safely.
               </p>
@@ -363,7 +363,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">What a Serious <br /><span className="text-primary">Signal Includes</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">What a Serious <br /><span className="text-primary">Signal Includes</span></h2>
               <p className="text-xl text-text-muted max-w-2xl mx-auto font-bold uppercase tracking-tight">
                 A Telegram signal without invalidation is not complete.
               </p>
@@ -397,7 +397,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">How to Read a <br /><span className="text-primary">Telegram Signal</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">How to Read a <br /><span className="text-primary">Telegram Signal</span></h2>
               <p className="text-xl text-text-muted max-w-2xl mx-auto font-bold">
                 The signal is not the decision. The signal is information for a decision.
               </p>
@@ -429,7 +429,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">Free Telegram <br /><span className="text-primary">Crypto Signals</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">Free Telegram <br /><span className="text-primary">Crypto Signals</span></h2>
               <div className="prose prose-invert prose-lg">
                 <p className="text-text font-bold">Observe the provider first. Trust comes after evidence.</p>
                 <p className="text-text-muted leading-relaxed">
@@ -472,7 +472,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Premium Telegram <br /><span className="text-primary">Signals</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Premium Telegram <br /><span className="text-primary">Signals</span></h2>
               <p className="text-xl text-text-muted max-w-2xl mx-auto font-bold uppercase tracking-tight">
                 Premium should mean more structure, not more noise.
               </p>
@@ -567,7 +567,7 @@ export default function TelegramCryptoSignalsPage() {
       <Section className="bg-background py-24">
         <Container>
           <div className="max-w-5xl mx-auto space-y-16">
-            <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-center">Telegram Signal <br /><span className="text-danger">Red Flags</span></h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-center">Telegram Signal <br /><span className="text-danger">Red Flags</span></h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
@@ -602,7 +602,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">Risk Management <br /><span className="text-primary">On Telegram</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">Risk Management <br /><span className="text-primary">On Telegram</span></h2>
               <p className="text-xl text-text-muted max-w-2xl mx-auto font-bold uppercase tracking-tight">
                 A fast signal can be a bad trade if the size is wrong.
               </p>
@@ -643,7 +643,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-6xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none text-primary">The Yaga <br /><span className="text-text">Telegram Standard</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug text-primary">The Yaga <br /><span className="text-text">Telegram Standard</span></h2>
               <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto font-bold uppercase tracking-tight">
                 Telegram-first, but not Telegram-only.
               </p>
@@ -684,7 +684,7 @@ export default function TelegramCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Free vs <br /><span className="text-primary">Premium Access</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Free vs <br /><span className="text-primary">Premium Access</span></h2>
               <p className="text-xl text-text-muted max-w-2xl mx-auto font-bold uppercase tracking-tight">
                 Start free if you are unsure.
               </p>
@@ -768,7 +768,7 @@ export default function TelegramCryptoSignalsPage() {
       <Section className="bg-background py-24">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-center">Telegram Signal <br /><span className="text-primary">Checklist</span></h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-center">Telegram Signal <br /><span className="text-primary">Checklist</span></h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 p-10 md:p-14 bg-surface-deep border border-line rounded-[48px]">
               {[

@@ -128,7 +128,7 @@ export default function AustraliaPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6 text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Australian Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Australian Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls provides Australia-focused crypto signal and market analysis content for serious traders who prefer Telegram-first delivery, structured setup notes, market narrative research, entry and target planning, invalidation logic, risk-aware context, selected proof examples, and manual premium onboarding.
@@ -147,7 +147,7 @@ export default function AustraliaPage() {
             {/* Practical Quality */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-12">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Practical Structure</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Timezone & Quality</h2>
                 <p className="text-text-muted leading-relaxed">
                   Australian traders value direct, scam-aware communication. We focus on clear entries, logical target mapping, and invalidation planning, ensuring every educational setup includes risk context.
                 </p>
@@ -180,7 +180,7 @@ export default function AustraliaPage() {
       <Section className="bg-surface-deep border-y border-line">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Sydney, Melbourne, Brisbane, Perth & Australian Traders</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Sydney, Melbourne, Brisbane & Australian Traders</h2>
             <p className="text-text-muted">Structured crypto signal notes for major Australian trading hubs:</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                {["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra", "Gold Coast", "Hobart"].map((city) => (
@@ -201,7 +201,7 @@ export default function AustraliaPage() {
       <Section className="bg-background">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Free, Then Decide.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

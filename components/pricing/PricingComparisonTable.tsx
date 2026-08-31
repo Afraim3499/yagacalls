@@ -12,7 +12,7 @@ export default function PricingComparisonTable() {
     <Section className="bg-surface-deep">
       <Container>
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Plan Comparison</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Plan Comparison</h2>
           <p className="text-text-muted max-w-2xl mx-auto">
             Choose the entry point that fits your trading goals. All plans provide the same high-quality signal structure.
           </p>

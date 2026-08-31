@@ -7,7 +7,7 @@ export default function FinalCTASection() {
   return (
     <Section>
       <Container className="text-center space-y-8">
-        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Are Paid Telegram Crypto Signals Worth It?</h2>
+        <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Are Paid Telegram Crypto Signals Worth It?</h2>
         <div className="space-y-6 max-w-3xl mx-auto">
           <p className="text-text-muted text-lg leading-relaxed">
             Paid Telegram crypto signals may be worth it if the provider gives structure, research, risk context, and clear communication. They are not worth it if the group only provides random coin names, hype calls, or guaranteed-profit claims. Review our <a href="/proof" className="text-primary hover:underline font-bold">selected proof examples</a> to understand our research style.

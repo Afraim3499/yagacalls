@@ -164,7 +164,7 @@ export default function SitemapPage() {
 
       <Section className="pt-28 pb-10">
         <Container>
-          <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4">Sitemap</h1>
+          <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter mb-4">Sitemap</h1>
           <p className="text-text-muted max-w-2xl leading-relaxed">
             Every page on Yaga Calls, organized by section. Looking for the machine-readable
             version instead?{" "}

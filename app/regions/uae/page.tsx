@@ -128,7 +128,7 @@ export default function UAEPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for UAE Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for UAE Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls is a Telegram-first crypto signal and market analysis provider for serious UAE traders. The service focuses on structured setup notes, market narrative research, entry and target planning, invalidation logic, risk-aware context, selected proof examples, and manual premium onboarding.
@@ -144,7 +144,7 @@ export default function UAEPage() {
             {/* Why Better Quality */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Why Quality Matters</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Why Quality Matters</h2>
                 <p className="text-text-muted leading-relaxed">
                   The UAE crypto market is not short of Telegram groups or trading noise. The problem is quality. Serious UAE traders need to know *why* a setup matters, not just receive a random ticker.
                 </p>
@@ -176,7 +176,7 @@ export default function UAEPage() {
       <Section className="bg-surface-deep border-y border-line">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">UAE Trading Locations Covered</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">UAE Trading Locations Covered</h2>
             <p className="text-text-muted">Yaga Calls is relevant for traders across the UAE, including:</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"].map((loc) => (
@@ -241,7 +241,7 @@ export default function UAEPage() {
       <Section className="bg-surface-deep border-t border-line">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Join Free Telegram.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

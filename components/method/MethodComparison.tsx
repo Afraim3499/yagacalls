@@ -20,7 +20,7 @@ export default function MethodComparison() {
       <Container>
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">
               Yaga Calls Method vs Hype-Based Signal Groups
             </h2>
             <p className="text-text-muted">

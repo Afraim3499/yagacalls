@@ -20,7 +20,7 @@ export default function TermsPage() {
   return (
     <Section>
       <Container className="max-w-3xl">
-        <h1 className="text-4xl font-black mb-10 uppercase tracking-tighter">Terms of Service</h1>
+        <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black mb-10 uppercase tracking-tighter">Terms of Service</h1>
         <div className="prose prose-invert prose-amber max-w-none space-y-6 text-text-muted">
           <p>
             Welcome to Yaga Calls. By accessing our website, joining our Telegram channels (free or premium), or using our services, you agree to comply with and be bound by the following Terms of Service. Please read them carefully.

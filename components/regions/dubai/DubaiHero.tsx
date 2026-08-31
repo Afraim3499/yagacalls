@@ -13,8 +13,8 @@ export default function DubaiHero() {
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Dubai Premium Access
             </div>
-            <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none text-balance">
-              Crypto Signals for Dubai Traders
+            <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight text-balance">
+              Crypto Signals for Dubai Traders: Technical & On-Chain Market Intelligence
             </h1>
             <p className="text-xl text-text-muted leading-tight">
               Yaga Calls provides Telegram-first crypto signal notes and market analysis for serious Dubai traders who want narrative research, structured entries, and risk-aware setup context.
@@ -40,7 +40,7 @@ export default function DubaiHero() {
              {/* Dubai Skyline Visual */}
              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
              <div className="relative z-10 text-center space-y-6 p-12">
-                <div className="text-6xl md:text-8xl animate-pulse">🏙️</div>
+                <div className="text-3xl animate-pulse">🏙️</div>
                 <div className="space-y-4">
                   <div className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Dubai Financial District</div>
                   <div className="flex flex-wrap justify-center gap-2 max-w-xs mx-auto">

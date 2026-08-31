@@ -154,7 +154,7 @@ export default function WhatAreCryptoSignalsPage() {
                 <span className="text-xs font-black uppercase tracking-[0.3em] text-primary bg-primary/10 px-4 py-2 rounded-full inline-block">
                   Crypto Signal Guide
                 </span>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
+                <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight">
                   What Are <br />
                   <span className="text-primary">Crypto Signals?</span>
                 </h1>
@@ -314,7 +314,7 @@ export default function WhatAreCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="text-center lg:text-left space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Why Do Traders Use <br /><span className="text-primary">Crypto Signals?</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Why Do Traders Use <br /><span className="text-primary">Crypto Signals?</span></h2>
               <p className="text-xl text-text-muted leading-relaxed max-w-2xl">
                 Crypto markets move fast. Signal notes help traders receive market ideas without manually scanning every chart.
               </p>
@@ -366,7 +366,7 @@ export default function WhatAreCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">The Anatomy of a <br /><span className="text-primary">Serious Crypto Signal</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">The Anatomy of a <br /><span className="text-primary">Serious Crypto Signal</span></h2>
               <p className="text-xl text-text-muted leading-relaxed max-w-2xl">
                 If a signal does not explain where the idea becomes wrong, it is incomplete. Here is what you should look for in every setup note.
               </p>
@@ -500,7 +500,7 @@ export default function WhatAreCryptoSignalsPage() {
         <Container>
           <div className="max-w-5xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Good Crypto Signals <br />vs <span className="text-primary">Pump Calls</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Good Crypto Signals <br />vs <span className="text-primary">Pump Calls</span></h2>
               <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">
                 The difference is not only in the signal. The difference is in the thinking behind the signal.
               </p>
@@ -555,7 +555,7 @@ export default function WhatAreCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Are Crypto Signals Safe?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Are Crypto Signals Safe?</h2>
               <div className="prose prose-invert prose-xl max-w-none">
                 <p className="text-text font-bold leading-relaxed">
                   No crypto signal is completely safe. Crypto markets are volatile, and even well-structured setups can fail.
@@ -612,7 +612,7 @@ export default function WhatAreCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="text-center lg:text-left space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">How Should Beginners <br /><span className="text-primary">Use Crypto Signals?</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">How Should Beginners <br /><span className="text-primary">Use Crypto Signals?</span></h2>
               <p className="text-xl text-text-muted leading-relaxed max-w-2xl">
                 Start by observing, not buying immediately. Learn the structure of the signal before risking your capital.
               </p>
@@ -660,7 +660,7 @@ export default function WhatAreCryptoSignalsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-text">Free vs Paid <br /><span className="text-primary">Crypto Signals</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-text">Free vs Paid <br /><span className="text-primary">Crypto Signals</span></h2>
               <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">
                 A trader should never pay for a signal group before understanding how the provider thinks.
               </p>
@@ -711,7 +711,7 @@ export default function WhatAreCryptoSignalsPage() {
         <Container>
           <div className="max-w-5xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">How Yaga Calls <br /><span className="text-primary">Structures Signals</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">How Yaga Calls <br /><span className="text-primary">Structures Signals</span></h2>
               <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">
                 Built around structured setup notes, not random pump alerts. Our process focuses on logic and risk awareness.
               </p>

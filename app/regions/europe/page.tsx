@@ -108,7 +108,7 @@ export default function EuropePage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6 text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for European Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for European Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls provides Europe-focused crypto signal and market analysis content for serious traders who prefer Telegram-first delivery, structured setup notes, market narrative research, entry and target planning, invalidation logic, risk-aware context, selected proof examples, and manual premium onboarding.
@@ -127,7 +127,7 @@ export default function EuropePage() {
             {/* Why Better Quality */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-12">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Europe-Wide Quality</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Europe-Wide Quality</h2>
                 <p className="text-text-muted leading-relaxed">
                   European traders can find thousands of Telegram groups, but quality is rare. A serious European trader should look for a provider that explains both opportunity and risk with professional discipline.
                 </p>
@@ -160,7 +160,7 @@ export default function EuropePage() {
         <Container>
           <div className="max-w-5xl mx-auto space-y-12">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">European Hub</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">European Hub</h2>
               <p className="text-text-muted max-w-2xl mx-auto">This Europe page acts as a regional hub for European search intent. Use the country-specific pages for more specific market insights.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -185,7 +185,7 @@ export default function EuropePage() {
       <Section className="bg-background">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-center">Europe vs Country Pages</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-center">Europe vs Country Pages</h2>
             <div className="overflow-x-auto border border-line rounded-2xl bg-surface-deep shadow-xl">
               <table className="w-full text-left border-collapse">
                 <thead>
@@ -218,7 +218,7 @@ export default function EuropePage() {
       <Section className="bg-surface-deep border-t border-line">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Free. Choose Your Market.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

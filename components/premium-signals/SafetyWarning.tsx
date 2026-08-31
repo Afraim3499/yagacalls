@@ -19,7 +19,7 @@ export default function SafetyWarning() {
         <div className="space-y-8">
           <div className="flex items-center gap-3 text-danger">
             <ShieldAlert className="w-8 h-8" />
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight">Avoid Fake Telegram Signal Accounts</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-tight">Avoid Fake Telegram Signal Accounts</h2>
           </div>
           <div className="space-y-6 text-lg text-text-muted leading-relaxed">
             <p>

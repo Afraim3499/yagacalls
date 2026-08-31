@@ -15,10 +15,10 @@ export default function RiskHero() {
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Disciplined Trading
             </div>
-            <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
-              Crypto Signals With Risk Management for Serious Traders
+            <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight">
+              Crypto Risk Management Signals: Capital Preservation First
             </h1>
-            <p className="text-xl md:text-2xl text-text-muted leading-tight">
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed">
               Yaga Calls provides risk-aware Telegram crypto signal notes built around market context, entry zones, target planning, invalidation logic, and disciplined setup review.
             </p>
             <AuthorByline authorSlug="marcus-vance" />

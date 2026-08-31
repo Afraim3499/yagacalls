@@ -15,7 +15,7 @@ export default function GCCOnboardingSteps() {
       <Container>
         <div className="max-w-5xl mx-auto space-y-16">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Premium Manual Onboarding</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Premium Manual Onboarding</h2>
             <p className="text-text-muted max-w-2xl mx-auto">
               Current discounted pricing structure for serious GCC traders. Prices should always be confirmed via official Telegram.
             </p>

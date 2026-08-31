@@ -14,7 +14,7 @@ export default function GCCHero() {
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Premium GCC Access
             </div>
-            <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight">
               Crypto Signals for GCC Traders
             </h1>
             <p className="text-xl text-text-muted leading-tight max-w-2xl mx-auto lg:mx-0">
@@ -44,7 +44,7 @@ export default function GCCHero() {
              
              {/* Glowing Grid Map Points */}
              <div className="relative z-10 text-center space-y-8 p-12">
-                <div className="text-6xl md:text-8xl animate-pulse">🕌</div>
+                <div className="text-3xl animate-pulse">🕌</div>
                 <div className="space-y-4">
                   <div className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Gulf Cooperation Council</div>
                   <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-xs mx-auto">

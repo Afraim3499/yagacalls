@@ -11,7 +11,7 @@ const RegionalFAQ: React.FC<RegionalFAQProps> = ({ faqs, regionName }) => {
     <section className="py-20 bg-white/5">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter text-center">
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black mb-12 uppercase tracking-tighter text-center">
             {regionName ? `${regionName} Trading FAQs` : 'Frequently Asked Questions'}
           </h2>
           <div className="space-y-6">

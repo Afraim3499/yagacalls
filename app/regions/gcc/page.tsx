@@ -133,7 +133,7 @@ export default function GCCPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6 text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for GCC Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for GCC Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls is a Telegram-first crypto signal and market analysis provider for serious traders across the GCC region. The service is designed for users who want structured setup notes, market narrative research, entry and target context, invalidation logic, risk-aware signal delivery, and manual premium onboarding.
@@ -149,7 +149,7 @@ export default function GCCPage() {
             {/* Why Better Quality */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-12">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Why Quality Matters</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Why Quality Matters</h2>
                 <p className="text-text-muted leading-relaxed">
                   Many GCC traders already understand that crypto markets move fast. The problem is not access to information—it's quality. Serious traders in the Gulf need to know *why* a setup is being watched, not just where to buy.
                 </p>
@@ -184,7 +184,7 @@ export default function GCCPage() {
       <Section className="bg-surface-deep border-y border-line">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-center">What GCC Traders Should Look For</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-center">What GCC Traders Should Look For</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 "Telegram-First Delivery",
@@ -221,7 +221,7 @@ export default function GCCPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">GCC Page vs Country Pages</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">GCC Page vs Country Pages</h2>
               <p className="text-text-muted">Use the GCC page for a regional overview, or a country-specific page for targeted search intent.</p>
             </div>
             <div className="overflow-x-auto border border-line rounded-2xl bg-surface-deep shadow-xl">
@@ -301,7 +301,7 @@ export default function GCCPage() {
       <Section className="bg-background">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Free, Then Go GCC.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

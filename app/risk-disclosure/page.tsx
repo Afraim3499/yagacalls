@@ -13,7 +13,7 @@ export default function RiskDisclosurePage() {
   return (
     <Section>
       <Container className="max-w-3xl">
-        <h1 className="text-4xl font-black mb-10 uppercase tracking-tighter">Risk Disclosure</h1>
+        <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black mb-10 uppercase tracking-tighter">Risk Disclosure</h1>
         <div className="prose prose-invert prose-amber max-w-none space-y-6 text-text-muted">
           <div className="p-6 bg-danger/10 border border-danger/30 rounded-xl text-danger font-bold text-lg mb-8">
             WARNING: TRADING CRYPTOCURRENCIES CARRIES A HIGH LEVEL OF RISK AND MAY NOT BE SUITABLE FOR ALL INVESTORS.

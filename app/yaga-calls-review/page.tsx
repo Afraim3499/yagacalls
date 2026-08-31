@@ -103,7 +103,7 @@ export default function YagaCallsReviewPage() {
               <span className="text-xs font-black uppercase tracking-[0.3em] text-primary bg-primary/10 border border-primary/20 px-4 py-2 rounded-full inline-block">
                 Community Feedback Portal
               </span>
-              <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[0.95]">
+              <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black uppercase tracking-tighter leading-tight">
                 Yaga Calls <br />
                 <span className="text-primary">Member Reviews</span>
               </h1>
@@ -151,7 +151,7 @@ export default function YagaCallsReviewPage() {
         <Container>
           <div className="max-w-5xl mx-auto space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Why Members Value <br /><span className="text-primary">The Yaga Method</span></h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Why Members Value <br /><span className="text-primary">The Yaga Method</span></h2>
               <p className="text-sm text-text-muted max-w-2xl mx-auto font-bold uppercase tracking-wide">
                 Built for serious traders who prioritize risk management and structured setup logic over hype.
               </p>

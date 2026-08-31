@@ -130,7 +130,7 @@ export default function DubaiPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Dubai Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Dubai Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls provides Telegram-first crypto signal notes and market analysis for serious Dubai traders. The service is built around market narrative research, structured setup notes, entry and target planning, invalidation logic, risk-aware context, selected proof examples, and manual premium onboarding.
@@ -146,7 +146,7 @@ export default function DubaiPage() {
             {/* Why Better Quality */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Dubai Standard</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">High-Standard Analysis</h2>
                 <p className="text-text-muted leading-relaxed">
                   Dubai traders are exposed to endless crypto information. The problem is not access—it's signal quality. Serious Dubai traders should expect more than just noisy alerts.
                 </p>
@@ -236,7 +236,7 @@ export default function DubaiPage() {
       <Section className="bg-surface-deep border-t border-line">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Free. Upgrade Later.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

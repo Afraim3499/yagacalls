@@ -6,7 +6,7 @@ export default function PricingDirectAnswer() {
     <Section>
       <Container className="max-w-4xl">
         <div className="space-y-8">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">How Much Does Yaga Calls Premium Access Cost?</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">How Much Does Yaga Calls Premium Access Cost?</h2>
           <div className="space-y-6 text-lg text-text-muted leading-relaxed">
             <p>
               Yaga Calls currently offers discounted manual onboarding pricing for premium Telegram access. Plans are structured by access period and include private signal delivery, market narrative research, structured setup notes, entry and target planning, invalidation context, and risk-aware trading guidance.

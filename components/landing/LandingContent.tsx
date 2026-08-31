@@ -16,7 +16,7 @@ const LandingContent: React.FC<LandingContentProps> = ({ sections }) => {
         <div className="max-w-4xl mx-auto space-y-20">
           {sections.map((section, idx) => (
             <div key={idx} className="group">
-              <h2 className="text-3xl md:text-4xl font-black mb-8 uppercase tracking-tighter group-hover:text-amber-500 transition-colors">
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black mb-8 uppercase tracking-tighter group-hover:text-amber-500 transition-colors">
                 {section.title}
               </h2>
               <div className="text-lg md:text-xl text-gray-400 leading-relaxed space-y-4">

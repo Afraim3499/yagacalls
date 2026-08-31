@@ -18,7 +18,7 @@ const LandingHero: React.FC<LandingHeroProps> = ({ title, subtitle, ctaPrimary, 
       <div className="container mx-auto px-4 relative z-10">
         <div className={heroImage ? "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" : "max-w-4xl"}>
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tighter leading-none">
+            <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black mb-6 uppercase tracking-tighter leading-tight">
               {title}
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl font-medium leading-relaxed">

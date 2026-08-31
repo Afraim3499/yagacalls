@@ -128,7 +128,7 @@ export default function GermanyPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6 text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Germany Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Germany Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls provides Germany-focused crypto signal and market analysis content for serious traders who prefer Telegram-first delivery, structured setup notes, market narrative research, entry and target planning, invalidation logic, risk-aware context, selected proof examples, and manual premium onboarding.
@@ -147,7 +147,7 @@ export default function GermanyPage() {
             {/* Quality & Structure */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-12">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Disciplined Analysis</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Disciplined Analysis</h2>
                 <p className="text-text-muted leading-relaxed">
                   German traders value precision. A serious provider should not rely on screenshots or profit claims alone. We focus on documented method, logical invalidation, and risk context.
                 </p>
@@ -179,7 +179,7 @@ export default function GermanyPage() {
       <Section className="bg-surface-deep border-y border-line">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Berlin, Munich, Frankfurt & Germany Traders</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Berlin, Munich, Frankfurt & Germany Traders</h2>
             <p className="text-text-muted">Structured crypto signal notes for major German trading hubs:</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                {["Berlin", "Munich", "Frankfurt", "Hamburg", "Cologne", "Düsseldorf", "Stuttgart", "Leipzig"].map((city) => (
@@ -200,7 +200,7 @@ export default function GermanyPage() {
       <Section className="bg-background">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Free, Then Decide.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

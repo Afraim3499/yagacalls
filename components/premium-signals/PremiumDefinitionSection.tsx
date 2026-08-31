@@ -6,7 +6,7 @@ export default function PremiumDefinitionSection() {
     <Section className="bg-surface-deep">
       <Container className="max-w-4xl">
         <div className="space-y-8">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Premium Means More Than a Private Telegram Group</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Premium Means More Than a Private Telegram Group</h2>
           <div className="space-y-6 text-lg text-text-muted leading-relaxed">
             <p>
               A private Telegram group is not automatically premium. Premium means the signal process is more structured, the research is clearer, the onboarding is controlled, and the audience is more serious.

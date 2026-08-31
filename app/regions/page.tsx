@@ -129,7 +129,7 @@ export default function RegionsPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Serve Traders Globally?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Serve Traders Globally?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls is a Telegram-first crypto signal and market analysis provider built for serious traders across major global regions. The regional pages help traders from high-purchase-power markets understand how Yaga Calls’ research-led, risk-aware signal approach fits their location, trading session, and market expectations.
@@ -145,7 +145,7 @@ export default function RegionsPage() {
             {/* Why Region Matters */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Why Region Matters</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Why Region Matters</h2>
                 <p className="text-text-muted leading-relaxed">
                   Crypto is global, but traders are not all the same. A trader in Dubai may care about premium access and privacy, while a trader in the UK may care more about transparency and risk warnings.
                 </p>
@@ -181,7 +181,7 @@ export default function RegionsPage() {
           <div className="max-w-5xl mx-auto space-y-24">
             {/* Middle East */}
             <div className="space-y-8">
-              <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">Crypto Signals for GCC, UAE, Dubai, Saudi Arabia & Qatar</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Crypto Signals for GCC, UAE, Dubai, Saudi Arabia & Qatar</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="space-y-6">
                   <p className="text-text-muted leading-relaxed">
@@ -204,7 +204,7 @@ export default function RegionsPage() {
 
             {/* Europe & UK */}
             <div className="space-y-8 border-t border-line pt-24">
-              <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">Crypto Signals for UK, Europe, Germany & Switzerland</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Crypto Signals for UK, Europe, Germany & Switzerland</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="space-y-6">
                   <p className="text-text-muted leading-relaxed">
@@ -294,7 +294,7 @@ export default function RegionsPage() {
       <Section className="bg-surface-deep border-t border-line">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Global. Go Regional.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

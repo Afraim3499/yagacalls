@@ -24,7 +24,7 @@ export default function DirectAnswer() {
                 <span>Executive Overview</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-[#FFFFFF] leading-tight">
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-[#FFFFFF] leading-tight">
                 What is Yaga Calls?
               </h2>
 

@@ -128,7 +128,7 @@ export default function QatarPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             <div className="space-y-6 text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Qatar Traders?</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Does Yaga Calls Provide Signals for Qatar Traders?</h2>
               <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
                 <p>
                   Yes. Yaga Calls provides Qatar-focused crypto signal and market analysis content for serious traders who want Telegram-first delivery, market narrative research, structured setup notes, entry and target planning, invalidation logic, risk-aware context, selected proof examples, and manual premium onboarding.
@@ -147,7 +147,7 @@ export default function QatarPage() {
             {/* Quality & Institutional Tone */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-12">
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Institutional Trust</h2>
+                <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Institutional Trust</h2>
                 <p className="text-text-muted leading-relaxed">
                   Qatar traders can find many Telegram groups, but quality is rare. A serious Qatar trader should look for a provider that explains both opportunity and risk with professional discipline.
                 </p>
@@ -179,7 +179,7 @@ export default function QatarPage() {
       <Section className="bg-surface-deep border-y border-line">
         <Container>
           <div className="max-w-4xl mx-auto space-y-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Doha & Qatar-Wide Coverage</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Doha & Qatar-Wide Coverage</h2>
             <p className="text-text-muted">Premium crypto signal notes for Qatar-based traders:</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                {["Doha", "Al Rayyan", "Lusail", "Al Wakrah", "Al Khor", "Madinat ash Shamal", "Umm Salal"].map((city) => (
@@ -200,7 +200,7 @@ export default function QatarPage() {
       <Section className="bg-background">
         <Container className="text-center max-w-4xl space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter leading-snug">
               Start Free. Go Qatar.
             </h2>
             <p className="text-xl text-text-muted leading-relaxed max-w-2xl mx-auto">

@@ -11,7 +11,7 @@ export default function ContactFAQ({ faqs }: { faqs: FAQ[] }) {
     <Section className="bg-surface-deep">
       <Container className="max-w-4xl">
         <div className="space-y-12">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-center">Frequently Asked Questions</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-center">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, i) => (
               <details key={i} className="group bg-surface border border-line rounded-3xl overflow-hidden transition-all duration-300">

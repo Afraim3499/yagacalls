@@ -22,7 +22,7 @@ export default function FreeVsPremiumTable() {
     <Section className="bg-surface-deep">
       <Container>
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Free Telegram vs Premium Access</h2>
+          <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Free Telegram vs Premium Access</h2>
           <div className="space-y-4 text-text-muted max-w-2xl mx-auto">
             <p>
               Start free. Upgrade only if the structure fits your trading style.

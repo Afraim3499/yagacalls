@@ -6,7 +6,7 @@ export default function ScarcitySection() {
   return (
     <Section className="bg-surface-deep">
       <Container className="max-w-4xl text-center space-y-8">
-        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">This Is Not Permanent Cheap Access</h2>
+        <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">This Is Not Permanent Cheap Access</h2>
         <div className="space-y-6 text-lg text-text-muted leading-relaxed">
           <p>
             The current prices are onboarding prices. They may change as Yaga Calls expands its premium research, improves signal delivery, and grows its serious member base.

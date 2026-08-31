@@ -11,7 +11,7 @@ export default function PricingFitWarning() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Read This Before Using the Discounted Price</h2>
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">Read This Before Using the Discounted Price</h2>
             <div className="space-y-6">
               <p className="text-text-muted text-lg leading-relaxed">
                 The discounted price does not mean Yaga Calls is built for everyone. Premium access may be a good fit if you:
@@ -37,7 +37,7 @@ export default function PricingFitWarning() {
 
           <GlowCard className="p-8 md:p-12 border-danger/20 bg-danger/5">
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-danger">Not a Good Fit If...</h2>
+              <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter text-danger">Not a Good Fit If...</h2>
               <div className="space-y-6">
                 <p className="text-text-muted text-lg">Premium access is not for you if you are looking for:</p>
                 <div className="space-y-4">

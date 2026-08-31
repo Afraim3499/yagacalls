@@ -7,7 +7,7 @@ export default function YagaSeparation() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+            <h2 className="text-2xl sm:text-[28px] md:text-[30px] font-black uppercase tracking-tighter">
               How Yaga Calls Separates Free and Premium Access
             </h2>
             <p className="text-xl text-text-muted leading-relaxed">

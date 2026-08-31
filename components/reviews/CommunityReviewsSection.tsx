@@ -276,8 +276,8 @@ export default function CommunityReviewsSection() {
               {avgScore ? (
                 <>
                   <div className="flex items-baseline justify-center lg:justify-start gap-3 pt-1">
-                    <span className="text-5xl md:text-6xl font-black tracking-tighter text-text">{avgScore}</span>
-                    <span className="text-xl font-bold text-text-muted">/ 5.0</span>
+                    <span className="text-2xl sm:text-[30px] font-black tracking-tighter text-text">{avgScore}</span>
+                    <span className="text-lg font-bold text-text-muted">/ 5.0</span>
                   </div>
                   <div className="flex items-center justify-center lg:justify-start gap-1 text-primary">
                     {[...Array(5)].map((_, i) => (
