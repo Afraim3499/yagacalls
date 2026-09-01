@@ -382,7 +382,25 @@ function SignalStudioContent() {
                         const blob = await htmlToImage.toBlob(captureRef.current, { quality: 1, pixelRatio: 2 });
                         if (!blob) throw new Error("Failed to generate image blob");
 
-                        const txt = `YAGACALLS SIGNAL\nBEING ROYAL\n\n$${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\nLive ${livePrice}\n\nEntry   ${entry}\nStop    ${stopLoss}   (${stopSign}${stopPct}%)\nTP1     ${tp1}   (${tpSign}${tp1Pct}%)\nTP2     ${tp2}   (${tpSign}${tp2Pct}%)\nTP3     ${tp3}   (${tpSign}${tp3Pct}%)\n\nR:R to TP1   1 : ${rr1}\nR:R to TP2   1 : ${rr2}\nR:R to TP3   1 : ${rr3}\n\nNot financial advice. DYOR.`;
+                        const txt = `<b>YAGACALLS SIGNAL</b>
+<b>BEING ROYAL</b>
+
+<b>$${symbol}</b> · <code>${pair}</code> · <b>${direction}</b> · <b>${leverage}</b> · <b>${timeframe}</b>
+Live <code>${livePrice}</code>
+
+<pre>
+Entry   ${entry}
+Stop    ${stopLoss}   (${stopSign}${stopPct}%)
+TP1     ${tp1}   (${tpSign}${tp1Pct}%)
+TP2     ${tp2}   (${tpSign}${tp2Pct}%)
+TP3     ${tp3}   (${tpSign}${tp3Pct}%)
+
+R:R to TP1   1 : ${rr1}
+R:R to TP2   1 : ${rr2}
+R:R to TP3   1 : ${rr3}
+</pre>
+
+<i>Not financial advice. DYOR.</i>`;
 
                         const formData = new FormData();
                         formData.append('image', blob, 'signal.png');
