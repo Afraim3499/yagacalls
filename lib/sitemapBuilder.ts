@@ -75,6 +75,7 @@ const STATIC_ROUTE_PATHS = [
   "/terms",
   "/authors",
   "/sitemap",
+  "/signal-studio",
 ];
 
 /** Segment: static routes + commercial/guide landing pages (the "Pages" segment). */
