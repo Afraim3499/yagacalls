@@ -473,6 +473,47 @@ R:R to TP3   1 : ${rr3}
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-2.5 text-xs">
+              <div className="col-span-2 sm:col-span-4 lg:col-span-10 flex flex-wrap items-center gap-1.5 pb-2.5 mb-1 border-b border-[#1C222E]">
+                <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider mr-1 flex items-center gap-1">
+                  <Zap className="w-3 h-3 text-[#E39E2E]" /> Quick Assets:
+                </span>
+                {["BTC", "ETH", "SOL", "BNB", "XRP", "AVAX", "DOGE", "LINK", "SUI", "PEPE"].map(coin => (
+                  <button
+                    key={coin}
+                    type="button"
+                    onClick={() => {
+                      setSymbol(coin);
+                      setPair(`${coin}USDT`);
+                    }}
+                    className={`px-2.5 py-1 rounded-md text-[11px] font-mono font-black transition-all ${
+                      symbol === coin 
+                        ? "bg-[#E39E2E] text-black shadow-md shadow-[#E39E2E]/20" 
+                        : "bg-[#12151C] text-slate-300 hover:bg-[#1C222E] hover:text-white border border-[#252D3D]"
+                    }`}
+                  >
+                    ${coin}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => {
+                    const p = parseFloat(livePrice);
+                    if (p > 0) {
+                      setEntry(p.toString());
+                      const isL = direction === "LONG";
+                      const mult = isL ? 1 : -1;
+                      setStopLoss((p * (1 - 0.008 * mult)).toFixed(p < 1 ? 4 : 2));
+                      setTp1((p * (1 + 0.005 * mult)).toFixed(p < 1 ? 4 : 2));
+                      setTp2((p * (1 + 0.010 * mult)).toFixed(p < 1 ? 4 : 2));
+                      setTp3((p * (1 + 0.018 * mult)).toFixed(p < 1 ? 4 : 2));
+                    }
+                  }}
+                  className="ml-auto px-2.5 py-1 rounded-md text-[11px] font-extrabold bg-[#26a69a]/20 text-[#26a69a] border border-[#26a69a]/40 hover:bg-[#26a69a]/30 transition-all flex items-center gap-1"
+                >
+                  ⚡ Sync Entry to Live Price ({livePrice})
+                </button>
+              </div>
+
               {[
                 { label: "Asset",    val: symbol,   set: (v: string) => setSymbol(v.toUpperCase()),   type: "text" },
                 { label: "Pair",     val: pair,     set: (v: string) => setPair(v.toUpperCase()),     type: "text" },
