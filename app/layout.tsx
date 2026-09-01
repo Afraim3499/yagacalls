@@ -62,6 +62,9 @@ export const metadata: Metadata = {
   verification: {
     yandex: "6b3ffe14a8810583",
   },
+  other: {
+    "og:logo": "https://www.yagacalls.com/yaga_calls_logo.png",
+  },
 };
 
 import JsonLd from "@/components/seo/JsonLd";
@@ -78,6 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <meta property="og:logo" content="https://www.yagacalls.com/yaga_calls_logo.png" />
         <Script id="gtm-init" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
