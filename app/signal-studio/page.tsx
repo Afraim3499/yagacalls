@@ -11,6 +11,7 @@ import {
   LineStyle,
   CandlestickSeries,
   HistogramSeries,
+  LineSeries,
   ISeriesApi,
   AutoscaleInfo
 } from "lightweight-charts";
@@ -57,6 +58,22 @@ function rr(tpDiff: number, slDiff: number) {
   return (tpDiff / slDiff).toFixed(2);
 }
 
+function calcEMA(candles: CandlestickData<Time>[], period: number) {
+  if (candles.length < period) return [];
+  const k = 2 / (period + 1);
+  let sum = 0;
+  for (let i = 0; i < period; i++) {
+    sum += candles[i].close;
+  }
+  let ema = sum / period;
+  const result: { time: Time; value: number }[] = [{ time: candles[period - 1].time, value: ema }];
+  for (let i = period; i < candles.length; i++) {
+    ema = candles[i].close * k + ema * (1 - k);
+    result.push({ time: candles[i].time, value: ema });
+  }
+  return result;
+}
+
 function SignalStudioContent() {
   const searchParams = useSearchParams();
   const hideButtons = searchParams.get("hideButtons") === "true";
@@ -74,6 +91,9 @@ function SignalStudioContent() {
   const [tp3, setTp3] = useState(searchParams.get("tp3") || "2490.52");
   const [disclaimer, setDisclaimer] = useState(searchParams.get("disclaimer") || searchParams.get("note") || "Not financial advice. DYOR.");
   const [layoutMode, setLayoutMode] = useState<"MOBILE" | "DESKTOP">((searchParams.get("layout") as "MOBILE" | "DESKTOP") || "MOBILE");
+  const [showEma20, setShowEma20] = useState(true);
+  const [showEma50, setShowEma50] = useState(false);
+  const [showEma200, setShowEma200] = useState(false);
 
   // ── UI state ──
   const [livePrice, setLivePrice] = useState("—");
@@ -255,6 +275,19 @@ function SignalStudioContent() {
         candleSeries.setData(candles);
         volSeries.setData(vols);
 
+        if (showEma20) {
+          const e20 = chart.addSeries(LineSeries, { color: "#00E5FF", lineWidth: 1.5, priceLineVisible: false, lastValueVisible: false });
+          e20.setData(calcEMA(candles, 20));
+        }
+        if (showEma50) {
+          const e50 = chart.addSeries(LineSeries, { color: "#F6E09E", lineWidth: 1.5, priceLineVisible: false, lastValueVisible: false });
+          e50.setData(calcEMA(candles, 50));
+        }
+        if (showEma200) {
+          const e200 = chart.addSeries(LineSeries, { color: "#A855F7", lineWidth: 1.5, priceLineVisible: false, lastValueVisible: false });
+          e200.setData(calcEMA(candles, 200));
+        }
+
         if (candles.length > 0) {
           const last = candles[candles.length - 1];
           latestTimeRef.current = last.time;
@@ -303,7 +336,7 @@ function SignalStudioContent() {
       chartRef.current?.remove();
       chartRef.current = null;
     };
-  }, [pair, timeframe]);
+  }, [pair, timeframe, showEma20, showEma50, showEma200]);
 
   useEffect(() => { setTimeout(recalcOverlay, 80); }, [entryNum, stopNum, tp1Num, tp2Num, tp3Num, recalcOverlay]);
 
@@ -516,7 +549,11 @@ R:R to TP3   1 : ${rr3}
 
               {[
                 { label: "Asset",    val: symbol,   set: (v: string) => setSymbol(v.toUpperCase()),   type: "text" },
-                { label: "Pair",     val: pair,     set: (v: string) => setPair(v.toUpperCase()),     type: "text" },
+                { label: "Pair",     val: pair,     set: (v: string) => {
+                  const upper = v.toUpperCase();
+                  setPair(upper);
+                  if (upper.endsWith("USDT")) setSymbol(upper.replace("USDT", ""));
+                }, type: "text", list: "popular-crypto-pairs" },
                 { label: "Leverage", val: leverage, set: setLeverage,    type: "text" },
                 { label: "Entry",    val: entry,    set: setEntry,       type: "number" },
                 { label: "Stop Loss",val: stopLoss, set: setStopLoss,    type: "number" },
@@ -526,7 +563,20 @@ R:R to TP3   1 : ${rr3}
               ].map(f => (
                 <div key={f.label}>
                   <label className="block text-slate-500 font-semibold mb-1 uppercase tracking-wide text-[10px]">{f.label}</label>
-                  <input type={f.type} value={f.val} onChange={e => f.set(e.target.value)} className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" />
+                  <input 
+                    type={f.type} 
+                    value={f.val} 
+                    onChange={e => f.set(e.target.value)} 
+                    list={f.list}
+                    className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" 
+                  />
+                  {f.list && (
+                    <datalist id="popular-crypto-pairs">
+                      {["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT", "AVAXUSDT", "LINKUSDT", "NEARUSDT", "UNIUSDT", "APTUSDT", "INJUSDT", "SUIUSDT", "PEPEUSDT", "WIFUSDT", "RENDERUSDT", "FETUSDT", "TIAUSDT", "OPUSDT", "ARBUSDT", "STXUSDT", "FILUSDT", "ATOMUSDT", "KASUSDT", "ICPUSDT", "SEIUSDT", "ORDIUSDT", "BONKUSDT", "FLOKIUSDT", "JUPUSDT", "TONUSDT", "BOMEUSDT", "WLDUSDT", "RUNEUSDT", "SHIBUSDT", "LTCUSDT"].map(p => (
+                        <option key={p} value={p} />
+                      ))}
+                    </datalist>
+                  )}
                 </div>
               ))}
               <div>
@@ -560,6 +610,46 @@ R:R to TP3   1 : ${rr3}
                     placeholder="e.g. Not financial advice. DYOR." 
                     className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-3 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" 
                   />
+                </div>
+                <div>
+                  <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px]">
+                    Technical Indicators
+                  </label>
+                  <div className="flex bg-[#12151C] p-1 border border-[#252D3D] rounded-xl gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setShowEma20(!showEma20)}
+                      className={`px-2.5 py-1 rounded-lg font-extrabold text-xs transition-all border ${
+                        showEma20 
+                          ? "bg-[#00E5FF]/20 text-[#00E5FF] border-[#00E5FF]/50" 
+                          : "text-slate-500 border-transparent hover:text-slate-300"
+                      }`}
+                    >
+                      EMA 20
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowEma50(!showEma50)}
+                      className={`px-2.5 py-1 rounded-lg font-extrabold text-xs transition-all border ${
+                        showEma50 
+                          ? "bg-[#F6E09E]/20 text-[#F6E09E] border-[#F6E09E]/50" 
+                          : "text-slate-500 border-transparent hover:text-slate-300"
+                      }`}
+                    >
+                      EMA 50
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowEma200(!showEma200)}
+                      className={`px-2.5 py-1 rounded-lg font-extrabold text-xs transition-all border ${
+                        showEma200 
+                          ? "bg-[#A855F7]/20 text-[#A855F7] border-[#A855F7]/50" 
+                          : "text-slate-500 border-transparent hover:text-slate-300"
+                      }`}
+                    >
+                      EMA 200
+                    </button>
+                  </div>
                 </div>
                 <div>
                   <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px]">
