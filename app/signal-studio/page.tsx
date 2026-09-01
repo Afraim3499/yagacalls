@@ -623,88 +623,103 @@ R:R to TP3   1 : ${rr3}
                     >
                       <div className="absolute top-0 bottom-0 left-0 border-l border-dashed border-[#CBB079]/40" />
 
+                      {/* Target Area Shading (Gold) */}
                       {tgtH > 0 && (
                         <div
                           className="absolute left-0 right-0"
                           style={{
                             top: `${tgtTop}px`,
                             height: `${tgtH}px`,
-                            background: "linear-gradient(to bottom, rgba(246,224,158,0.18), rgba(203,176,121,0.05))",
-                            border: "1px solid rgba(203,176,121,0.6)",
+                            background: "linear-gradient(to bottom, rgba(246,224,158,0.14), rgba(203,176,121,0.03))",
+                            border: "1px solid rgba(203,176,121,0.5)",
                             borderLeft: "2px solid #F6E09E",
                           }}
-                        >
-                          {(() => {
-                            const validTargets = [
-                              { y: tp3Y, lbl: "TP3", p: tp3, pct: tp3Pct, highlight: true },
-                              { y: tp2Y, lbl: "TP2", p: tp2, pct: tp2Pct, highlight: false },
-                              { y: tp1Y, lbl: "TP1", p: tp1, pct: tp1Pct, highlight: false }
-                            ]
-                            .map(t => {
-                              if (t.y === null) return null;
-                              const relativeY = Number(t.y) - tgtTop;
-                              if (relativeY < -1 || relativeY > tgtH + 1) return null;
-                              return { ...t, relativeY, labelY: relativeY };
-                            })
-                            .filter(Boolean)
-                            .sort((a, b) => a!.relativeY - b!.relativeY);
-
-                            for (let iter = 0; iter < 5; iter++) {
-                              for (let i = 0; i < validTargets.length - 1; i++) {
-                                const a = validTargets[i]!;
-                                const b = validTargets[i + 1]!;
-                                const diff = b.labelY - a.labelY;
-                                if (diff < 24) {
-                                  const overlap = 24 - diff;
-                                  a.labelY -= overlap / 2;
-                                  b.labelY += overlap / 2;
-                                }
-                              }
-                            }
-                            
-                            return validTargets.map(t => {
-                              return (
-                                <div key={t!.lbl}>
-                                  <div className="absolute left-0 right-0 border-t border-dashed border-[#CBB079]/80" style={{ top: `${t!.relativeY}px` }} />
-                                  <div 
-                                    className={`absolute right-0 bg-[#0A0B0D]/90 border border-[#CBB079]/50 px-2 py-0.5 rounded text-[10px] font-mono font-black whitespace-nowrap ${t!.highlight ? 'bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent' : 'text-[#CBB079]'}`}
-                                    style={{ top: `${t!.labelY - 10}px` }}
-                                  >
-                                    {t!.lbl}: {t!.p} ({tpSign}{t!.pct}%)
-                                  </div>
-                                </div>
-                              );
-                            });
-                          })()}
-                        </div>
+                        />
                       )}
 
-                      <div 
-                        className="absolute left-0 right-0 flex items-center justify-between px-2 bg-[#0A0B0D] border-y border-[#00E5FF] shadow-2xl z-20"
-                        style={{ top: `${eY - 10}px`, height: "20px" }}
-                      >
-                        <span className="text-[#00E5FF] font-black text-[10px] font-mono tracking-wider">Entry {entry}</span>
-                        <span className="text-[#00E5FF] font-bold text-[9px] font-mono">1 : {rr3} R:R</span>
-                      </div>
-
+                      {/* Stop Loss Area Shading (Red) */}
                       {slH > 0 && (
                         <div
                           className="absolute left-0 right-0"
                           style={{
                             top: `${slTop}px`,
                             height: `${slH}px`,
-                            background: "linear-gradient(to top, rgba(239,83,80,0.15), rgba(239,83,80,0.05))",
+                            background: "linear-gradient(to top, rgba(239,83,80,0.14), rgba(239,83,80,0.03))",
                             border: "1px solid rgba(239,83,80,0.4)",
                             borderLeft: "2px solid #ef5350",
                           }}
-                        >
-                          <div className="absolute bottom-0 right-0 bg-[#0A0B0D]/90 border-t border-l border-red-500/50 px-2 py-0.5 rounded-tl">
-                            <span className="font-mono text-[10px] font-black text-red-400">
-                              Stop: {stopLoss} ({stopSign}{stopPct}%)
-                            </span>
-                          </div>
+                        />
+                      )}
+
+                      {/* Level Reference Lines across Projection Box */}
+                      {tp3Y !== null && <div className="absolute left-0 right-0 border-t border-dashed border-[#F6E09E]/70 z-10" style={{ top: `${tp3Y}px` }} />}
+                      {tp2Y !== null && <div className="absolute left-0 right-0 border-t border-dashed border-[#CBB079]/70 z-10" style={{ top: `${tp2Y}px` }} />}
+                      {tp1Y !== null && <div className="absolute left-0 right-0 border-t border-dashed border-[#CBB079]/70 z-10" style={{ top: `${tp1Y}px` }} />}
+                      {eY !== null && <div className="absolute left-0 right-0 border-t-2 border-[#00E5FF] z-10 shadow-[0_0_8px_#00E5FF]/40" style={{ top: `${eY}px` }} />}
+                      {sY !== null && <div className="absolute left-0 right-0 border-t border-dashed border-red-500/80 z-10" style={{ top: `${sY}px` }} />}
+
+                      {/* R:R Badge on Top Right of Entry Line */}
+                      {eY !== null && (
+                        <div className="absolute right-1.5 z-20" style={{ top: `${eY - 11}px` }}>
+                          <span className="bg-[#041C24]/90 border border-[#00E5FF]/60 px-1.5 py-0.5 rounded text-[9px] font-mono font-black text-[#00E5FF] shadow-sm">
+                            R:R 1 : {rr3}
+                          </span>
                         </div>
                       )}
+
+                      {/* Unified 5-Level Smart Badge Collision Resolver (Left-Anchored) */}
+                      {(() => {
+                        const rawLevels = [
+                          { id: "tp3", type: "tp", lbl: "TP3", p: tp3, pct: tp3Pct, y: tp3Y, highlight: true },
+                          { id: "tp2", type: "tp", lbl: "TP2", p: tp2, pct: tp2Pct, y: tp2Y, highlight: false },
+                          { id: "tp1", type: "tp", lbl: "TP1", p: tp1, pct: tp1Pct, y: tp1Y, highlight: false },
+                          { id: "entry", type: "entry", lbl: "ENTRY", p: entry, pct: null, y: eY, highlight: true },
+                          { id: "stop", type: "stop", lbl: "STOP", p: stopLoss, pct: stopPct, y: sY, highlight: true },
+                        ];
+
+                        const levels = rawLevels
+                          .filter(l => l.y !== null && !isNaN(Number(l.y)))
+                          .map(l => ({ ...l, y: Number(l.y), labelY: Number(l.y) }))
+                          .sort((a, b) => a.y - b.y);
+
+                        for (let iter = 0; iter < 6; iter++) {
+                          for (let i = 0; i < levels.length - 1; i++) {
+                            const cur = levels[i];
+                            const nxt = levels[i + 1];
+                            const diff = nxt.labelY - cur.labelY;
+                            if (diff < 24) {
+                              const push = (24 - diff) / 2;
+                              cur.labelY -= push;
+                              nxt.labelY += push;
+                            }
+                          }
+                        }
+
+                        return levels.map(l => {
+                          let badgeStyle = "bg-[#0F1217]/95 border border-[#CBB079]/70 text-[#F6E09E]";
+                          let labelText = `${l.lbl}: ${l.p} (${tpSign}${l.pct}%)`;
+
+                          if (l.type === "entry") {
+                            badgeStyle = "bg-[#041C24]/95 border border-[#00E5FF] text-[#00E5FF] shadow-[0_0_10px_rgba(0,229,255,0.2)]";
+                            labelText = `ENTRY: ${l.p}`;
+                          } else if (l.type === "stop") {
+                            badgeStyle = "bg-[#180A0A]/95 border border-red-500/70 text-red-400";
+                            labelText = `STOP: ${l.p} (${stopSign}${l.pct}%)`;
+                          } else if (l.highlight) {
+                            badgeStyle = "bg-[#141720]/95 border border-[#F6E09E] text-transparent bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text font-black";
+                          }
+
+                          return (
+                            <div
+                              key={l.id}
+                              className={`absolute left-1.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-black shadow-md flex items-center gap-1 whitespace-nowrap transition-all ${badgeStyle}`}
+                              style={{ top: `${l.labelY - 10}px` }}
+                            >
+                              {labelText}
+                            </div>
+                          );
+                        });
+                      })()}
                     </div>
                   )}
                 </div>
