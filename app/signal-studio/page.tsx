@@ -543,10 +543,10 @@ function SignalStudioContent() {
 🎯 <b>TP2:</b> ${tp2} (${tpSign}${tp2Pct}%)
 🎯 <b>TP3:</b> ${tp3} (${tpSign}${tp3Pct}%)
 
-📊 <b>Return : Reward Ratios</b>
-• Return : Reward to TP1   1 : ${rr1}
-• Return : Reward to TP2   1 : ${rr2}
-• Return : Reward to TP3   1 : ${rr3}
+📊 <b>Risk:Reward Ratios</b>
+• Risk:Reward to TP1   1 : ${rr1}
+• Risk:Reward to TP2   1 : ${rr2}
+• Risk:Reward to TP3   1 : ${rr3}
 
 <i>${disclaimer}</i>`;
 
@@ -603,7 +603,7 @@ function SignalStudioContent() {
 
                   <button
                     onClick={() => {
-                      const txt = `YAGACALLS SIGNAL\n👑 BEING ROYAL\n\n🪙 $${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\n⚡ Live ${livePrice}\n\n📍 Entry: ${entry}\n🛑 Stop Loss: ${stopLoss} (${stopSign}${stopPct}%)\n🎯 TP1: ${tp1} (${tpSign}${tp1Pct}%)\n🎯 TP2: ${tp2} (${tpSign}${tp2Pct}%)\n🎯 TP3: ${tp3} (${tpSign}${tp3Pct}%)\n\n📊 Return : Reward Ratios\n• Return : Reward to TP1   1 : ${rr1}\n• Return : Reward to TP2   1 : ${rr2}\n• Return : Reward to TP3   1 : ${rr3}\n\n${disclaimer}`;
+                      const txt = `YAGACALLS SIGNAL\n👑 BEING ROYAL\n\n🪙 $${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\n⚡ Live ${livePrice}\n\n📍 Entry: ${entry}\n🛑 Stop Loss: ${stopLoss} (${stopSign}${stopPct}%)\n🎯 TP1: ${tp1} (${tpSign}${tp1Pct}%)\n🎯 TP2: ${tp2} (${tpSign}${tp2Pct}%)\n🎯 TP3: ${tp3} (${tpSign}${tp3Pct}%)\n\n📊 Risk:Reward Ratios\n• Risk:Reward to TP1   1 : ${rr1}\n• Risk:Reward to TP2   1 : ${rr2}\n• Risk:Reward to TP3   1 : ${rr3}\n\n${disclaimer}`;
                       navigator.clipboard.writeText(txt);
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
