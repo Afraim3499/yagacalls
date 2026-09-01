@@ -63,7 +63,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Crypto Leverage Trading Calculator",
     description: "Estimate margin, position value, PnL and leverage risk for crypto trades. Learn how leverage changes exposure, losses and liquidation danger.",
     images: [ogImageUrl],

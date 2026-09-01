@@ -33,8 +33,6 @@ export const metadata: Metadata = {
     creator: "@Yagacalls",
     title: "Yaga Calls Verified Signal Results & Performance Ledger",
     description: "Real-time trade performance logs, spot setup gains, and verified win rates from Yaga Calls crypto signal notes.",
-    site: "@yagacalls",
-    creator: "@yagacalls",
     images: ["https://www.yagacalls.com/api/og?title=Verified%20Signal%20Results&subtitle=Real-time%20trade%20performance%20logs%20%26%20verified%20win%20rates"],
   }
 };

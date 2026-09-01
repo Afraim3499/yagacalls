@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Best Crypto Signal Provider for Serious Traders",
     description: "A practical guide to choosing a crypto signal provider — and why Yaga Calls is built for traders who value research, risk context, and Telegram-first delivery.",
     images: [ogImageUrl],

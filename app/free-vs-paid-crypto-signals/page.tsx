@@ -60,7 +60,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Free vs Paid Crypto Signals",
     description: "A serious comparison of free and paid crypto signals: Telegram groups, premium access, proof, pricing, risk management, red flags and Yaga Calls’ approach.",
     images: [`${SITE_URL}/api/og?title=Free%20vs%20Paid%20Crypto%20Signals&subtitle=What%20Premium%20Access%20Actually%20Adds`],

@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Verified Crypto Signal Provider — Yaga Calls Due Diligence Guide",
     description: "Learn how serious traders verify crypto signal providers before joining: proof, method, risk context, Telegram safety, and manual onboarding.",
     images: ["https://www.yagacalls.com/api/og?title=Verified%20Crypto%20Signal%20Provider&subtitle=How%20to%20Check%20Proof%2C%20Method%20%26%20Risk%20Context"],

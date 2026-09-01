@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Crypto Signals With Risk Management — Yaga Calls",
     description: "Risk-aware Telegram crypto signal notes with entry zones, target planning, invalidation logic, and market narrative context for serious traders.",
     images: ["https://www.yagacalls.com/api/og?title=Crypto%20Signals%20With%20Risk%20Management&subtitle=Entry%20Zones%2C%20Target%20Planning%20%26%20Invalidation%20Logic"],

@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Crypto Signal Provider Comparison",
     description: "Compare free signal channels, cheap VIP groups, automated bots, education communities, risk-managed providers and Yaga Calls before choosing where to spend time or money.",
     images: ["https://www.yagacalls.com/api/og?title=Crypto%20Signal%20Provider%20Comparison&subtitle=Free%2C%20Bots%2C%20VIP%20%26%20Risk-Managed%20Providers"],

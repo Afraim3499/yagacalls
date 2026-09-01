@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Narrative Trading Crypto Signals — Yaga Calls",
     description: "Learn how Yaga Calls tracks crypto market narratives, sector rotations, catalysts, and technical structures before sharing risk-aware Telegram signal notes.",
     images: ["https://www.yagacalls.com/api/og?title=Narrative%20Trading%20Crypto%20Signals&subtitle=Sector%20Rotations%2C%20Catalysts%20%26%20Market%20Stories"],

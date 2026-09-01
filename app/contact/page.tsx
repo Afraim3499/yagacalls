@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Contact Yaga Calls — Manual Telegram Onboarding",
     description: "Start manual onboarding for Yaga Calls premium Telegram crypto signals. Confirm discounted pricing, payment instructions, and official access safely.",
     images: [ogImageUrl],

@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Yaga Calls Community Reviews",
     description: "Authentic member feedback, trade setup notes reviews, and risk-management ratings from active Yaga Calls Telegram subscribers.",
     images: ["https://www.yagacalls.com/api/og?title=Yaga%20Calls%20Community%20Reviews&subtitle=Member%20Feedback%20%26%20Risk-Management%20Ratings"],

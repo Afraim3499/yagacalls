@@ -66,7 +66,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Crypto Liquidation Price Calculator",
     description: "Estimate approximate liquidation-risk levels for leveraged crypto trades. Learn how leverage, margin, stop-losses and exchange rules affect liquidation risk.",
     images: [ogImageUrl],

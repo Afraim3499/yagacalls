@@ -32,7 +32,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Yaga Calls Global Crypto Signal Regions",
     description: "Find regional Yaga Calls pages for serious crypto traders in GCC, Dubai, UAE, UK, USA, Australia, Singapore, Europe, and other premium markets.",
     images: [ogImageUrl],

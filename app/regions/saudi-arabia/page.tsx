@@ -29,7 +29,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Saudi Arabia Crypto Signals — Yaga Calls",
     description: "Telegram-first crypto signal notes, market narrative research, risk-aware setup context, and manual onboarding for serious Saudi Arabia traders.",
     images: ["https://www.yagacalls.com/api/og?title=Saudi%20Arabia%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Telegram-first%20crypto%20signal%20notes%2C%20market%20narrative%20research%2C%20risk-aware%20setup%20context%2C%20and%20manual%20onboarding%20for%20serious%20Saudi%20Arabia%20traders."],

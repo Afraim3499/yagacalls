@@ -34,8 +34,6 @@ export const metadata: Metadata = {
     creator: "@Yagacalls",
     title: "Yaga Calls Careers & Affiliate Partner Positions",
     description: "Explore remote Web3 career opportunities and partner roles at Yaga Calls. Join our high-ticket 15%–25% recurring rev-share program with daily settlements.",
-    site: "@yagacalls",
-    creator: "@yagacalls",
     images: ["https://www.yagacalls.com/api/og?title=Careers%20%26%20Partner%20Jobs&subtitle=High-ticket%20recurring%20rev-share%20%26%20daily%20payouts"],
   }
 };

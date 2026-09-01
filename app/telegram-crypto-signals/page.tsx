@@ -51,7 +51,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Telegram Crypto Signals Guide",
     description: "A serious guide to Telegram crypto signals: signal structure, free vs paid groups, fake admin safety, and risk checks.",
     images: ["https://www.yagacalls.com/api/og?title=Telegram%20Crypto%20Signals%20Guide&subtitle=Signal%20Structure%2C%20Free%20vs%20Paid%20Groups%20%26%20Safety"],

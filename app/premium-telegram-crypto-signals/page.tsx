@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "Premium Telegram Crypto Signals — Yaga Calls",
     description: "Telegram-first crypto signal notes with market narrative research, clear entries, targets, invalidation logic, and risk-managed setup context.",
     images: [ogImageUrl],

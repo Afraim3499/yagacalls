@@ -47,7 +47,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@Yagacalls",
     creator: "@Yagacalls",
-    card: "summary_large_image",
     title: "What Are Crypto Signals? A Serious Beginner’s Guide",
     description: "Understand crypto signals before risking money. Learn entries, targets, stop-losses, invalidation, red flags, and the Yaga Calls signal structure.",
     images: ["https://www.yagacalls.com/api/og?title=What%20Are%20Crypto%20Signals%3F&subtitle=Entries%2C%20Targets%20%26%20Stop-Loss%20Guide"],
