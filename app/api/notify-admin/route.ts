@@ -11,9 +11,11 @@ export async function POST(req: Request) {
     const ADMIN_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID;
 
     if (!BOT_TOKEN || !ADMIN_CHAT_ID) {
-      console.warn("Missing Telegram credentials in env. Simulation mode.");
-      // Just return success for local testing if no tokens are set
-      return NextResponse.json({ success: true, warning: "No tokens set" });
+      console.warn("Missing Telegram credentials in env.");
+      return NextResponse.json({
+        success: false,
+        error: "TELEGRAM_BOT_TOKEN or TELEGRAM_ADMIN_CHAT_ID is missing in server environment."
+      }, { status: 500 });
     }
 
     if (!imageFile || !text || !signalId) {
@@ -22,14 +24,7 @@ export async function POST(req: Request) {
 
     // Convert File to Buffer for the Telegram API
     const buffer = Buffer.from(await imageFile.arrayBuffer());
-
-    // Telegram Bot API requires multipart/form-data for files.
-    // We can use the native FormData.
-    const tgFormData = new FormData();
-    tgFormData.append('chat_id', ADMIN_CHAT_ID);
-    tgFormData.append('photo', new Blob([buffer], { type: 'image/png' }), 'signal.png');
-    tgFormData.append('caption', text + "\n\n<i>Admin: Do you want to post this new signal to the public group?</i>");
-    tgFormData.append('parse_mode', 'HTML');
+    const adminChatIds = ADMIN_CHAT_ID.split(',').map(id => id.trim()).filter(Boolean);
 
     const replyMarkup = {
       inline_keyboard: [
@@ -39,22 +34,37 @@ export async function POST(req: Request) {
         ]
       ]
     };
-    tgFormData.append('reply_markup', JSON.stringify(replyMarkup));
 
-    const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
-      method: 'POST',
-      body: tgFormData
-    });
+    const sendErrors: string[] = [];
 
-    const data = await res.json();
-    if (!data.ok) {
-      console.error("Telegram error:", data);
-      throw new Error(data.description || "Failed to send to Telegram");
+    for (const chatId of adminChatIds) {
+      const tgFormData = new FormData();
+      tgFormData.append('chat_id', chatId);
+      tgFormData.append('photo', new Blob([buffer], { type: 'image/png' }), 'signal.png');
+      tgFormData.append('caption', text + "\n\n<i>Admin: Do you want to post this new signal to the public group?</i>");
+      tgFormData.append('parse_mode', 'HTML');
+      tgFormData.append('reply_markup', JSON.stringify(replyMarkup));
+
+      const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+        method: 'POST',
+        body: tgFormData
+      });
+
+      const data = await res.json();
+      if (!data.ok) {
+        console.error(`Telegram API error for chat ${chatId}:`, data);
+        sendErrors.push(`Chat ${chatId}: ${data.description || 'Unknown error'}`);
+      }
     }
 
-    return NextResponse.json({ success: true });
+    if (sendErrors.length > 0 && sendErrors.length === adminChatIds.length) {
+      return NextResponse.json({ success: false, error: sendErrors.join('; ') }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true, warnings: sendErrors.length > 0 ? sendErrors : undefined });
   } catch (err: any) {
     console.error("Error in notify-admin route:", err);
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }
+

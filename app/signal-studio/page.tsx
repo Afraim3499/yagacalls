@@ -396,10 +396,12 @@ function SignalStudioContent() {
                         const resData = await res.json();
                         
                         if (!resData.success) {
-                          console.warn("Signal saved, but Telegram notification failed:", resData.error || resData.warning);
+                          alert("Signal saved to Database, but Telegram dispatch failed: " + (resData.error || "Unknown error"));
+                        } else if (resData.warnings) {
+                          alert("Signal Saved! Sent to Admin Bot, with warnings: " + resData.warnings.join(", "));
+                        } else {
+                          alert("Signal Finalized and Saved to Database! Sent to Admin Bot for approval.");
                         }
-
-                        alert("Signal Finalized and Saved to Database! Sent to Admin Bot for approval.");
                       } catch (err: any) {
                         console.error("Failed to finalize", err);
                         alert("Error: " + err.message);
