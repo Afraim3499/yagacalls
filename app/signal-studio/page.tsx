@@ -47,6 +47,10 @@ interface OverlayCoords {
   tp2Y: number | null;
   tp3Y: number | null;
   futureStartX: number | null;
+  highestY: number | null;
+  highestVal: number | null;
+  lowestY: number | null;
+  lowestVal: number | null;
   chartW: number;
   chartH: number;
 }
@@ -148,7 +152,8 @@ function SignalStudioContent() {
   const [isFinalizing, setIsFinalizing] = useState(false);
   const [overlay, setOverlay] = useState<OverlayCoords>({
     entryY: null, stopY: null, tp1Y: null, tp2Y: null, tp3Y: null,
-    futureStartX: null, chartW: 800, chartH: 420,
+    futureStartX: null, highestY: null, highestVal: null, lowestY: null, lowestVal: null,
+    chartW: 800, chartH: 420,
   });
 
   // ── Refs ──
@@ -157,6 +162,7 @@ function SignalStudioContent() {
   const chartRef = useRef<IChartApi | null>(null);
   const seriesRef = useRef<ISeriesApi<"Candlestick"> | null>(null);
   const latestTimeRef = useRef<Time | null>(null);
+  const candlesRef = useRef<CandlestickData<Time>[]>([]);
   
   const numsRef = useRef({
     entry: 0, stop: 0, tp1: 0, tp2: 0, tp3: 0, lev: 10,
@@ -219,7 +225,29 @@ function SignalStudioContent() {
       }
     }
 
-    setOverlay({ entryY, stopY, tp1Y, tp2Y, tp3Y, futureStartX, chartW, chartH });
+    let highestVal: number | null = null;
+    let highestY: number | null = null;
+    let lowestVal: number | null = null;
+    let lowestY: number | null = null;
+
+    if (candlesRef.current && candlesRef.current.length > 0) {
+      let maxH = -Infinity;
+      let minL = Infinity;
+      candlesRef.current.forEach(c => {
+        if (c.high > maxH) maxH = c.high;
+        if (c.low < minL) minL = c.low;
+      });
+      if (maxH !== -Infinity) {
+        highestVal = maxH;
+        highestY = series.priceToCoordinate(maxH);
+      }
+      if (minL !== Infinity) {
+        lowestVal = minL;
+        lowestY = series.priceToCoordinate(minL);
+      }
+    }
+
+    setOverlay({ entryY, stopY, tp1Y, tp2Y, tp3Y, futureStartX, highestY, highestVal, lowestY, lowestVal, chartW, chartH });
   }, []);
 
   useEffect(() => {
@@ -320,6 +348,7 @@ function SignalStudioContent() {
 
         candleSeries.setData(candles);
         volSeries.setData(vols);
+        candlesRef.current = candles;
 
         if (showEma20) {
           const e20 = chart.addSeries(LineSeries, { color: "#00E5FF", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
@@ -493,15 +522,15 @@ function SignalStudioContent() {
 Live <code>${livePrice}</code>
 
 <pre>
-Entry   ${entry}
-Stop    ${stopLoss}   (${stopSign}${stopPct}%)
-TP1     ${tp1}   (${tpSign}${tp1Pct}%)
-TP2     ${tp2}   (${tpSign}${tp2Pct}%)
-TP3     ${tp3}   (${tpSign}${tp3Pct}%)
+Entry    ${entry.padEnd(10)}
+Stop     ${stopLoss.padEnd(10)} (${stopSign}${stopPct}%)
+TP1      ${tp1.padEnd(10)} (${tpSign}${tp1Pct}%)
+TP2      ${tp2.padEnd(10)} (${tpSign}${tp2Pct}%)
+TP3      ${tp3.padEnd(10)} (${tpSign}${tp3Pct}%)
 
-R:R to TP1   1 : ${rr1}
-R:R to TP2   1 : ${rr2}
-R:R to TP3   1 : ${rr3}
+Return : Reward to TP1   1 : ${rr1}
+Return : Reward to TP2   1 : ${rr2}
+Return : Reward to TP3   1 : ${rr3}
 </pre>
 
 <i>${disclaimer}</i>`;
@@ -559,7 +588,7 @@ R:R to TP3   1 : ${rr3}
 
                   <button
                     onClick={() => {
-                      const txt = `YAGACALLS SIGNAL\nBEING ROYAL\n\n${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\nLive ${livePrice}\n\nEntry   ${entry}\nStop    ${stopLoss}   (${stopSign}${stopPct}%)\nTP1     ${tp1}   (${tpSign}${tp1Pct}%)\nTP2     ${tp2}   (${tpSign}${tp2Pct}%)\nTP3     ${tp3}   (${tpSign}${tp3Pct}%)\n\nR:R to TP1   1 : ${rr1}\nR:R to TP2   1 : ${rr2}\nR:R to TP3   1 : ${rr3}\n\n${disclaimer}`;
+                      const txt = `YAGACALLS SIGNAL\nBEING ROYAL\n\n$${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\nLive ${livePrice}\n\nEntry    ${entry.padEnd(10)}\nStop     ${stopLoss.padEnd(10)} (${stopSign}${stopPct}%)\nTP1      ${tp1.padEnd(10)} (${tpSign}${tp1Pct}%)\nTP2      ${tp2.padEnd(10)} (${tpSign}${tp2Pct}%)\nTP3      ${tp3.padEnd(10)} (${tpSign}${tp3Pct}%)\n\nReturn : Reward to TP1   1 : ${rr1}\nReturn : Reward to TP2   1 : ${rr2}\nReturn : Reward to TP3   1 : ${rr3}\n\n${disclaimer}`;
                       navigator.clipboard.writeText(txt);
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
@@ -825,6 +854,31 @@ R:R to TP3   1 : ${rr3}
                 <div className="relative flex-1">
                   <div ref={chartContainerRef} className="absolute inset-0 cursor-crosshair active:cursor-grabbing" />
                   
+                  {/* Timeframe Highest & Lowest Price Level Badges */}
+                  {overlay.highestY !== null && overlay.highestVal !== null && (
+                    <div 
+                      className="absolute left-3 z-20 pointer-events-none"
+                      style={{ top: `${Math.max(4, Math.min(chartH - 24, overlay.highestY - 10))}px` }}
+                    >
+                      <span className="bg-[#19160B]/90 border border-[#F6E09E]/70 px-2 py-0.5 rounded text-[9px] font-mono font-black text-[#F6E09E] shadow-md flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#F6E09E] animate-pulse" />
+                        HIGH: {overlay.highestVal.toFixed(overlay.highestVal < 1 ? 4 : 2)}
+                      </span>
+                    </div>
+                  )}
+
+                  {overlay.lowestY !== null && overlay.lowestVal !== null && (
+                    <div 
+                      className="absolute left-3 z-20 pointer-events-none"
+                      style={{ top: `${Math.max(4, Math.min(chartH - 24, overlay.lowestY - 10))}px` }}
+                    >
+                      <span className="bg-[#1C0E10]/90 border border-[#ef5350]/70 px-2 py-0.5 rounded text-[9px] font-mono font-black text-[#ef5350] shadow-md flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ef5350] animate-pulse" />
+                        LOW: {overlay.lowestVal.toFixed(overlay.lowestVal < 1 ? 4 : 2)}
+                      </span>
+                    </div>
+                  )}
+
                   {eY !== null && futureStartX !== null && (
                     <div 
                       className="absolute top-0 bottom-0 pointer-events-none z-10"
