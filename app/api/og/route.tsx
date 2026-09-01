@@ -10,6 +10,7 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const title = searchParams.get("title") || "Professional Crypto Signals";
     const subtitle = searchParams.get("subtitle") || "Systematic Market Analysis & Risk Management";
+    const cta = searchParams.get("cta") || "🚀 JOIN TELEGRAM CHANNEL →";
 
     // Load Yaga Calls Brand Logo from local public folder and convert to Base64 data URI
     const logoPath = path.join(process.cwd(), "public/yaga_calls_logo.png");
@@ -51,53 +52,72 @@ export async function GET(req: NextRequest) {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "20px",
+              justifyContent: "space-between",
               width: "100%",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={logoBase64}
-              alt="Yaga Calls Logo"
+            <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={logoBase64}
+                alt="Yaga Calls Logo"
+                style={{
+                  width: "70px",
+                  height: "70px",
+                  borderRadius: "50%",
+                  border: "3px solid #E39E2E",
+                }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "26px",
+                    fontWeight: 900,
+                    color: "#EAF2FF", // Brand text-high
+                    letterSpacing: "4px",
+                    textTransform: "uppercase",
+                    fontFamily: "sans-serif",
+                  }}
+                >
+                  YAGA CALLS
+                </span>
+                <span
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    color: "#E39E2E", // Brand primary gold
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    fontFamily: "sans-serif",
+                    marginTop: "2px",
+                  }}
+                >
+                  Verified Performance &amp; Risk Discipline
+                </span>
+              </div>
+            </div>
+
+            {/* Header Domain Branding */}
+            <span
               style={{
-                width: "70px",
-                height: "70px",
-                borderRadius: "50%",
-                border: "3px solid #E39E2E",
-              }}
-            />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
+                fontSize: "16px",
+                fontWeight: 800,
+                color: "#E39E2E",
+                letterSpacing: "2px",
+                fontFamily: "sans-serif",
+                backgroundColor: "rgba(227, 158, 46, 0.1)",
+                border: "1px solid rgba(227, 158, 46, 0.3)",
+                padding: "8px 18px",
+                borderRadius: "8px",
               }}
             >
-              <span
-                style={{
-                  fontSize: "26px",
-                  fontWeight: 900,
-                  color: "#EAF2FF", // Brand text-high
-                  letterSpacing: "4px",
-                  textTransform: "uppercase",
-                  fontFamily: "sans-serif",
-                }}
-              >
-                YAGA CALLS
-              </span>
-              <span
-                style={{
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  color: "#E39E2E", // Brand primary gold
-                  letterSpacing: "2px",
-                  textTransform: "uppercase",
-                  fontFamily: "sans-serif",
-                  marginTop: "2px",
-                }}
-              >
-                Verified Performance &amp; Risk Discipline
-              </span>
-            </div>
+              www.yagacalls.com
+            </span>
           </div>
 
           {/* Center Main Text Content */}
@@ -106,17 +126,17 @@ export async function GET(req: NextRequest) {
               display: "flex",
               flexDirection: "column",
               width: "100%",
-              marginTop: "30px",
-              marginBottom: "30px",
+              marginTop: "24px",
+              marginBottom: "24px",
             }}
           >
             <h1
               style={{
-                fontSize: "56px",
+                fontSize: "52px",
                 fontWeight: 900,
                 color: "#EAF2FF", // Brand text-high
                 lineHeight: 1.15,
-                letterSpacing: "-2px",
+                letterSpacing: "-1.5px",
                 textTransform: "uppercase",
                 margin: 0,
                 padding: 0,
@@ -140,7 +160,7 @@ export async function GET(req: NextRequest) {
             </p>
           </div>
 
-          {/* Footer Metadata Badges */}
+          {/* Footer Metadata & Conversion Call-To-Action (CTA) */}
           <div
             style={{
               display: "flex",
@@ -148,7 +168,7 @@ export async function GET(req: NextRequest) {
               alignItems: "center",
               width: "100%",
               borderTop: "2px solid #1E242C", // Brand line color
-              paddingTop: "24px",
+              paddingTop: "20px",
             }}
           >
             <div style={{ display: "flex", gap: "16px" }}>
@@ -158,7 +178,7 @@ export async function GET(req: NextRequest) {
                   alignItems: "center",
                   backgroundColor: "#0F1217", // Brand surface-deep
                   border: "1px solid #1E242C", // Brand line border
-                  padding: "6px 16px",
+                  padding: "8px 18px",
                   borderRadius: "9999px",
                 }}
               >
@@ -172,7 +192,7 @@ export async function GET(req: NextRequest) {
                   alignItems: "center",
                   backgroundColor: "#0F1217", // Brand surface-deep
                   border: "1px solid #1E242C", // Brand line border
-                  padding: "6px 16px",
+                  padding: "8px 18px",
                   borderRadius: "9999px",
                 }}
               >
@@ -181,17 +201,25 @@ export async function GET(req: NextRequest) {
                 </span>
               </div>
             </div>
-            <span
+
+            {/* High-Converting Call-To-Action (CTA) Pill Button */}
+            <div
               style={{
-                fontSize: "14px",
-                fontWeight: 700,
-                color: "#E39E2E", // Brand primary gold
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: "#E39E2E", // Gold conversion button
+                color: "#0A0B0D",
+                padding: "12px 24px",
+                borderRadius: "12px",
+                fontWeight: 900,
+                fontSize: "15px",
                 letterSpacing: "1px",
+                textTransform: "uppercase",
                 fontFamily: "sans-serif",
               }}
             >
-              www.yagacalls.com
-            </span>
+              {cta}
+            </div>
           </div>
         </div>
       ),
