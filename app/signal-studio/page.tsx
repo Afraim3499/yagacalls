@@ -70,6 +70,7 @@ function SignalStudioContent() {
   const [tp1, setTp1] = useState(searchParams.get("tp1") || "2440.92");
   const [tp2, setTp2] = useState(searchParams.get("tp2") || "2460.75");
   const [tp3, setTp3] = useState(searchParams.get("tp3") || "2490.52");
+  const [disclaimer, setDisclaimer] = useState(searchParams.get("disclaimer") || searchParams.get("note") || "Not financial advice. DYOR.");
 
   // ── UI state ──
   const [livePrice, setLivePrice] = useState("—");
@@ -402,7 +403,7 @@ R:R to TP2   1 : ${rr2}
 R:R to TP3   1 : ${rr3}
 </pre>
 
-<i>Not financial advice. DYOR.</i>`;
+<i>${disclaimer}</i>`;
 
                         const formData = new FormData();
                         formData.append('image', blob, 'signal.png');
@@ -457,7 +458,7 @@ R:R to TP3   1 : ${rr3}
 
                   <button
                     onClick={() => {
-                      const txt = `YAGACALLS SIGNAL\nBEING ROYAL\n\n${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\nLive ${livePrice}\n\nEntry   ${entry}\nStop    ${stopLoss}   (${stopSign}${stopPct}%)\nTP1     ${tp1}   (${tpSign}${tp1Pct}%)\nTP2     ${tp2}   (${tpSign}${tp2Pct}%)\nTP3     ${tp3}   (${tpSign}${tp3Pct}%)\n\nR:R to TP1   1 : ${rr1}\nR:R to TP2   1 : ${rr2}\nR:R to TP3   1 : ${rr3}\n\nNot financial advice. DYOR.`;
+                      const txt = `YAGACALLS SIGNAL\nBEING ROYAL\n\n${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\nLive ${livePrice}\n\nEntry   ${entry}\nStop    ${stopLoss}   (${stopSign}${stopPct}%)\nTP1     ${tp1}   (${tpSign}${tp1Pct}%)\nTP2     ${tp2}   (${tpSign}${tp2Pct}%)\nTP3     ${tp3}   (${tpSign}${tp3Pct}%)\n\nR:R to TP1   1 : ${rr1}\nR:R to TP2   1 : ${rr2}\nR:R to TP3   1 : ${rr3}\n\n${disclaimer}`;
                       navigator.clipboard.writeText(txt);
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
@@ -503,6 +504,19 @@ R:R to TP3   1 : ${rr3}
                   <option value="LONG">🟢 LONG</option>
                   <option value="SHORT">🔴 SHORT</option>
                 </select>
+              </div>
+              <div className="col-span-2 sm:col-span-4 lg:col-span-10 mt-1">
+                <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px] flex items-center justify-between">
+                  <span>Custom Disclaimer / Caption Note</span>
+                  <span className="text-[#E39E2E] font-normal normal-case">Updates chart card badge & Telegram post text</span>
+                </label>
+                <input 
+                  type="text" 
+                  value={disclaimer} 
+                  onChange={e => setDisclaimer(e.target.value)} 
+                  placeholder="e.g. Not financial advice. DYOR." 
+                  className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-3 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" 
+                />
               </div>
             </div>
           </div>
@@ -701,8 +715,9 @@ R:R to TP3   1 : ${rr3}
                 </div>
 
                 <div className="flex items-center justify-between text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-2">
-                  <div className="flex items-center gap-1.5">
-                    <ShieldAlert className="w-3.5 h-3.5 text-[#ef5350]" /> DYOR
+                  <div className="flex items-center gap-1.5 text-slate-400 font-semibold">
+                    <ShieldAlert className="w-3.5 h-3.5 text-[#ef5350] shrink-0" />
+                    <span className="truncate max-w-[260px]" title={disclaimer}>{disclaimer}</span>
                   </div>
                   <span className="bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent font-black">
                     BEING ROYAL
