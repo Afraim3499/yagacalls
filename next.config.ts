@@ -85,7 +85,7 @@ const nextConfig: NextConfig = {
               // features (blocked fetch, swallowed by their own catch blocks
               // with no visible error to the user, which is exactly why this
               // needed a real browser-console check, not just a build check).
-              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://ghwvwtwktnveqdqivxmy.supabase.co",
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://ghwvwtwktnveqdqivxmy.supabase.co wss://stream.binance.com:9443 wss://*.binance.com:* wss://*.binance.com",
               "frame-ancestors 'self'",
               "object-src 'none'",
               "base-uri 'self'",
