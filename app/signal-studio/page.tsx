@@ -499,7 +499,7 @@ function SignalStudioContent() {
                   </h1>
                   <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 flex items-center gap-1.5">
                     <Activity className="w-3 h-3 text-[#E39E2E]" />
-                    Official Signal Generator · signal-studio.yagacalls.com
+                    Official Signal Generator · Internal Team Tool
                   </p>
                 </div>
               </div>
