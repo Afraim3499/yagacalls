@@ -30,7 +30,10 @@ import {
   Upload,
   Send,
   Smartphone,
-  Monitor
+  Monitor,
+  Search,
+  X,
+  ChevronDown
 } from "lucide-react";
 import * as htmlToImage from "html-to-image";
 import { supabase } from "@/lib/supabase";
@@ -74,6 +77,24 @@ function calcEMA(candles: CandlestickData<Time>[], period: number) {
   return result;
 }
 
+const POPULAR_PAIRS = [
+  "BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT", "AVAXUSDT", "LINKUSDT", "NEARUSDT", 
+  "INJUSDT", "APTUSDT", "SUIUSDT", "PEPEUSDT", "WIFUSDT", "RENDERUSDT", "FETUSDT", "TIAUSDT", "OPUSDT", "ARBUSDT", 
+  "STXUSDT", "FILUSDT", "ATOMUSDT", "KASUSDT", "ICPUSDT", "SEIUSDT", "ORDIUSDT", "BONKUSDT", "FLOKIUSDT", "JUPUSDT", 
+  "TONUSDT", "BOMEUSDT", "WLDUSDT", "RUNEUSDT", "SHIBUSDT", "LTCUSDT", "UNIUSDT", "ETCUSDT", "XMRUSDT", "BCHUSDT", 
+  "DOTUSDT", "TRXUSDT", "GALAUSDT", "SANDUSDT", "MANAUSDT", "ALGOUSDT", "FTMUSDT", "DYDXUSDT", "IMXUSDT", "GRTUSDT", 
+  "CHZUSDT", "CRVUSDT", "LDOUSDT", "GMTUSDT", "ENSUSDT", "FLOWUSDT", "QNTUSDT", "THETAUSDT", "AXSUSDT", "EGLDUSDT", 
+  "KAVAUSDT", "AAVEUSDT", "EOSUSDT", "SNXUSDT", "MINAUSDT", "GMXUSDT", "CFXUSDT", "COMPUSDT", "NEOUSDT", "1INCHUSDT", 
+  "WAVESUSDT", "WOOUSDT", "TWTUSDT", "MASKUSDT", "ROSEUSDT", "ZECUSDT", "DASHUSDT", "ONEUSDT", "IOTAUSDT", "JSTUSDT", 
+  "BATUSDT", "ZILUSDT", "HOTUSDT", "ANKRUSDT", "ENJUSDT", "AUDIOUSDT", "RVNUSDT", "SUPERUSDT", "CELOUSDT", "YFIUSDT", 
+  "UMAUSDT", "SKLUSDT", "API3USDT", "SPELLUSDT", "PEOPLEUSDT", "HIGHUSDT", "GTCUSDT", "IDUSDT", "EDUUSDT", "CYBERUSDT", 
+  "ARKMUSDT", "MAVUSDT", "PENDLEUSDT", "BIGTIMEUSDT", "MEMEUSDT", "PYTHUSDT", "BLURUSDT", "JTOUSDT", "ACEUSDT", "NFPUSDT", 
+  "AIUSDT", "XAIUSDT", "MANTAUSDT", "ALTUSDT", "ZETAUSDT", "DYMUSDT", "STRKUSDT", "PORTALUSDT", "AXLUSDT", "AEVOUSDT", 
+  "ETHFIUSDT", "ENAUSDT", "WUSDT", "TNSRUSDT", "SAGAUSDT", "OMNIUSDT", "REZUSDT", "BBUSDT", "NOTUSDT", "IOUSDT", 
+  "ZKUSDT", "ZROUSDT", "BANANAUSDT", "RAREUSDT", "SYSUSDT", "DOGSUSDT", "MBOXUSDT", "CATIUSDT", "HMSTRUSDT", "EIGENUSDT", 
+  "NEIROUSDT", "TURBOUSDT", "PNUTUSDT", "ACTUSDT", "PENGUUSDT", "TRUMPUSDT", "BERAUSDT", "SONICUSDT", "ANIMEUSDT"
+];
+
 function SignalStudioContent() {
   const searchParams = useSearchParams();
   const hideButtons = searchParams.get("hideButtons") === "true";
@@ -94,6 +115,31 @@ function SignalStudioContent() {
   const [showEma20, setShowEma20] = useState(true);
   const [showEma50, setShowEma50] = useState(false);
   const [showEma200, setShowEma200] = useState(false);
+
+  // ── Searchable 100+ Pairs Modal state ──
+  const [isPairModalOpen, setIsPairModalOpen] = useState(false);
+  const [pairSearchQuery, setPairSearchQuery] = useState("");
+  const [fetchedPairs, setFetchedPairs] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch("https://api.binance.com/api/v3/ticker/price")
+      .then(r => r.json())
+      .then((data: any[]) => {
+        if (Array.isArray(data)) {
+          const usdtPairs = data
+            .map(d => d.symbol)
+            .filter((s: string) => s.endsWith("USDT") && !s.includes("UP") && !s.includes("DOWN") && !s.includes("BEAR") && !s.includes("BULL"))
+            .sort();
+          if (usdtPairs.length > 50) setFetchedPairs(usdtPairs);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const allPairsList = fetchedPairs.length > 0 ? fetchedPairs : POPULAR_PAIRS;
+  const filteredPairsList = pairSearchQuery
+    ? allPairsList.filter(p => p.includes(pairSearchQuery.toUpperCase()))
+    : allPairsList;
 
   // ── UI state ──
   const [livePrice, setLivePrice] = useState("—");
@@ -291,7 +337,20 @@ function SignalStudioContent() {
         if (candles.length > 0) {
           const last = candles[candles.length - 1];
           latestTimeRef.current = last.time;
-          setLivePrice(last.close.toFixed(2));
+          const p = last.close;
+          setLivePrice(p.toFixed(p < 1 ? 4 : 2));
+
+          // Auto-sync Entry and TP/SL levels if entry was set for another coin
+          const currentEntry = parseFloat(entry);
+          if (isNaN(currentEntry) || currentEntry <= 0 || Math.abs(currentEntry - p) / p > 0.4) {
+            setEntry(p.toString());
+            const isL = direction === "LONG";
+            const mult = isL ? 1 : -1;
+            setStopLoss((p * (1 - 0.01 * mult)).toFixed(p < 1 ? 4 : 2));
+            setTp1((p * (1 + 0.008 * mult)).toFixed(p < 1 ? 4 : 2));
+            setTp2((p * (1 + 0.018 * mult)).toFixed(p < 1 ? 4 : 2));
+            setTp3((p * (1 + 0.030 * mult)).toFixed(p < 1 ? 4 : 2));
+          }
         }
 
         chart.timeScale().fitContent();
@@ -314,7 +373,7 @@ function SignalStudioContent() {
             latestTimeRef.current = time;
             candleSeries.update({ time, open, high, low, close });
             volSeries.update({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
-            setLivePrice(close.toFixed(2));
+            setLivePrice(close.toFixed(close < 1 ? 4 : 2));
             recalcOverlay();
           };
         } catch { /* ignore WS err */ }
@@ -331,7 +390,15 @@ function SignalStudioContent() {
 
     return () => {
       isLive = false;
-      ws?.close();
+      if (ws) {
+        ws.onopen = null;
+        ws.onmessage = null;
+        ws.onerror = null;
+        ws.onclose = null;
+        if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) {
+          try { ws.close(); } catch {}
+        }
+      }
       ro.disconnect();
       chartRef.current?.remove();
       chartRef.current = null;
@@ -547,13 +614,34 @@ R:R to TP3   1 : ${rr3}
                 </button>
               </div>
 
+              <div>
+                <label className="block text-slate-500 font-semibold mb-1 uppercase tracking-wide text-[10px]">Asset</label>
+                <input 
+                  type="text" 
+                  value={symbol} 
+                  onChange={e => setSymbol(e.target.value.toUpperCase())} 
+                  className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" 
+                />
+              </div>
+
+              <div>
+                <label className="block text-slate-500 font-semibold mb-1 uppercase tracking-wide text-[10px]">
+                  Pair ({allPairsList.length})
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setIsPairModalOpen(true)}
+                  className="w-full bg-[#12151C] border border-[#252D3D] hover:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white text-xs flex items-center justify-between transition-all group"
+                >
+                  <span className="flex items-center gap-1.5 text-ellipsis overflow-hidden">
+                    <Search className="w-3 h-3 text-[#E39E2E] group-hover:scale-110 transition-transform" />
+                    <span>{pair}</span>
+                  </span>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
+                </button>
+              </div>
+
               {[
-                { label: "Asset",    val: symbol,   set: (v: string) => setSymbol(v.toUpperCase()),   type: "text" },
-                { label: "Pair",     val: pair,     set: (v: string) => {
-                  const upper = v.toUpperCase();
-                  setPair(upper);
-                  if (upper.endsWith("USDT")) setSymbol(upper.replace("USDT", ""));
-                }, type: "text", list: "popular-crypto-pairs" },
                 { label: "Leverage", val: leverage, set: setLeverage,    type: "text" },
                 { label: "Entry",    val: entry,    set: setEntry,       type: "number" },
                 { label: "Stop Loss",val: stopLoss, set: setStopLoss,    type: "number" },
@@ -567,16 +655,8 @@ R:R to TP3   1 : ${rr3}
                     type={f.type} 
                     value={f.val} 
                     onChange={e => f.set(e.target.value)} 
-                    list={f.list}
                     className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" 
                   />
-                  {f.list && (
-                    <datalist id="popular-crypto-pairs">
-                      {["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT", "AVAXUSDT", "LINKUSDT", "NEARUSDT", "UNIUSDT", "APTUSDT", "INJUSDT", "SUIUSDT", "PEPEUSDT", "WIFUSDT", "RENDERUSDT", "FETUSDT", "TIAUSDT", "OPUSDT", "ARBUSDT", "STXUSDT", "FILUSDT", "ATOMUSDT", "KASUSDT", "ICPUSDT", "SEIUSDT", "ORDIUSDT", "BONKUSDT", "FLOKIUSDT", "JUPUSDT", "TONUSDT", "BOMEUSDT", "WLDUSDT", "RUNEUSDT", "SHIBUSDT", "LTCUSDT"].map(p => (
-                        <option key={p} value={p} />
-                      ))}
-                    </datalist>
-                  )}
                 </div>
               ))}
               <div>
@@ -923,9 +1003,106 @@ R:R to TP3   1 : ${rr3}
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
+
+      {/* ── Searchable 100+ Crypto Pairs Selector Modal ── */}
+      {isPairModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-150">
+          <div className="bg-[#12151C] border border-[#252D3D] rounded-2xl w-full max-w-xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+            
+            {/* Modal Header */}
+            <div className="p-4 border-b border-[#1C222E] flex items-center justify-between bg-[#161B26]">
+              <div>
+                <h3 className="text-sm font-black text-white flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-[#E39E2E]" /> Select Crypto Trading Pair
+                </h3>
+                <p className="text-[11px] text-slate-400 mt-0.5">
+                  Select from {allPairsList.length} live Binance pairs with real-time WebSocket chart streaming
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsPairModalOpen(false)}
+                className="p-1.5 text-slate-400 hover:text-white hover:bg-[#252D3D] rounded-lg transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Search Bar */}
+            <div className="p-3.5 border-b border-[#1C222E] bg-[#0E1017]">
+              <div className="relative">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={pairSearchQuery}
+                  onChange={e => setPairSearchQuery(e.target.value.toUpperCase())}
+                  placeholder="Search 150+ crypto pairs (e.g. INJ, NEAR, WIF, RENDER, SUI, APT)..."
+                  className="w-full bg-[#161B26] border border-[#252D3D] focus:border-[#E39E2E] pl-9 pr-14 py-2 rounded-xl text-xs font-bold text-white placeholder:text-slate-500 focus:outline-none"
+                  autoFocus
+                />
+                {pairSearchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setPairSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs font-semibold"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Pairs Grid */}
+            <div className="p-4 overflow-y-auto flex-1 max-h-[55vh] custom-scrollbar">
+              {filteredPairsList.length === 0 ? (
+                <div className="text-center py-8 text-slate-500 text-xs">
+                  No matching crypto pairs found for "{pairSearchQuery}"
+                </div>
+              ) : (
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  {filteredPairsList.map(p => {
+                    const coinSym = p.replace("USDT", "");
+                    const isSelected = pair === p;
+                    return (
+                      <button
+                        key={p}
+                        type="button"
+                        onClick={() => {
+                          setPair(p);
+                          setSymbol(coinSym);
+                          setIsPairModalOpen(false);
+                          setPairSearchQuery("");
+                        }}
+                        className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                          isSelected
+                            ? "bg-[#E39E2E]/15 border-[#E39E2E] text-white shadow-md shadow-[#E39E2E]/10"
+                            : "bg-[#161B26] border-[#252D3D] hover:border-slate-500 text-slate-300 hover:text-white hover:bg-[#1C222E]"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono font-black text-xs text-white">${coinSym}</span>
+                          {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#E39E2E]" />}
+                        </div>
+                        <span className="text-[10px] font-mono text-slate-400 mt-1">{p}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Footer */}
+            <div className="p-3 bg-[#0E1017] border-t border-[#1C222E] flex items-center justify-between text-[11px] text-slate-400 font-mono">
+              <span>Showing {filteredPairsList.length} of {allPairsList.length} pairs</span>
+              <span className="text-[#E39E2E] font-bold">⚡ Live Binance Price Sync</span>
+            </div>
+
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 
