@@ -383,9 +383,7 @@ function SignalStudioContent() {
                         const signalId = data[0].id;
 
                         await new Promise(r => setTimeout(r, 100));
-                        const dataUrl = await htmlToImage.toPng(captureRef.current, { pixelRatio: 3, cacheBust: true });
-                        const blobRes = await fetch(dataUrl);
-                        const blob = await blobRes.blob();
+                        const blob = await htmlToImage.toBlob(captureRef.current, { pixelRatio: 3, cacheBust: true });
                         if (!blob) throw new Error("Failed to generate image blob");
 
                         const txt = `<b>YAGACALLS SIGNAL</b>
