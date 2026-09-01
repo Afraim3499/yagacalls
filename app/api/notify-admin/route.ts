@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       const tgFormData = new FormData();
       tgFormData.append('chat_id', chatId);
       tgFormData.append('photo', new Blob([buffer], { type: 'image/png' }), 'signal.png');
-      tgFormData.append('caption', text + "\n\n<i>Admin: Do you want to post this new signal to the public group?</i>");
+      tgFormData.append('caption', text);
       tgFormData.append('parse_mode', 'HTML');
       tgFormData.append('reply_markup', JSON.stringify(replyMarkup));
 
