@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/method",
   },
   openGraph: {
+    locale: "en_US",
     siteName: "Yaga Calls",
     title: "The Yaga Calls Method — Narrative, Timing & Risk",
     description: "See how Yaga Calls structures crypto signal notes using market narratives, technical validation, entry zones, targets, invalidation, and risk-aware planning.",
@@ -27,6 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "The Yaga Calls Method — Narrative, Timing & Risk",
     description: "See how Yaga Calls structures crypto signal notes using market narratives, technical validation, entry zones, targets, invalidation, and risk-aware planning.",
     images: ["https://www.yagacalls.com/api/og?title=The%20Yaga%20Calls%20Method%20%E2%80%94%20Narrative%2C%20Timing%20%26%20Risk&subtitle=See%20how%20Yaga%20Calls%20structures%20crypto%20signal%20notes%20using%20market%20narratives%2C%20technical%20validation%2C%20entry%20zones%2C%20targets%2C%20invalidation%2C%20and%20risk-aware%20planning."],

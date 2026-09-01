@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/regions",
   },
   openGraph: {
+    locale: "en_US",
     title: "Yaga Calls Global Crypto Signal Regions",
     description: "Find regional Yaga Calls pages for serious crypto traders in GCC, Dubai, UAE, UK, USA, Australia, Singapore, Europe, and other premium markets.",
     url: "https://www.yagacalls.com/regions",
@@ -28,6 +29,9 @@ export const metadata: Metadata = {
     images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Yaga Calls Global Crypto Signal Regions" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Yaga Calls Global Crypto Signal Regions",
     description: "Find regional Yaga Calls pages for serious crypto traders in GCC, Dubai, UAE, UK, USA, Australia, Singapore, Europe, and other premium markets.",

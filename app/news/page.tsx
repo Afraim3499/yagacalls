@@ -17,6 +17,7 @@ export const metadata = {
     canonical: "https://www.yagacalls.com/news",
   },
   openGraph: {
+    locale: "en_US",
     title: "Latest Crypto News — Yaga Calls",
     description: "Stay updated with real-time cryptocurrency news, Bitcoin updates, and market insights from trusted sources.",
     url: "https://www.yagacalls.com/news",
@@ -26,6 +27,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Latest Crypto News — Yaga Calls",
     description: "Stay updated with real-time cryptocurrency news, Bitcoin updates, and market insights from trusted sources.",
     images: [ogImageUrl],

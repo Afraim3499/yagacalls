@@ -10,6 +10,7 @@ export const metadata = {
     canonical: "https://www.yagacalls.com/terms",
   },
   openGraph: {
+    locale: "en_US",
     title: "Terms of Service — Yaga Calls",
     description: "Read the official Terms of Service for Yaga Calls. Learn about our educational content disclaimer, community safety rules, and subscription terms.",
     url: "https://www.yagacalls.com/terms",
@@ -19,6 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Terms of Service — Yaga Calls",
     description: "Read the official Terms of Service for Yaga Calls. Learn about our educational content disclaimer, community safety rules, and subscription terms.",
     images: [ogImageUrl],

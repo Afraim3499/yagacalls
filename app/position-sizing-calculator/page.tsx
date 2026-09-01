@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/position-sizing-calculator",
   },
   openGraph: {
+    locale: "en_US",
     siteName: "Yaga Calls",
     title: "Crypto Position Sizing Calculator",
     description: "Estimate crypto trade size using account size, risk per trade, entry, stop-loss and target price. Learn position sizing, stop distance and risk-to-reward.",
@@ -41,6 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Crypto Position Sizing Calculator",
     description: "Estimate crypto trade size using account size, risk per trade, entry, stop-loss and target price. Learn position sizing, stop distance and risk-to-reward.",
     images: ["https://www.yagacalls.com/api/og?title=Position%20Sizing%20Calculator&subtitle=Risk%2C%20Stop-Loss%20%26%20Target%20Price%20Tool"],

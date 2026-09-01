@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/contact",
   },
   openGraph: {
+    locale: "en_US",
     title: "Contact Yaga Calls — Manual Telegram Onboarding",
     description: "Start manual onboarding for Yaga Calls premium Telegram crypto signals. Confirm discounted pricing, payment instructions, and official access safely.",
     url: "https://www.yagacalls.com/contact",
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
     images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Contact Yaga Calls — Manual Telegram Onboarding" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Contact Yaga Calls — Manual Telegram Onboarding",
     description: "Start manual onboarding for Yaga Calls premium Telegram crypto signals. Confirm discounted pricing, payment instructions, and official access safely.",

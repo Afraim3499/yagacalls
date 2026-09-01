@@ -61,6 +61,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL_URL,
   },
   openGraph: {
+    locale: "en_US",
     siteName: "Yaga Calls",
     title: "Crypto Trading Telegram Group Guide",
     description: "A serious guide to crypto trading Telegram groups: signal structure, official links, fake admin safety, free vs premium access, and Yaga Calls’ approach.",
@@ -70,6 +71,9 @@ export const metadata: Metadata = {
     images: [{ url: `${SITE_URL}/api/og?title=Crypto%20Trading%20Telegram%20Group%20Guide&subtitle=Signal%20Structure%2C%20Fake%20Admins%20%26%20Official%20Links`, width: 1200, height: 630, alt: "Crypto Trading Telegram Group Guide" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Crypto Trading Telegram Group Guide",
     description: "A serious guide to crypto trading Telegram groups: signal structure, official links, fake admin safety, free vs premium access, and Yaga Calls’ approach.",

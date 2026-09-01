@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/crypto-signal-provider-comparison",
   },
   openGraph: {
+    locale: "en_US",
     title: "Crypto Signal Provider Comparison",
     description: "Compare free signal channels, cheap VIP groups, automated bots, education communities, risk-managed providers and Yaga Calls before choosing where to spend time or money.",
     type: "article",
@@ -45,6 +46,9 @@ export const metadata: Metadata = {
     images: [{ url: "https://www.yagacalls.com/api/og?title=Crypto%20Signal%20Provider%20Comparison&subtitle=Free%2C%20Bots%2C%20VIP%20%26%20Risk-Managed%20Providers", width: 1200, height: 630, alt: "Crypto Signal Provider Comparison" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Crypto Signal Provider Comparison",
     description: "Compare free signal channels, cheap VIP groups, automated bots, education communities, risk-managed providers and Yaga Calls before choosing where to spend time or money.",

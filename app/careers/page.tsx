@@ -30,6 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Yaga Calls Careers & Affiliate Partner Positions",
     description: "Explore remote Web3 career opportunities and partner roles at Yaga Calls. Join our high-ticket 15%–25% recurring rev-share program with daily settlements.",
     site: "@yagacalls",

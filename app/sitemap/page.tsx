@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/sitemap",
   },
   openGraph: {
+    locale: "en_US",
     title: "Sitemap — Yaga Calls",
     description: "Full, human-readable map of every page on Yaga Calls — guides, academy modules, blog posts, regional coverage, and tools, organized by section.",
     url: "https://www.yagacalls.com/sitemap",
@@ -33,6 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Sitemap — Yaga Calls",
     description: "Full, human-readable map of every page on Yaga Calls — guides, academy modules, blog posts, regional coverage, and tools, organized by section.",
     images: [ogImageUrl],

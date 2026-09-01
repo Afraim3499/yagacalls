@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/best-crypto-signal-provider",
   },
   openGraph: {
+    locale: "en_US",
     title: "Best Crypto Signal Provider for Serious Traders",
     description: "A practical guide to choosing a crypto signal provider — and why Yaga Calls is built for traders who value research, risk context, and Telegram-first delivery.",
     url: "https://www.yagacalls.com/best-crypto-signal-provider",
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
     images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Best Crypto Signal Provider for Serious Traders" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Best Crypto Signal Provider for Serious Traders",
     description: "A practical guide to choosing a crypto signal provider — and why Yaga Calls is built for traders who value research, risk context, and Telegram-first delivery.",

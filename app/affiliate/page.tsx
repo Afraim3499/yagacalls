@@ -50,6 +50,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
+    card: "summary_large_image",
     title: "Yaga Calls Partner Program: Earn 15% to 25% Crypto Commissions",
     description: "Earn $44.85 to $199.75 net per VIP subscriber. Fast daily crypto payouts in USDT/USDC, native Telegram link tracking.",
     site: "@yagacalls",

@@ -17,12 +17,16 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/verified-crypto-signal-provider",
   },
   openGraph: {
+    locale: "en_US",
     siteName: "Yaga Calls",
     title: "Verified Crypto Signal Provider — Yaga Calls Due Diligence Guide",
     description: "Learn how serious traders verify crypto signal providers before joining: proof, method, risk context, Telegram safety, and manual onboarding.",
     images: [{ url: "https://www.yagacalls.com/api/og?title=Verified%20Crypto%20Signal%20Provider&subtitle=How%20to%20Check%20Proof%2C%20Method%20%26%20Risk%20Context", width: 1200, height: 630, alt: "Verified Crypto Signal Provider" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Verified Crypto Signal Provider — Yaga Calls Due Diligence Guide",
     description: "Learn how serious traders verify crypto signal providers before joining: proof, method, risk context, Telegram safety, and manual onboarding.",

@@ -58,7 +58,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       'max-video-preview': -1,
     },
     openGraph: {
-    siteName: "Yaga Calls",
+      siteName: "Yaga Calls",
+      locale: "en_US",
       title: mod.title,
       description: mod.description,
       url: `https://www.yagacalls.com/academy/${slug}`,
@@ -68,6 +69,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@Yagacalls',
+      creator: '@Yagacalls',
       title: mod.title,
       description: mod.description,
       images: [ogImageUrl],

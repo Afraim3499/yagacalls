@@ -41,7 +41,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       'max-video-preview': -1,
     },
     openGraph: {
-    siteName: "Yaga Calls",
+      siteName: "Yaga Calls",
+      locale: "en_US",
       title: `${author.name} — ${author.jobTitle}`,
       description,
       url: `https://www.yagacalls.com/authors/${slug}`,
@@ -50,6 +51,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@Yagacalls',
+      creator: '@Yagacalls',
       title: `${author.name} — ${author.jobTitle}`,
       description,
       images: [ogImageUrl],

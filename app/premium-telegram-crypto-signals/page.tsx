@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/premium-telegram-crypto-signals",
   },
   openGraph: {
+    locale: "en_US",
     title: "Premium Telegram Crypto Signals — Yaga Calls",
     description: "Telegram-first crypto signal notes with market narrative research, clear entries, targets, invalidation logic, and risk-managed setup context.",
     url: "https://www.yagacalls.com/premium-telegram-crypto-signals",
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
     images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Premium Telegram Crypto Signals — Yaga Calls" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Premium Telegram Crypto Signals — Yaga Calls",
     description: "Telegram-first crypto signal notes with market narrative research, clear entries, targets, invalidation logic, and risk-managed setup context.",

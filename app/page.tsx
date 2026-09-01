@@ -24,6 +24,7 @@ export const metadata = {
     canonical: "https://www.yagacalls.com/",
   },
   openGraph: {
+    locale: "en_US",
     title: "Yaga Calls — Premium Telegram Crypto Signals",
     description: "Structured crypto setup ideas, narrative-driven market analysis, and risk-managed signal notes delivered through Telegram.",
     url: "https://www.yagacalls.com/",
@@ -40,6 +41,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Yaga Calls — Premium Telegram Crypto Signals",
     description: "Structured crypto setup ideas, narrative-driven market analysis, and risk-managed signal notes delivered through Telegram.",
     images: ["https://www.yagacalls.com/api/og?title=Yaga%20Calls%20%E2%80%94%20Premium%20Telegram%20Crypto%20Signals&subtitle=Structured%20crypto%20setup%20ideas%2C%20narrative-driven%20market%20analysis%2C%20and%20risk-managed%20signal%20notes"],

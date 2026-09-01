@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/yaga-calls-review",
   },
   openGraph: {
+    locale: "en_US",
     siteName: "Yaga Calls",
     title: "Yaga Calls Community Reviews",
     description: "Authentic member feedback, trade setup notes reviews, and risk-management ratings from active Yaga Calls Telegram subscribers.",
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
     images: [{ url: "https://www.yagacalls.com/api/og?title=Yaga%20Calls%20Community%20Reviews&subtitle=Member%20Feedback%20%26%20Risk-Management%20Ratings", width: 1200, height: 630, alt: "Yaga Calls Community Reviews" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Yaga Calls Community Reviews",
     description: "Authentic member feedback, trade setup notes reviews, and risk-management ratings from active Yaga Calls Telegram subscribers.",

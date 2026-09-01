@@ -10,6 +10,7 @@ export const metadata = {
     canonical: "https://www.yagacalls.com/privacy",
   },
   openGraph: {
+    locale: "en_US",
     title: "Privacy Policy — Yaga Calls",
     description: "Learn how Yaga Calls handles your data and privacy with transparency and minimal data collection.",
     url: "https://www.yagacalls.com/privacy",
@@ -19,6 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Privacy Policy — Yaga Calls",
     description: "Learn how Yaga Calls handles your data and privacy with transparency and minimal data collection.",
     images: [ogImageUrl],

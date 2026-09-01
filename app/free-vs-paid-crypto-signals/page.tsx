@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL_URL,
   },
   openGraph: {
+    locale: "en_US",
     siteName: "Yaga Calls",
     title: "Free vs Paid Crypto Signals",
     description: "A serious comparison of free and paid crypto signals: Telegram groups, premium access, proof, pricing, risk management, red flags and Yaga Calls’ approach.",
@@ -56,6 +57,9 @@ export const metadata: Metadata = {
     images: [{ url: `${SITE_URL}/api/og?title=Free%20vs%20Paid%20Crypto%20Signals&subtitle=What%20Premium%20Access%20Actually%20Adds`, width: 1200, height: 630, alt: "Free vs Paid Crypto Signals" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Free vs Paid Crypto Signals",
     description: "A serious comparison of free and paid crypto signals: Telegram groups, premium access, proof, pricing, risk management, red flags and Yaga Calls’ approach.",

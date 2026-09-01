@@ -19,6 +19,7 @@ export const metadata = {
     canonical: "https://www.yagacalls.com/blog",
   },
   openGraph: {
+    locale: "en_US",
     title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
     description: "Read practical crypto trading guides, signal breakdowns, risk-management lessons, and market narrative analysis to help you understand the logic behind setups.",
     url: "https://www.yagacalls.com/blog",
@@ -28,6 +29,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
     description: "Read practical crypto trading guides, signal breakdowns, risk-management lessons, and market narrative analysis to help you understand the logic behind setups.",
     images: [ogImageUrl],

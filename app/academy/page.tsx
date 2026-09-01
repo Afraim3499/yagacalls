@@ -15,6 +15,7 @@ export const metadata = {
     canonical: "https://www.yagacalls.com/academy",
   },
   openGraph: {
+    locale: "en_US",
     title: "Yaga Calls Academy | Learn Crypto Signals and Risk Management",
     description: "Learn how crypto signals work, how to read entries and targets, and how to manage risk before following any setup.",
     url: "https://www.yagacalls.com/academy",
@@ -24,6 +25,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Yaga Calls Academy | Learn Crypto Signals and Risk Management",
     description: "Learn how crypto signals work, how to read entries and targets, and how to manage risk before following any setup.",
     images: [ogImageUrl],

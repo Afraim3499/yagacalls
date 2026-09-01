@@ -29,6 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Yaga Calls Verified Signal Results & Performance Ledger",
     description: "Real-time trade performance logs, spot setup gains, and verified win rates from Yaga Calls crypto signal notes.",
     site: "@yagacalls",

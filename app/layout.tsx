@@ -40,6 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Yaga Calls | Professional Crypto Signals",
     description: "Systematic crypto signals and deep market analysis.",
     images: ["/yaga_calls_logo.png"],

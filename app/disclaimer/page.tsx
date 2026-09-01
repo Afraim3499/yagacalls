@@ -10,6 +10,7 @@ export const metadata = {
     canonical: "https://www.yagacalls.com/disclaimer",
   },
   openGraph: {
+    locale: "en_US",
     title: "Disclaimer & Risk Disclosure — Yaga Calls",
     description: "Important educational-only disclaimer and risk disclosure regarding crypto signals and market analysis from Yaga Calls.",
     url: "https://www.yagacalls.com/disclaimer",
@@ -19,6 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Disclaimer & Risk Disclosure — Yaga Calls",
     description: "Important educational-only disclaimer and risk disclosure regarding crypto signals and market analysis from Yaga Calls.",
     images: [ogImageUrl],

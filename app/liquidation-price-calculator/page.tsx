@@ -54,6 +54,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL_URL,
   },
   openGraph: {
+    locale: "en_US",
     title: "Crypto Liquidation Price Calculator",
     description: "Estimate approximate liquidation-risk levels for leveraged crypto trades. Learn how leverage, margin, stop-losses and exchange rules affect liquidation risk.",
     url: CANONICAL_URL,
@@ -62,6 +63,9 @@ export const metadata: Metadata = {
     images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Crypto Liquidation Price Calculator" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "Crypto Liquidation Price Calculator",
     description: "Estimate approximate liquidation-risk levels for leveraged crypto trades. Learn how leverage, margin, stop-losses and exchange rules affect liquidation risk.",

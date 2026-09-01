@@ -307,9 +307,9 @@ function checkContentHasCuratedCrossLinks() {
   }
 }
 
-// ── Check 8: openGraph.images, openGraph.siteName, and twitter must be set on all pages ──
-// Next.js metadata shallow-merges openGraph, so defining openGraph without images or siteName
-// in a page overwrites the parent layout's openGraph values, causing social previews to fail.
+// ── Check 8: openGraph (images, siteName, locale) and twitter (site, creator) must be set on all pages ──
+// Next.js metadata shallow-merges openGraph/twitter objects, so defining them without images, siteName,
+// locale, or twitter:site in a page overwrites the parent layout's values, causing social previews to fail.
 function checkOpenGraphAndTwitterCompleteness() {
   const pageFiles = walk(path.join(ROOT, 'app'), (f) => f.endsWith('page.tsx'));
   for (const file of pageFiles) {
@@ -324,11 +324,18 @@ function checkOpenGraphAndTwitterCompleteness() {
       if (!src.includes('siteName:')) {
         fail(`${rel} — openGraph block defined without "siteName" (causes og:site_name to be missing).`);
       }
+      if (!src.includes('locale:')) {
+        fail(`${rel} — openGraph block defined without "locale" (causes og:locale to be missing).`);
+      }
     } else {
       fail(`${rel} — page has metadata but no openGraph configuration.`);
     }
 
-    if (!src.includes('twitter:')) {
+    if (src.includes('twitter:')) {
+      if (!src.includes('site:')) {
+        fail(`${rel} — twitter block defined without "site" handle (causes twitter:site to be missing).`);
+      }
+    } else {
       fail(`${rel} — page has metadata but no twitter configuration.`);
     }
   }

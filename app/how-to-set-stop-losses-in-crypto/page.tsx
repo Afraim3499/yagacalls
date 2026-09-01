@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto",
   },
   openGraph: {
+    locale: "en_US",
     siteName: "Yaga Calls",
     title: "How to Set Stop-Losses in Crypto",
     description: "A serious guide to crypto stop-loss placement: invalidation, structure, volatility, position sizing, leverage risk, Telegram signals and common mistakes.",
@@ -45,6 +46,9 @@ export const metadata: Metadata = {
     images: [{ url: "https://www.yagacalls.com/api/og?title=How%20to%20Set%20Stop-Losses%20in%20Crypto&subtitle=Invalidation%2C%20Structure%20%26%20Volatility%20Guide", width: 1200, height: 630, alt: "How to Set Stop-Losses in Crypto" }],
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     card: "summary_large_image",
     title: "How to Set Stop-Losses in Crypto",
     description: "A serious guide to crypto stop-loss placement: invalidation, structure, volatility, position sizing, leverage risk, Telegram signals and common mistakes.",

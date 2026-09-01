@@ -18,6 +18,7 @@ export const metadata = {
     canonical: "https://www.yagacalls.com/analysis",
   },
   openGraph: {
+    locale: "en_US",
     title: "Latest Crypto Market Analysis — Yaga Calls",
     description: "Real-time market insights, price analysis, and trading updates from the Yaga Calls research team.",
     url: "https://www.yagacalls.com/analysis",
@@ -27,6 +28,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Latest Crypto Market Analysis — Yaga Calls",
     description: "Real-time market insights, price analysis, and trading updates from the Yaga Calls research team.",
     images: [ogImageUrl],

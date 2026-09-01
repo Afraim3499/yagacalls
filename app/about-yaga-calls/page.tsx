@@ -51,6 +51,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL_URL,
   },
   openGraph: {
+    locale: "en_US",
     title: "About Yaga Calls",
     description: "Official guide to Yaga Calls: crypto signals, Telegram access, brand search variations, method, proof, pricing, onboarding safety and risk disclaimers.",
     url: CANONICAL_URL,
@@ -60,6 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "About Yaga Calls",
     description: "Official guide to Yaga Calls: crypto signals, Telegram access, brand search variations, method, proof, pricing, onboarding safety and risk disclaimers.",
     images: [ogImageUrl],

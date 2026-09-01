@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/authors",
   },
   openGraph: {
+    locale: "en_US",
     siteName: "Yaga Calls",
     title: "Yaga Calls Analysts & Writers",
     description: "Meet the research analysts, on-chain investigators, and market writers behind Yaga Calls' market narrative research and educational guides.",
@@ -26,6 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Yagacalls",
+    creator: "@Yagacalls",
     title: "Yaga Calls Analysts & Writers",
     description: "Meet the research analysts, on-chain investigators, and market writers behind Yaga Calls' market narrative research and educational guides.",
     images: ["https://www.yagacalls.com/api/og?title=Our%20Analysts%20%26%20Writers&subtitle=The%20Research%20Team%20Behind%20Yaga%20Calls"],
