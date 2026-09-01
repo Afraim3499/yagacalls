@@ -503,7 +503,12 @@ R:R to TP3   1 : ${rr3}
               </div>
               <div>
                 <label className="block text-slate-500 font-semibold mb-1 uppercase tracking-wide text-[10px]">Direction</label>
-                <select value={direction} onChange={e => setDirection(e.target.value as "LONG" | "SHORT")} className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white focus:outli              <div className="col-span-2 sm:col-span-4 lg:col-span-10 mt-1 flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#1C222E]">
+                <select value={direction} onChange={e => setDirection(e.target.value as "LONG" | "SHORT")} className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs">
+                  <option value="LONG">🟢 LONG</option>
+                  <option value="SHORT">🔴 SHORT</option>
+                </select>
+              </div>
+              <div className="col-span-2 sm:col-span-4 lg:col-span-10 mt-1 flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#1C222E]">
                 <div className="flex-1 min-w-[280px]">
                   <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px] flex items-center justify-between">
                     <span>Custom Disclaimer / Caption Note</span>
@@ -773,14 +778,6 @@ R:R to TP3   1 : ${rr3}
                   </div>
                 </div>
               </div>
-            </div>
-        </div>
-      </div>079] bg-clip-text text-transparent font-black">
-                    BEING ROYAL
-                  </span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
