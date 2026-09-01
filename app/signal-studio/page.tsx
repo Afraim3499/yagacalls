@@ -532,22 +532,21 @@ function SignalStudioContent() {
                         if (!blob) throw new Error("Failed to generate image blob");
 
                         const txt = `<b>YAGACALLS SIGNAL</b>
-<b>BEING ROYAL</b>
+👑 <b>BEING ROYAL</b>
 
-<b>$${symbol}</b> · <code>${pair}</code> · <b>${direction}</b> · <b>${leverage}</b> · <b>${timeframe}</b>
-Live <code>${livePrice}</code>
+🪙 <b>$${symbol}</b> · <code>${pair}</code> · <b>${direction}</b> · <b>${leverage}</b> · <b>${timeframe}</b>
+⚡ Live <b>${livePrice}</b>
 
-<pre>
-Entry    ${entry.padEnd(10)}
-Stop     ${stopLoss.padEnd(10)} (${stopSign}${stopPct}%)
-TP1      ${tp1.padEnd(10)} (${tpSign}${tp1Pct}%)
-TP2      ${tp2.padEnd(10)} (${tpSign}${tp2Pct}%)
-TP3      ${tp3.padEnd(10)} (${tpSign}${tp3Pct}%)
+📍 <b>Entry:</b> ${entry}
+🛑 <b>Stop Loss:</b> ${stopLoss} (${stopSign}${stopPct}%)
+🎯 <b>TP1:</b> ${tp1} (${tpSign}${tp1Pct}%)
+🎯 <b>TP2:</b> ${tp2} (${tpSign}${tp2Pct}%)
+🎯 <b>TP3:</b> ${tp3} (${tpSign}${tp3Pct}%)
 
-Return : Reward to TP1   1 : ${rr1}
-Return : Reward to TP2   1 : ${rr2}
-Return : Reward to TP3   1 : ${rr3}
-</pre>
+📊 <b>Return : Reward Ratios</b>
+• Return : Reward to TP1   1 : ${rr1}
+• Return : Reward to TP2   1 : ${rr2}
+• Return : Reward to TP3   1 : ${rr3}
 
 <i>${disclaimer}</i>`;
 
@@ -604,7 +603,7 @@ Return : Reward to TP3   1 : ${rr3}
 
                   <button
                     onClick={() => {
-                      const txt = `YAGACALLS SIGNAL\nBEING ROYAL\n\n$${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\nLive ${livePrice}\n\nEntry    ${entry.padEnd(10)}\nStop     ${stopLoss.padEnd(10)} (${stopSign}${stopPct}%)\nTP1      ${tp1.padEnd(10)} (${tpSign}${tp1Pct}%)\nTP2      ${tp2.padEnd(10)} (${tpSign}${tp2Pct}%)\nTP3      ${tp3.padEnd(10)} (${tpSign}${tp3Pct}%)\n\nReturn : Reward to TP1   1 : ${rr1}\nReturn : Reward to TP2   1 : ${rr2}\nReturn : Reward to TP3   1 : ${rr3}\n\n${disclaimer}`;
+                      const txt = `YAGACALLS SIGNAL\n👑 BEING ROYAL\n\n🪙 $${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\n⚡ Live ${livePrice}\n\n📍 Entry: ${entry}\n🛑 Stop Loss: ${stopLoss} (${stopSign}${stopPct}%)\n🎯 TP1: ${tp1} (${tpSign}${tp1Pct}%)\n🎯 TP2: ${tp2} (${tpSign}${tp2Pct}%)\n🎯 TP3: ${tp3} (${tpSign}${tp3Pct}%)\n\n📊 Return : Reward Ratios\n• Return : Reward to TP1   1 : ${rr1}\n• Return : Reward to TP2   1 : ${rr2}\n• Return : Reward to TP3   1 : ${rr3}\n\n${disclaimer}`;
                       navigator.clipboard.writeText(txt);
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
