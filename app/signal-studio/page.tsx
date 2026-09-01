@@ -782,7 +782,6 @@ R:R to TP3   1 : ${rr3}
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
