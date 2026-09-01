@@ -254,6 +254,7 @@ function SignalStudioContent() {
     const el = chartContainerRef.current;
     if (!el) return;
 
+    let reconnectTimer: any = null;
     setLoading(true);
     if (chartRef.current) { chartRef.current.remove(); chartRef.current = null; }
 
@@ -386,7 +387,6 @@ function SignalStudioContent() {
         setLoading(false);
         setTimeout(recalcOverlay, 100);
 
-        let reconnectTimer: any = null;
         const initWs = () => {
           if (!isLive) return;
           try {
