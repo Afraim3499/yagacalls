@@ -27,7 +27,9 @@ import {
   Move,
   Download,
   Upload,
-  Send
+  Send,
+  Smartphone,
+  Monitor
 } from "lucide-react";
 import * as htmlToImage from "html-to-image";
 import { supabase } from "@/lib/supabase";
@@ -71,6 +73,7 @@ function SignalStudioContent() {
   const [tp2, setTp2] = useState(searchParams.get("tp2") || "2460.75");
   const [tp3, setTp3] = useState(searchParams.get("tp3") || "2490.52");
   const [disclaimer, setDisclaimer] = useState(searchParams.get("disclaimer") || searchParams.get("note") || "Not financial advice. DYOR.");
+  const [layoutMode, setLayoutMode] = useState<"MOBILE" | "DESKTOP">((searchParams.get("layout") as "MOBILE" | "DESKTOP") || "MOBILE");
 
   // ── UI state ──
   const [livePrice, setLivePrice] = useState("—");
@@ -500,23 +503,41 @@ R:R to TP3   1 : ${rr3}
               </div>
               <div>
                 <label className="block text-slate-500 font-semibold mb-1 uppercase tracking-wide text-[10px]">Direction</label>
-                <select value={direction} onChange={e => setDirection(e.target.value as "LONG" | "SHORT")} className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs">
-                  <option value="LONG">🟢 LONG</option>
-                  <option value="SHORT">🔴 SHORT</option>
-                </select>
-              </div>
-              <div className="col-span-2 sm:col-span-4 lg:col-span-10 mt-1">
-                <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px] flex items-center justify-between">
-                  <span>Custom Disclaimer / Caption Note</span>
-                  <span className="text-[#E39E2E] font-normal normal-case">Updates chart card badge & Telegram post text</span>
-                </label>
-                <input 
-                  type="text" 
-                  value={disclaimer} 
-                  onChange={e => setDisclaimer(e.target.value)} 
-                  placeholder="e.g. Not financial advice. DYOR." 
-                  className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-3 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" 
-                />
+                <select value={direction} onChange={e => setDirection(e.target.value as "LONG" | "SHORT")} className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-2.5 py-1.5 rounded-lg font-bold text-white focus:outli              <div className="col-span-2 sm:col-span-4 lg:col-span-10 mt-1 flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#1C222E]">
+                <div className="flex-1 min-w-[280px]">
+                  <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px] flex items-center justify-between">
+                    <span>Custom Disclaimer / Caption Note</span>
+                    <span className="text-[#E39E2E] font-normal normal-case">Updates chart card badge & Telegram post text</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    value={disclaimer} 
+                    onChange={e => setDisclaimer(e.target.value)} 
+                    placeholder="e.g. Not financial advice. DYOR." 
+                    className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-3 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px]">
+                    Telegram Layout Format
+                  </label>
+                  <div className="flex bg-[#12151C] p-1 border border-[#252D3D] rounded-xl gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setLayoutMode("MOBILE")}
+                      className={`px-3 py-1 rounded-lg font-extrabold text-xs transition-all flex items-center gap-1.5 ${layoutMode === "MOBILE" ? "bg-gradient-to-r from-[#F6E09E] to-[#CBB079] text-black shadow-md" : "text-slate-400 hover:text-white"}`}
+                    >
+                      <Smartphone className="w-3.5 h-3.5" /> Mobile Feed (4:5)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setLayoutMode("DESKTOP")}
+                      className={`px-3 py-1 rounded-lg font-extrabold text-xs transition-all flex items-center gap-1.5 ${layoutMode === "DESKTOP" ? "bg-gradient-to-r from-[#F6E09E] to-[#CBB079] text-black shadow-md" : "text-slate-400 hover:text-white"}`}
+                    >
+                      <Monitor className="w-3.5 h-3.5" /> Widescreen (16:9)
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -524,40 +545,60 @@ R:R to TP3   1 : ${rr3}
       )}
 
       <div className="flex justify-center w-full overflow-hidden px-4">
-        <div id="signal-capture-card" ref={captureRef} className="w-full max-w-6xl h-[650px] relative rounded-3xl overflow-hidden border-[6px] border-[#181C24] shadow-2xl flex flex-col bg-[#0A0B0D]">
-          
+        <div 
+          id="signal-capture-card" 
+          ref={captureRef} 
+          className={`w-full relative rounded-3xl overflow-hidden border-[6px] border-[#181C24] shadow-2xl flex flex-col bg-[#0A0B0D] transition-all ${
+            layoutMode === "MOBILE" ? "max-w-[560px] min-h-[820px]" : "max-w-6xl h-[650px]"
+          }`}
+        >
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#F6E09E] to-transparent z-20" />
             
-            <div className="flex items-center justify-between p-6 px-8 border-b border-[#1E242C] z-10 shrink-0">
-              <div className="flex items-center gap-5">
-                <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-[#CBB079] bg-black">
+            <div className={`flex items-center justify-between border-b border-[#1E242C] z-10 shrink-0 ${
+              layoutMode === "MOBILE" ? "p-4 px-5" : "p-6 px-8"
+            }`}>
+              <div className="flex items-center gap-3">
+                <div className={`relative rounded-xl overflow-hidden border-2 border-[#CBB079] bg-black shrink-0 ${
+                  layoutMode === "MOBILE" ? "w-11 h-11" : "w-14 h-14"
+                }`}>
                   <Image src="/yaga_calls_logo.png" alt="YagaCalls" fill sizes="56px" className="object-cover" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-[22px] font-black tracking-[4px] text-white uppercase">YAGACALLS SIGNAL</span>
-                    <span className="px-3 py-1 rounded-full text-[10px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] text-black uppercase tracking-wider">BEING ROYAL</span>
+                  <div className="flex items-center gap-2">
+                    <span className={`font-black tracking-[3px] text-white uppercase ${
+                      layoutMode === "MOBILE" ? "text-base tracking-[2px]" : "text-[22px] tracking-[4px]"
+                    }`}>YAGACALLS SIGNAL</span>
+                    <span className="px-2.5 py-0.5 rounded-full text-[9px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] text-black uppercase tracking-wider">BEING ROYAL</span>
                   </div>
-                  <div className="text-xs font-bold text-[#CBB079] tracking-[0.2em] uppercase flex items-center gap-2 mt-1">
+                  <div className="text-[10px] font-bold text-[#CBB079] tracking-[0.15em] uppercase flex items-center gap-1.5 mt-0.5">
                     QUANTITATIVE POSITION FORECAST
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#11141B] border border-[#1E2533] px-5 py-2.5 rounded-2xl flex items-center gap-4 font-mono shadow-xl">
-                <span className="text-xl font-black text-white">${symbol}</span>
-                <span className="text-sm font-bold text-slate-500">{pair}</span>
-                <span className={`px-2.5 py-1 rounded text-xs font-black uppercase border ${isLong ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/40" : "bg-red-500/15 text-red-400 border-red-500/40"}`}>
+              <div className={`bg-[#11141B] border border-[#1E2533] rounded-2xl flex items-center font-mono shadow-xl shrink-0 ${
+                layoutMode === "MOBILE" ? "px-3 py-1.5 gap-2 text-xs" : "px-5 py-2.5 gap-4"
+              }`}>
+                <span className={`font-black text-white ${layoutMode === "MOBILE" ? "text-base" : "text-xl"}`}>${symbol}</span>
+                <span className={`px-2 py-0.5 rounded font-black uppercase border ${
+                  layoutMode === "MOBILE" ? "text-[10px]" : "text-xs"
+                } ${isLong ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/40" : "bg-red-500/15 text-red-400 border-red-500/40"}`}>
                   {direction} · {leverage}
                 </span>
-                <span className="text-base font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent">Live {livePrice}</span>
+                <span className={`font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent ${
+                  layoutMode === "MOBILE" ? "text-xs" : "text-base"
+                }`}>Live {livePrice}</span>
               </div>
             </div>
 
-            <div className="flex flex-1 p-8 pt-6 gap-8 min-h-0 relative">
-              <div className="flex-1 min-w-0 bg-[#070809] border border-[#1E242C] rounded-2xl overflow-hidden flex flex-col shadow-inner">
-                <div className="bg-[#0F1217] px-5 py-2.5 border-b border-[#1E242C] flex items-center justify-between text-xs font-mono shrink-0">
+            <div className={`flex flex-1 min-h-0 relative ${
+              layoutMode === "MOBILE" ? "flex-col p-4 pt-3 gap-3" : "p-8 pt-6 gap-8"
+            }`}>
+              <div className={`bg-[#070809] border border-[#1E242C] rounded-2xl overflow-hidden flex flex-col shadow-inner ${
+                layoutMode === "MOBILE" ? "w-full h-[390px] min-h-[390px] shrink-0 relative" : "flex-1 min-w-0"
+              }`}>
+                <div className="bg-[#0F1217] px-4 py-2 border-b border-[#1E242C] flex items-center justify-between text-xs font-mono shrink-0">
                   <div className="flex items-center gap-3">
                     <BarChart2 className="w-4 h-4 text-[#CBB079]" />
                     <span className="font-bold text-white">{pair}</span>
@@ -664,13 +705,17 @@ R:R to TP3   1 : ${rr3}
                 </div>
               </div>
 
-              <div className="w-[320px] flex flex-col gap-6 shrink-0">
-                <div className="bg-[#0D1016] border border-[#1C222E] rounded-2xl p-5 shadow-2xl font-mono text-xs flex-1">
-                  <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#1A202C]">
-                    <div className="flex items-center gap-2 text-[11px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent uppercase tracking-widest">
-                      <Zap className="w-4 h-4 text-[#F6E09E]" /> Signal Levels
+              <div className={`flex shrink-0 ${
+                layoutMode === "MOBILE" ? "grid grid-cols-2 gap-3 w-full" : "w-[320px] flex-col gap-6"
+              }`}>
+                <div className={`bg-[#0D1016] border border-[#1C222E] rounded-2xl shadow-2xl font-mono text-xs flex flex-col justify-between ${
+                  layoutMode === "MOBILE" ? "p-3.5" : "p-5 flex-1"
+                }`}>
+                  <div className="flex items-center justify-between pb-2.5 mb-2 border-b border-[#1A202C]">
+                    <div className="flex items-center gap-1.5 text-[10px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent uppercase tracking-widest">
+                      <Zap className="w-3.5 h-3.5 text-[#F6E09E]" /> Signal Levels
                     </div>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#CBB079]/10 text-[#F6E09E] border border-[#CBB079]/20">
+                    <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-[#CBB079]/10 text-[#F6E09E] border border-[#CBB079]/20">
                       {leverage}
                     </span>
                   </div>
@@ -683,43 +728,54 @@ R:R to TP3   1 : ${rr3}
                       { lbl: "TP2",   val: tp2,      c: "text-[#CBB079]", b: `${tpSign}${tp2Pct}%`,    bc: "text-[#CBB079] bg-[#CBB079]/10" },
                       { lbl: "TP3",   val: tp3,      c: "text-[#F6E09E]", b: `${tpSign}${tp3Pct}%`,    bc: "text-[#F6E09E] bg-[#F6E09E]/10" },
                     ].map((r, i) => (
-                      <div key={r.lbl} className={`flex justify-between items-center py-2 ${i < 4 ? "border-b border-[#1A202C]/60" : ""}`}>
-                        <span className="text-slate-400 font-bold">{r.lbl}</span>
-                        <div className="flex items-center gap-2">
-                          <span className={`font-black text-[13px] ${r.c}`}>{r.val}</span>
-                          {r.b && <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${r.bc}`}>{r.b}</span>}
+                      <div key={r.lbl} className={`flex justify-between items-center py-1.5 ${i < 4 ? "border-b border-[#1A202C]/60" : ""}`}>
+                        <span className="text-slate-400 font-bold text-[11px]">{r.lbl}</span>
+                        <div className="flex items-center gap-1.5">
+                          <span className={`font-black text-[12px] ${r.c}`}>{r.val}</span>
+                          {r.b && <span className={`text-[8px] font-bold px-1 py-0.5 rounded ${r.bc}`}>{r.b}</span>}
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="bg-[#0D1016] border border-[#1C222E] rounded-2xl p-5 shadow-2xl font-mono text-xs">
-                  <div className="flex items-center gap-2 pb-3 mb-3 border-b border-[#1A202C] text-[11px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent uppercase tracking-widest">
-                    <Target className="w-4 h-4 text-[#F6E09E]" /> Risk-to-Reward
+                <div className="flex flex-col gap-3">
+                  <div className={`bg-[#0D1016] border border-[#1C222E] rounded-2xl shadow-2xl font-mono text-xs flex-1 ${
+                    layoutMode === "MOBILE" ? "p-3.5" : "p-5"
+                  }`}>
+                    <div className="flex items-center gap-1.5 pb-2.5 mb-2 border-b border-[#1A202C] text-[10px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent uppercase tracking-widest">
+                      <Target className="w-3.5 h-3.5 text-[#F6E09E]" /> Risk-to-Reward
+                    </div>
+                    <div className="space-y-1.5">
+                      {[
+                        { lbl: "R:R → TP1", val: rr1 },
+                        { lbl: "R:R → TP2", val: rr2 },
+                        { lbl: "R:R → TP3", val: rr3, isGold: true },
+                      ].map(r => (
+                        <div key={r.lbl} className="flex justify-between items-center bg-[#080A0E] px-2.5 py-1.5 rounded-xl border border-[#1A202C]">
+                          <span className="text-slate-500 font-bold text-[10px]">{r.lbl}</span>
+                          <span className={`font-black text-[12px] ${r.isGold ? 'bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent' : 'text-[#CBB079]'}`}>
+                            1 : {r.val}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="space-y-2.5">
-                    {[
-                      { lbl: "R:R → TP1", val: rr1 },
-                      { lbl: "R:R → TP2", val: rr2 },
-                      { lbl: "R:R → TP3", val: rr3, isGold: true },
-                    ].map(r => (
-                      <div key={r.lbl} className="flex justify-between items-center bg-[#080A0E] px-3 py-2 rounded-xl border border-[#1A202C]">
-                        <span className="text-slate-500 font-bold">{r.lbl}</span>
-                        <span className={`font-black text-[13px] ${r.isGold ? 'bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent' : 'text-[#CBB079]'}`}>
-                          1 : {r.val}
-                        </span>
-                      </div>
-                    ))}
+
+                  <div className="flex items-center justify-between text-[9px] font-bold text-slate-500 uppercase tracking-wider px-1">
+                    <div className="flex items-center gap-1 text-slate-400 font-semibold">
+                      <ShieldAlert className="w-3 h-3 text-[#ef5350] shrink-0" />
+                      <span className="truncate max-w-[160px]" title={disclaimer}>{disclaimer}</span>
+                    </div>
+                    <span className="bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent font-black">
+                      BEING ROYAL
+                    </span>
                   </div>
                 </div>
-
-                <div className="flex items-center justify-between text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-2">
-                  <div className="flex items-center gap-1.5 text-slate-400 font-semibold">
-                    <ShieldAlert className="w-3.5 h-3.5 text-[#ef5350] shrink-0" />
-                    <span className="truncate max-w-[260px]" title={disclaimer}>{disclaimer}</span>
-                  </div>
-                  <span className="bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent font-black">
+              </div>
+            </div>
+        </div>
+      </div>079] bg-clip-text text-transparent font-black">
                     BEING ROYAL
                   </span>
               </div>
