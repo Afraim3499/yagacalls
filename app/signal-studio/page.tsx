@@ -576,10 +576,16 @@ function SignalStudioContent() {
                           method: 'POST',
                           body: formData
                         });
-                        const resData = await res.json();
+                        const responseText = await res.text();
+                        let resData: any = {};
+                        try {
+                          resData = JSON.parse(responseText);
+                        } catch {
+                          resData = { success: false, error: responseText.slice(0, 200) };
+                        }
                         
-                        if (!resData.success) {
-                          alert("Signal saved to Database, but Telegram dispatch failed: " + (resData.error || "Unknown error"));
+                        if (!res.ok || !resData.success) {
+                          alert("Signal saved to Database, but Telegram dispatch failed: " + (resData.error || "Server error"));
                         } else if (resData.warnings) {
                           alert("Signal Saved! Sent to Admin Bot, with warnings: " + resData.warnings.join(", "));
                         } else {
