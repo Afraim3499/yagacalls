@@ -18,6 +18,8 @@ import {
   createBreadcrumbSchema 
 } from "@/lib/schema";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Premium%20Telegram%20Crypto%20Signals&subtitle=Telegram-First%20Crypto%20Signal%20Notes%2C%20Narrative%20Research%20%26%20Risk%20Context";
+
 export const metadata: Metadata = {
   title: "Premium Telegram Signals for Serious Traders",
   description: "Yaga Calls — also searched as Yagacall or Yaga Call — delivers premium Telegram crypto signals with narrative research and risk-managed setup notes.",
@@ -28,7 +30,15 @@ export const metadata: Metadata = {
     title: "Premium Telegram Crypto Signals — Yaga Calls",
     description: "Telegram-first crypto signal notes with market narrative research, clear entries, targets, invalidation logic, and risk-managed setup context.",
     url: "https://www.yagacalls.com/premium-telegram-crypto-signals",
+    siteName: "Yaga Calls",
     type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Premium Telegram Crypto Signals — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Premium Telegram Crypto Signals — Yaga Calls",
+    description: "Telegram-first crypto signal notes with market narrative research, clear entries, targets, invalidation logic, and risk-managed setup context.",
+    images: [ogImageUrl],
   },
 };
 

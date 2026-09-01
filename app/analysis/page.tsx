@@ -5,6 +5,11 @@ import Section from "@/components/shared/Section";
 import AnalysisFeed from "@/components/market/AnalysisFeed";
 import { MarketAnalysisItem } from "@/types/content";
 import CTAButton from "@/components/shared/CTAButton";
+import JsonLd from "@/components/seo/JsonLd";
+import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
+
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Latest%20Crypto%20Market%20Analysis&subtitle=Real-time%20market%20insights%2C%20price%20analysis%2C%20and%20trading%20updates";
 
 export const metadata = {
   title: "Latest Crypto Market Analysis",
@@ -12,11 +17,21 @@ export const metadata = {
   alternates: {
     canonical: "https://www.yagacalls.com/analysis",
   },
+  openGraph: {
+    title: "Latest Crypto Market Analysis — Yaga Calls",
+    description: "Real-time market insights, price analysis, and trading updates from the Yaga Calls research team.",
+    url: "https://www.yagacalls.com/analysis",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Latest Crypto Market Analysis" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Latest Crypto Market Analysis — Yaga Calls",
+    description: "Real-time market insights, price analysis, and trading updates from the Yaga Calls research team.",
+    images: [ogImageUrl],
+  },
 };
-
-import JsonLd from "@/components/seo/JsonLd";
-import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
-import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 async function getAnalysisData(): Promise<MarketAnalysisItem[]> {
   const filePath = path.join(process.cwd(), "content/data/analysis.json");

@@ -10,11 +10,27 @@ import BlogListingClient from "@/components/blog/BlogListingClient";
 import { blogPostsMetadata } from "@/content/blog/posts";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Yaga%20Calls%20Blog&subtitle=Crypto%20Signals%2C%20Market%20Analysis%20and%20Trading%20Guides";
+
 export const metadata = {
   title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
   description: "Read practical crypto trading guides, signal breakdowns, risk-management lessons, and market narrative analysis to help you understand the logic behind setups.",
   alternates: {
     canonical: "https://www.yagacalls.com/blog",
+  },
+  openGraph: {
+    title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
+    description: "Read practical crypto trading guides, signal breakdowns, risk-management lessons, and market narrative analysis to help you understand the logic behind setups.",
+    url: "https://www.yagacalls.com/blog",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Yaga Calls Blog" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls Blog | Crypto Signals, Market Analysis and Trading Guides",
+    description: "Read practical crypto trading guides, signal breakdowns, risk-management lessons, and market narrative analysis to help you understand the logic behind setups.",
+    images: [ogImageUrl],
   },
   robots: {
     index: true,

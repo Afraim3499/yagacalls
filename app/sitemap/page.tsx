@@ -15,11 +15,27 @@ import { commercialPages } from "@/content/data/commercial";
 import { blogPostsMetadata } from "@/content/blog/posts";
 import { authors } from "@/content/data/authors";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=HTML%20Sitemap&subtitle=Full%20Map%20of%20Every%20Page%20on%20Yaga%20Calls";
+
 export const metadata: Metadata = {
   title: "Sitemap",
   description: "Full, human-readable map of every page on Yaga Calls — guides, academy modules, blog posts, regional coverage, and tools, organized by section.",
   alternates: {
     canonical: "https://www.yagacalls.com/sitemap",
+  },
+  openGraph: {
+    title: "Sitemap — Yaga Calls",
+    description: "Full, human-readable map of every page on Yaga Calls — guides, academy modules, blog posts, regional coverage, and tools, organized by section.",
+    url: "https://www.yagacalls.com/sitemap",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Sitemap — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sitemap — Yaga Calls",
+    description: "Full, human-readable map of every page on Yaga Calls — guides, academy modules, blog posts, regional coverage, and tools, organized by section.",
+    images: [ogImageUrl],
   },
   robots: {
     index: true,

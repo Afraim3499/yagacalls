@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/crypto-risk-management",
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Crypto Risk Management Guide",
     description: "A serious guide to crypto trading risk: position sizing, stop-losses, invalidation, leverage, drawdown, emotional control, and Yaga Calls’ risk-aware signal structure.",
     type: "article",

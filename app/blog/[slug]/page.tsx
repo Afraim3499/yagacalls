@@ -79,6 +79,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       'max-video-preview': -1,
     },
     openGraph: {
+    siteName: "Yaga Calls",
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
       url: `https://www.yagacalls.com/blog/${slug}`,

@@ -4,6 +4,11 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import NewsFeed from "@/components/market/NewsFeed";
 import { NewsItem } from "@/types/content";
+import JsonLd from "@/components/seo/JsonLd";
+import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
+import { BRAND_CONFIG } from "@/lib/constants/brand";
+
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Latest%20Crypto%20News&subtitle=Real-time%20cryptocurrency%20news%2C%20Bitcoin%20updates%2C%20and%20market%20insights";
 
 export const metadata = {
   title: "Latest Crypto News",
@@ -11,11 +16,21 @@ export const metadata = {
   alternates: {
     canonical: "https://www.yagacalls.com/news",
   },
+  openGraph: {
+    title: "Latest Crypto News — Yaga Calls",
+    description: "Stay updated with real-time cryptocurrency news, Bitcoin updates, and market insights from trusted sources.",
+    url: "https://www.yagacalls.com/news",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Latest Crypto News" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Latest Crypto News — Yaga Calls",
+    description: "Stay updated with real-time cryptocurrency news, Bitcoin updates, and market insights from trusted sources.",
+    images: [ogImageUrl],
+  },
 };
-
-import JsonLd from "@/components/seo/JsonLd";
-import { createWebPageSchema, createBreadcrumbSchema } from "@/lib/schema";
-import { BRAND_CONFIG } from "@/lib/constants/brand";
 
 async function getNewsData(): Promise<NewsItem[]> {
   const filePath = path.join(process.cwd(), "content/data/news.json");

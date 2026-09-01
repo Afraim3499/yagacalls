@@ -11,6 +11,8 @@ import { CheckCircle2, X } from "lucide-react";
 import { BRAND_CONFIG } from "@/lib/constants/brand";
 import { createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Global%20Crypto%20Signal%20Regions&subtitle=GCC%2C%20UAE%2C%20Dubai%2C%20UK%2C%20USA%2C%20Australia%2C%20Singapore%20%26%20Europe";
+
 export const metadata: Metadata = {
   title: "Regions Hub | Global Crypto Signal Access",
   description: "Explore Yaga Calls regional crypto signal pages for serious traders in GCC, UAE, Dubai, UK, USA, Australia, Singapore, Europe, and other high-purchase-power markets.",
@@ -20,7 +22,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Yaga Calls Global Crypto Signal Regions",
     description: "Find regional Yaga Calls pages for serious crypto traders in GCC, Dubai, UAE, UK, USA, Australia, Singapore, Europe, and other premium markets.",
-  }
+    url: "https://www.yagacalls.com/regions",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Yaga Calls Global Crypto Signal Regions" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls Global Crypto Signal Regions",
+    description: "Find regional Yaga Calls pages for serious crypto traders in GCC, Dubai, UAE, UK, USA, Australia, Singapore, Europe, and other premium markets.",
+    images: [ogImageUrl],
+  },
 };
 
 export default function RegionsPage() {

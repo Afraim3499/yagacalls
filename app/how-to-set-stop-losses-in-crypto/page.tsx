@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/how-to-set-stop-losses-in-crypto",
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "How to Set Stop-Losses in Crypto",
     description: "A serious guide to crypto stop-loss placement: invalidation, structure, volatility, position sizing, leverage risk, Telegram signals and common mistakes.",
     type: "article",

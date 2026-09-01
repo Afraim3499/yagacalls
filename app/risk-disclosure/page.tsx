@@ -1,11 +1,27 @@
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Risk%20Disclosure&subtitle=Crypto%20Market%20Volatility%2C%20Leverage%20Dangers%20%26%20Loss%20Awareness";
+
 export const metadata = {
   title: "Crypto Trading Risk Disclosure",
   description: "Read important risk disclosures before using crypto trading signals. Yaga Calls does not provide financial advice or guaranteed results.",
   alternates: {
     canonical: "https://www.yagacalls.com/risk-disclosure",
+  },
+  openGraph: {
+    title: "Crypto Trading Risk Disclosure — Yaga Calls",
+    description: "Read important risk disclosures before using crypto trading signals. Yaga Calls does not provide financial advice or guaranteed results.",
+    url: "https://www.yagacalls.com/risk-disclosure",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Crypto Trading Risk Disclosure" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crypto Trading Risk Disclosure — Yaga Calls",
+    description: "Read important risk disclosures before using crypto trading signals. Yaga Calls does not provide financial advice or guaranteed results.",
+    images: [ogImageUrl],
   },
 };
 
@@ -13,7 +29,6 @@ export default function RiskDisclosurePage() {
   return (
     <Section>
       <Container className="max-w-3xl">
-        <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black mb-10 uppercase tracking-tighter">Risk Disclosure</h1>
         <div className="prose prose-invert prose-amber max-w-none space-y-6 text-text-muted">
           <div className="p-6 bg-danger/10 border border-danger/30 rounded-xl text-danger font-bold text-lg mb-8">
             WARNING: TRADING CRYPTOCURRENCIES CARRIES A HIGH LEVEL OF RISK AND MAY NOT BE SUITABLE FOR ALL INVESTORS.

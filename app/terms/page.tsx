@@ -1,11 +1,27 @@
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Terms%20of%20Service&subtitle=User%20Agreement%2C%20Service%20Rules%20%26%20Liability%20Disclaimers";
+
 export const metadata = {
   title: "Terms of Service",
   description: "Read the official Terms of Service for Yaga Calls. Learn about our educational content disclaimer, community safety rules, and subscription terms.",
   alternates: {
     canonical: "https://www.yagacalls.com/terms",
+  },
+  openGraph: {
+    title: "Terms of Service — Yaga Calls",
+    description: "Read the official Terms of Service for Yaga Calls. Learn about our educational content disclaimer, community safety rules, and subscription terms.",
+    url: "https://www.yagacalls.com/terms",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Terms of Service — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service — Yaga Calls",
+    description: "Read the official Terms of Service for Yaga Calls. Learn about our educational content disclaimer, community safety rules, and subscription terms.",
+    images: [ogImageUrl],
   },
   robots: {
     index: true,
@@ -20,7 +36,6 @@ export default function TermsPage() {
   return (
     <Section>
       <Container className="max-w-3xl">
-        <h1 className="text-2xl sm:text-[30px] lg:text-[34px] font-black mb-10 uppercase tracking-tighter">Terms of Service</h1>
         <div className="prose prose-invert prose-amber max-w-none space-y-6 text-text-muted">
           <p>
             Welcome to Yaga Calls. By accessing our website, joining our Telegram channels (free or premium), or using our services, you agree to comply with and be bound by the following Terms of Service. Please read them carefully.

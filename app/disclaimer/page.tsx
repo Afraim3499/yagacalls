@@ -1,11 +1,27 @@
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Disclaimer%20%26%20Risk%20Disclosure&subtitle=Educational%20Content%20Notice%20%26%20Risk%20Disclaimers";
+
 export const metadata = {
   title: "Disclaimer & Risk Disclosure",
   description: "Important educational-only disclaimer and risk disclosure regarding crypto signals and market analysis from Yaga Calls.",
   alternates: {
     canonical: "https://www.yagacalls.com/disclaimer",
+  },
+  openGraph: {
+    title: "Disclaimer & Risk Disclosure — Yaga Calls",
+    description: "Important educational-only disclaimer and risk disclosure regarding crypto signals and market analysis from Yaga Calls.",
+    url: "https://www.yagacalls.com/disclaimer",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Disclaimer & Risk Disclosure — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Disclaimer & Risk Disclosure — Yaga Calls",
+    description: "Important educational-only disclaimer and risk disclosure regarding crypto signals and market analysis from Yaga Calls.",
+    images: [ogImageUrl],
   },
 };
 
@@ -13,7 +29,6 @@ export default function DisclaimerPage() {
   return (
     <Section>
       <Container className="max-w-3xl">
-        <h1 className="text-4xl font-black mb-10 uppercase tracking-tighter">Disclaimer</h1>
         <div className="prose prose-invert prose-amber max-w-none space-y-6 text-text-muted">
           <p className="text-text-high font-bold p-6 bg-surface rounded-xl border border-line">
             Yaga Calls provides educational content only. Nothing on this website, our Telegram groups, or any communication from our team constitutes financial, investment, or trading advice.

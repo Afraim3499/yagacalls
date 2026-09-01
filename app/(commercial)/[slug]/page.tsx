@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       'max-video-preview': -1,
     },
     openGraph: {
+    siteName: "Yaga Calls",
       title: page.metaTitle,
       description: page.metaDescription,
       url: `https://www.yagacalls.com/${slug}`,

@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/position-sizing-calculator",
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Crypto Position Sizing Calculator",
     description: "Estimate crypto trade size using account size, risk per trade, entry, stop-loss and target price. Learn position sizing, stop distance and risk-to-reward.",
     type: "website",

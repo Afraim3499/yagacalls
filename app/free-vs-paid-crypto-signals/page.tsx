@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL_URL,
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Free vs Paid Crypto Signals",
     description: "A serious comparison of free and paid crypto signals: Telegram groups, premium access, proof, pricing, risk management, red flags and Yaga Calls’ approach.",
     url: CANONICAL_URL,

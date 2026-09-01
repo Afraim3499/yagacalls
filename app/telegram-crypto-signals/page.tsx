@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/telegram-crypto-signals",
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Telegram Crypto Signals Guide",
     description: "A serious guide to Telegram crypto signals: signal structure, free vs paid groups, fake admin safety, and risk checks.",
     type: "article",

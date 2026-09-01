@@ -42,6 +42,8 @@ import { BRAND_CONFIG } from "@/lib/constants/brand";
 const SITE_URL = BRAND_CONFIG.siteUrl;
 const CANONICAL_URL = `${SITE_URL}/leverage-trading-calculator`;
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Crypto%20Leverage%20Trading%20Calculator&subtitle=Margin%2C%20PnL%2C%20Notional%20Exposure%20%26%20Risk%20Tool";
+
 export const metadata: Metadata = {
   title: "Crypto Leverage Trading Calculator | Margin, PnL & Risk",
   description: "Estimate crypto leverage trade margin, notional value, PnL, stop-loss loss, target profit and risk warnings. Educational calculator only.",
@@ -52,8 +54,16 @@ export const metadata: Metadata = {
     title: "Crypto Leverage Trading Calculator",
     description: "Estimate margin, position value, PnL and leverage risk for crypto trades. Learn how leverage changes exposure, losses and liquidation danger.",
     url: CANONICAL_URL,
+    siteName: "Yaga Calls",
     type: "website",
-  }
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Crypto Leverage Trading Calculator" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crypto Leverage Trading Calculator",
+    description: "Estimate margin, position value, PnL and leverage risk for crypto trades. Learn how leverage changes exposure, losses and liquidation danger.",
+    images: [ogImageUrl],
+  },
 };
 
 export default function LeverageTradingCalculatorPage() {

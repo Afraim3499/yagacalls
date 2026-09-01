@@ -27,7 +27,22 @@ export const metadata = {
     title: "Yaga Calls — Premium Telegram Crypto Signals",
     description: "Structured crypto setup ideas, narrative-driven market analysis, and risk-managed signal notes delivered through Telegram.",
     url: "https://www.yagacalls.com/",
+    siteName: "Yaga Calls",
     type: "website",
+    images: [
+      {
+        url: "https://www.yagacalls.com/api/og?title=Yaga%20Calls%20%E2%80%94%20Premium%20Telegram%20Crypto%20Signals&subtitle=Structured%20crypto%20setup%20ideas%2C%20narrative-driven%20market%20analysis%2C%20and%20risk-managed%20signal%20notes",
+        width: 1200,
+        height: 630,
+        alt: "Yaga Calls — Premium Telegram Crypto Signals",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls — Premium Telegram Crypto Signals",
+    description: "Structured crypto setup ideas, narrative-driven market analysis, and risk-managed signal notes delivered through Telegram.",
+    images: ["https://www.yagacalls.com/api/og?title=Yaga%20Calls%20%E2%80%94%20Premium%20Telegram%20Crypto%20Signals&subtitle=Structured%20crypto%20setup%20ideas%2C%20narrative-driven%20market%20analysis%2C%20and%20risk-managed%20signal%20notes"],
   },
 };
 

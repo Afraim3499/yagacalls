@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/authors",
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Yaga Calls Analysts & Writers",
     description: "Meet the research analysts, on-chain investigators, and market writers behind Yaga Calls' market narrative research and educational guides.",
     url: "https://www.yagacalls.com/authors",

@@ -307,6 +307,33 @@ function checkContentHasCuratedCrossLinks() {
   }
 }
 
+// ── Check 8: openGraph.images, openGraph.siteName, and twitter must be set on all pages ──
+// Next.js metadata shallow-merges openGraph, so defining openGraph without images or siteName
+// in a page overwrites the parent layout's openGraph values, causing social previews to fail.
+function checkOpenGraphAndTwitterCompleteness() {
+  const pageFiles = walk(path.join(ROOT, 'app'), (f) => f.endsWith('page.tsx'));
+  for (const file of pageFiles) {
+    const src = fs.readFileSync(file, 'utf8');
+    const rel = path.relative(ROOT, file);
+    if (!src.includes('export const metadata') && !src.includes('export async function generateMetadata')) continue;
+
+    if (src.includes('openGraph:')) {
+      if (!src.includes('images:') && !src.includes('ogImageUrl')) {
+        fail(`${rel} — openGraph block defined without "images" (causes og:image to be missing in social previews).`);
+      }
+      if (!src.includes('siteName:')) {
+        fail(`${rel} — openGraph block defined without "siteName" (causes og:site_name to be missing).`);
+      }
+    } else {
+      fail(`${rel} — page has metadata but no openGraph configuration.`);
+    }
+
+    if (!src.includes('twitter:')) {
+      fail(`${rel} — page has metadata but no twitter configuration.`);
+    }
+  }
+}
+
 checkRobotsDuplication();
 checkJsonLdNames();
 checkRegionReferencesAreReal();
@@ -314,6 +341,7 @@ checkSitemapCoversRegionFolders();
 checkNoDoubledTitleSuffix();
 checkStaticRoutesCoveredBySitemap();
 checkContentHasCuratedCrossLinks();
+checkOpenGraphAndTwitterCompleteness();
 
 if (warnings.length > 0) {
   console.warn(`\n⚠ ${warnings.length} content cross-linking warning(s) (does not block the build):\n`);

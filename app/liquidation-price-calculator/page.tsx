@@ -45,6 +45,8 @@ import { BRAND_CONFIG } from "@/lib/constants/brand";
 const SITE_URL = BRAND_CONFIG.siteUrl;
 const CANONICAL_URL = `${SITE_URL}/liquidation-price-calculator`;
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Crypto%20Liquidation%20Price%20Calculator&subtitle=Estimate%20Approximate%20Leverage%20Risk%20%26%20Liquidation%20Levels";
+
 export const metadata: Metadata = {
   title: "Crypto Liquidation Price Calculator | Estimate Leverage Risk",
   description: "Estimate approximate crypto liquidation price for long and short leverage trades. Learn margin, maintenance margin, stop-loss risk and liquidation warnings.",
@@ -55,8 +57,16 @@ export const metadata: Metadata = {
     title: "Crypto Liquidation Price Calculator",
     description: "Estimate approximate liquidation-risk levels for leveraged crypto trades. Learn how leverage, margin, stop-losses and exchange rules affect liquidation risk.",
     url: CANONICAL_URL,
+    siteName: "Yaga Calls",
     type: "website",
-  }
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Crypto Liquidation Price Calculator" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crypto Liquidation Price Calculator",
+    description: "Estimate approximate liquidation-risk levels for leveraged crypto trades. Learn how leverage, margin, stop-losses and exchange rules affect liquidation risk.",
+    images: [ogImageUrl],
+  },
 };
 
 export default function LiquidationPriceCalculatorPage() {

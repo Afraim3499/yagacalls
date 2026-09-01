@@ -2,6 +2,11 @@ import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 import GlowCard from "@/components/shared/GlowCard";
 import { GraduationCap } from "lucide-react";
+import fs from "fs";
+import path from "path";
+import Link from "next/link";
+
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Yaga%20Calls%20Academy&subtitle=Learn%20Crypto%20Signals%2C%20Trade%20Structure%20%26%20Risk%20Management";
 
 export const metadata = {
   title: "Yaga Calls Academy | Learn Crypto Signals and Risk Management",
@@ -9,18 +14,21 @@ export const metadata = {
   alternates: {
     canonical: "https://www.yagacalls.com/academy",
   },
-  robots: {
-    index: true,
-    follow: true,
-    'max-image-preview': 'large' as const,
-    'max-snippet': -1,
-    'max-video-preview': -1,
+  openGraph: {
+    title: "Yaga Calls Academy | Learn Crypto Signals and Risk Management",
+    description: "Learn how crypto signals work, how to read entries and targets, and how to manage risk before following any setup.",
+    url: "https://www.yagacalls.com/academy",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Yaga Calls Academy" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yaga Calls Academy | Learn Crypto Signals and Risk Management",
+    description: "Learn how crypto signals work, how to read entries and targets, and how to manage risk before following any setup.",
+    images: [ogImageUrl],
   },
 };
-
-import fs from "fs";
-import path from "path";
-import Link from "next/link";
 
 interface AcademyModule {
   slug: string;

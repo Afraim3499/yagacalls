@@ -42,6 +42,8 @@ import { BRAND_CONFIG } from "@/lib/constants/brand";
 const SITE_URL = BRAND_CONFIG.siteUrl;
 const CANONICAL_URL = `${SITE_URL}/about-yaga-calls`;
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=About%20Yaga%20Calls&subtitle=Official%20guide%20to%20Yaga%20Calls%3A%20crypto%20signals%2C%20Telegram%20access%2C%20method%2C%20proof%2C%20pricing%20and%20risk";
+
 export const metadata: Metadata = {
   title: "About Yaga Calls | Official Crypto Signals & Telegram Guide",
   description: "Learn about Yaga Calls, also searched as Yagacall, Yaga Call or Yaga crypto signals. Official Telegram access, method, proof, pricing and risk guide.",
@@ -52,7 +54,15 @@ export const metadata: Metadata = {
     title: "About Yaga Calls",
     description: "Official guide to Yaga Calls: crypto signals, Telegram access, brand search variations, method, proof, pricing, onboarding safety and risk disclaimers.",
     url: CANONICAL_URL,
+    siteName: "Yaga Calls",
     type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "About Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Yaga Calls",
+    description: "Official guide to Yaga Calls: crypto signals, Telegram access, brand search variations, method, proof, pricing, onboarding safety and risk disclaimers.",
+    images: [ogImageUrl],
   },
 };
 

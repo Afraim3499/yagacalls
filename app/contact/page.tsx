@@ -18,6 +18,8 @@ import {
   createBreadcrumbSchema 
 } from "@/lib/schema";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Contact%20Yaga%20Calls&subtitle=Manual%20Telegram%20Onboarding%2C%20Plan%20Confirmation%20%26%20Official%20Support";
+
 export const metadata: Metadata = {
   title: "Contact Yaga Calls | Join Premium Telegram Crypto Signals",
   description: "Contact Yaga Calls through Telegram for manual premium onboarding, discounted plan confirmation, crypto payment instructions, and private signal group access.",
@@ -28,7 +30,15 @@ export const metadata: Metadata = {
     title: "Contact Yaga Calls — Manual Telegram Onboarding",
     description: "Start manual onboarding for Yaga Calls premium Telegram crypto signals. Confirm discounted pricing, payment instructions, and official access safely.",
     url: "https://www.yagacalls.com/contact",
+    siteName: "Yaga Calls",
     type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Contact Yaga Calls — Manual Telegram Onboarding" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Yaga Calls — Manual Telegram Onboarding",
+    description: "Start manual onboarding for Yaga Calls premium Telegram crypto signals. Confirm discounted pricing, payment instructions, and official access safely.",
+    images: [ogImageUrl],
   },
 };
 

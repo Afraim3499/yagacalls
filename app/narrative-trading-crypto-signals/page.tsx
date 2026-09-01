@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/narrative-trading-crypto-signals",
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Narrative Trading Crypto Signals — Yaga Calls",
     description: "Learn how Yaga Calls tracks crypto market narratives, sector rotations, catalysts, and technical structures before sharing risk-aware Telegram signal notes.",
     images: [{ url: "https://www.yagacalls.com/api/og?title=Narrative%20Trading%20Crypto%20Signals&subtitle=Sector%20Rotations%2C%20Catalysts%20%26%20Market%20Stories", width: 1200, height: 630, alt: "Narrative Trading Crypto Signals" }],

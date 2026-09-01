@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/regions/germany",
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Germany Crypto Signals — Yaga Calls",
     description: "Telegram-first crypto signal notes, market narrative research, risk-aware setup context, selected proof examples, and manual onboarding for serious Germany traders.",
     images: [{ url: "https://www.yagacalls.com/api/og?title=Germany%20Crypto%20Signals%20%E2%80%94%20Yaga%20Calls&subtitle=Telegram-first%20crypto%20signal%20notes%2C%20market%20narrative%20research%2C%20risk-aware%20setup%20context%2C%20selected%20proof%20examples%2C%20and%20manual%20onboarding%20for%20serious%20Germany%20traders.", width: 1200, height: 630, alt: "Germany Crypto Signals — Yaga Calls" }],

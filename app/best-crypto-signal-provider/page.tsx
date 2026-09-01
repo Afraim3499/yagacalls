@@ -18,6 +18,8 @@ import {
   createBreadcrumbSchema 
 } from "@/lib/schema";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Best%20Crypto%20Signal%20Provider%20for%20Serious%20Traders&subtitle=How%20serious%20traders%20compare%20crypto%20signal%20groups%20by%20research%2C%20Telegram%20delivery%2C%20risk%2C%20and%20transparency";
+
 export const metadata: Metadata = {
   title: "Best Crypto Signal Provider for Serious Traders",
   description: "Looking for the best crypto signal provider? Learn how serious traders compare crypto signal groups by research quality, Telegram delivery, risk management, proof, and transparency.",
@@ -28,7 +30,15 @@ export const metadata: Metadata = {
     title: "Best Crypto Signal Provider for Serious Traders",
     description: "A practical guide to choosing a crypto signal provider — and why Yaga Calls is built for traders who value research, risk context, and Telegram-first delivery.",
     url: "https://www.yagacalls.com/best-crypto-signal-provider",
+    siteName: "Yaga Calls",
     type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Best Crypto Signal Provider for Serious Traders" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Crypto Signal Provider for Serious Traders",
+    description: "A practical guide to choosing a crypto signal provider — and why Yaga Calls is built for traders who value research, risk context, and Telegram-first delivery.",
+    images: [ogImageUrl],
   },
 };
 

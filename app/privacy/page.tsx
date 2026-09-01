@@ -1,11 +1,27 @@
 import Container from "@/components/shared/Container";
 import Section from "@/components/shared/Section";
 
+const ogImageUrl = "https://www.yagacalls.com/api/og?title=Privacy%20Policy&subtitle=Data%20Handling%2C%20Privacy%20Protection%20%26%20Security%20Standards";
+
 export const metadata = {
   title: "Privacy Policy",
   description: "Learn how Yaga Calls handles your data and privacy with transparency and minimal data collection.",
   alternates: {
     canonical: "https://www.yagacalls.com/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy — Yaga Calls",
+    description: "Learn how Yaga Calls handles your data and privacy with transparency and minimal data collection.",
+    url: "https://www.yagacalls.com/privacy",
+    siteName: "Yaga Calls",
+    type: "website",
+    images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Privacy Policy — Yaga Calls" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy — Yaga Calls",
+    description: "Learn how Yaga Calls handles your data and privacy with transparency and minimal data collection.",
+    images: [ogImageUrl],
   },
 };
 
@@ -13,7 +29,6 @@ export default function PrivacyPage() {
   return (
     <Section>
       <Container className="max-w-3xl">
-        <h1 className="text-4xl font-black mb-10 uppercase tracking-tighter">Privacy Policy</h1>
         <div className="prose prose-invert prose-amber max-w-none space-y-6 text-text-muted">
           <p>
             Your privacy is important to us. This policy explains how Yaga Calls handles information when you use our website or services.

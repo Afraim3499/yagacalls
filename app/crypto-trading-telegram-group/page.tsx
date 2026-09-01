@@ -61,6 +61,7 @@ export const metadata: Metadata = {
     canonical: CANONICAL_URL,
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Crypto Trading Telegram Group Guide",
     description: "A serious guide to crypto trading Telegram groups: signal structure, official links, fake admin safety, free vs premium access, and Yaga Calls’ approach.",
     url: CANONICAL_URL,

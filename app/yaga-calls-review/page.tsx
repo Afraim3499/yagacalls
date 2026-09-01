@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     canonical: "https://www.yagacalls.com/yaga-calls-review",
   },
   openGraph: {
+    siteName: "Yaga Calls",
     title: "Yaga Calls Community Reviews",
     description: "Authentic member feedback, trade setup notes reviews, and risk-management ratings from active Yaga Calls Telegram subscribers.",
     type: "article",
