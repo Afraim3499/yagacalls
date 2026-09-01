@@ -276,15 +276,15 @@ function SignalStudioContent() {
         volSeries.setData(vols);
 
         if (showEma20) {
-          const e20 = chart.addSeries(LineSeries, { color: "#00E5FF", lineWidth: 1.5, priceLineVisible: false, lastValueVisible: false });
+          const e20 = chart.addSeries(LineSeries, { color: "#00E5FF", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
           e20.setData(calcEMA(candles, 20));
         }
         if (showEma50) {
-          const e50 = chart.addSeries(LineSeries, { color: "#F6E09E", lineWidth: 1.5, priceLineVisible: false, lastValueVisible: false });
+          const e50 = chart.addSeries(LineSeries, { color: "#F6E09E", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
           e50.setData(calcEMA(candles, 50));
         }
         if (showEma200) {
-          const e200 = chart.addSeries(LineSeries, { color: "#A855F7", lineWidth: 1.5, priceLineVisible: false, lastValueVisible: false });
+          const e200 = chart.addSeries(LineSeries, { color: "#A855F7", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
           e200.setData(calcEMA(candles, 200));
         }
 
