@@ -386,26 +386,41 @@ function SignalStudioContent() {
         setLoading(false);
         setTimeout(recalcOverlay, 100);
 
-        try {
-          ws = new WebSocket(`wss://stream.binance.com:9443/ws/${pair.toLowerCase()}@kline_${timeframe}`);
-          ws.onmessage = ev => {
-            if (!isLive) return;
-            const msg = JSON.parse(ev.data);
-            if (msg.e !== "kline") return;
-            const k    = msg.k;
-            const time = (k.t / 1000) as Time;
-            const open  = parseFloat(k.o);
-            const high  = parseFloat(k.h);
-            const low   = parseFloat(k.l);
-            const close = parseFloat(k.c);
-            const vol   = parseFloat(k.v);
-            latestTimeRef.current = time;
-            candleSeries.update({ time, open, high, low, close });
-            volSeries.update({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
-            setLivePrice(close.toFixed(close < 1 ? 4 : 2));
-            recalcOverlay();
-          };
-        } catch { /* ignore WS err */ }
+        let reconnectTimer: any = null;
+        const initWs = () => {
+          if (!isLive) return;
+          try {
+            ws = new WebSocket(`wss://stream.binance.com:9443/ws/${pair.toLowerCase()}@kline_${timeframe}`);
+            ws.onmessage = ev => {
+              if (!isLive) return;
+              try {
+                const msg = JSON.parse(ev.data);
+                if (msg.e !== "kline") return;
+                const k    = msg.k;
+                const time = (k.t / 1000) as Time;
+                const open  = parseFloat(k.o);
+                const high  = parseFloat(k.h);
+                const low   = parseFloat(k.l);
+                const close = parseFloat(k.c);
+                const vol   = parseFloat(k.v);
+                latestTimeRef.current = time;
+                candleSeries.update({ time, open, high, low, close });
+                volSeries.update({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
+                setLivePrice(close.toFixed(close < 1 ? 4 : 2));
+                recalcOverlay();
+              } catch {}
+            };
+            ws.onclose = () => {
+              if (isLive) reconnectTimer = setTimeout(initWs, 3000);
+            };
+            ws.onerror = () => {
+              try { ws?.close(); } catch {}
+            };
+          } catch {
+            if (isLive) reconnectTimer = setTimeout(initWs, 3000);
+          }
+        };
+        initWs();
       })
       .catch(() => setLoading(false));
 
@@ -419,6 +434,7 @@ function SignalStudioContent() {
 
     return () => {
       isLive = false;
+      if (reconnectTimer) clearTimeout(reconnectTimer);
       if (ws) {
         ws.onopen = null;
         ws.onmessage = null;
@@ -854,29 +870,41 @@ Return : Reward to TP3   1 : ${rr3}
                 <div className="relative flex-1">
                   <div ref={chartContainerRef} className="absolute inset-0 cursor-crosshair active:cursor-grabbing" />
                   
-                  {/* Timeframe Highest & Lowest Price Level Badges */}
+                  {/* Timeframe Highest & Lowest Price Level Badges with Reference Lines */}
                   {overlay.highestY !== null && overlay.highestVal !== null && (
-                    <div 
-                      className="absolute left-3 z-20 pointer-events-none"
-                      style={{ top: `${Math.max(4, Math.min(chartH - 24, overlay.highestY - 10))}px` }}
-                    >
-                      <span className="bg-[#19160B]/90 border border-[#F6E09E]/70 px-2 py-0.5 rounded text-[9px] font-mono font-black text-[#F6E09E] shadow-md flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#F6E09E] animate-pulse" />
-                        HIGH: {overlay.highestVal.toFixed(overlay.highestVal < 1 ? 4 : 2)}
-                      </span>
-                    </div>
+                    <>
+                      <div 
+                        className="absolute left-0 right-0 border-t border-dashed border-[#F6E09E]/35 z-10 pointer-events-none"
+                        style={{ top: `${overlay.highestY}px` }}
+                      />
+                      <div 
+                        className="absolute left-2.5 z-20 pointer-events-none"
+                        style={{ top: `${Math.max(2, Math.min(chartH - 18, overlay.highestY - 9))}px` }}
+                      >
+                        <span className="bg-[#121008]/90 border border-[#F6E09E]/50 px-1.5 py-0.5 rounded text-[8.5px] font-mono font-bold text-[#F6E09E] shadow-sm flex items-center gap-1">
+                          <span className="w-1 h-1 rounded-full bg-[#F6E09E]" />
+                          H: {overlay.highestVal.toFixed(overlay.highestVal < 1 ? 4 : 2)}
+                        </span>
+                      </div>
+                    </>
                   )}
 
                   {overlay.lowestY !== null && overlay.lowestVal !== null && (
-                    <div 
-                      className="absolute left-3 z-20 pointer-events-none"
-                      style={{ top: `${Math.max(4, Math.min(chartH - 24, overlay.lowestY - 10))}px` }}
-                    >
-                      <span className="bg-[#1C0E10]/90 border border-[#ef5350]/70 px-2 py-0.5 rounded text-[9px] font-mono font-black text-[#ef5350] shadow-md flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ef5350] animate-pulse" />
-                        LOW: {overlay.lowestVal.toFixed(overlay.lowestVal < 1 ? 4 : 2)}
-                      </span>
-                    </div>
+                    <>
+                      <div 
+                        className="absolute left-0 right-0 border-t border-dashed border-[#ef5350]/35 z-10 pointer-events-none"
+                        style={{ top: `${overlay.lowestY}px` }}
+                      />
+                      <div 
+                        className="absolute left-2.5 z-20 pointer-events-none"
+                        style={{ top: `${Math.max(2, Math.min(chartH - 18, overlay.lowestY - 9))}px` }}
+                      >
+                        <span className="bg-[#140A0C]/90 border border-[#ef5350]/50 px-1.5 py-0.5 rounded text-[8.5px] font-mono font-bold text-[#ef5350] shadow-sm flex items-center gap-1">
+                          <span className="w-1 h-1 rounded-full bg-[#ef5350]" />
+                          L: {overlay.lowestVal.toFixed(overlay.lowestVal < 1 ? 4 : 2)}
+                        </span>
+                      </div>
+                    </>
                   )}
 
                   {eY !== null && futureStartX !== null && (

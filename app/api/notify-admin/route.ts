@@ -47,7 +47,8 @@ export async function POST(req: Request) {
 
       const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
         method: 'POST',
-        body: tgFormData
+        body: tgFormData,
+        signal: AbortSignal.timeout(15000)
       });
 
       const data = await res.json();
