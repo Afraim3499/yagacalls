@@ -487,23 +487,23 @@ function SignalStudioContent() {
 
       {!hideButtons && (
         <div className="border-b border-[#1A1F29] bg-[#0B0D11] mb-8">
-          <div className="max-w-screen-2xl mx-auto px-6 py-4">
-            <div className="flex items-center justify-between mb-5">
+          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 py-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-gradient-to-tr from-[#E39E2E] to-[#F5C26B] rounded-xl text-black shadow-lg shadow-[#E39E2E]/20">
+                <div className="p-2.5 bg-gradient-to-tr from-[#E39E2E] to-[#F5C26B] rounded-xl text-black shadow-lg shadow-[#E39E2E]/20 shrink-0">
                   <Sparkles className="w-5 h-5 stroke-[2.5]" />
                 </div>
                 <div>
-                  <h1 className="text-lg font-black tracking-wide text-white uppercase leading-none">
+                  <h1 className="text-base sm:text-lg font-black tracking-wide text-white uppercase leading-none">
                     YAGA CALLS SIGNAL STUDIO
                   </h1>
-                  <p className="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1.5">
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 flex items-center gap-1.5">
                     <Activity className="w-3 h-3 text-[#E39E2E]" />
                     Official Signal Generator · signal-studio.yagacalls.com
                   </p>
                 </div>
               </div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <button
                     onClick={async () => {
                       setIsFinalizing(true);
