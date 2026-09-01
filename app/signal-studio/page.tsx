@@ -328,101 +328,118 @@ function SignalStudioContent() {
     let isLive = true;
     let ws: WebSocket | null = null;
 
-    fetch(`/api/klines?symbol=${pair}&interval=${timeframe}&limit=60`)
-      .then(r => r.json())
-      .then((data: any[]) => {
-        if (!isLive || !Array.isArray(data)) return;
-
-        const candles: CandlestickData<Time>[] = [];
-        const vols: any[] = [];
-
-        data.forEach(d => {
-          const time  = (d[0] / 1000) as Time;
-          const open  = parseFloat(d[1]);
-          const high  = parseFloat(d[2]);
-          const low   = parseFloat(d[3]);
-          const close = parseFloat(d[4]);
-          const vol   = parseFloat(d[5]);
-          candles.push({ time, open, high, low, close });
-          vols.push({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
-        });
-
-        candleSeries.setData(candles);
-        volSeries.setData(vols);
-        candlesRef.current = candles;
-
-        if (showEma20) {
-          const e20 = chart.addSeries(LineSeries, { color: "#00E5FF", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-          e20.setData(calcEMA(candles, 20));
-        }
-        if (showEma50) {
-          const e50 = chart.addSeries(LineSeries, { color: "#F6E09E", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-          e50.setData(calcEMA(candles, 50));
-        }
-        if (showEma200) {
-          const e200 = chart.addSeries(LineSeries, { color: "#A855F7", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-          e200.setData(calcEMA(candles, 200));
-        }
-
-        if (candles.length > 0) {
-          const last = candles[candles.length - 1];
-          latestTimeRef.current = last.time;
-          const p = last.close;
-          setLivePrice(p.toFixed(p < 1 ? 4 : 2));
-
-          // Auto-sync Entry and TP/SL levels if entry was set for another coin
-          const currentEntry = parseFloat(entry);
-          if (isNaN(currentEntry) || currentEntry <= 0 || Math.abs(currentEntry - p) / p > 0.4) {
-            setEntry(p.toString());
-            const isL = direction === "LONG";
-            const mult = isL ? 1 : -1;
-            setStopLoss((p * (1 - 0.01 * mult)).toFixed(p < 1 ? 4 : 2));
-            setTp1((p * (1 + 0.008 * mult)).toFixed(p < 1 ? 4 : 2));
-            setTp2((p * (1 + 0.018 * mult)).toFixed(p < 1 ? 4 : 2));
-            setTp3((p * (1 + 0.030 * mult)).toFixed(p < 1 ? 4 : 2));
-          }
-        }
-
-        chart.timeScale().fitContent();
-        setLoading(false);
-        setTimeout(recalcOverlay, 100);
-
-        const initWs = () => {
+    const initWs = () => {
+      if (!isLive) return;
+      try {
+        ws = new WebSocket(`wss://stream.binance.com:9443/ws/${pair.toLowerCase()}@kline_${timeframe}`);
+        ws.onmessage = ev => {
           if (!isLive) return;
           try {
-            ws = new WebSocket(`wss://stream.binance.com:9443/ws/${pair.toLowerCase()}@kline_${timeframe}`);
-            ws.onmessage = ev => {
-              if (!isLive) return;
-              try {
-                const msg = JSON.parse(ev.data);
-                if (msg.e !== "kline") return;
-                const k    = msg.k;
-                const time = (k.t / 1000) as Time;
-                const open  = parseFloat(k.o);
-                const high  = parseFloat(k.h);
-                const low   = parseFloat(k.l);
-                const close = parseFloat(k.c);
-                const vol   = parseFloat(k.v);
-                latestTimeRef.current = time;
-                candleSeries.update({ time, open, high, low, close });
-                volSeries.update({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
-                setLivePrice(close.toFixed(close < 1 ? 4 : 2));
-                recalcOverlay();
-              } catch {}
-            };
-            ws.onclose = () => {
-              if (isLive) reconnectTimer = setTimeout(initWs, 3000);
-            };
-            ws.onerror = () => {
-              try { ws?.close(); } catch {}
-            };
-          } catch {
-            if (isLive) reconnectTimer = setTimeout(initWs, 3000);
-          }
+            const msg = JSON.parse(ev.data);
+            if (msg.e !== "kline") return;
+            const k    = msg.k;
+            const time = (k.t / 1000) as Time;
+            const open  = parseFloat(k.o);
+            const high  = parseFloat(k.h);
+            const low   = parseFloat(k.l);
+            const close = parseFloat(k.c);
+            const vol   = parseFloat(k.v);
+            latestTimeRef.current = time;
+            candleSeries.update({ time, open, high, low, close });
+            volSeries.update({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
+            setLivePrice(close.toFixed(close < 1 ? 4 : 2));
+            recalcOverlay();
+          } catch {}
         };
-        initWs();
+        ws.onclose = () => {
+          if (isLive) reconnectTimer = setTimeout(initWs, 3000);
+        };
+        ws.onerror = () => {
+          try { ws?.close(); } catch {}
+        };
+      } catch {
+        if (isLive) reconnectTimer = setTimeout(initWs, 3000);
+      }
+    };
+
+    const processKlinesData = (data: any[]) => {
+      if (!isLive || !Array.isArray(data) || data.length === 0) return;
+
+      const candles: CandlestickData<Time>[] = [];
+      const vols: any[] = [];
+
+      data.forEach(d => {
+        const time  = (d[0] / 1000) as Time;
+        const open  = parseFloat(d[1]);
+        const high  = parseFloat(d[2]);
+        const low   = parseFloat(d[3]);
+        const close = parseFloat(d[4]);
+        const vol   = parseFloat(d[5]);
+        candles.push({ time, open, high, low, close });
+        vols.push({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
+      });
+
+      candleSeries.setData(candles);
+      volSeries.setData(vols);
+      candlesRef.current = candles;
+
+      if (showEma20) {
+        const e20 = chart.addSeries(LineSeries, { color: "#00E5FF", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
+        e20.setData(calcEMA(candles, 20));
+      }
+      if (showEma50) {
+        const e50 = chart.addSeries(LineSeries, { color: "#F6E09E", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
+        e50.setData(calcEMA(candles, 50));
+      }
+      if (showEma200) {
+        const e200 = chart.addSeries(LineSeries, { color: "#A855F7", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
+        e200.setData(calcEMA(candles, 200));
+      }
+
+      const last = candles[candles.length - 1];
+      latestTimeRef.current = last.time;
+      const p = last.close;
+      setLivePrice(p.toFixed(p < 1 ? 4 : 2));
+
+      // Auto-sync Entry and TP/SL levels if entry was set for another coin
+      const currentEntry = parseFloat(entry);
+      if (isNaN(currentEntry) || currentEntry <= 0 || Math.abs(currentEntry - p) / p > 0.4) {
+        setEntry(p.toString());
+        const isL = direction === "LONG";
+        const mult = isL ? 1 : -1;
+        setStopLoss((p * (1 - 0.01 * mult)).toFixed(p < 1 ? 4 : 2));
+        setTp1((p * (1 + 0.008 * mult)).toFixed(p < 1 ? 4 : 2));
+        setTp2((p * (1 + 0.018 * mult)).toFixed(p < 1 ? 4 : 2));
+        setTp3((p * (1 + 0.030 * mult)).toFixed(p < 1 ? 4 : 2));
+      }
+
+      chart.timeScale().fitContent();
+      setLoading(false);
+      setTimeout(recalcOverlay, 100);
+    };
+
+    fetch(`/api/klines?symbol=${pair}&interval=${timeframe}&limit=60&_t=${Date.now()}`, { cache: "no-store" })
+      .then(r => r.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          processKlinesData(data);
+        } else {
+          // Direct fallback to Binance API if proxy returned non-array
+          return fetch(`https://api.binance.com/api/v3/klines?symbol=${pair}&interval=${timeframe}&limit=60`)
+            .then(r => r.json())
+            .then(directData => processKlinesData(directData));
+        }
       })
-      .catch(() => setLoading(false));
+      .catch(() => {
+        // Direct fallback on network failure
+        fetch(`https://api.binance.com/api/v3/klines?symbol=${pair}&interval=${timeframe}&limit=60`)
+          .then(r => r.json())
+          .then(directData => processKlinesData(directData))
+          .catch(() => setLoading(false));
+      })
+      .finally(() => {
+        initWs();
+      });
 
     const ro = new ResizeObserver(() => {
       if (chartRef.current && el) {
