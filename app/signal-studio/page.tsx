@@ -60,6 +60,29 @@ function pct(part: number, whole: number, lev: number) {
   return ((Math.abs(part) / whole) * 100 * lev).toFixed(2);
 }
 
+function getPctRange(diff: number, entryPrice: number, leverageStr: string): string {
+  if (entryPrice <= 0) return "0.00%";
+  const rawPct = (Math.abs(diff) / entryPrice) * 100;
+  const nums = (leverageStr.match(/\d+(\.\d+)?/g) || []).map(Number).filter(n => n > 0);
+
+  if (nums.length === 0) {
+    return `${rawPct.toFixed(2)}%`;
+  }
+
+  if (nums.length === 1) {
+    const lev = nums[0];
+    return `${(rawPct * lev).toFixed(2)}%`;
+  }
+
+  const minLev = Math.min(...nums);
+  const maxLev = Math.max(...nums);
+  const minPct = (rawPct * minLev).toFixed(2);
+  const maxPct = (rawPct * maxLev).toFixed(2);
+
+  if (minPct === maxPct) return `${minPct}%`;
+  return `${minPct}% to ${maxPct}%`;
+}
+
 function rr(tpDiff: number, slDiff: number) {
   if (slDiff <= 0) return "0.00";
   return (tpDiff / slDiff).toFixed(2);
@@ -113,8 +136,15 @@ function SignalStudioContent() {
   const [stopLoss, setStopLoss] = useState(searchParams.get("sl") || "2369.32");
   const [tp1, setTp1] = useState(searchParams.get("tp1") || "2440.92");
   const [tp2, setTp2] = useState(searchParams.get("tp2") || "2460.75");
-  const [tp3, setTp3] = useState(searchParams.get("tp3") || "2490.52");
   const [disclaimer, setDisclaimer] = useState(searchParams.get("disclaimer") || searchParams.get("note") || "Not financial advice. DYOR.");
+  const [strategyNote, setStrategyNote] = useState(
+    searchParams.get("strategyNote") || "Close 40-50% of your trade when we hit TP1 and make Stop Loss at the entry price."
+  );
+  const [signalCode] = useState(() => {
+    const raw = searchParams.get("code") || Math.floor(1000 + Math.random() * 9000).toString();
+    const cleanNum = raw.replace(/[^0-9]/g, "").padStart(4, "0").slice(-4);
+    return `#YG-${cleanNum}`;
+  });
   const [layoutMode, setLayoutMode] = useState<"MOBILE" | "DESKTOP">((searchParams.get("layout") as "MOBILE" | "DESKTOP") || "MOBILE");
   const [showEma20, setShowEma20] = useState(true);
   const [showEma50, setShowEma50] = useState(false);
@@ -190,13 +220,13 @@ function SignalStudioContent() {
   const tp2Diff  = Math.abs(tp2Num - entryNum);
   const tp3Diff  = Math.abs(tp3Num - entryNum);
 
-  const stopPct  = pct(slDiff,   entryNum, levNum);
-  const tp1Pct   = pct(tp1Diff,  entryNum, levNum);
-  const tp2Pct   = pct(tp2Diff,  entryNum, levNum);
-  const tp3Pct   = pct(tp3Diff,  entryNum, levNum);
-  const rr1      = rr(tp1Diff, slDiff);
-  const rr2      = rr(tp2Diff, slDiff);
-  const rr3      = rr(tp3Diff, slDiff);
+  const stopPctStr = getPctRange(slDiff,  entryNum, leverage);
+  const tp1PctStr  = getPctRange(tp1Diff, entryNum, leverage);
+  const tp2PctStr  = getPctRange(tp2Diff, entryNum, leverage);
+  const tp3PctStr  = getPctRange(tp3Diff, entryNum, leverage);
+  const rr1        = rr(tp1Diff, slDiff);
+  const rr2        = rr(tp2Diff, slDiff);
+  const rr3        = rr(tp3Diff, slDiff);
 
   const stopSign  = isLong ? "-" : "+";
   const tpSign    = isLong ? "+" : "-";
@@ -538,6 +568,7 @@ function SignalStudioContent() {
                           tp1: tp1Num,
                           tp2: tp2Num,
                           tp3: tp3Num,
+                          signal_code: signalCode,
                           status: 'ACTIVE'
                         }).select();
                         
@@ -548,24 +579,20 @@ function SignalStudioContent() {
                         const blob = await htmlToImage.toBlob(captureRef.current, { pixelRatio: 3, cacheBust: true });
                         if (!blob) throw new Error("Failed to generate image blob");
 
-                        const txt = `<b>YAGACALLS SIGNAL</b>
-👑 <b>BEING ROYAL</b>
+                        const txt = `Signal Alert!
 
-🪙 <b>$${symbol}</b> · <code>${pair}</code> · <b>${direction}</b> · <b>${leverage}</b> · <b>${timeframe}</b>
-⚡ Live <b>${livePrice}</b>
+🪙 <b>$${symbol}</b> · <code>${pair}</code> · <b>${direction}</b> · <b>${leverage}</b>
+⚡ Live Price <b>${livePrice}</b>
 
-📍 <b>Entry:</b> ${entry}
-🛑 <b>Stop Loss:</b> ${stopLoss} (${stopSign}${stopPct}%)
-🎯 <b>TP1:</b> ${tp1} (${tpSign}${tp1Pct}%)
-🎯 <b>TP2:</b> ${tp2} (${tpSign}${tp2Pct}%)
-🎯 <b>TP3:</b> ${tp3} (${tpSign}${tp3Pct}%)
+📍 <b>Entry Price (≈):</b> ${entry}
+🎯 <b>TP1:</b> ${tp1} (+${tp1PctStr})
+🎯 <b>TP2:</b> ${tp2} (+${tp2PctStr})
+🎯 <b>TP3:</b> ${tp3} (+${tp3PctStr})
+🛑 <b>Stop Loss:</b> ${stopLoss} (-${stopPctStr})
 
-📊 <b>Risk:Reward Ratios</b>
-• Risk:Reward to TP1   1 : ${rr1}
-• Risk:Reward to TP2   1 : ${rr2}
-• Risk:Reward to TP3   1 : ${rr3}
+🆔 <b>${signalCode}</b>
 
-<i>${disclaimer}</i>`;
+${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
 
                         const formData = new FormData();
                         formData.append('image', blob, 'signal.png');
@@ -626,7 +653,7 @@ function SignalStudioContent() {
 
                   <button
                     onClick={() => {
-                      const txt = `YAGACALLS SIGNAL\n👑 BEING ROYAL\n\n🪙 $${symbol} · ${pair} · ${direction} · ${leverage} · ${timeframe}\n⚡ Live ${livePrice}\n\n📍 Entry: ${entry}\n🛑 Stop Loss: ${stopLoss} (${stopSign}${stopPct}%)\n🎯 TP1: ${tp1} (${tpSign}${tp1Pct}%)\n🎯 TP2: ${tp2} (${tpSign}${tp2Pct}%)\n🎯 TP3: ${tp3} (${tpSign}${tp3Pct}%)\n\n📊 Risk:Reward Ratios\n• Risk:Reward to TP1   1 : ${rr1}\n• Risk:Reward to TP2   1 : ${rr2}\n• Risk:Reward to TP3   1 : ${rr3}\n\n${disclaimer}`;
+                      const txt = `Signal Alert!\n\n🪙 $${symbol} · ${pair} · ${direction} · ${leverage}\n⚡ Live Price ${livePrice}\n\n📍 Entry Price (≈): ${entry}\n🎯 TP1: ${tp1} (+${tp1PctStr})\n🎯 TP2: ${tp2} (+${tp2PctStr})\n🎯 TP3: ${tp3} (+${tp3PctStr})\n🛑 Stop Loss: ${stopLoss} (-${stopPctStr})\n\n🆔 ${signalCode}\n\n${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                       navigator.clipboard.writeText(txt);
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
@@ -744,20 +771,36 @@ function SignalStudioContent() {
                   <option value="SHORT">🔴 SHORT</option>
                 </select>
               </div>
-              <div className="col-span-2 sm:col-span-4 lg:col-span-10 mt-1 flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#1C222E]">
-                <div className="flex-1 min-w-[280px]">
+              <div className="col-span-2 sm:col-span-4 lg:col-span-10 mt-1 grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-[#1C222E]">
+                <div>
+                  <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px] flex items-center justify-between">
+                    <span>Trade Management Strategy Note</span>
+                    <span className="text-[#E39E2E] font-normal normal-case">Appears right above disclaimer</span>
+                  </label>
+                  <textarea 
+                    rows={2} 
+                    value={strategyNote} 
+                    onChange={e => setStrategyNote(e.target.value)} 
+                    placeholder="e.g. Close 40-50% of your trade when we hit TP1..." 
+                    className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-3 py-1.5 rounded-lg font-medium text-white focus:outline-none text-xs leading-relaxed resize-y" 
+                  />
+                </div>
+                <div>
                   <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px] flex items-center justify-between">
                     <span>Custom Disclaimer / Caption Note</span>
-                    <span className="text-[#E39E2E] font-normal normal-case">Updates chart card badge & Telegram post text</span>
+                    <span className="text-[#E39E2E] font-normal normal-case">Updates chart card badge & Telegram post</span>
                   </label>
-                  <input 
-                    type="text" 
+                  <textarea 
+                    rows={2} 
                     value={disclaimer} 
                     onChange={e => setDisclaimer(e.target.value)} 
                     placeholder="e.g. Not financial advice. DYOR." 
-                    className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-3 py-1.5 rounded-lg font-bold text-white focus:outline-none text-xs" 
+                    className="w-full bg-[#12151C] border border-[#252D3D] focus:border-[#E39E2E] px-3 py-1.5 rounded-lg font-medium text-white focus:outline-none text-xs leading-relaxed resize-y" 
                   />
                 </div>
+              </div>
+
+              <div className="col-span-2 sm:col-span-4 lg:col-span-10 flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#1C222E]">
                 <div>
                   <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px]">
                     Technical Indicators
@@ -850,6 +893,7 @@ function SignalStudioContent() {
                       layoutMode === "MOBILE" ? "text-base tracking-[2px]" : "text-[22px] tracking-[4px]"
                     }`}>YAGACALLS SIGNAL</span>
                     <span className="px-2.5 py-0.5 rounded-full text-[9px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] text-black uppercase tracking-wider">BEING ROYAL</span>
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-black bg-[#1A202C] text-[#F6E09E] border border-[#F6E09E]/30 uppercase tracking-widest">{signalCode}</span>
                   </div>
                   <div className="text-[10px] font-bold text-[#CBB079] tracking-[0.15em] uppercase flex items-center gap-1.5 mt-0.5">
                     QUANTITATIVE POSITION FORECAST
