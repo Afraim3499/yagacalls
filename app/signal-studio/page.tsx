@@ -554,7 +554,7 @@ function SignalStudioContent() {
               </div>
                 <div className="flex flex-wrap items-center gap-2">
                   <Link
-                    href="/signal-studio/hub"
+                    href="/hub"
                     className="flex items-center gap-2 px-4 py-2.5 bg-[#121620] hover:bg-[#1C2230] text-[#F6E09E] border border-[#CBB079]/40 font-extrabold text-xs rounded-xl shadow-lg transition-all"
                   >
                     <BarChart2 className="w-4 h-4 text-[#E39E2E]" /> 📊 Signal Tracking Hub
