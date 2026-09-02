@@ -136,6 +136,7 @@ function SignalStudioContent() {
   const [stopLoss, setStopLoss] = useState(searchParams.get("sl") || "2369.32");
   const [tp1, setTp1] = useState(searchParams.get("tp1") || "2440.92");
   const [tp2, setTp2] = useState(searchParams.get("tp2") || "2460.75");
+  const [tp3, setTp3] = useState(searchParams.get("tp3") || "2490.52");
   const [disclaimer, setDisclaimer] = useState(searchParams.get("disclaimer") || searchParams.get("note") || "Not financial advice. DYOR.");
   const [strategyNote, setStrategyNote] = useState(
     searchParams.get("strategyNote") || "Close 40-50% of your trade when we hit TP1 and make Stop Loss at the entry price."
