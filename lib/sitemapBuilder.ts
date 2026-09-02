@@ -25,7 +25,7 @@ export type SitemapEntry = {
 
 const LEGAL_PATHS = new Set(["/disclaimer", "/privacy", "/risk-disclosure", "/terms"]);
 const FREQUENT_PATHS = new Set(["/news", "/analysis"]);
-const HUB_PATHS = new Set(["/blog", "/academy", "/regions", "/authors", "/sitemap"]);
+const HUB_PATHS = new Set(["/blog", "/academy", "/regions", "/authors", "/sitemap", "/hub"]);
 
 function staticRouteChangeFrequency(route: string): SitemapEntry["changeFrequency"] {
   if (route === "") return "weekly"; // homepage
@@ -75,6 +75,7 @@ const STATIC_ROUTE_PATHS = [
   "/terms",
   "/authors",
   "/sitemap",
+  "/hub",
 ];
 
 /** Segment: static routes + commercial/guide landing pages (the "Pages" segment). */
