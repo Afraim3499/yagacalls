@@ -1,0 +1,67 @@
+const { Client } = require('ssh2');
+const fs = require('fs');
+const path = require('path');
+
+const envContent = fs.readFileSync(path.join(__dirname, '../.env.deploy'), 'utf-8');
+const env = {};
+envContent.split('\n').forEach(line => {
+  const [k, ...v] = line.split('=');
+  if (k && v.length) env[k.trim()] = v.join('=').trim();
+});
+
+const sshConfig = {
+  host: env.VPS_HOST,
+  port: 22,
+  username: env.VPS_USER || 'root',
+  password: env.VPS_SSH_PASSWORD
+};
+
+const studioPagePath = path.join(__dirname, '../app/signal-studio/page.tsx');
+const previewPagePath = path.join(__dirname, '../app/preview/signal-card/page.tsx');
+const notifyAdminPath = path.join(__dirname, '../app/api/notify-admin/route.ts');
+const botEnginePath = path.join(__dirname, '../yaga-content-system/bot_engine_serverless.js');
+const chartGenPath = path.join(__dirname, '../yaga-content-system/chart_card_generator.js');
+
+const conn = new Client();
+conn.on('ready', () => {
+  console.log('SSH Client :: Connected to VPS for studio update deployment');
+
+  conn.sftp((err, sftp) => {
+    if (err) throw err;
+
+    const uploads = [
+      { local: studioPagePath, remote: '/var/www/yagacalls/app/signal-studio/page.tsx' },
+      { local: previewPagePath, remote: '/var/www/yagacalls/app/preview/signal-card/page.tsx' },
+      { local: notifyAdminPath, remote: '/var/www/yagacalls/app/api/notify-admin/route.ts' },
+      { local: botEnginePath, remote: '/var/www/yagacontentsystem/bot_engine_serverless.js' },
+      { local: chartGenPath, remote: '/var/www/yagacontentsystem/chart_card_generator.js' },
+    ];
+
+    conn.exec('mkdir -p /var/www/yagacalls/app/signal-studio /var/www/yagacalls/app/preview/signal-card /var/www/yagacalls/app/api/notify-admin', (mkdirErr, stream) => {
+      stream.on('close', () => {
+        let completed = 0;
+        uploads.forEach(u => {
+          sftp.fastPut(u.local, u.remote, (putErr) => {
+            if (putErr) console.error('Upload err for', u.remote, putErr);
+            else console.log('✅ Uploaded:', u.remote);
+            completed++;
+            if (completed === uploads.length) {
+              const execCmd = `
+                cd /var/www/yagacalls && npx next build
+                pm2 restart yagacalls-web
+                cd /var/www/yagacontentsystem && pm2 restart yaga-bot
+              `;
+              conn.exec(execCmd, (cmdErr, cmdStream) => {
+                cmdStream.on('data', d => process.stdout.write(d.toString()))
+                         .stderr.on('data', d => process.stderr.write(d.toString()))
+                         .on('close', () => conn.end());
+              });
+            }
+          });
+        });
+      });
+    });
+  });
+}).on('error', (err) => {
+  console.error('SSH Connection Error:', err);
+}).connect(sshConfig);

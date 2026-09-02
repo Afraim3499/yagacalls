@@ -14,7 +14,7 @@ plaintext copy of a credential that needs rotating):**
 `scratch/deploy_to_vps.js:43-48`:
 ```js
 }).connect({
-  host: '104.234.134.236',
+  host: '167.86.76.229',
   port: 22,
   username: 'root',
   password: '[REDACTED — live plaintext value in the file at this exact line]'

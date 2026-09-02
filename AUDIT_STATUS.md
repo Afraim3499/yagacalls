@@ -241,7 +241,7 @@ worse than the gap it fixes).
     agent's new `scratch/deploy_crm_to_vps.js` (freshly written, so flagged harder than
     the pre-existing `deploy_to_vps.js`) was blocked by the same classifier. Run yourself:
     ```
-    ssh root@104.234.134.236 "cd /var/www/yagacontentsystem && git fetch origin && git reset --hard origin/main && cd crm-app && npm install && npm run build"
+    ssh root@167.86.76.229 "cd /var/www/yagacontentsystem && git fetch origin && git reset --hard origin/main && cd crm-app && npm install && npm run build"
     ```
 13. ✅ **Done.** Converted all 13 oversized `public/images/` PNGs (700–955KB) to WebP via
     `sharp` (quality 80) — 82-90% smaller each. Updated every reference in

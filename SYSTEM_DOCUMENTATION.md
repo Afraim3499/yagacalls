@@ -165,7 +165,7 @@ The CRM is a modern, responsive React/Vite web application hosted at `crm.yagaca
 ## 4. 🛠️ SERVER MANAGEMENT & DEPLOYMENT GUIDE
 
 ### VPS Host Information:
-- **IP Address**: `104.234.134.236`
+- **IP Address**: `167.86.76.229`
 - **Root Directory**: `/var/www/yagacontentsystem`
 - **GitHub Repository**: [github.com/Afraim3499/yagacontentsystem](https://github.com/Afraim3499/yagacontentsystem)
 

@@ -9,7 +9,7 @@
 
 | Component | Detail |
 | :--- | :--- |
-| **Main Server IP** | `104.234.134.236` |
+| **Main Server IP** | `167.86.76.229` |
 | **Hostname** | `vps.yagacalls.com` |
 | **SSH Username** | `root` |
 | **SSH Password** | *(Configured in VPS / .env)* |
@@ -88,9 +88,9 @@ certbot renew
 - **Supabase Anon Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdod3Z3dHdrdG52ZXFkcWl2eG15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzNTY0NjIsImV4cCI6MjEwMDkzMjQ2Mn0.bka5GMEdehBvPgQ_AVJ6xZfEt9k17U0hVUYLMKeFKB4`
 - **Domain Registrar**: Hostinger (`hpanel.hostinger.com`)
 - **DNS Records**:
-  - `A @` -> `104.234.134.236`
+  - `A @` -> `167.86.76.229`
   - `CNAME www` -> `yagacalls.com`
-  - `A crm` -> `104.234.134.236`
+  - `A crm` -> `167.86.76.229`
 
 ---
 
@@ -107,7 +107,7 @@ conn.on('ready', () => {
     stream.on('data', data => process.stdout.write(data));
   });
 }).connect({
-  host: '104.234.134.236',
+  host: '167.86.76.229',
   port: 22,
   username: 'root',
   password: 'Rizwan@34'
