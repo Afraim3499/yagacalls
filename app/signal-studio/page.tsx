@@ -1027,11 +1027,11 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                       {/* Unified 5-Level Smart Badge Collision Resolver (Left-Anchored) */}
                       {(() => {
                         const rawLevels = [
-                          { id: "tp3", type: "tp", lbl: "TP3", p: tp3, pct: tp3Pct, y: tp3Y, highlight: true },
-                          { id: "tp2", type: "tp", lbl: "TP2", p: tp2, pct: tp2Pct, y: tp2Y, highlight: false },
-                          { id: "tp1", type: "tp", lbl: "TP1", p: tp1, pct: tp1Pct, y: tp1Y, highlight: false },
+                          { id: "tp3", type: "tp", lbl: "TP3", p: tp3, pct: tp3PctStr, y: tp3Y, highlight: true },
+                          { id: "tp2", type: "tp", lbl: "TP2", p: tp2, pct: tp2PctStr, y: tp2Y, highlight: false },
+                          { id: "tp1", type: "tp", lbl: "TP1", p: tp1, pct: tp1PctStr, y: tp1Y, highlight: false },
                           { id: "entry", type: "entry", lbl: "ENTRY", p: entry, pct: null, y: eY, highlight: true },
-                          { id: "stop", type: "stop", lbl: "STOP", p: stopLoss, pct: stopPct, y: sY, highlight: true },
+                          { id: "stop", type: "stop", lbl: "STOP", p: stopLoss, pct: stopPctStr, y: sY, highlight: true },
                         ];
 
                         const levels = rawLevels
@@ -1054,14 +1054,14 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
 
                         return levels.map(l => {
                           let badgeStyle = "bg-[#0F1217]/95 border border-[#CBB079]/70 text-[#F6E09E]";
-                          let labelText = `${l.lbl}: ${l.p} (${tpSign}${l.pct}%)`;
+                          let labelText = `${l.lbl}: ${l.p} (+${l.pct})`;
 
                           if (l.type === "entry") {
                             badgeStyle = "bg-[#041C24]/95 border border-[#00E5FF] text-[#00E5FF] shadow-[0_0_10px_rgba(0,229,255,0.2)]";
                             labelText = `ENTRY: ${l.p}`;
                           } else if (l.type === "stop") {
                             badgeStyle = "bg-[#180A0A]/95 border border-red-500/70 text-red-400";
-                            labelText = `STOP: ${l.p} (${stopSign}${l.pct}%)`;
+                            labelText = `STOP: ${l.p} (-${l.pct})`;
                           } else if (l.highlight) {
                             badgeStyle = "bg-[#141720]/95 border border-[#F6E09E] text-transparent bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text font-black";
                           }
@@ -1100,10 +1100,10 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                   <div className="space-y-1">
                     {[
                       { lbl: "Entry", val: entry,    c: "text-[#00E5FF]", b: null },
-                      { lbl: "Stop",  val: stopLoss, c: "text-red-400",   b: `${stopSign}${stopPct}%`, bc: "text-red-400 bg-red-500/10" },
-                      { lbl: "TP1",   val: tp1,      c: "text-[#CBB079]", b: `${tpSign}${tp1Pct}%`,    bc: "text-[#CBB079] bg-[#CBB079]/10" },
-                      { lbl: "TP2",   val: tp2,      c: "text-[#CBB079]", b: `${tpSign}${tp2Pct}%`,    bc: "text-[#CBB079] bg-[#CBB079]/10" },
-                      { lbl: "TP3",   val: tp3,      c: "text-[#F6E09E]", b: `${tpSign}${tp3Pct}%`,    bc: "text-[#F6E09E] bg-[#F6E09E]/10" },
+                      { lbl: "Stop",  val: stopLoss, c: "text-red-400",   b: `-${stopPctStr}`, bc: "text-red-400 bg-red-500/10" },
+                      { lbl: "TP1",   val: tp1,      c: "text-[#CBB079]", b: `+${tp1PctStr}`,  bc: "text-[#CBB079] bg-[#CBB079]/10" },
+                      { lbl: "TP2",   val: tp2,      c: "text-[#CBB079]", b: `+${tp2PctStr}`,  bc: "text-[#CBB079] bg-[#CBB079]/10" },
+                      { lbl: "TP3",   val: tp3,      c: "text-[#F6E09E]", b: `+${tp3PctStr}`,  bc: "text-[#F6E09E] bg-[#F6E09E]/10" },
                     ].map((r, i) => (
                       <div key={r.lbl} className={`flex justify-between items-center py-1.5 ${i < 4 ? "border-b border-[#1A202C]/60" : ""}`}>
                         <span className="text-slate-400 font-bold text-[11px]">{r.lbl}</span>
