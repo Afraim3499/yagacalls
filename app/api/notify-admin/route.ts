@@ -1,11 +1,17 @@
 import { NextResponse } from 'next/server';
+import { takeSignalScreenshot } from '@/lib/puppeteerScreenshot';
 
 export async function POST(req: Request) {
   try {
-    const formData = await req.formData();
-    const imageFile = formData.get('image') as File | null;
-    const text = formData.get('text') as string;
-    const signalId = formData.get('signalId') as string;
+    let data;
+    try {
+      data = await req.json();
+    } catch {
+      // Fallback in case old client tries to send FormData
+      return NextResponse.json({ success: false, error: "Must send JSON payload" }, { status: 400 });
+    }
+
+    const { text, signalId, ...chartParams } = data;
 
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const ADMIN_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID;
@@ -18,12 +24,19 @@ export async function POST(req: Request) {
       }, { status: 500 });
     }
 
-    if (!imageFile || !text || !signalId) {
+    if (!text || !signalId) {
       return NextResponse.json({ success: false, error: "Missing fields" }, { status: 400 });
     }
 
-    // Convert File to Buffer for the Telegram API
-    const buffer = Buffer.from(await imageFile.arrayBuffer());
+    // 1. Generate the screenshot purely on the server side using Puppeteer
+    let buffer: Buffer;
+    try {
+      buffer = await takeSignalScreenshot(chartParams as Record<string, string>);
+    } catch (shotErr: any) {
+      console.error("Puppeteer screenshot failed:", shotErr);
+      return NextResponse.json({ success: false, error: "Server-side screenshot failed: " + shotErr.message }, { status: 500 });
+    }
+
     const adminChatIds = ADMIN_CHAT_ID.split(',').map(id => id.trim()).filter(Boolean);
 
     const replyMarkup = {
@@ -40,7 +53,7 @@ export async function POST(req: Request) {
     for (const chatId of adminChatIds) {
       const tgFormData = new FormData();
       tgFormData.append('chat_id', chatId);
-      tgFormData.append('photo', new Blob([buffer], { type: 'image/png' }), 'signal.png');
+      tgFormData.append('photo', new Blob([new Uint8Array(buffer)], { type: 'image/png' }), 'signal.png');
       tgFormData.append('caption', text);
       tgFormData.append('parse_mode', 'HTML');
       tgFormData.append('reply_markup', JSON.stringify(replyMarkup));
@@ -48,7 +61,7 @@ export async function POST(req: Request) {
       const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
         method: 'POST',
         body: tgFormData,
-        signal: AbortSignal.timeout(15000)
+        signal: AbortSignal.timeout(25000)
       });
 
       const data = await res.json();

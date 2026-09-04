@@ -11,13 +11,10 @@ import {
   Time,
   LineStyle,
   CandlestickSeries,
-  HistogramSeries,
-  LineSeries,
   ISeriesApi,
   AutoscaleInfo
 } from "lightweight-charts";
 import {
-  ShieldAlert,
   Sparkles,
   Activity,
   Copy,
@@ -32,6 +29,8 @@ import {
   Send,
   Smartphone,
   Monitor,
+  Moon,
+  Sun,
   Search,
   X,
   ChevronDown
@@ -39,6 +38,7 @@ import {
 import * as htmlToImage from "html-to-image";
 import { supabase } from "@/lib/supabase";
 import { useSearchParams } from "next/navigation";
+import { captureCardWithChartScreenshot } from "@/lib/captureOptions";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface OverlayCoords {
@@ -89,22 +89,6 @@ function rr(tpDiff: number, slDiff: number) {
   return (tpDiff / slDiff).toFixed(2);
 }
 
-function calcEMA(candles: CandlestickData<Time>[], period: number) {
-  if (candles.length < period) return [];
-  const k = 2 / (period + 1);
-  let sum = 0;
-  for (let i = 0; i < period; i++) {
-    sum += candles[i].close;
-  }
-  let ema = sum / period;
-  const result: { time: Time; value: number }[] = [{ time: candles[period - 1].time, value: ema }];
-  for (let i = period; i < candles.length; i++) {
-    ema = candles[i].close * k + ema * (1 - k);
-    result.push({ time: candles[i].time, value: ema });
-  }
-  return result;
-}
-
 const POPULAR_PAIRS = [
   "BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT", "AVAXUSDT", "LINKUSDT", "NEARUSDT", 
   "INJUSDT", "APTUSDT", "SUIUSDT", "PEPEUSDT", "WIFUSDT", "RENDERUSDT", "FETUSDT", "TIAUSDT", "OPUSDT", "ARBUSDT", 
@@ -131,26 +115,51 @@ function SignalStudioContent() {
   const [symbol, setSymbol] = useState(searchParams.get("symbol") || "ETH");
   const [pair, setPair] = useState(searchParams.get("pair") || "ETHUSDT");
   const [direction, setDirection] = useState<"LONG" | "SHORT">((searchParams.get("dir") as "LONG" | "SHORT") || "LONG");
-  const [leverage, setLeverage] = useState(searchParams.get("lev") || "10x");
+  const [leverage, setLeverage] = useState(searchParams.get("lev") || "1X-3X");
   const [timeframe, setTimeframe] = useState("5m");
   const [entry, setEntry] = useState(searchParams.get("e") || "2393.09");
   const [stopLoss, setStopLoss] = useState(searchParams.get("sl") || "2369.32");
   const [tp1, setTp1] = useState(searchParams.get("tp1") || "2440.92");
   const [tp2, setTp2] = useState(searchParams.get("tp2") || "2460.75");
   const [tp3, setTp3] = useState(searchParams.get("tp3") || "2490.52");
-  const [disclaimer, setDisclaimer] = useState(searchParams.get("disclaimer") || searchParams.get("note") || "Not financial advice. DYOR.");
-  const [strategyNote, setStrategyNote] = useState(
-    searchParams.get("strategyNote") || "Close 40-50% of your trade when we hit TP1 and make Stop Loss at the entry price."
-  );
-  const [signalCode] = useState(() => {
-    const raw = searchParams.get("code") || Math.floor(1000 + Math.random() * 9000).toString();
-    const cleanNum = raw.replace(/[^0-9]/g, "").padStart(4, "0").slice(-4);
-    return `#YG-${cleanNum}`;
+  const [disclaimer, setDisclaimer] = useState(searchParams.get("disclaimer") || searchParams.get("note") || "");
+  const [strategyNote, setStrategyNote] = useState(searchParams.get("strategyNote") || "");
+  const [signalCode, setSignalCode] = useState(() => {
+    const raw = searchParams.get("code");
+    if (raw) {
+      const cleanNum = raw.replace(/[^0-9]/g, "").padStart(4, "0").slice(-4);
+      return `#YG-${cleanNum}`;
+    }
+    return "#YG-0101";
   });
+
+  useEffect(() => {
+    if (searchParams.get("code")) return;
+
+    const fetchNextCode = async () => {
+      try {
+        const { count } = await supabase
+          .from('crypto_signals')
+          .select('*', { count: 'exact', head: true });
+        
+        const nextIndex = (count || 0) + 1;
+        const series = Math.floor((nextIndex - 1) / 99) + 1;
+        const item = ((nextIndex - 1) % 99) + 1;
+        
+        const seriesStr = series.toString().padStart(2, '0');
+        const itemStr = item.toString().padStart(2, '0');
+        
+        setSignalCode(`#YG-${seriesStr}${itemStr}`);
+      } catch {
+        setSignalCode('#YG-0101');
+      }
+    };
+
+    fetchNextCode();
+  }, [searchParams]);
+
   const [layoutMode, setLayoutMode] = useState<"MOBILE" | "DESKTOP">((searchParams.get("layout") as "MOBILE" | "DESKTOP") || "MOBILE");
-  const [showEma20, setShowEma20] = useState(true);
-  const [showEma50, setShowEma50] = useState(false);
-  const [showEma200, setShowEma200] = useState(false);
+  const [cardTheme, setCardTheme] = useState<"DARK" | "LIGHT">((searchParams.get("theme") as "DARK" | "LIGHT") || "DARK");
 
   // ── Searchable 100+ Pairs Modal state ──
   const [isPairModalOpen, setIsPairModalOpen] = useState(false);
@@ -158,18 +167,27 @@ function SignalStudioContent() {
   const [fetchedPairs, setFetchedPairs] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("https://api.binance.com/api/v3/ticker/price")
-      .then(r => r.json())
-      .then((data: any[]) => {
-        if (Array.isArray(data)) {
-          const usdtPairs = data
-            .map(d => d.symbol)
-            .filter((s: string) => s.endsWith("USDT") && !s.includes("UP") && !s.includes("DOWN") && !s.includes("BEAR") && !s.includes("BULL"))
-            .sort();
-          if (usdtPairs.length > 50) setFetchedPairs(usdtPairs);
+    Promise.all([
+      fetch("https://fapi.binance.com/fapi/v1/ticker/price").then(r => r.json().catch(() => [])),
+      fetch("https://api.binance.com/api/v3/ticker/price").then(r => r.json().catch(() => []))
+    ])
+      .then(([futuresData, spotData]) => {
+        const allSymbols = new Set<string>();
+        
+        if (Array.isArray(futuresData)) {
+          futuresData.forEach((d: any) => allSymbols.add(d.symbol));
         }
+        if (Array.isArray(spotData)) {
+          spotData.forEach((d: any) => allSymbols.add(d.symbol));
+        }
+
+        const usdtPairs = Array.from(allSymbols)
+          .filter((s: string) => s.endsWith("USDT") && !s.includes("_") && !s.includes("UP") && !s.includes("DOWN") && !s.includes("BEAR") && !s.includes("BULL"))
+          .sort();
+          
+        if (usdtPairs.length > 50) setFetchedPairs(usdtPairs);
       })
-      .catch(() => {});
+      .catch(console.error);
   }, []);
 
   const allPairsList = fetchedPairs.length > 0 ? fetchedPairs : POPULAR_PAIRS;
@@ -290,29 +308,30 @@ function SignalStudioContent() {
     setLoading(true);
     if (chartRef.current) { chartRef.current.remove(); chartRef.current = null; }
 
+    const isLight = cardTheme === "LIGHT";
     const chart = createChart(el, {
       width:  el.clientWidth,
       height: el.clientHeight,
       layout: {
-        background: { type: ColorType.Solid, color: "#0A0B0D" },
-        textColor: "#94A3B8",
+        background: { type: ColorType.Solid, color: isLight ? "#FFFFFF" : "#0A0B0D" },
+        textColor: isLight ? "#475569" : "#94A3B8",
         fontSize: 11,
       },
       grid: {
-        vertLines: { color: "rgba(30,36,44,0.7)" },
-        horzLines: { color: "rgba(30,36,44,0.7)" },
+        vertLines: { color: isLight ? "#F1F5F9" : "rgba(30,36,44,0.7)" },
+        horzLines: { color: isLight ? "#F1F5F9" : "rgba(30,36,44,0.7)" },
       },
       crosshair: {
         vertLine: { color: "#E39E2E", labelBackgroundColor: "#E39E2E", style: LineStyle.Dashed },
         horzLine: { color: "#E39E2E", labelBackgroundColor: "#E39E2E", style: LineStyle.Dashed },
       },
       rightPriceScale: { 
-        borderColor: "#1E242C", 
+        borderColor: isLight ? "#E2E8F0" : "#1E242C", 
         autoScale: true,
-        scaleMargins: { top: 0.1, bottom: 0.25 }
+        scaleMargins: { top: 0.1, bottom: 0.15 }
       },
       timeScale: {
-        borderColor: "#1E242C",
+        borderColor: isLight ? "#E2E8F0" : "#1E242C",
         timeVisible: true,
         secondsVisible: false,
         rightOffset: 16,
@@ -348,13 +367,6 @@ function SignalStudioContent() {
     });
     seriesRef.current = candleSeries;
 
-    const volSeries = chart.addSeries(HistogramSeries, {
-      color: "#26a69a",
-      priceFormat: { type: "volume" },
-      priceScaleId: "",
-    });
-    chart.priceScale("").applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
-
     chart.timeScale().subscribeVisibleLogicalRangeChange(recalcOverlay);
 
     let isLive = true;
@@ -375,10 +387,8 @@ function SignalStudioContent() {
             const high  = parseFloat(k.h);
             const low   = parseFloat(k.l);
             const close = parseFloat(k.c);
-            const vol   = parseFloat(k.v);
             latestTimeRef.current = time;
             candleSeries.update({ time, open, high, low, close });
-            volSeries.update({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
             setLivePrice(close.toFixed(close < 1 ? 4 : 2));
             recalcOverlay();
           } catch {}
@@ -398,7 +408,6 @@ function SignalStudioContent() {
       if (!isLive || !Array.isArray(data) || data.length === 0) return;
 
       const candles: CandlestickData<Time>[] = [];
-      const vols: any[] = [];
 
       data.forEach(d => {
         const time  = (d[0] / 1000) as Time;
@@ -406,27 +415,11 @@ function SignalStudioContent() {
         const high  = parseFloat(d[2]);
         const low   = parseFloat(d[3]);
         const close = parseFloat(d[4]);
-        const vol   = parseFloat(d[5]);
         candles.push({ time, open, high, low, close });
-        vols.push({ time, value: vol, color: close >= open ? "rgba(38,166,154,0.35)" : "rgba(239,83,80,0.35)" });
       });
 
       candleSeries.setData(candles);
-      volSeries.setData(vols);
       candlesRef.current = candles;
-
-      if (showEma20) {
-        const e20 = chart.addSeries(LineSeries, { color: "#00E5FF", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-        e20.setData(calcEMA(candles, 20));
-      }
-      if (showEma50) {
-        const e50 = chart.addSeries(LineSeries, { color: "#F6E09E", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-        e50.setData(calcEMA(candles, 50));
-      }
-      if (showEma200) {
-        const e200 = chart.addSeries(LineSeries, { color: "#A855F7", lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-        e200.setData(calcEMA(candles, 200));
-      }
 
       const last = candles[candles.length - 1];
       latestTimeRef.current = last.time;
@@ -445,26 +438,32 @@ function SignalStudioContent() {
         setTp3((p * (1 + 0.030 * mult)).toFixed(p < 1 ? 4 : 2));
       }
 
-      chart.timeScale().fitContent();
+      const fromParam = searchParams.get("from");
+      const toParam = searchParams.get("to");
+      if (fromParam && toParam && !isNaN(Number(fromParam)) && !isNaN(Number(toParam))) {
+        chart.timeScale().setVisibleLogicalRange({ from: parseFloat(fromParam), to: parseFloat(toParam) });
+      } else {
+        chart.timeScale().fitContent();
+      }
       setLoading(false);
       setTimeout(recalcOverlay, 100);
     };
 
-    fetch(`/api/klines?symbol=${pair}&interval=${timeframe}&limit=60&_t=${Date.now()}`, { cache: "no-store" })
+    fetch(`/api/klines?symbol=${pair}&interval=${timeframe}&limit=150&_t=${Date.now()}`, { cache: "no-store" })
       .then(r => r.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {
           processKlinesData(data);
         } else {
           // Direct fallback to Binance API if proxy returned non-array
-          return fetch(`https://api.binance.com/api/v3/klines?symbol=${pair}&interval=${timeframe}&limit=60`)
+          return fetch(`https://api.binance.com/api/v3/klines?symbol=${pair}&interval=${timeframe}&limit=150`)
             .then(r => r.json())
             .then(directData => processKlinesData(directData));
         }
       })
       .catch(() => {
         // Direct fallback on network failure
-        fetch(`https://api.binance.com/api/v3/klines?symbol=${pair}&interval=${timeframe}&limit=60`)
+        fetch(`https://api.binance.com/api/v3/klines?symbol=${pair}&interval=${timeframe}&limit=150`)
           .then(r => r.json())
           .then(directData => processKlinesData(directData))
           .catch(() => setLoading(false));
@@ -497,7 +496,7 @@ function SignalStudioContent() {
       chartRef.current?.remove();
       chartRef.current = null;
     };
-  }, [pair, timeframe, showEma20, showEma50, showEma200]);
+  }, [pair, timeframe, cardTheme]);
 
   useEffect(() => { setTimeout(recalcOverlay, 80); }, [entryNum, stopNum, tp1Num, tp2Num, tp3Num, recalcOverlay]);
 
@@ -509,8 +508,9 @@ function SignalStudioContent() {
   const tps = [tp1Y, tp2Y, tp3Y].filter(y => y !== null) as number[];
   const maxTpY = tps.length > 0 ? (isLong ? Math.min(...tps) : Math.max(...tps)) : eY;
 
-  const boxLeft = futureStartX !== null ? Math.max(10, futureStartX) : chartW * 0.7;
-  const boxW = Math.max(120, chartW - boxLeft - priceScaleW);
+  const boxLeftRaw = futureStartX !== null ? Math.max(10, futureStartX) : chartW * 0.7;
+  const maxLeft = Math.max(10, chartW - priceScaleW - 20);
+  const boxLeft = Math.min(boxLeftRaw, maxLeft);
 
   let tgtTop = 0, tgtH = 0, slTop = 0, slH = 0;
 
@@ -584,33 +584,37 @@ function SignalStudioContent() {
                         if (error) throw error;
                         const signalId = data[0].id;
 
-                        await new Promise(r => setTimeout(r, 100));
-                        const blob = await htmlToImage.toBlob(captureRef.current, { pixelRatio: 3, cacheBust: true });
-                        if (!blob) throw new Error("Failed to generate image blob");
-
-                        const txt = `Signal Alert!
-
-🪙 <b>$${symbol}</b> · <code>${pair}</code> · <b>${direction}</b> · <b>${leverage}</b>
+                        const txt = `<b>$${symbol}</b> · <b>${direction}</b> · <b>${leverage}</b>
 ⚡ Live Price <b>${livePrice}</b>
 
 📍 <b>Entry Price (≈):</b> ${entry}
-🎯 <b>TP1:</b> ${tp1} (+${tp1PctStr})
-🎯 <b>TP2:</b> ${tp2} (+${tp2PctStr})
-🎯 <b>TP3:</b> ${tp3} (+${tp3PctStr})
-🛑 <b>Stop Loss:</b> ${stopLoss} (-${stopPctStr})
+🎯 <b>TP1:</b> ${tp1}
+🎯 <b>TP2:</b> ${tp2}
+🎯 <b>TP3:</b> ${tp3}
+🛑 <b>Stop Loss:</b> ${stopLoss}
 
-🆔 <b>${signalCode}</b>
+📌 <b>${signalCode}</b>${strategyNote ? '\n\n' + strategyNote : ''}${disclaimer ? '\n\n' + disclaimer : ''}`;
 
-${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
+                        const range = chartRef.current?.timeScale().getVisibleLogicalRange();
+                        const chartParams = {
+                          symbol, pair, dir: direction, lev: leverage, 
+                          e: entry, sl: stopLoss, tp1, tp2, tp3, 
+                          code: signalCode, layout: layoutMode, theme: cardTheme,
+                          disclaimer, strategyNote,
+                          from: range ? range.from.toString() : "",
+                          to: range ? range.to.toString() : ""
+                        };
 
-                        const formData = new FormData();
-                        formData.append('image', blob, 'signal.png');
-                        formData.append('text', txt);
-                        formData.append('signalId', signalId);
+                        const payload = {
+                          ...chartParams,
+                          text: txt,
+                          signalId
+                        };
 
                         const res = await fetch('/api/notify-admin', {
                           method: 'POST',
-                          body: formData
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(payload)
                         });
                         const responseText = await res.text();
                         let resData: any = {};
@@ -642,14 +646,32 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
 
                   <button
                     onClick={async () => {
-                      if (!captureRef.current) return;
                       try {
-                        await new Promise(r => setTimeout(r, 100));
-                        const dataUrl = await htmlToImage.toPng(captureRef.current, { pixelRatio: 3, cacheBust: true });
+                        const range = chartRef.current?.timeScale().getVisibleLogicalRange();
+                        const chartParams = {
+                          symbol, pair, dir: direction, lev: leverage, 
+                          e: entry, sl: stopLoss, tp1, tp2, tp3, 
+                          code: signalCode, layout: layoutMode, theme: cardTheme,
+                          disclaimer, strategyNote,
+                          from: range ? range.from.toString() : "",
+                          to: range ? range.to.toString() : ""
+                        };
+                        const res = await fetch('/api/screenshot', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(chartParams)
+                        });
+                        if (!res.ok) {
+                          const errText = await res.text();
+                          throw new Error(errText || "Failed to generate on server");
+                        }
+                        const blob = await res.blob();
+                        const url = URL.createObjectURL(blob);
                         const link = document.createElement("a");
                         link.download = `yagacalls-${symbol}-${direction}-${Date.now()}.png`;
-                        link.href = dataUrl;
+                        link.href = url;
                         link.click();
+                        URL.revokeObjectURL(url);
                       } catch (err) {
                         console.error("Failed to capture image", err);
                         alert("Failed to capture image");
@@ -662,7 +684,7 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
 
                   <button
                     onClick={() => {
-                      const txt = `Signal Alert!\n\n🪙 $${symbol} · ${pair} · ${direction} · ${leverage}\n⚡ Live Price ${livePrice}\n\n📍 Entry Price (≈): ${entry}\n🎯 TP1: ${tp1} (+${tp1PctStr})\n🎯 TP2: ${tp2} (+${tp2PctStr})\n🎯 TP3: ${tp3} (+${tp3PctStr})\n🛑 Stop Loss: ${stopLoss} (-${stopPctStr})\n\n🆔 ${signalCode}\n\n${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
+                      const txt = `$${symbol} · ${direction} · ${leverage}\n⚡ Live Price ${livePrice}\n\n📍 Entry Price (≈): ${entry}\n🎯 TP1: ${tp1}\n🎯 TP2: ${tp2}\n🎯 TP3: ${tp3}\n🛑 Stop Loss: ${stopLoss}\n\n📌 ${signalCode}${strategyNote ? '\n\n' + strategyNote : ''}${disclaimer ? '\n\n' + disclaimer : ''}`;
                       navigator.clipboard.writeText(txt);
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
@@ -809,47 +831,29 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                 </div>
               </div>
 
-              <div className="col-span-2 sm:col-span-4 lg:col-span-10 flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#1C222E]">
+              <div className="col-span-2 sm:col-span-4 lg:col-span-10 flex flex-wrap items-center justify-end gap-3 pt-2 border-t border-[#1C222E]">
                 <div>
                   <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px]">
-                    Technical Indicators
+                    Card Theme
                   </label>
                   <div className="flex bg-[#12151C] p-1 border border-[#252D3D] rounded-xl gap-1">
                     <button
                       type="button"
-                      onClick={() => setShowEma20(!showEma20)}
-                      className={`px-2.5 py-1 rounded-lg font-extrabold text-xs transition-all border ${
-                        showEma20 
-                          ? "bg-[#00E5FF]/20 text-[#00E5FF] border-[#00E5FF]/50" 
-                          : "text-slate-500 border-transparent hover:text-slate-300"
-                      }`}
+                      onClick={() => setCardTheme("DARK")}
+                      className={`px-3 py-1 rounded-lg font-extrabold text-xs transition-all flex items-center gap-1.5 ${cardTheme === "DARK" ? "bg-gradient-to-r from-[#F6E09E] to-[#CBB079] text-black shadow-md" : "text-slate-400 hover:text-white"}`}
                     >
-                      EMA 20
+                      <Moon className="w-3.5 h-3.5" /> Dark Mode
                     </button>
                     <button
                       type="button"
-                      onClick={() => setShowEma50(!showEma50)}
-                      className={`px-2.5 py-1 rounded-lg font-extrabold text-xs transition-all border ${
-                        showEma50 
-                          ? "bg-[#F6E09E]/20 text-[#F6E09E] border-[#F6E09E]/50" 
-                          : "text-slate-500 border-transparent hover:text-slate-300"
-                      }`}
+                      onClick={() => setCardTheme("LIGHT")}
+                      className={`px-3 py-1 rounded-lg font-extrabold text-xs transition-all flex items-center gap-1.5 ${cardTheme === "LIGHT" ? "bg-gradient-to-r from-[#F6E09E] to-[#CBB079] text-black shadow-md" : "text-slate-400 hover:text-white"}`}
                     >
-                      EMA 50
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setShowEma200(!showEma200)}
-                      className={`px-2.5 py-1 rounded-lg font-extrabold text-xs transition-all border ${
-                        showEma200 
-                          ? "bg-[#A855F7]/20 text-[#A855F7] border-[#A855F7]/50" 
-                          : "text-slate-500 border-transparent hover:text-slate-300"
-                      }`}
-                    >
-                      EMA 200
+                      <Sun className="w-3.5 h-3.5" /> Light Mode
                     </button>
                   </div>
                 </div>
+
                 <div>
                   <label className="block text-slate-400 font-semibold mb-1 uppercase tracking-wide text-[10px]">
                     Telegram Layout Format
@@ -881,63 +885,59 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
         <div 
           id="signal-capture-card" 
           ref={captureRef} 
-          className={`w-full relative rounded-3xl overflow-hidden border-[6px] border-[#181C24] shadow-2xl flex flex-col bg-[#0A0B0D] transition-all ${
-            layoutMode === "MOBILE" ? "max-w-[560px] min-h-[820px]" : "max-w-6xl h-[650px]"
+          className={`w-full relative rounded-3xl overflow-hidden border-[6px] shadow-2xl flex flex-col transition-all ${
+            cardTheme === "LIGHT" ? "bg-white border-[#E2E8F0] text-slate-900" : "bg-[#0A0B0D] border-[#181C24] text-white"
+          } ${
+            layoutMode === "MOBILE" ? "max-w-[560px] h-[700px]" : "max-w-6xl h-[650px]"
           }`}
         >
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#F6E09E] to-transparent z-20" />
             
-            <div className={`flex items-center justify-between border-b border-[#1E242C] z-10 shrink-0 ${
-              layoutMode === "MOBILE" ? "p-4 px-5" : "p-6 px-8"
+            <div className={`flex items-center justify-between border-b z-10 shrink-0 ${
+              cardTheme === "LIGHT" ? "border-[#E2E8F0] bg-[#F8FAFC]" : "border-[#1E242C]"
+            } ${
+              layoutMode === "MOBILE" ? "p-3 px-4" : "p-4 px-6"
             }`}>
               <div className="flex items-center gap-3">
                 <div className={`relative rounded-xl overflow-hidden border-2 border-[#CBB079] bg-black shrink-0 ${
-                  layoutMode === "MOBILE" ? "w-11 h-11" : "w-14 h-14"
+                  layoutMode === "MOBILE" ? "w-10 h-10" : "w-11 h-11"
                 }`}>
-                  <Image src="/yaga_calls_logo.png" alt="YagaCalls" fill sizes="56px" className="object-cover" />
+                  <Image src="/yaga_calls_logo.png" alt="YagaCalls" fill sizes="44px" className="object-cover" />
                 </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className={`font-black tracking-[3px] text-white uppercase ${
-                      layoutMode === "MOBILE" ? "text-base tracking-[2px]" : "text-[22px] tracking-[4px]"
-                    }`}>YAGACALLS SIGNAL</span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[9px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] text-black uppercase tracking-wider">BEING ROYAL</span>
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-black bg-[#1A202C] text-[#F6E09E] border border-[#F6E09E]/30 uppercase tracking-widest">{signalCode}</span>
-                  </div>
-                  <div className="text-[10px] font-bold text-[#CBB079] tracking-[0.15em] uppercase flex items-center gap-1.5 mt-0.5">
-                    QUANTITATIVE POSITION FORECAST
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  </div>
-                </div>
+                <span className={`font-black tracking-[3px] uppercase ${
+                  cardTheme === "LIGHT" ? "text-slate-900" : "text-white"
+                } ${
+                  layoutMode === "MOBILE" ? "text-base tracking-[2px]" : "text-xl tracking-[3px]"
+                }`}>YAGACALLS</span>
               </div>
 
-              <div className={`bg-[#11141B] border border-[#1E2533] rounded-2xl flex items-center font-mono shadow-xl shrink-0 ${
-                layoutMode === "MOBILE" ? "px-3 py-1.5 gap-2 text-xs" : "px-5 py-2.5 gap-4"
-              }`}>
-                <span className={`font-black text-white ${layoutMode === "MOBILE" ? "text-base" : "text-xl"}`}>${symbol}</span>
-                <span className={`px-2 py-0.5 rounded font-black uppercase border ${
-                  layoutMode === "MOBILE" ? "text-[10px]" : "text-xs"
-                } ${isLong ? "bg-emerald-500/15 text-emerald-400 border-emerald-500/40" : "bg-red-500/15 text-red-400 border-red-500/40"}`}>
-                  {direction} · {leverage}
+              <div className="flex items-center gap-2.5 font-mono shrink-0">
+                <span className={`px-2.5 py-1 rounded-xl text-[11px] font-mono font-bold border shadow-sm ${
+                  cardTheme === "LIGHT" ? "bg-slate-100 text-slate-900 border-slate-300" : "bg-[#141822] text-[#F6E09E] border-[#F6E09E]/25"
+                }`}>{signalCode}</span>
+                <span className={`font-bold ${cardTheme === "LIGHT" ? "text-slate-900" : "text-white"} ${layoutMode === "MOBILE" ? "text-sm" : "text-base"}`}>${symbol}</span>
+                <span className={`px-2.5 py-1 rounded-xl font-extrabold text-[11px] uppercase border ${
+                  isLong ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/30" : "bg-red-500/10 text-red-600 border-red-500/30"
+                }`}>
+                  {direction}
                 </span>
-                <span className={`font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent ${
-                  layoutMode === "MOBILE" ? "text-xs" : "text-base"
-                }`}>Live {livePrice}</span>
               </div>
             </div>
 
             <div className={`flex flex-1 min-h-0 relative ${
-              layoutMode === "MOBILE" ? "flex-col p-4 pt-3 gap-3" : "p-8 pt-6 gap-8"
+              layoutMode === "MOBILE" ? "p-3" : "p-4"
             }`}>
-              <div className={`bg-[#070809] border border-[#1E242C] rounded-2xl overflow-hidden flex flex-col shadow-inner ${
-                layoutMode === "MOBILE" ? "w-full h-[390px] min-h-[390px] shrink-0 relative" : "flex-1 min-w-0"
+              <div className={`border rounded-2xl overflow-hidden flex flex-col shadow-inner w-full h-full relative ${
+                cardTheme === "LIGHT" ? "bg-white border-[#E2E8F0]" : "bg-[#070809] border-[#1E242C]"
               }`}>
-                <div className="bg-[#0F1217] px-4 py-2 border-b border-[#1E242C] flex items-center justify-between text-xs font-mono shrink-0">
+                <div className={`px-4 py-2 border-b flex items-center justify-between text-xs font-mono shrink-0 ${
+                  cardTheme === "LIGHT" ? "bg-slate-100 border-[#E2E8F0] text-slate-800" : "bg-[#0F1217] border-[#1E242C] text-white"
+                }`}>
                   <div className="flex items-center gap-3">
                     <BarChart2 className="w-4 h-4 text-[#CBB079]" />
-                    <span className="font-bold text-white">{pair}</span>
-                    <span className="text-slate-600">|</span>
-                    <span className="text-slate-400 font-bold">{timeframe}</span>
+                    <span className={`font-bold ${cardTheme === "LIGHT" ? "text-slate-900" : "text-white"}`}>{pair}</span>
+                    <span className="text-slate-400">|</span>
+                    <span className={`font-bold ${cardTheme === "LIGHT" ? "text-slate-600" : "text-slate-400"}`}>{timeframe}</span>
                   </div>
                   {loading && <RefreshCw className="w-3.5 h-3.5 text-[#CBB079] animate-spin" />}
                 </div>
@@ -949,15 +949,21 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                   {overlay.highestY !== null && overlay.highestVal !== null && (
                     <>
                       <div 
-                        className="absolute left-0 right-0 border-t border-dashed border-[#F6E09E]/35 z-10 pointer-events-none"
+                        className={`absolute left-0 right-0 border-t border-dashed z-10 pointer-events-none ${
+                          cardTheme === "LIGHT" ? "border-amber-600/70" : "border-[#F6E09E]/35"
+                        }`}
                         style={{ top: `${overlay.highestY}px` }}
                       />
                       <div 
                         className="absolute left-2.5 z-20 pointer-events-none"
                         style={{ top: `${Math.max(2, Math.min(chartH - 18, overlay.highestY - 9))}px` }}
                       >
-                        <span className="bg-[#121008]/90 border border-[#F6E09E]/50 px-1.5 py-0.5 rounded text-[8.5px] font-mono font-bold text-[#F6E09E] shadow-sm flex items-center gap-1">
-                          <span className="w-1 h-1 rounded-full bg-[#F6E09E]" />
+                        <span className={`px-1.5 py-0.5 rounded text-[8.5px] font-mono font-bold shadow-sm flex items-center gap-1 border ${
+                          cardTheme === "LIGHT"
+                            ? "bg-amber-100/95 border-amber-300 text-amber-900"
+                            : "bg-[#121008]/90 border-[#F6E09E]/50 text-[#F6E09E]"
+                        }`}>
+                          <span className={`w-1 h-1 rounded-full ${cardTheme === "LIGHT" ? "bg-amber-600" : "bg-[#F6E09E]"}`} />
                           H: {overlay.highestVal.toFixed(overlay.highestVal < 1 ? 4 : 2)}
                         </span>
                       </div>
@@ -967,15 +973,21 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                   {overlay.lowestY !== null && overlay.lowestVal !== null && (
                     <>
                       <div 
-                        className="absolute left-0 right-0 border-t border-dashed border-[#ef5350]/35 z-10 pointer-events-none"
+                        className={`absolute left-0 right-0 border-t border-dashed z-10 pointer-events-none ${
+                          cardTheme === "LIGHT" ? "border-rose-600/70" : "border-[#ef5350]/35"
+                        }`}
                         style={{ top: `${overlay.lowestY}px` }}
                       />
                       <div 
                         className="absolute left-2.5 z-20 pointer-events-none"
                         style={{ top: `${Math.max(2, Math.min(chartH - 18, overlay.lowestY - 9))}px` }}
                       >
-                        <span className="bg-[#140A0C]/90 border border-[#ef5350]/50 px-1.5 py-0.5 rounded text-[8.5px] font-mono font-bold text-[#ef5350] shadow-sm flex items-center gap-1">
-                          <span className="w-1 h-1 rounded-full bg-[#ef5350]" />
+                        <span className={`px-1.5 py-0.5 rounded text-[8.5px] font-mono font-bold shadow-sm flex items-center gap-1 border ${
+                          cardTheme === "LIGHT"
+                            ? "bg-rose-100/95 border-rose-300 text-rose-900"
+                            : "bg-[#140A0C]/90 border-[#ef5350]/50 text-[#ef5350]"
+                        }`}>
+                          <span className={`w-1 h-1 rounded-full ${cardTheme === "LIGHT" ? "bg-rose-600" : "bg-[#ef5350]"}`} />
                           L: {overlay.lowestVal.toFixed(overlay.lowestVal < 1 ? 4 : 2)}
                         </span>
                       </div>
@@ -985,20 +997,22 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                   {eY !== null && futureStartX !== null && (
                     <div 
                       className="absolute top-0 bottom-0 pointer-events-none z-10"
-                      style={{ left: `${boxLeft}px`, width: `${boxW}px` }}
+                      style={{ left: `${boxLeft}px`, right: `${priceScaleW}px` }}
                     >
-                      <div className="absolute top-0 bottom-0 left-0 border-l border-dashed border-[#CBB079]/40" />
+                      <div className="absolute top-0 bottom-0 left-0 border-l border-dashed border-[#26a69a]/30" />
 
-                      {/* Target Area Shading (Gold) */}
+                      {/* Target Area Shading (Green Gains) */}
                       {tgtH > 0 && (
                         <div
                           className="absolute left-0 right-0"
                           style={{
                             top: `${tgtTop}px`,
                             height: `${tgtH}px`,
-                            background: "linear-gradient(to bottom, rgba(246,224,158,0.14), rgba(203,176,121,0.03))",
-                            border: "1px solid rgba(203,176,121,0.5)",
-                            borderLeft: "2px solid #F6E09E",
+                            background: cardTheme === "LIGHT" 
+                              ? "linear-gradient(to bottom, rgba(5,150,105,0.18), rgba(5,150,105,0.03))" 
+                              : "linear-gradient(to bottom, rgba(38,166,154,0.28), rgba(38,166,154,0.06))",
+                            border: cardTheme === "LIGHT" ? "1px solid rgba(5,150,105,0.35)" : "1px solid rgba(38,166,154,0.45)",
+                            borderLeft: cardTheme === "LIGHT" ? "1px dashed rgba(5,150,105,0.5)" : "1px dashed rgba(38,166,154,0.6)",
                           }}
                         />
                       )}
@@ -1010,37 +1024,30 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                           style={{
                             top: `${slTop}px`,
                             height: `${slH}px`,
-                            background: "linear-gradient(to top, rgba(239,83,80,0.14), rgba(239,83,80,0.03))",
-                            border: "1px solid rgba(239,83,80,0.4)",
-                            borderLeft: "2px solid #ef5350",
+                            background: cardTheme === "LIGHT"
+                              ? "linear-gradient(to top, rgba(220,38,38,0.16), rgba(220,38,38,0.02))"
+                              : "linear-gradient(to top, rgba(239,83,80,0.22), rgba(239,83,80,0.04))",
+                            border: cardTheme === "LIGHT" ? "1px solid rgba(220,38,38,0.35)" : "1px solid rgba(239,83,80,0.45)",
+                            borderLeft: cardTheme === "LIGHT" ? "1px dashed rgba(220,38,38,0.4)" : "1px dashed rgba(239,83,80,0.5)",
                           }}
                         />
                       )}
 
                       {/* Level Reference Lines across Projection Box */}
-                      {tp3Y !== null && <div className="absolute left-0 right-0 border-t border-dashed border-[#F6E09E]/70 z-10" style={{ top: `${tp3Y}px` }} />}
-                      {tp2Y !== null && <div className="absolute left-0 right-0 border-t border-dashed border-[#CBB079]/70 z-10" style={{ top: `${tp2Y}px` }} />}
-                      {tp1Y !== null && <div className="absolute left-0 right-0 border-t border-dashed border-[#CBB079]/70 z-10" style={{ top: `${tp1Y}px` }} />}
-                      {eY !== null && <div className="absolute left-0 right-0 border-t-2 border-[#00E5FF] z-10 shadow-[0_0_8px_#00E5FF]/40" style={{ top: `${eY}px` }} />}
-                      {sY !== null && <div className="absolute left-0 right-0 border-t border-dashed border-red-500/80 z-10" style={{ top: `${sY}px` }} />}
+                      {tp3Y !== null && <div className={`absolute left-0 right-0 border-t border-dashed z-10 ${cardTheme === "LIGHT" ? "border-[#059669]/70" : "border-[#26a69a]/70"}`} style={{ top: `${tp3Y}px` }} />}
+                      {tp2Y !== null && <div className={`absolute left-0 right-0 border-t border-dashed z-10 ${cardTheme === "LIGHT" ? "border-[#059669]/70" : "border-[#26a69a]/70"}`} style={{ top: `${tp2Y}px` }} />}
+                      {tp1Y !== null && <div className={`absolute left-0 right-0 border-t border-dashed z-10 ${cardTheme === "LIGHT" ? "border-[#059669]/70" : "border-[#26a69a]/70"}`} style={{ top: `${tp1Y}px` }} />}
+                      {eY !== null && <div className={`absolute left-0 right-0 border-t-2 border-dashed z-10 ${cardTheme === "LIGHT" ? "border-[#0284C7] shadow-[0_0_6px_#0284C7]/30" : "border-[#00E5FF] shadow-[0_0_6px_#00E5FF]/30"}`} style={{ top: `${eY}px` }} />}
+                      {sY !== null && <div className={`absolute left-0 right-0 border-t border-dashed z-10 ${cardTheme === "LIGHT" ? "border-red-600/70" : "border-red-500/70"}`} style={{ top: `${sY}px` }} />}
 
-                      {/* R:R Badge on Top Right of Entry Line */}
-                      {eY !== null && (
-                        <div className="absolute right-1.5 z-20" style={{ top: `${eY - 11}px` }}>
-                          <span className="bg-[#041C24]/90 border border-[#00E5FF]/60 px-1.5 py-0.5 rounded text-[9px] font-mono font-black text-[#00E5FF] shadow-sm">
-                            R:R 1 : {rr3}
-                          </span>
-                        </div>
-                      )}
-
-                      {/* Unified 5-Level Smart Badge Collision Resolver (Left-Anchored) */}
+                      {/* Unified 5-Level Smart Text Collision Resolver (No BG Box, Clean 11px Text) */}
                       {(() => {
                         const rawLevels = [
-                          { id: "tp3", type: "tp", lbl: "TP3", p: tp3, pct: tp3PctStr, y: tp3Y, highlight: true },
-                          { id: "tp2", type: "tp", lbl: "TP2", p: tp2, pct: tp2PctStr, y: tp2Y, highlight: false },
-                          { id: "tp1", type: "tp", lbl: "TP1", p: tp1, pct: tp1PctStr, y: tp1Y, highlight: false },
-                          { id: "entry", type: "entry", lbl: "ENTRY", p: entry, pct: null, y: eY, highlight: true },
-                          { id: "stop", type: "stop", lbl: "STOP", p: stopLoss, pct: stopPctStr, y: sY, highlight: true },
+                          { id: "tp3", type: "tp", lbl: "TP3", p: tp3, y: tp3Y },
+                          { id: "tp2", type: "tp", lbl: "TP2", p: tp2, y: tp2Y },
+                          { id: "tp1", type: "tp", lbl: "TP1", p: tp1, y: tp1Y },
+                          { id: "entry", type: "entry", lbl: "ENTRY", p: entry, y: eY },
+                          { id: "stop", type: "stop", lbl: "STOP", p: stopLoss, y: sY },
                         ];
 
                         const levels = rawLevels
@@ -1053,8 +1060,8 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                             const cur = levels[i];
                             const nxt = levels[i + 1];
                             const diff = nxt.labelY - cur.labelY;
-                            if (diff < 24) {
-                              const push = (24 - diff) / 2;
+                            if (diff < 16) {
+                              const push = (16 - diff) / 2;
                               cur.labelY -= push;
                               nxt.labelY += push;
                             }
@@ -1062,101 +1069,27 @@ ${strategyNote ? strategyNote + '\n\n' : ''}${disclaimer}`;
                         }
 
                         return levels.map(l => {
-                          let badgeStyle = "bg-[#0F1217]/95 border border-[#CBB079]/70 text-[#F6E09E]";
-                          let labelText = `${l.lbl}: ${l.p} (+${l.pct})`;
+                          let textStyle = cardTheme === "LIGHT" ? "text-[#047857]" : "text-white";
+                          if (l.type === "entry") textStyle = cardTheme === "LIGHT" ? "text-[#0284C7]" : "text-[#00E5FF]";
+                          else if (l.type === "stop") textStyle = cardTheme === "LIGHT" ? "text-[#DC2626]" : "text-[#ef5350]";
 
-                          if (l.type === "entry") {
-                            badgeStyle = "bg-[#041C24]/95 border border-[#00E5FF] text-[#00E5FF] shadow-[0_0_10px_rgba(0,229,255,0.2)]";
-                            labelText = `ENTRY: ${l.p}`;
-                          } else if (l.type === "stop") {
-                            badgeStyle = "bg-[#180A0A]/95 border border-red-500/70 text-red-400";
-                            labelText = `STOP: ${l.p} (-${l.pct})`;
-                          } else if (l.highlight) {
-                            badgeStyle = "bg-[#141720]/95 border border-[#F6E09E] text-transparent bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text font-black";
-                          }
+                          const shadow = cardTheme === "LIGHT" 
+                            ? "drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]" 
+                            : "drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]";
 
                           return (
                             <div
                               key={l.id}
-                              className={`absolute left-1.5 z-20 px-2 py-0.5 rounded text-[10px] font-mono font-black shadow-md flex items-center gap-1 whitespace-nowrap transition-all ${badgeStyle}`}
-                              style={{ top: `${l.labelY - 10}px` }}
+                              className={`absolute left-1 z-20 text-[11px] font-mono font-bold tracking-tight whitespace-nowrap transition-all ${textStyle} ${shadow}`}
+                              style={{ top: `${l.labelY - 14}px` }}
                             >
-                              {labelText}
+                              {l.lbl}: {l.p}
                             </div>
                           );
                         });
                       })()}
                     </div>
                   )}
-                </div>
-              </div>
-
-              <div className={`flex shrink-0 ${
-                layoutMode === "MOBILE" ? "grid grid-cols-2 gap-3 w-full" : "w-[320px] flex-col gap-6"
-              }`}>
-                <div className={`bg-[#0D1016] border border-[#1C222E] rounded-2xl shadow-2xl font-mono text-xs flex flex-col justify-between ${
-                  layoutMode === "MOBILE" ? "p-3.5" : "p-5 flex-1"
-                }`}>
-                  <div className="flex items-center justify-between pb-2.5 mb-2 border-b border-[#1A202C]">
-                    <div className="flex items-center gap-1.5 text-[10px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent uppercase tracking-widest">
-                      <Zap className="w-3.5 h-3.5 text-[#F6E09E]" /> Signal Levels
-                    </div>
-                    <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-[#CBB079]/10 text-[#F6E09E] border border-[#CBB079]/20">
-                      {leverage}
-                    </span>
-                  </div>
-
-                  <div className="space-y-1">
-                    {[
-                      { lbl: "Entry", val: entry,    c: "text-[#00E5FF]", b: null },
-                      { lbl: "Stop",  val: stopLoss, c: "text-red-400",   b: `-${stopPctStr}`, bc: "text-red-400 bg-red-500/10" },
-                      { lbl: "TP1",   val: tp1,      c: "text-[#CBB079]", b: `+${tp1PctStr}`,  bc: "text-[#CBB079] bg-[#CBB079]/10" },
-                      { lbl: "TP2",   val: tp2,      c: "text-[#CBB079]", b: `+${tp2PctStr}`,  bc: "text-[#CBB079] bg-[#CBB079]/10" },
-                      { lbl: "TP3",   val: tp3,      c: "text-[#F6E09E]", b: `+${tp3PctStr}`,  bc: "text-[#F6E09E] bg-[#F6E09E]/10" },
-                    ].map((r, i) => (
-                      <div key={r.lbl} className={`flex justify-between items-center py-1.5 ${i < 4 ? "border-b border-[#1A202C]/60" : ""}`}>
-                        <span className="text-slate-400 font-bold text-[11px]">{r.lbl}</span>
-                        <div className="flex items-center gap-1.5">
-                          <span className={`font-black text-[12px] ${r.c}`}>{r.val}</span>
-                          {r.b && <span className={`text-[8px] font-bold px-1 py-0.5 rounded ${r.bc}`}>{r.b}</span>}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <div className={`bg-[#0D1016] border border-[#1C222E] rounded-2xl shadow-2xl font-mono text-xs flex-1 ${
-                    layoutMode === "MOBILE" ? "p-3.5" : "p-5"
-                  }`}>
-                    <div className="flex items-center gap-1.5 pb-2.5 mb-2 border-b border-[#1A202C] text-[10px] font-black bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent uppercase tracking-widest">
-                      <Target className="w-3.5 h-3.5 text-[#F6E09E]" /> Risk-to-Reward
-                    </div>
-                    <div className="space-y-1.5">
-                      {[
-                        { lbl: "R:R → TP1", val: rr1 },
-                        { lbl: "R:R → TP2", val: rr2 },
-                        { lbl: "R:R → TP3", val: rr3, isGold: true },
-                      ].map(r => (
-                        <div key={r.lbl} className="flex justify-between items-center bg-[#080A0E] px-2.5 py-1.5 rounded-xl border border-[#1A202C]">
-                          <span className="text-slate-500 font-bold text-[10px]">{r.lbl}</span>
-                          <span className={`font-black text-[12px] ${r.isGold ? 'bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent' : 'text-[#CBB079]'}`}>
-                            1 : {r.val}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between text-[9px] font-bold text-slate-500 uppercase tracking-wider px-1">
-                    <div className="flex items-center gap-1 text-slate-400 font-semibold">
-                      <ShieldAlert className="w-3 h-3 text-[#ef5350] shrink-0" />
-                      <span className="truncate max-w-[160px]" title={disclaimer}>{disclaimer}</span>
-                    </div>
-                    <span className="bg-gradient-to-r from-[#F6E09E] to-[#CBB079] bg-clip-text text-transparent font-black">
-                      BEING ROYAL
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>

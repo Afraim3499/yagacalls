@@ -48,6 +48,28 @@ interface CryptoSignal {
   updated_at?: string;
 }
 
+function formatRunTime(createdAt: string, updatedAt?: string, status?: string) {
+  const start = new Date(createdAt).getTime();
+  const isFinal = status === "HIT_TP3" || status === "HIT_SL" || status === "CLOSED";
+  const end = isFinal && updatedAt ? new Date(updatedAt).getTime() : Date.now();
+  
+  const diffMs = Math.max(0, end - start);
+  const totalMins = Math.floor(diffMs / (1000 * 60));
+  const days = Math.floor(totalMins / (60 * 24));
+  const hours = Math.floor((totalMins % (60 * 24)) / 60);
+  const mins = totalMins % 60;
+
+  if (days > 0) return `${days}d ${hours}h`;
+  if (hours > 0) return `${hours}h ${mins}m`;
+  return `${mins}m`;
+}
+
+function formatEntryDate(createdAt: string) {
+  const d = new Date(createdAt);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) +
+    " " + d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+}
+
 export default function SignalTrackingHubPage() {
   const [signals, setSignals] = useState<CryptoSignal[]>([]);
   const [loading, setLoading] = useState(true);
@@ -89,6 +111,30 @@ export default function SignalTrackingHubPage() {
 
   useEffect(() => {
     fetchSignals();
+
+    // Supabase Realtime Subscription for Instant Live Status Updates
+    const channel = supabase
+      .channel("crypto_signals_realtime")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "crypto_signals" },
+        (payload: any) => {
+          if (payload.eventType === "INSERT") {
+            setSignals(prev => [payload.new as CryptoSignal, ...prev]);
+          } else if (payload.eventType === "UPDATE") {
+            setSignals(prev =>
+              prev.map(s => (s.id === payload.new.id ? (payload.new as CryptoSignal) : s))
+            );
+          } else if (payload.eventType === "DELETE") {
+            setSignals(prev => prev.filter(s => s.id !== payload.old.id));
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   // ── Fetch Live Binance Prices ──
@@ -382,6 +428,8 @@ export default function SignalTrackingHubPage() {
                   <tr className="bg-[#121620] border-b border-[#1E242C] text-slate-400 text-[10px] font-black uppercase tracking-wider">
                     <th className="p-4">Signal ID</th>
                     <th className="p-4">Asset / Pair</th>
+                    <th className="p-4">Entry Date</th>
+                    <th className="p-4">Total Run Time</th>
                     <th className="p-4">Side & Lev</th>
                     <th className="p-4">Entry</th>
                     <th className="p-4">Targets (TP1 / TP2 / TP3)</th>
@@ -399,6 +447,8 @@ export default function SignalTrackingHubPage() {
                     const rawPnL = sig.entry_price > 0 ? (priceDiff / sig.entry_price) * 100 : 0;
                     
                     const code = sig.signal_code || `#YG-${sig.id.slice(0, 4)}`;
+                    const entryDateStr = formatEntryDate(sig.created_at);
+                    const runTimeStr = formatRunTime(sig.created_at, sig.updated_at, sig.status);
 
                     let statusBadgeClass = "bg-cyan-500/10 text-cyan-400 border-cyan-500/30";
                     let statusLabel = sig.status || "ACTIVE";
@@ -412,13 +462,29 @@ export default function SignalTrackingHubPage() {
                       <tr key={sig.id} className="hover:bg-[#121620]/60 transition-all">
                         {/* Signal ID */}
                         <td className="p-4 font-black text-amber-400 whitespace-nowrap">
-                          {code}
+                          <Link
+                            href={`/result-view?code=${code.replace('#', '')}`}
+                            className="hover:underline flex items-center gap-1 text-amber-400 hover:text-amber-300"
+                            title="View Result Chart"
+                          >
+                            {code} <ExternalLink className="w-3 h-3 opacity-60" />
+                          </Link>
                         </td>
 
                         {/* Symbol & Pair */}
                         <td className="p-4 whitespace-nowrap">
                           <div className="font-extrabold text-white">${sig.symbol}</div>
                           <div className="text-[10px] text-slate-500">{sig.pair} · {sig.timeframe}</div>
+                        </td>
+
+                        {/* Entry Date */}
+                        <td className="p-4 whitespace-nowrap text-slate-300 text-[11px] font-bold">
+                          {entryDateStr}
+                        </td>
+
+                        {/* Total Run Time */}
+                        <td className="p-4 whitespace-nowrap text-[#F6E09E] font-bold text-[11px]">
+                          ⏱️ {runTimeStr}
                         </td>
 
                         {/* Direction & Leverage */}

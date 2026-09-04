@@ -17,10 +17,18 @@ const sshConfig = {
 };
 
 const studioPagePath = path.join(__dirname, '../app/signal-studio/page.tsx');
+const hubPagePath = path.join(__dirname, '../app/signal-studio/hub/page.tsx');
+const resultViewPath = path.join(__dirname, '../app/result-view/page.tsx');
 const previewPagePath = path.join(__dirname, '../app/preview/signal-card/page.tsx');
 const notifyAdminPath = path.join(__dirname, '../app/api/notify-admin/route.ts');
+const klinesApiPath = path.join(__dirname, '../app/api/klines/route.ts');
 const botEnginePath = path.join(__dirname, '../yaga-content-system/bot_engine_serverless.js');
 const chartGenPath = path.join(__dirname, '../yaga-content-system/chart_card_generator.js');
+const signalMonitorPath = path.join(__dirname, '../yaga-content-system/signal_monitor_engine.js');
+
+const captureOptionsPath = path.join(__dirname, '../lib/captureOptions.ts');
+const puppeteerScreenshotPath = path.join(__dirname, '../lib/puppeteerScreenshot.ts');
+const screenshotApiPath = path.join(__dirname, '../app/api/screenshot/route.ts');
 
 const conn = new Client();
 conn.on('ready', () => {
@@ -30,14 +38,23 @@ conn.on('ready', () => {
     if (err) throw err;
 
     const uploads = [
+      { local: captureOptionsPath, remote: '/var/www/yagacalls/lib/captureOptions.ts' },
       { local: studioPagePath, remote: '/var/www/yagacalls/app/signal-studio/page.tsx' },
+      { local: hubPagePath, remote: '/var/www/yagacalls/app/signal-studio/hub/page.tsx' },
+      { local: resultViewPath, remote: '/var/www/yagacalls/app/result-view/page.tsx' },
       { local: previewPagePath, remote: '/var/www/yagacalls/app/preview/signal-card/page.tsx' },
       { local: notifyAdminPath, remote: '/var/www/yagacalls/app/api/notify-admin/route.ts' },
+      { local: screenshotApiPath, remote: '/var/www/yagacalls/app/api/screenshot/route.ts' },
+      { local: klinesApiPath, remote: '/var/www/yagacalls/app/api/klines/route.ts' },
+      { local: puppeteerScreenshotPath, remote: '/var/www/yagacalls/lib/puppeteerScreenshot.ts' },
       { local: botEnginePath, remote: '/var/www/yagacontentsystem/bot_engine_serverless.js' },
       { local: chartGenPath, remote: '/var/www/yagacontentsystem/chart_card_generator.js' },
+      { local: signalMonitorPath, remote: '/var/www/yagacontentsystem/signal_monitor_engine.js' },
     ];
 
-    conn.exec('mkdir -p /var/www/yagacalls/app/signal-studio /var/www/yagacalls/app/preview/signal-card /var/www/yagacalls/app/api/notify-admin', (mkdirErr, stream) => {
+    conn.exec('mkdir -p /var/www/yagacalls/lib /var/www/yagacalls/app/signal-studio /var/www/yagacalls/app/signal-studio/hub /var/www/yagacalls/app/result-view /var/www/yagacalls/app/preview/signal-card /var/www/yagacalls/app/api/notify-admin /var/www/yagacalls/app/api/screenshot /var/www/yagacalls/app/api/klines', (mkdirErr, stream) => {
+      if (mkdirErr) console.error("mkdir error:", mkdirErr);
+      stream.on('data', () => {}).stderr.on('data', () => {});
       stream.on('close', () => {
         let completed = 0;
         uploads.forEach(u => {
@@ -47,9 +64,10 @@ conn.on('ready', () => {
             completed++;
             if (completed === uploads.length) {
               const execCmd = `
-                cd /var/www/yagacalls && npx next build
+                cd /var/www/yagacalls && npm install puppeteer && rm -rf .next && npx next build
                 pm2 restart yagacalls-web
                 cd /var/www/yagacontentsystem && pm2 restart yaga-bot
+                cd /var/www/yagacontentsystem && (pm2 restart yaga-signal-monitor || pm2 start signal_monitor_engine.js --name "yaga-signal-monitor")
               `;
               conn.exec(execCmd, (cmdErr, cmdStream) => {
                 cmdStream.on('data', d => process.stdout.write(d.toString()))

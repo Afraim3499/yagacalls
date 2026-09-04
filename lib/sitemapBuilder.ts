@@ -76,6 +76,7 @@ const STATIC_ROUTE_PATHS = [
   "/authors",
   "/sitemap",
   "/hub",
+  "/result-view",
 ];
 
 /** Segment: static routes + commercial/guide landing pages (the "Pages" segment). */
