@@ -86,7 +86,7 @@ export async function POST(req: Request) {
       }
     }
 
-    if (sendErrors.length > 0 && sendErrors.length === adminChatIds.length) {
+    if (sendErrors.length > 0 && sendErrors.length === targetChatIds.size) {
       return NextResponse.json({ success: false, error: sendErrors.join('; ') }, { status: 500 });
     }
 
