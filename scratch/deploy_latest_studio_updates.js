@@ -67,6 +67,15 @@ conn.on('ready', () => {
             completed++;
             if (completed === uploads.length) {
               const execCmd = `
+                for envfile in /var/www/yagacalls/.env /var/www/yagacontentsystem/.env; do
+                  touch $envfile
+                  grep -q "^TELEGRAM_SUPERGROUP_ID=" $envfile || echo "TELEGRAM_SUPERGROUP_ID=-1004498264496" >> $envfile
+                  grep -q "^TG_THREAD_SIGNALS=" $envfile || echo "TG_THREAD_SIGNALS=2" >> $envfile
+                  grep -q "^TG_THREAD_SYSTEM_LOGS=" $envfile || echo "TG_THREAD_SYSTEM_LOGS=5" >> $envfile
+                  grep -q "^TG_THREAD_DISPATCHES=" $envfile || echo "TG_THREAD_DISPATCHES=4" >> $envfile
+                  grep -q "^TG_THREAD_MEMBER_JOINS=" $envfile || echo "TG_THREAD_MEMBER_JOINS=3" >> $envfile
+                  grep -q "^TG_THREAD_GENERAL=" $envfile || echo "TG_THREAD_GENERAL=1" >> $envfile
+                done
                 cd /var/www/yagacalls && npm install puppeteer && rm -rf .next && npx next build
                 pm2 restart yagacalls-web
                 cd /var/www/yagacontentsystem && pm2 restart yaga-bot

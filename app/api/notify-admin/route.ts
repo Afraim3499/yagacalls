@@ -37,7 +37,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, error: "Server-side screenshot failed: " + shotErr.message }, { status: 500 });
     }
 
-    const adminChatIds = ADMIN_CHAT_ID.split(',').map(id => id.trim()).filter(Boolean);
+    const supergroupId = process.env.TELEGRAM_SUPERGROUP_ID || '-1004498264496';
+    const signalsThreadId = process.env.TG_THREAD_SIGNALS || '2';
+
+    const targetChatIds = new Set<string>();
+    if (ADMIN_CHAT_ID) {
+      ADMIN_CHAT_ID.split(',').map(id => id.trim()).filter(Boolean).forEach(id => targetChatIds.add(id));
+    }
+    if (supergroupId) {
+      targetChatIds.add(`${supergroupId}:${signalsThreadId}`);
+    }
 
     const replyMarkup = {
       inline_keyboard: [
@@ -50,11 +59,9 @@ export async function POST(req: Request) {
 
     const sendErrors: string[] = [];
 
-    const defaultThreadId = process.env.TG_THREAD_SIGNALS || '2';
-
-    for (const chatIdRaw of adminChatIds) {
+    for (const chatIdRaw of Array.from(targetChatIds)) {
       const [chatId, customThreadId] = chatIdRaw.split(':');
-      const threadId = customThreadId || (chatId.startsWith('-100') ? defaultThreadId : undefined);
+      const threadId = customThreadId || (chatId.startsWith('-100') ? signalsThreadId : undefined);
 
       const tgFormData = new FormData();
       tgFormData.append('chat_id', chatId);
@@ -72,10 +79,10 @@ export async function POST(req: Request) {
         signal: AbortSignal.timeout(25000)
       });
 
-      const data = await res.json();
-      if (!data.ok) {
-        console.error(`Telegram API error for chat ${chatId} (thread ${threadId}):`, data);
-        sendErrors.push(`Chat ${chatId}: ${data.description || 'Unknown error'}`);
+      const resData = await res.json();
+      if (!resData.ok) {
+        console.error(`Telegram API error for chat ${chatId} (thread ${threadId}):`, resData);
+        sendErrors.push(`Chat ${chatId}: ${resData.description || 'Unknown error'}`);
       }
     }
 
