@@ -219,7 +219,7 @@ function checkStaticRoutesCoveredBySitemap() {
   const EXEMPT = new Set([
     'api', 'academy', 'authors', 'blog', 'regions', 'feed.xml', '(commercial)',
     'sitemap.xml', 'sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-academy.xml',
-    'sitemap-regions.xml', 'sitemap-authors.xml', 'signal-studio',
+    'sitemap-regions.xml', 'sitemap-authors.xml', 'signal-studio', 'result-view', 'preview',
   ]);
 
   const sitemapSrc = fs.readFileSync(sitemapFile, 'utf8');

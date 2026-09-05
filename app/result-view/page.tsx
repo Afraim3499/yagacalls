@@ -133,11 +133,20 @@ function ResultViewContent() {
 
         if (list.length > 0) {
           if (codeParam) {
-            const cleanCode = codeParam.trim().toUpperCase().replace('#', '');
-            const found = list.find(s =>
-              (s.signal_code || '').toUpperCase().replace('#', '') === cleanCode ||
-              s.id.toUpperCase() === cleanCode
-            );
+            const rawParam = codeParam.trim().toUpperCase().replace('#', '');
+            const paramDigits = rawParam.replace(/\D/g, '');
+
+            const found = list.find(s => {
+              const sigCodeRaw = (s.signal_code || '').toUpperCase().replace('#', '');
+              if (sigCodeRaw === rawParam || s.id.toUpperCase() === rawParam) return true;
+
+              const sigDigits = sigCodeRaw.replace(/\D/g, '');
+              if (paramDigits && sigDigits && parseInt(paramDigits, 10) === parseInt(sigDigits, 10)) {
+                return true;
+              }
+              return false;
+            });
+
             setSelectedSignal(found || list[0]);
           } else {
             setSelectedSignal(list[0]);
