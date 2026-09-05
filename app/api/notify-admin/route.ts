@@ -50,9 +50,17 @@ export async function POST(req: Request) {
 
     const sendErrors: string[] = [];
 
-    for (const chatId of adminChatIds) {
+    const defaultThreadId = process.env.TG_THREAD_SIGNALS || '2';
+
+    for (const chatIdRaw of adminChatIds) {
+      const [chatId, customThreadId] = chatIdRaw.split(':');
+      const threadId = customThreadId || (chatId.startsWith('-100') ? defaultThreadId : undefined);
+
       const tgFormData = new FormData();
       tgFormData.append('chat_id', chatId);
+      if (threadId) {
+        tgFormData.append('message_thread_id', threadId);
+      }
       tgFormData.append('photo', new Blob([new Uint8Array(buffer)], { type: 'image/png' }), 'signal.png');
       tgFormData.append('caption', text);
       tgFormData.append('parse_mode', 'HTML');
@@ -66,7 +74,7 @@ export async function POST(req: Request) {
 
       const data = await res.json();
       if (!data.ok) {
-        console.error(`Telegram API error for chat ${chatId}:`, data);
+        console.error(`Telegram API error for chat ${chatId} (thread ${threadId}):`, data);
         sendErrors.push(`Chat ${chatId}: ${data.description || 'Unknown error'}`);
       }
     }

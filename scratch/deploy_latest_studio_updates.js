@@ -30,6 +30,8 @@ const captureOptionsPath = path.join(__dirname, '../lib/captureOptions.ts');
 const puppeteerScreenshotPath = path.join(__dirname, '../lib/puppeteerScreenshot.ts');
 const screenshotApiPath = path.join(__dirname, '../app/api/screenshot/route.ts');
 
+const vipExpirationPath = path.join(__dirname, '../yaga-content-system/vip_expiration_checker.js');
+
 const conn = new Client();
 conn.on('ready', () => {
   console.log('SSH Client :: Connected to VPS for studio update deployment');
@@ -50,6 +52,7 @@ conn.on('ready', () => {
       { local: botEnginePath, remote: '/var/www/yagacontentsystem/bot_engine_serverless.js' },
       { local: chartGenPath, remote: '/var/www/yagacontentsystem/chart_card_generator.js' },
       { local: signalMonitorPath, remote: '/var/www/yagacontentsystem/signal_monitor_engine.js' },
+      { local: vipExpirationPath, remote: '/var/www/yagacontentsystem/vip_expiration_checker.js' },
     ];
 
     conn.exec('mkdir -p /var/www/yagacalls/lib /var/www/yagacalls/app/signal-studio /var/www/yagacalls/app/signal-studio/hub /var/www/yagacalls/app/result-view /var/www/yagacalls/app/preview/signal-card /var/www/yagacalls/app/api/notify-admin /var/www/yagacalls/app/api/screenshot /var/www/yagacalls/app/api/klines', (mkdirErr, stream) => {
@@ -68,6 +71,7 @@ conn.on('ready', () => {
                 pm2 restart yagacalls-web
                 cd /var/www/yagacontentsystem && pm2 restart yaga-bot
                 cd /var/www/yagacontentsystem && (pm2 restart yaga-signal-monitor || pm2 start signal_monitor_engine.js --name "yaga-signal-monitor")
+                cd /var/www/yagacontentsystem && (pm2 restart yaga-vip-checker || pm2 start vip_expiration_checker.js --name "yaga-vip-checker")
               `;
               conn.exec(execCmd, (cmdErr, cmdStream) => {
                 cmdStream.on('data', d => process.stdout.write(d.toString()))
