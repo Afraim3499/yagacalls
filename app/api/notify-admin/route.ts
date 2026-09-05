@@ -3,15 +3,34 @@ import { takeSignalScreenshot } from '@/lib/puppeteerScreenshot';
 
 export async function POST(req: Request) {
   try {
-    let data;
-    try {
-      data = await req.json();
-    } catch {
-      // Fallback in case old client tries to send FormData
-      return NextResponse.json({ success: false, error: "Must send JSON payload" }, { status: 400 });
-    }
+    let text: string | undefined;
+    let signalId: string | undefined;
+    let buffer: Buffer | null = null;
+    let chartParams: Record<string, any> = {};
 
-    const { text, signalId, ...chartParams } = data;
+    const contentType = req.headers.get("content-type") || "";
+
+    if (contentType.includes("multipart/form-data")) {
+      const formData = await req.formData();
+      text = formData.get("text") as string;
+      signalId = formData.get("signalId") as string;
+      const imageFile = formData.get("image");
+      if (imageFile && typeof imageFile === "object" && "arrayBuffer" in imageFile) {
+        const ab = await (imageFile as Blob).arrayBuffer();
+        buffer = Buffer.from(ab);
+      }
+    } else {
+      let data: any = {};
+      try {
+        data = await req.json();
+      } catch (err: any) {
+        return NextResponse.json({ success: false, error: "Must send valid JSON or FormData payload" }, { status: 400 });
+      }
+      text = data.text;
+      signalId = data.signalId;
+      const { text: _t, signalId: _s, ...rest } = data;
+      chartParams = rest;
+    }
 
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const ADMIN_CHAT_ID = process.env.TELEGRAM_ADMIN_CHAT_ID;
@@ -25,16 +44,17 @@ export async function POST(req: Request) {
     }
 
     if (!text || !signalId) {
-      return NextResponse.json({ success: false, error: "Missing fields" }, { status: 400 });
+      return NextResponse.json({ success: false, error: "Missing required fields (text, signalId)" }, { status: 400 });
     }
 
-    // 1. Generate the screenshot purely on the server side using Puppeteer
-    let buffer: Buffer;
-    try {
-      buffer = await takeSignalScreenshot(chartParams as Record<string, string>);
-    } catch (shotErr: any) {
-      console.error("Puppeteer screenshot failed:", shotErr);
-      return NextResponse.json({ success: false, error: "Server-side screenshot failed: " + shotErr.message }, { status: 500 });
+    // 1. Generate screenshot using Puppeteer if buffer not already provided from image upload
+    if (!buffer) {
+      try {
+        buffer = await takeSignalScreenshot(chartParams as Record<string, string>);
+      } catch (shotErr: any) {
+        console.error("Puppeteer screenshot failed:", shotErr);
+        return NextResponse.json({ success: false, error: "Server-side screenshot failed: " + shotErr.message }, { status: 500 });
+      }
     }
 
     const supergroupId = process.env.TELEGRAM_SUPERGROUP_ID || '-1004498264496';
