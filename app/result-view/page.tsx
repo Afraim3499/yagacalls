@@ -220,7 +220,8 @@ function ResultViewContent() {
     const diffMs = Math.max(0, end - start);
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
     const diffHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const durationStr = diffDays >= 1 ? `${diffDays} Day${diffDays > 1 ? 's' : ''}` : `${Math.max(1, diffHours)} Hours`;
+    const hrs = Math.max(1, diffHours);
+    const durationStr = diffDays >= 1 ? `${diffDays} Day${diffDays > 1 ? 's' : ''}` : `${hrs} Hour${hrs > 1 ? 's' : ''}`;
 
     return {
       isLong,
@@ -439,12 +440,17 @@ function ResultViewContent() {
       const dataUrl = await captureCardWithChartScreenshot(captureRef.current, chartRef.current, chartContainerRef.current, 'png');
 
       const blob = await (await fetch(dataUrl)).blob();
-      const code = (selectedSignal.signal_code || `#YG-${selectedSignal.id.slice(0, 4)}`).replace('#', '');
+      const codeRaw = (selectedSignal.signal_code || `#YG-${selectedSignal.id.slice(0, 4)}`).replace('#', '');
+      const code = codeRaw.toUpperCase();
+      const tagCode = code.startsWith('YG-') ? code : `YG-${code}`;
       const onlineLink = `https://signal-studio.yagacalls.com/result-view?code=${code}`;
 
-      let caption = `🎯 <b>RESULT VIEW ALERT — ${signalMeta.hitBadge}</b>\n\n`;
+      const priceLabel = signalMeta.isHit ? "Hit Price" : "Live Price";
+      const headerEmoji = signalMeta.isHit ? (selectedSignal.status === 'HIT_SL' ? '🛑' : '🎯') : '📊';
+
+      let caption = `${headerEmoji} <b>RESULT VIEW ALERT — ${signalMeta.hitBadge}</b>\n\n`;
       caption += `<b>$${selectedSignal.symbol}</b> · <b>${selectedSignal.direction}</b> · <b>${selectedSignal.leverage}</b>\n`;
-      caption += `⚡ Hit Price: <b>${signalMeta.resultHitPrice}</b> (${signalMeta.pnlPct >= 0 ? `+${signalMeta.pnlPct.toFixed(2)}%` : `${signalMeta.pnlPct.toFixed(2)}%`})\n\n`;
+      caption += `⚡ ${priceLabel}: <b>${signalMeta.resultHitPrice}</b> (${signalMeta.pnlPct >= 0 ? `+${signalMeta.pnlPct.toFixed(2)}%` : `${signalMeta.pnlPct.toFixed(2)}%`})\n\n`;
       caption += `📍 <b>Entry Price (≈):</b> ${selectedSignal.entry_price}\n`;
       caption += `🎯 <b>TP1:</b> ${selectedSignal.tp1}\n`;
       caption += `🎯 <b>TP2:</b> ${selectedSignal.tp2}\n`;
@@ -452,7 +458,7 @@ function ResultViewContent() {
       caption += `🛑 <b>Stop Loss:</b> ${selectedSignal.stop_loss}\n\n`;
       caption += `⏳ Total Duration: <b>${signalMeta.durationStr}</b>\n\n`;
       caption += `🔗 <b>View Result Online:</b> ${onlineLink}\n\n`;
-      caption += `📌 <b>#YG-${code}</b>`;
+      caption += `📌 <b>#${tagCode}</b>`;
 
       const formData = new FormData();
       formData.append("image", blob, "result_view.png");
